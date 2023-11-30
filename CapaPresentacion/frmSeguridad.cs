@@ -129,8 +129,6 @@ namespace CapaPresentacion
                     MessageBox.Show(mensaje);
                 }
             }
-
-
         }
 
         private void Limpiar()

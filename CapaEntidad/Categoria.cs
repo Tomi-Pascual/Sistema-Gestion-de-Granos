@@ -11,7 +11,7 @@ namespace CapaEntidad
         //
         //ATRIBUTOS
         //
-        private string idCategoria;
+        private int idCategoria;
         private string descripcion;
         private bool estado;
         private string fechaRegistro;
@@ -19,7 +19,7 @@ namespace CapaEntidad
         //
         //PROPIEDADES
         //
-        public string IdCategoria { get; set; }
+        public int IdCategoria { get; set; }
         public string Descripcion { get; set; }
         public bool Estado { get; set; }
         public string FechaRegistro { get; set; }

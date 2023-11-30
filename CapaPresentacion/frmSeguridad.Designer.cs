@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -45,8 +45,6 @@
             label8 = new Label();
             cbrol = new ComboBox();
             cbestado = new ComboBox();
-            btneditar = new FontAwesome.Sharp.IconButton();
-            btnguardar = new FontAwesome.Sharp.IconButton();
             btneliminar = new FontAwesome.Sharp.IconButton();
             label9 = new Label();
             dgvdata = new DataGridView();
@@ -66,7 +64,7 @@
             cbbusqueda = new ComboBox();
             txtbusqueda = new TextBox();
             btnlimpiar = new FontAwesome.Sharp.IconButton();
-            btnguardarusuario = new FontAwesome.Sharp.IconButton();
+            btnguardar = new FontAwesome.Sharp.IconButton();
             btnbuscar = new FontAwesome.Sharp.IconButton();
             btnlimpiarbuscador = new FontAwesome.Sharp.IconButton();
             txtindice = new TextBox();
@@ -89,9 +87,9 @@
             label2.BackColor = Color.White;
             label2.Location = new Point(12, 68);
             label2.Name = "label2";
-            label2.Size = new Size(115, 20);
+            label2.Size = new Size(119, 20);
             label2.TabIndex = 1;
-            label2.Text = "NroDocumento:";
+            label2.Text = "Nro Documento:";
             // 
             // label3
             // 
@@ -99,9 +97,9 @@
             label3.BackColor = Color.White;
             label3.Location = new Point(12, 130);
             label3.Name = "label3";
-            label3.Size = new Size(133, 20);
+            label3.Size = new Size(137, 20);
             label3.TabIndex = 2;
-            label3.Text = "NombreCompleto:";
+            label3.Text = "Nombre Completo:";
             // 
             // label4
             // 
@@ -208,43 +206,6 @@
             cbestado.Size = new Size(299, 28);
             cbestado.TabIndex = 14;
             // 
-            // btneditar
-            // 
-            btneditar.BackColor = Color.DarkOrange;
-            btneditar.Cursor = Cursors.Hand;
-            btneditar.FlatAppearance.BorderColor = Color.Black;
-            btneditar.FlatStyle = FlatStyle.Flat;
-            btneditar.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btneditar.ForeColor = Color.White;
-            btneditar.IconChar = FontAwesome.Sharp.IconChar.None;
-            btneditar.IconColor = Color.White;
-            btneditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btneditar.Location = new Point(12, 572);
-            btneditar.Name = "btneditar";
-            btneditar.Size = new Size(299, 33);
-            btneditar.TabIndex = 0;
-            btneditar.Text = "Editar";
-            btneditar.UseVisualStyleBackColor = false;
-            // 
-            // btnguardar
-            // 
-            btnguardar.BackColor = Color.DarkOrange;
-            btnguardar.Cursor = Cursors.Hand;
-            btnguardar.FlatAppearance.BorderColor = Color.Black;
-            btnguardar.FlatStyle = FlatStyle.Flat;
-            btnguardar.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnguardar.ForeColor = Color.White;
-            btnguardar.IconChar = FontAwesome.Sharp.IconChar.None;
-            btnguardar.IconColor = Color.White;
-            btnguardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnguardar.IconSize = 16;
-            btnguardar.Location = new Point(12, 530);
-            btnguardar.Name = "btnguardar";
-            btnguardar.Size = new Size(299, 33);
-            btnguardar.TabIndex = 15;
-            btnguardar.Text = "Guardar";
-            btnguardar.UseVisualStyleBackColor = false;
-            // 
             // btneliminar
             // 
             btneliminar.BackColor = Color.DarkOrange;
@@ -278,29 +239,29 @@
             // dgvdata
             // 
             dgvdata.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.Padding = new Padding(2);
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvdata.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvdata.Columns.AddRange(new DataGridViewColumn[] { btnSeleccionar, IdUsuario, Documento, NombreCompleto, Correo, Clave, IdRol, Rol, EstadoValor, Estado });
             dgvdata.Location = new Point(371, 91);
             dgvdata.MultiSelect = false;
             dgvdata.Name = "dgvdata";
             dgvdata.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Control;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvdata.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgvdata.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgvdata.RowHeadersWidth = 51;
             dgvdata.RowTemplate.Height = 28;
             dgvdata.Size = new Size(866, 558);
@@ -448,7 +409,7 @@
             btnlimpiar.IconChar = FontAwesome.Sharp.IconChar.None;
             btnlimpiar.IconColor = Color.White;
             btnlimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnlimpiar.Location = new Point(12, 572);
+            btnlimpiar.Location = new Point(12, 571);
             btnlimpiar.Name = "btnlimpiar";
             btnlimpiar.Size = new Size(299, 33);
             btnlimpiar.TabIndex = 0;
@@ -456,25 +417,25 @@
             btnlimpiar.UseVisualStyleBackColor = false;
             btnlimpiar.Click += btnlimpiar_Click;
             // 
-            // btnguardarusuario
+            // btnguardar
             // 
-            btnguardarusuario.BackColor = Color.DarkOrange;
-            btnguardarusuario.Cursor = Cursors.Hand;
-            btnguardarusuario.FlatAppearance.BorderColor = Color.Black;
-            btnguardarusuario.FlatStyle = FlatStyle.Flat;
-            btnguardarusuario.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnguardarusuario.ForeColor = Color.White;
-            btnguardarusuario.IconChar = FontAwesome.Sharp.IconChar.None;
-            btnguardarusuario.IconColor = Color.White;
-            btnguardarusuario.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnguardarusuario.IconSize = 16;
-            btnguardarusuario.Location = new Point(12, 530);
-            btnguardarusuario.Name = "btnguardarusuario";
-            btnguardarusuario.Size = new Size(299, 33);
-            btnguardarusuario.TabIndex = 15;
-            btnguardarusuario.Text = "Guardar";
-            btnguardarusuario.UseVisualStyleBackColor = false;
-            btnguardarusuario.Click += btnguardarusuario_Click;
+            btnguardar.BackColor = Color.DarkOrange;
+            btnguardar.Cursor = Cursors.Hand;
+            btnguardar.FlatAppearance.BorderColor = Color.Black;
+            btnguardar.FlatStyle = FlatStyle.Flat;
+            btnguardar.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            btnguardar.ForeColor = Color.White;
+            btnguardar.IconChar = FontAwesome.Sharp.IconChar.None;
+            btnguardar.IconColor = Color.White;
+            btnguardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnguardar.IconSize = 16;
+            btnguardar.Location = new Point(12, 527);
+            btnguardar.Name = "btnguardar";
+            btnguardar.Size = new Size(299, 33);
+            btnguardar.TabIndex = 15;
+            btnguardar.Text = "Guardar";
+            btnguardar.UseVisualStyleBackColor = false;
+            btnguardar.Click += btnguardarusuario_Click;
             // 
             // btnbuscar
             // 
@@ -539,10 +500,8 @@
             Controls.Add(dgvdata);
             Controls.Add(label9);
             Controls.Add(btneliminar);
-            Controls.Add(btnguardarusuario);
-            Controls.Add(btnlimpiar);
             Controls.Add(btnguardar);
-            Controls.Add(btneditar);
+            Controls.Add(btnlimpiar);
             Controls.Add(cbestado);
             Controls.Add(cbrol);
             Controls.Add(label8);
@@ -583,8 +542,6 @@
         private Label label8;
         private ComboBox cbrol;
         private ComboBox cbestado;
-        private FontAwesome.Sharp.IconButton btneditar;
-        private FontAwesome.Sharp.IconButton btnguardar;
         private FontAwesome.Sharp.IconButton btneliminar;
         private Label label9;
         private DataGridView dgvdata;
@@ -604,7 +561,7 @@
         private ComboBox cbbusqueda;
         private TextBox txtbusqueda;
         private FontAwesome.Sharp.IconButton btnlimpiar;
-        private FontAwesome.Sharp.IconButton btnguardarusuario;
+        private FontAwesome.Sharp.IconButton btnguardar;
         private FontAwesome.Sharp.IconButton btnbuscar;
         private FontAwesome.Sharp.IconButton btnlimpiarbuscador;
         private TextBox txtindice;
