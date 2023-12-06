@@ -47,7 +47,7 @@ namespace CapaPresentacion
 
             foreach (Proveedor item in listaProveedor)
             {
-                dgvdata.Rows.Add(new object[] {"", item.IdProveedor, item.Documento, item.RazoSocial,
+                dgvdata.Rows.Add(new object[] {"", item.IdProveedor, item.Documento, item.RazonSocial,
                 item.Correo, item.Telefono,
                 item.Estado == true ? 1 : 0,
                 item.Estado == true ? "Activo" : "No Activo"});
@@ -62,7 +62,7 @@ namespace CapaPresentacion
             {
                 IdProveedor = Convert.ToInt32(txtid.Text),
                 Documento = txtdocumento.Text,
-                RazoSocial = txtrazonsocial.Text,
+                RazonSocial = txtrazonsocial.Text,
                 Correo = txtcorreo.Text,
                 Telefono = txttelefono.Text,
                 Estado = Convert.ToInt32(((OpcionCombo)cbestado.SelectedItem).Valor) == 1 ? true : false
@@ -195,6 +195,10 @@ namespace CapaPresentacion
                         MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Debe de seleccionar un Proveedor antes de eliminar", "Mensaje", MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 

@@ -230,6 +230,10 @@ namespace CapaPresentacion
                     }
                 }
             }
+            else
+            {
+                MessageBox.Show("Debe de seleccionar un Usuario antes de eliminar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnlimpiar_Click(object sender, EventArgs e)

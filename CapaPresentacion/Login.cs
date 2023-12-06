@@ -31,13 +31,11 @@ namespace CapaPresentación
 
         private void btningresar_Click(object sender, EventArgs e)
         {
-            List<Usuario> TEST = new CN_Usuario().Listar();
-
             Usuario ousuario = new CN_Usuario().Listar().Where(u => u.Documento == txtusuario.Text && u.Clave ==
             txtclave.Text).FirstOrDefault();
 
-            if (ousuario != null) 
-            { 
+            if (ousuario != null)
+            {
                 Inicio form = new Inicio(ousuario);
 
                 form.Show();
@@ -47,9 +45,8 @@ namespace CapaPresentación
             }
             else
             {
-                MessageBox.Show("No se encontro el usuario","Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                MessageBox.Show("No se encontro el usuario", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            
         }
 
         private void frm_closing(object sender, FormClosingEventArgs e)

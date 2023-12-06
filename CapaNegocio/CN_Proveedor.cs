@@ -26,20 +26,36 @@ namespace CapaNegocio
             {
                 Mensaje += "Debe introducir el número de documento del Proveedor\n";
             }
+            else if (!ValidarInt(obj.Documento))
+            {
+                Mensaje += ("Por favor, introduce solo números en el campo de Documento.\n");
+            }
 
-            if (obj.RazoSocial == "")
+            if (obj.RazonSocial == "")
             {
                 Mensaje += "Debe introducir la razon social del Proveedor\n";
+            }
+            else if (!ValidarString(obj.RazonSocial))
+            {
+                Mensaje += ("Por favor, introduce solo letras en el campo de RazonSocial.");
             }
 
             if (obj.Correo == "")
             {
                 Mensaje += "Debe introducir el correo del Proveedor\n";
             }
+            else if (ValidarCorreoElectronico(obj.Correo))
+            {
+                Mensaje += "Debe ingresar correctamente el correo del Proveedor\n";
+            }
 
             if (obj.Telefono == "")
             {
                 Mensaje += "Debe introducir el telefono del Proveedor\n";
+            }
+            else if (!ValidarInt(obj.Telefono))
+            {
+                Mensaje += ("Por favor, introduce solo números en el campo de Telefono.\n");
             }
 
             if (Mensaje != string.Empty)
@@ -61,20 +77,36 @@ namespace CapaNegocio
             {
                 Mensaje += "Debe introducir el número de documento del Proveedor\n";
             }
+            else if (!ValidarInt(obj.Documento))
+            {
+                Mensaje += ("Por favor, introduce solo números en el campo de Documento.\n");
+            }
 
-            if (obj.RazoSocial == "")
+            if (obj.RazonSocial == "")
             {
                 Mensaje += "Debe introducir la razon social del Proveedor\n";
+            }
+            else if (!ValidarString(obj.RazonSocial))
+            {
+                Mensaje += ("Por favor, introduce solo letras en el campo de RazonSocial.");
             }
 
             if (obj.Correo == "")
             {
                 Mensaje += "Debe introducir el correo del Proveedor\n";
             }
+            else if (ValidarCorreoElectronico(obj.Correo))
+            {
+                Mensaje += "Debe ingresar correctamente el correo del Proveedor\n";
+            }
 
             if (obj.Telefono == "")
             {
                 Mensaje += "Debe introducir el telefono del Proveedor\n";
+            }
+            else if (!ValidarInt(obj.Telefono))
+            {
+                Mensaje += ("Por favor, introduce solo números en el campo de Telefono.\n");
             }
 
             if (Mensaje != string.Empty)
@@ -102,6 +134,13 @@ namespace CapaNegocio
         {
             // Utilizar TryParse para validar que solo se introduzcan números enteros
             return int.TryParse(input, out _);
+        }
+
+        private bool ValidarCorreoElectronico(string correo)
+        {
+            // Utilizar una expresión regular para validar el formato del correo electrónico
+            string patronCorreo = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+            return Regex.IsMatch(correo, patronCorreo);
         }
     }
 }

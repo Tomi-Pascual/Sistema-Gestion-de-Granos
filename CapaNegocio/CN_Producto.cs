@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace CapaNegocio
@@ -25,15 +26,27 @@ namespace CapaNegocio
             {
                 Mensaje += "Debe introducir el codigo del producto\n";
             }
+            else if (!ValidarInt(obj.Codigo))
+            {
+                Mensaje += ("Por favor, introduce solo números en el campo de Codigo.\n");
+            }
 
             if (obj.Nombre == "")
             {
                 Mensaje += "Debe introducir el nombre del producto\n";
             }
+            else if (!ValidarString(obj.Nombre))
+            {
+                Mensaje += ("Por favor, introduce solo números en el campo de Nombre.\n");
+            }
 
             if (obj.Descripcion == "")
             {
                 Mensaje += "Debe introducir la descripción del producto\n";
+            }
+            else if (!ValidarString(obj.Descripcion))
+            {
+                Mensaje += ("Por favor, introduce solo números en el campo de Descripción.\n");
             }
 
             if (Mensaje != string.Empty)
@@ -55,15 +68,27 @@ namespace CapaNegocio
             {
                 Mensaje += "Debe introducir el codigo del producto\n";
             }
+            else if (!ValidarInt(obj.Codigo))
+            {
+                Mensaje += ("Por favor, introduce solo números en el campo de Codigo.\n");
+            }
 
             if (obj.Nombre == "")
             {
                 Mensaje += "Debe introducir el nombre del producto\n";
             }
+            else if (!ValidarString(obj.Nombre))
+            {
+                Mensaje += ("Por favor, introduce solo números en el campo de Nombre.\n");
+            }
 
             if (obj.Descripcion == "")
             {
                 Mensaje += "Debe introducir la descripción del producto\n";
+            }
+            else if (!ValidarString(obj.Descripcion))
+            {
+                Mensaje += ("Por favor, introduce solo números en el campo de Descripción.\n");
             }
 
             if (Mensaje != string.Empty)
@@ -79,6 +104,18 @@ namespace CapaNegocio
         public bool Eliminar(Producto obj, out string Mensaje)
         {
             return objcd_producto.Eliminar(obj, out Mensaje);
+        }
+
+        private bool ValidarString(string input)
+        {
+            // Utilizar expresión regular para validar que solo se introduzcan letras
+            return Regex.IsMatch(input, "^[a-zA-Z]+$");
+        }
+
+        private bool ValidarInt(string input)
+        {
+            // Utilizar TryParse para validar que solo se introduzcan números enteros
+            return int.TryParse(input, out _);
         }
     }
 }
