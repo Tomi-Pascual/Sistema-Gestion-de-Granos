@@ -23,6 +23,7 @@ namespace CapaPresentacion
 
         private void frmProducto_Load(object sender, EventArgs e)
         {
+
             cbestado.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Activo" });
             cbestado.Items.Add(new OpcionCombo() { Valor = 0, Texto = "No Activo" });
 
@@ -54,22 +55,32 @@ namespace CapaPresentacion
             cbbusqueda.ValueMember = "Valor";
             cbbusqueda.SelectedIndex = 0;
 
-            List<Producto> listaProducto = new CN_Producto().Listar();
+            //MOSTRAR TODOS LOS PRODUCTOS
+            List<Producto> lista = new CN_Producto().Listar();
 
-            foreach (Producto item in listaProducto)
+            foreach (Producto item in lista)
             {
-                dgvdata.Rows.Add(new object[] {"", item.IdProducto, item.Codigo, item.Nombre,
-                item.Descripcion, item.OCategoria.IdCategoria, item.OCategoria.Descripcion,
-                item.Stock, item.PrecioCompra, item.PrecioVenta,
-                item.Estado == true ? 1 : 0,
-                item.Estado == true ? "Activo" : "No Activo"});
-            }
+                dgvdata.Rows.Add(new object[] {
+                    "",
+                    item.IdProducto,
+                    item.Codigo,
+                    item.Nombre,
+                    item.Descripcion,
+                    item.OCategoria.IdCategoria,
+                    item.OCategoria.Descripcion,
+                    item.Stock,
+                    item.PrecioCompra,
+                    item.PrecioVenta,
+                    item.Estado == true ? 1 : 0 ,
+                    item.Estado == true ? "Activo" : "No Activo"});
+            }       
+
         }
 
         private void Limpiar()
         {
             txtindice.Text = "-1";
-            txtid.Text = "";
+            txtid.Text = "0";
             txtcodigo.Text = "";
             txtnombre.Text = "";
             txtdescripcion.Text = "";
@@ -81,82 +92,101 @@ namespace CapaPresentacion
 
         private void btnguardar_Click(object sender, EventArgs e)
         {
-            string mensaje = string.Empty;
-
-            Producto objproducto = new Producto()
+            try
             {
-                IdProducto = Convert.ToInt32(txtid.Text),
-                Codigo = txtcodigo.Text,
-                Nombre = txtnombre.Text,
-                Descripcion = txtdescripcion.Text,
-                OCategoria = new Categoria() { IdCategoria = Convert.ToInt32(((OpcionCombo)cbcategoria.SelectedItem).Valor) },
-                Estado = Convert.ToInt32(((OpcionCombo)cbestado.SelectedItem).Valor) == 1 ? true : false
-            };
+                string mensaje = string.Empty;
 
-            if (objproducto.IdProducto == 0)
-            {
-                int idproductogenerado = new CN_Producto().Registrar(objproducto, out mensaje);
-
-                if (idproductogenerado != 0)
+                Producto objproducto = new Producto()
                 {
-                    dgvdata.Rows.Add(new object[] {"", idproductogenerado, txtcodigo.Text, txtnombre.Text,
-                    txtdescripcion.Text,
-                    ((OpcionCombo)cbcategoria.SelectedItem).Valor.ToString(),
-                    ((OpcionCombo)cbcategoria.SelectedItem).Texto.ToString(),
-                    "0",
-                    "0.00",
-                    "0.00",
-                    ((OpcionCombo)cbestado.SelectedItem).Valor.ToString(),
-                    ((OpcionCombo)cbestado.SelectedItem).Texto.ToString(),});
+                    IdProducto = Convert.ToInt32(txtid.Text),
+                    Codigo = txtcodigo.Text,
+                    Nombre = txtnombre.Text,
+                    Descripcion = txtdescripcion.Text,
+                    OCategoria = new Categoria() { IdCategoria = Convert.ToInt32(((OpcionCombo)cbcategoria.SelectedItem).Valor) },
+                    Estado = Convert.ToInt32(((OpcionCombo)cbestado.SelectedItem).Valor) == 1 ? true : false
+                };
 
-                    Limpiar();
+                if (objproducto.IdProducto == 0)
+                {
+                    int idproductogenerado = new CN_Producto().Registrar(objproducto, out mensaje);
+
+                    if (idproductogenerado != 0)
+                    {
+                        dgvdata.Rows.Add(new object[] {
+                            "",
+                            idproductogenerado,
+                            txtcodigo.Text,
+                            txtnombre.Text,
+                            txtdescripcion.Text,
+                            ((OpcionCombo)cbcategoria.SelectedItem).Valor.ToString(),
+                            ((OpcionCombo)cbcategoria.SelectedItem).Texto.ToString(),
+                            "0",
+                            "0.00",
+                            "0.00",
+                            ((OpcionCombo)cbestado.SelectedItem).Valor.ToString(),
+                            ((OpcionCombo)cbestado.SelectedItem).Texto.ToString(),});
+
+                        Limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show(mensaje);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show(mensaje);
+                    bool resultado = new CN_Producto().Editar(objproducto, out mensaje);
+
+                    if (resultado)
+                    {
+                        DataGridViewRow row = dgvdata.Rows[Convert.ToInt32(txtindice.Text)];
+                        row.Cells["Id"].Value = txtid.Text;
+                        row.Cells["Codigo"].Value = txtcodigo.Text;
+                        row.Cells["Nombre"].Value = txtnombre.Text;
+                        row.Cells["Descripcion"].Value = txtdescripcion.Text;
+                        row.Cells["IdCategoria"].Value = ((OpcionCombo)cbcategoria.SelectedItem).Valor.ToString();
+                        row.Cells["Categoria"].Value = ((OpcionCombo)cbcategoria.SelectedItem).Texto.ToString();
+                        row.Cells["EstadoValor"].Value = ((OpcionCombo)cbestado.SelectedItem).Valor.ToString();
+                        row.Cells["Estado"].Value = ((OpcionCombo)cbestado.SelectedItem).Texto.ToString();
+
+                        Limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show(mensaje);
+                    }
                 }
             }
-            else
+            catch
             {
-                bool resultado = new CN_Producto().Editar(objproducto, out mensaje);
-
-                if (resultado)
-                {
-                    DataGridViewRow row = dgvdata.Rows[Convert.ToInt32(txtindice.Text)];
-                    row.Cells["IdProducto"].Value = txtid.Text;
-                    row.Cells["Codigo"].Value = txtcodigo.Text;
-                    row.Cells["Nombre"].Value = txtnombre.Text;
-                    row.Cells["Descripcion"].Value = txtdescripcion.Text;
-                    row.Cells["IdCategoria"].Value = ((OpcionCombo)cbcategoria.SelectedItem).Valor.ToString();
-                    row.Cells["Categoria"].Value = ((OpcionCombo)cbcategoria.SelectedItem).Texto.ToString();
-                    row.Cells["EstadoValor"].Value = ((OpcionCombo)cbestado.SelectedItem).Valor.ToString();
-                    row.Cells["Estado"].Value = ((OpcionCombo)cbestado.SelectedItem).Texto.ToString();
-
-                    Limpiar();
-                }
-                else
-                {
-                    MessageBox.Show(mensaje);
-                }
+                MessageBox.Show("Error al guardar el Producto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
         private void dgvdata_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            if (e.RowIndex < 0) return;
-
-            if (e.ColumnIndex == 0)
+            try
             {
-                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                if (e.RowIndex > 0) return;
 
-                var w = Properties.Resources.check20.Width;
-                var h = Properties.Resources.check20.Height;
-                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
-                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+                if (e.ColumnIndex == 0)
+                {
+                    e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
-                e.Graphics.DrawImage(Properties.Resources.check20, new Rectangle(x, y, w, h));
-                e.Handled = true;
+                    var w = Properties.Resources.check20.Width;
+                    var h = Properties.Resources.check20.Height;
+                    var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                    var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                    e.Graphics.DrawImage(Properties.Resources.check20, new Rectangle(x, y, w, h));
+                    e.Handled = true;
+                }
             }
+            catch
+            {
+                MessageBox.Show("Error al cargar los Productos", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
         }
 
         private void dgvdata_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -169,7 +199,7 @@ namespace CapaPresentacion
                 {
                     txtindice.Text = indice.ToString();
 
-                    txtid.Text = dgvdata.Rows[indice].Cells["IdProducto"].Value.ToString();
+                    txtid.Text = dgvdata.Rows[indice].Cells["Id"].Value.ToString();
                     txtcodigo.Text = dgvdata.Rows[indice].Cells["Codigo"].Value.ToString();
                     txtnombre.Text = dgvdata.Rows[indice].Cells["Nombre"].Value.ToString();
                     txtdescripcion.Text = dgvdata.Rows[indice].Cells["Descripcion"].Value.ToString();
@@ -193,7 +223,6 @@ namespace CapaPresentacion
                             break;
                         }
                     }
-
                 }
             }
         }

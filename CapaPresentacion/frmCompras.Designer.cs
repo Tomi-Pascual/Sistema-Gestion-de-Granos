@@ -43,7 +43,6 @@
             label5 = new Label();
             txtdocproveedor = new TextBox();
             groupBox3 = new GroupBox();
-            txtcantidad = new TextBox();
             label11 = new Label();
             label9 = new Label();
             txtprecioventa = new TextBox();
@@ -55,7 +54,7 @@
             label6 = new Label();
             label7 = new Label();
             txtcodigoproducto = new TextBox();
-            dataGridView1 = new DataGridView();
+            dgvproducto = new DataGridView();
             IdProducto = new DataGridViewTextBoxColumn();
             Producto = new DataGridViewTextBoxColumn();
             PrecioCompra = new DataGridViewTextBoxColumn();
@@ -67,10 +66,12 @@
             label12 = new Label();
             txttotal = new TextBox();
             btnregistrar = new FontAwesome.Sharp.IconButton();
+            txtcantidad = new NumericUpDown();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvproducto).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtcantidad).BeginInit();
             SuspendLayout();
             // 
             // label10
@@ -128,16 +129,19 @@
             // 
             // cbotipodocumento
             // 
+            cbotipodocumento.DropDownStyle = ComboBoxStyle.DropDownList;
             cbotipodocumento.FormattingEnabled = true;
             cbotipodocumento.Location = new Point(230, 64);
             cbotipodocumento.Name = "cbotipodocumento";
             cbotipodocumento.Size = new Size(222, 28);
             cbotipodocumento.TabIndex = 1;
+            cbotipodocumento.KeyPress += cbotipodocumento_KeyPress;
             // 
             // txtfecha
             // 
             txtfecha.Location = new Point(13, 64);
             txtfecha.Name = "txtfecha";
+            txtfecha.ReadOnly = true;
             txtfecha.Size = new Size(198, 27);
             txtfecha.TabIndex = 0;
             // 
@@ -169,8 +173,10 @@
             // 
             txtrazonsocial.Location = new Point(268, 62);
             txtrazonsocial.Name = "txtrazonsocial";
+            txtrazonsocial.ReadOnly = true;
             txtrazonsocial.Size = new Size(231, 27);
             txtrazonsocial.TabIndex = 27;
+            txtrazonsocial.KeyPress += cbotipodocumento_KeyPress;
             // 
             // btnbuscarprov
             // 
@@ -213,8 +219,10 @@
             // 
             txtdocproveedor.Location = new Point(13, 64);
             txtdocproveedor.Name = "txtdocproveedor";
+            txtdocproveedor.ReadOnly = true;
             txtdocproveedor.Size = new Size(196, 27);
             txtdocproveedor.TabIndex = 0;
+            txtdocproveedor.KeyPress += cbotipodocumento_KeyPress;
             // 
             // groupBox3
             // 
@@ -237,13 +245,6 @@
             groupBox3.TabIndex = 29;
             groupBox3.TabStop = false;
             groupBox3.Text = "Información Producto";
-            // 
-            // txtcantidad
-            // 
-            txtcantidad.Location = new Point(717, 64);
-            txtcantidad.Name = "txtcantidad";
-            txtcantidad.Size = new Size(125, 27);
-            txtcantidad.TabIndex = 34;
             // 
             // label11
             // 
@@ -298,6 +299,7 @@
             // 
             txtproducto.Location = new Point(245, 64);
             txtproducto.Name = "txtproducto";
+            txtproducto.ReadOnly = true;
             txtproducto.Size = new Size(226, 27);
             txtproducto.TabIndex = 27;
             // 
@@ -318,6 +320,7 @@
             btnbuscarproducto.Size = new Size(39, 28);
             btnbuscarproducto.TabIndex = 26;
             btnbuscarproducto.UseVisualStyleBackColor = false;
+            btnbuscarproducto.Click += btnbuscarproducto_Click;
             // 
             // label6
             // 
@@ -343,17 +346,19 @@
             txtcodigoproducto.Name = "txtcodigoproducto";
             txtcodigoproducto.Size = new Size(177, 27);
             txtcodigoproducto.TabIndex = 0;
+            txtcodigoproducto.KeyDown += txtcodigoproducto_KeyDown;
             // 
-            // dataGridView1
+            // dgvproducto
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { IdProducto, Producto, PrecioCompra, PrecioVenta, Cantidad, SubTotal, btneliminar });
-            dataGridView1.Location = new Point(123, 286);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(859, 377);
-            dataGridView1.TabIndex = 30;
+            dgvproducto.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvproducto.Columns.AddRange(new DataGridViewColumn[] { IdProducto, Producto, PrecioCompra, PrecioVenta, Cantidad, SubTotal, btneliminar });
+            dgvproducto.Location = new Point(123, 286);
+            dgvproducto.Name = "dgvproducto";
+            dgvproducto.RowHeadersWidth = 51;
+            dgvproducto.RowTemplate.Height = 29;
+            dgvproducto.Size = new Size(859, 377);
+            dgvproducto.TabIndex = 30;
+            dgvproducto.CellPainting += dgvproducto_CellPainting;
             // 
             // IdProducto
             // 
@@ -421,6 +426,7 @@
             btnagregar.TextAlign = ContentAlignment.TopCenter;
             btnagregar.TextImageRelation = TextImageRelation.ImageAboveText;
             btnagregar.UseVisualStyleBackColor = true;
+            btnagregar.Click += btnagregar_Click;
             // 
             // label12
             // 
@@ -456,6 +462,13 @@
             btnregistrar.UseVisualStyleBackColor = true;
             btnregistrar.Click += btnregistrar_Click;
             // 
+            // txtcantidad
+            // 
+            txtcantidad.Location = new Point(718, 64);
+            txtcantidad.Name = "txtcantidad";
+            txtcantidad.Size = new Size(129, 27);
+            txtcantidad.TabIndex = 34;
+            // 
             // frmCompras
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -465,7 +478,7 @@
             Controls.Add(txttotal);
             Controls.Add(label12);
             Controls.Add(btnagregar);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvproducto);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
@@ -480,7 +493,8 @@
             groupBox2.PerformLayout();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvproducto).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtcantidad).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -509,13 +523,12 @@
         private Label label6;
         private Label label7;
         private TextBox txtcodigoproducto;
-        private TextBox txtcantidad;
         private Label label11;
         private Label label9;
         private TextBox txtprecioventa;
         private Label label8;
         private TextBox txtpreciocompra;
-        private DataGridView dataGridView1;
+        private DataGridView dgvproducto;
         private DataGridViewTextBoxColumn IdProducto;
         private DataGridViewTextBoxColumn Producto;
         private DataGridViewTextBoxColumn PrecioCompra;
@@ -527,5 +540,6 @@
         private Label label12;
         private TextBox txttotal;
         private FontAwesome.Sharp.IconButton btnregistrar;
+        private NumericUpDown txtcantidad;
     }
 }

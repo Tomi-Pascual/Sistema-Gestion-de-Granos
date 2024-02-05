@@ -10,7 +10,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
+using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace CapaPresentacion
 {
@@ -195,7 +197,7 @@ namespace CapaPresentacion
                     }
                 }
             }
-            else
+            else if (Convert.ToInt32(txtid.Text) == 0)
             {
                 MessageBox.Show("Debe de seleccionar un Cliente antes de eliminar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

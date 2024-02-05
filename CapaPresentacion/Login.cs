@@ -55,5 +55,10 @@ namespace CapaPresentación
             txtclave.Text = "";
             this.Show();
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

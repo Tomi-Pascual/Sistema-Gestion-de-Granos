@@ -76,3 +76,5 @@ C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion D
 C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion De Granos\CapaPresentacion\obj\Debug\net6.0-windows\CapaPresentacion.frmDetalleVentas.resources
 C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion De Granos\CapaPresentacion\obj\Debug\net6.0-windows\CapaPresentacion.Properties.Resources.resources
 C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion De Granos\CapaPresentacion\obj\Debug\net6.0-windows\CapaPresentacion.frmNegocio.resources
+C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion De Granos\CapaPresentacion\obj\Debug\net6.0-windows\CapaPresentacion.Modales.MD_Proveedor.resources
+C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion De Granos\CapaPresentacion\obj\Debug\net6.0-windows\CapaPresentacion.Modales.MD_Producto.resources

@@ -55,7 +55,7 @@
             label2 = new Label();
             label1 = new Label();
             btnSeleccionar = new DataGridViewButtonColumn();
-            IdProducto = new DataGridViewTextBoxColumn();
+            Id = new DataGridViewTextBoxColumn();
             Codigo = new DataGridViewTextBoxColumn();
             Nombre = new DataGridViewTextBoxColumn();
             Descripcion = new DataGridViewTextBoxColumn();
@@ -75,7 +75,7 @@
             txtindice.Name = "txtindice";
             txtindice.Size = new Size(35, 27);
             txtindice.TabIndex = 54;
-            txtindice.Text = "0";
+            txtindice.Text = "-1";
             txtindice.Visible = false;
             // 
             // btnbuscar
@@ -213,8 +213,8 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvdata.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvdata.Columns.AddRange(new DataGridViewColumn[] { btnSeleccionar, IdProducto, Codigo, Nombre, Descripcion, IdCategoria, Categoria, Stock, PrecioCompra, PrecioVenta, EstadoValor, Estado });
-            dgvdata.Location = new Point(373, 91);
+            dgvdata.Columns.AddRange(new DataGridViewColumn[] { btnSeleccionar, Id, Codigo, Nombre, Descripcion, IdCategoria, Categoria, Stock, PrecioCompra, PrecioVenta, EstadoValor, Estado });
+            dgvdata.Location = new Point(374, 91);
             dgvdata.MultiSelect = false;
             dgvdata.Name = "dgvdata";
             dgvdata.ReadOnly = true;
@@ -370,14 +370,14 @@
             btnSeleccionar.ReadOnly = true;
             btnSeleccionar.Width = 30;
             // 
-            // IdProducto
+            // Id
             // 
-            IdProducto.HeaderText = "Id";
-            IdProducto.MinimumWidth = 6;
-            IdProducto.Name = "IdProducto";
-            IdProducto.ReadOnly = true;
-            IdProducto.Visible = false;
-            IdProducto.Width = 125;
+            Id.HeaderText = "Id";
+            Id.MinimumWidth = 6;
+            Id.Name = "Id";
+            Id.ReadOnly = true;
+            Id.Visible = false;
+            Id.Width = 125;
             // 
             // Codigo
             // 
@@ -524,7 +524,7 @@
         private Label label2;
         private Label label1;
         private DataGridViewButtonColumn btnSeleccionar;
-        private DataGridViewTextBoxColumn IdProducto;
+        private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn Codigo;
         private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn Descripcion;

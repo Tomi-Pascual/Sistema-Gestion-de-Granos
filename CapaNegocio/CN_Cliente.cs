@@ -44,10 +44,6 @@ namespace CapaNegocio
             {
                 Mensaje += "Debe introducir el correo del Cliente\n";
             }
-            else if (ValidarCorreoElectronico(obj.Correo))
-            {
-                Mensaje += "Debe ingresar correctamente el correo del Cliente\n";
-            }
 
             if (obj.Telefono == "")
             {
