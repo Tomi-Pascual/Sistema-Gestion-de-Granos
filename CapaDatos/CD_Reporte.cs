@@ -49,11 +49,8 @@ namespace CapaDatos
                                 Cantidad = dr["Cantidad"].ToString(),
                                 SubTotal = dr["SubTotal"].ToString()
                             });
-
                         }
-
                     }
-
                 }
                 catch (Exception ex)
                 {
@@ -91,19 +88,16 @@ namespace CapaDatos
                                 MontoTotal = dr["MontoTotal"].ToString(),
                                 UsuarioRegistro = dr["UsuarioRegistro"].ToString(),
                                 DocumentoCliente = dr["DocumentoCliente"].ToString(),
-                                NombreCliente = dr["RazonSocial"].ToString(),
+                                NombreCliente = dr["NombreCliente"].ToString(),
                                 CodigoProducto = dr["CodigoProducto"].ToString(),
                                 NombreProducto = dr["NombreProducto"].ToString(),
                                 Categoria = dr["Categoria"].ToString(),
                                 PrecioVenta = dr["PrecioVenta"].ToString(),
                                 Cantidad = dr["Cantidad"].ToString(),
-                                SubTotal = dr["SubTotal"].ToString()
+                                SubTotal = dr["SubTotal"].ToString(),
                             });
-
                         }
-
                     }
-
                 }
                 catch (Exception ex)
                 {

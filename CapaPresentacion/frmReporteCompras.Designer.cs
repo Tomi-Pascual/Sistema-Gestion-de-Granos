@@ -57,7 +57,7 @@
             label11 = new Label();
             btnbuscarreporte = new FontAwesome.Sharp.IconButton();
             btnlimpiar = new FontAwesome.Sharp.IconButton();
-            btnbuscar = new FontAwesome.Sharp.IconButton();
+            btnbuscarpor = new FontAwesome.Sharp.IconButton();
             btndescarcar = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)dgvdata).BeginInit();
             SuspendLayout();
@@ -289,17 +289,22 @@
             // 
             // btnbuscarreporte
             // 
-            btnbuscarreporte.BackColor = Color.White;
+            btnbuscarreporte.BackColor = Color.LightGray;
             btnbuscarreporte.Cursor = Cursors.Hand;
-            btnbuscarreporte.FlatStyle = FlatStyle.Flat;
+            btnbuscarreporte.FlatStyle = FlatStyle.Popup;
+            btnbuscarreporte.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
             btnbuscarreporte.IconChar = FontAwesome.Sharp.IconChar.SearchLocation;
             btnbuscarreporte.IconColor = Color.Black;
             btnbuscarreporte.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnbuscarreporte.IconSize = 22;
-            btnbuscarreporte.Location = new Point(515, 133);
+            btnbuscarreporte.ImageAlign = ContentAlignment.TopCenter;
+            btnbuscarreporte.Location = new Point(760, 62);
             btnbuscarreporte.Name = "btnbuscarreporte";
-            btnbuscarreporte.Size = new Size(39, 28);
+            btnbuscarreporte.Size = new Size(105, 28);
             btnbuscarreporte.TabIndex = 64;
+            btnbuscarreporte.Text = "Buscar";
+            btnbuscarreporte.TextAlign = ContentAlignment.TopRight;
+            btnbuscarreporte.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnbuscarreporte.UseVisualStyleBackColor = false;
             btnbuscarreporte.Click += btnbuscarreporte_Click;
             // 
@@ -319,26 +324,25 @@
             btnlimpiar.UseVisualStyleBackColor = false;
             btnlimpiar.Click += btnlimpiar_Click;
             // 
-            // btnbuscar
+            // btnbuscarpor
             // 
-            btnbuscar.BackColor = Color.LightGray;
-            btnbuscar.Cursor = Cursors.Hand;
-            btnbuscar.FlatStyle = FlatStyle.Popup;
-            btnbuscar.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            btnbuscar.IconChar = FontAwesome.Sharp.IconChar.SearchLocation;
-            btnbuscar.IconColor = Color.Black;
-            btnbuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnbuscar.IconSize = 24;
-            btnbuscar.ImageAlign = ContentAlignment.TopCenter;
-            btnbuscar.Location = new Point(753, 61);
-            btnbuscar.Name = "btnbuscar";
-            btnbuscar.Size = new Size(105, 28);
-            btnbuscar.TabIndex = 66;
-            btnbuscar.Text = "Buscar";
-            btnbuscar.TextAlign = ContentAlignment.TopRight;
-            btnbuscar.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnbuscar.UseVisualStyleBackColor = false;
-            btnbuscar.Click += btnbuscar_Click;
+            btnbuscarpor.BackColor = Color.White;
+            btnbuscarpor.Cursor = Cursors.Hand;
+            btnbuscarpor.FlatStyle = FlatStyle.Popup;
+            btnbuscarpor.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnbuscarpor.IconChar = FontAwesome.Sharp.IconChar.SearchLocation;
+            btnbuscarpor.IconColor = Color.Black;
+            btnbuscarpor.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnbuscarpor.IconSize = 24;
+            btnbuscarpor.ImageAlign = ContentAlignment.TopCenter;
+            btnbuscarpor.Location = new Point(515, 133);
+            btnbuscarpor.Name = "btnbuscarpor";
+            btnbuscarpor.Size = new Size(39, 28);
+            btnbuscarpor.TabIndex = 66;
+            btnbuscarpor.TextAlign = ContentAlignment.TopRight;
+            btnbuscarpor.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnbuscarpor.UseVisualStyleBackColor = false;
+            btnbuscarpor.Click += btnbuscar_Click;
             // 
             // btndescarcar
             // 
@@ -366,7 +370,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1249, 694);
             Controls.Add(btndescarcar);
-            Controls.Add(btnbuscar);
+            Controls.Add(btnbuscarpor);
             Controls.Add(btnlimpiar);
             Controls.Add(btnbuscarreporte);
             Controls.Add(txtbuscarpor);
@@ -421,7 +425,7 @@
         private DataGridViewTextBoxColumn SubTotal;
         private FontAwesome.Sharp.IconButton btnbuscarreporte;
         private FontAwesome.Sharp.IconButton btnlimpiar;
-        private FontAwesome.Sharp.IconButton btnbuscar;
+        private FontAwesome.Sharp.IconButton btnbuscarpor;
         private FontAwesome.Sharp.IconButton btndescarcar;
     }
 }

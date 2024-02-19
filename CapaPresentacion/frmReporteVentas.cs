@@ -1,6 +1,7 @@
 ﻿using CapaDatos;
 using CapaEntidad;
 using CapaNegocio;
+using CapaPresentacion.Modales;
 using CapaPresentacion.Utilidades;
 using System;
 using System.Collections.Generic;
@@ -32,11 +33,70 @@ namespace CapaPresentacion
             cbbuscarpor.SelectedIndex = 0;
         }
 
-        private void btnbuscarreporte_Click(object sender, EventArgs e)
+        private void btnbuscarpor_Click(object sender, EventArgs e)
+        {
+            string columnafiltro = ((OpcionCombo)cbbuscarpor.SelectedItem).Valor.ToString();
+
+            if (dgvdata.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dgvdata.Rows)
+                {
+                    if (row.Cells[columnafiltro].Value.ToString().Trim().ToUpper().Contains(txtbuscarpor.Text.Trim().ToUpper()))
+                    {
+                        row.Visible = true;
+                    }
+                    else
+                    {
+                        row.Visible = false;
+                    }
+                }
+            }
+        }
+
+        private void btnbuscar_Click(object sender, EventArgs e)
         {
             List<ReporteVenta> lista = new List<ReporteVenta>();
 
             lista = new CN_Reporte().Venta(dtpfechainicio.Value.ToString(), dtpfechafin.Value.ToString());
+
+            dgvdata.Rows.Clear();
+
+            foreach (ReporteVenta rv in lista)
+            {
+                dgvdata.Rows.Add(new object[] {
+                    rv.FechaRegistro,
+                    rv.TipoDocumento,
+                    rv.NumeroDocumento,
+                    rv.MontoTotal,
+                    rv.UsuarioRegistro,
+                    rv.DocumentoCliente,
+                    rv.NombreCliente,
+                    rv.CodigoProducto,
+                    rv.NombreProducto,
+                    rv.Categoria,
+                    rv.PrecioVenta,
+                    rv.Cantidad,
+                    rv.SubTotal
+                });
+            }
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            txtbuscarpor.Text = "";
+            foreach (DataGridViewRow row in dgvdata.Rows)
+            {
+                row.Visible = true;
+            }
+        }
+
+        private void btnbuscarreporte_Click(object sender, EventArgs e)
+        {
+            List<ReporteVenta> lista = new List<ReporteVenta>();
+
+            lista = new CN_Reporte().Venta(
+                dtpfechainicio.Value.ToString(),
+            dtpfechafin.Value.ToString());
 
             dgvdata.Rows.Clear();
 
@@ -58,50 +118,6 @@ namespace CapaPresentacion
                     rv.Cantidad,
                     rv.SubTotal
                 });
-            }
-        }
-
-        private void btnbuscar_Click(object sender, EventArgs e)
-        {
-            int idproveedor = Convert.ToInt32(((OpcionCombo)cbbuscarpor.SelectedItem).Valor.ToString());
-
-            List<ReporteCompra> lista = new List<ReporteCompra>();
-
-            lista = new CN_Reporte().Compra(
-                dtpfechainicio.Value.ToString(),
-                dtpfechafin.Value.ToString(),
-                idproveedor);
-
-            dgvdata.Rows.Clear();
-
-            foreach (ReporteCompra rc in lista)
-            {
-                dgvdata.Rows.Add(new object[]
-                {
-                    rc.FechaRegistro,
-                    rc.TipoDocumento,
-                    rc.NumeroDocumento,
-                    rc.MontoTotal,
-                    rc.UsuarioRegistro,
-                    rc.DocumentoProveedor,
-                    rc.RazonSocial,
-                    rc.CodigoProducto,
-                    rc.NombreProducto,
-                    rc.Categoria,
-                    rc.PrecioCompra,
-                    rc.PrecioVenta,
-                    rc.Cantidad,
-                    rc.SubTotal
-                });
-            }
-        }
-
-        private void iconButton1_Click(object sender, EventArgs e)
-        {
-            txtbuscarpor.Text = "";
-            foreach (DataGridViewRow row in dgvdata.Rows)
-            {
-                row.Visible = true;
             }
         }
 
