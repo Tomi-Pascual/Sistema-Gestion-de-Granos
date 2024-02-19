@@ -46,6 +46,9 @@
     <Compile Update="Login.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Modales\MD_AcercaDe.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Modales\MD_Cliente.cs">
       <SubType>Form</SubType>
     </Compile>

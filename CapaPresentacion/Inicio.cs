@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaPresentacion.Modales;
 
 namespace CapaPresentación
 {
@@ -132,6 +133,12 @@ namespace CapaPresentación
         {
             AbrirFormulario(menureportes, new frmReporteVentas());
 
+        }
+
+        private void menuacercade_Click(object sender, EventArgs e)
+        {
+            MD_AcercaDe md = new MD_AcercaDe();
+            md.ShowDialog();
         }
     }
 }

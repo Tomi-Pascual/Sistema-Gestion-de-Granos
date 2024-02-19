@@ -84,3 +84,4 @@ C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion D
 C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion De Granos\CapaPresentacion\bin\Debug\net6.0-windows\ClosedXML.dll
 C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion De Granos\CapaPresentacion\bin\Debug\net6.0-windows\DocumentFormat.OpenXml.dll
 C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion De Granos\CapaPresentacion\bin\Debug\net6.0-windows\ExcelNumberFormat.dll
+C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion De Granos\CapaPresentacion\obj\Debug\net6.0-windows\CapaPresentacion.Modales.MD_AcercaDe.resources

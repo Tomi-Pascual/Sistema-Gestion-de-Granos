@@ -42,14 +42,14 @@
             submenuProveedores = new ToolStripMenuItem();
             submenuCompras = new ToolStripMenuItem();
             menureportes = new FontAwesome.Sharp.IconMenuItem();
+            submenureportecompras = new ToolStripMenuItem();
+            submenureporteventas = new ToolStripMenuItem();
             menuacercade = new FontAwesome.Sharp.IconMenuItem();
             contenedor = new Panel();
             label1 = new Label();
             menuStrip1 = new MenuStrip();
             label2 = new Label();
             lblUsuario = new Label();
-            submenureportecompras = new ToolStripMenuItem();
-            submenureporteventas = new ToolStripMenuItem();
             menu.SuspendLayout();
             SuspendLayout();
             // 
@@ -183,6 +183,20 @@
             menureportes.Text = "Reportes";
             menureportes.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
+            // submenureportecompras
+            // 
+            submenureportecompras.Name = "submenureportecompras";
+            submenureportecompras.Size = new Size(208, 26);
+            submenureportecompras.Text = "Reporte Compras";
+            submenureportecompras.Click += submenureportecompras_Click;
+            // 
+            // submenureporteventas
+            // 
+            submenureporteventas.Name = "submenureporteventas";
+            submenureporteventas.Size = new Size(208, 26);
+            submenureporteventas.Text = "Reporte Ventas";
+            submenureporteventas.Click += submenureporteventas_Click;
+            // 
             // menuacercade
             // 
             menuacercade.AutoSize = false;
@@ -195,6 +209,7 @@
             menuacercade.Size = new Size(85, 69);
             menuacercade.Text = "Acerca de";
             menuacercade.TextImageRelation = TextImageRelation.ImageAboveText;
+            menuacercade.Click += menuacercade_Click;
             // 
             // contenedor
             // 
@@ -248,20 +263,6 @@
             lblUsuario.Size = new Size(76, 20);
             lblUsuario.TabIndex = 6;
             lblUsuario.Text = "lblUsuario";
-            // 
-            // submenureportecompras
-            // 
-            submenureportecompras.Name = "submenureportecompras";
-            submenureportecompras.Size = new Size(224, 26);
-            submenureportecompras.Text = "Reporte Compras";
-            submenureportecompras.Click += submenureportecompras_Click;
-            // 
-            // submenureporteventas
-            // 
-            submenureporteventas.Name = "submenureporteventas";
-            submenureporteventas.Size = new Size(224, 26);
-            submenureporteventas.Text = "Reporte Ventas";
-            submenureporteventas.Click += submenureporteventas_Click;
             // 
             // Inicio
             // 
