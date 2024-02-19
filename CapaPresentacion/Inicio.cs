@@ -140,5 +140,13 @@ namespace CapaPresentación
             MD_AcercaDe md = new MD_AcercaDe();
             md.ShowDialog();
         }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("¿Desea Salir?","Mensaje",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
     }
 }

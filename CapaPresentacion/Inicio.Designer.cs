@@ -47,9 +47,10 @@
             menuacercade = new FontAwesome.Sharp.IconMenuItem();
             contenedor = new Panel();
             label1 = new Label();
-            menuStrip1 = new MenuStrip();
             label2 = new Label();
             lblUsuario = new Label();
+            menuStrip1 = new MenuStrip();
+            iconButton1 = new FontAwesome.Sharp.IconButton();
             menu.SuspendLayout();
             SuspendLayout();
             // 
@@ -232,18 +233,6 @@
             label1.TabIndex = 2;
             label1.Text = "Gestion de Granos";
             // 
-            // menuStrip1
-            // 
-            menuStrip1.AutoSize = false;
-            menuStrip1.BackColor = Color.DarkOrange;
-            menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.RightToLeft = RightToLeft.Yes;
-            menuStrip1.Size = new Size(1253, 73);
-            menuStrip1.TabIndex = 4;
-            menuStrip1.Text = "menuStrip1";
-            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -264,11 +253,40 @@
             lblUsuario.TabIndex = 6;
             lblUsuario.Text = "lblUsuario";
             // 
+            // menuStrip1
+            // 
+            menuStrip1.AutoSize = false;
+            menuStrip1.BackColor = Color.DarkOrange;
+            menuStrip1.ImageScalingSize = new Size(20, 20);
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.RightToLeft = RightToLeft.Yes;
+            menuStrip1.Size = new Size(1253, 73);
+            menuStrip1.TabIndex = 4;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // iconButton1
+            // 
+            iconButton1.BackColor = Color.DarkOrange;
+            iconButton1.FlatAppearance.BorderSize = 0;
+            iconButton1.FlatStyle = FlatStyle.Flat;
+            iconButton1.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
+            iconButton1.IconColor = Color.Black;
+            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton1.IconSize = 50;
+            iconButton1.Location = new Point(1169, 10);
+            iconButton1.Name = "iconButton1";
+            iconButton1.Size = new Size(72, 56);
+            iconButton1.TabIndex = 7;
+            iconButton1.UseVisualStyleBackColor = false;
+            iconButton1.Click += iconButton1_Click;
+            // 
             // Inicio
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1253, 829);
+            Controls.Add(iconButton1);
             Controls.Add(lblUsuario);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -297,7 +315,6 @@
         private FontAwesome.Sharp.IconMenuItem menureportes;
         private Panel contenedor;
         private Label label1;
-        private MenuStrip menuStrip1;
         private Label label2;
         private Label lblUsuario;
         private ToolStripMenuItem submenuClientes;
@@ -311,6 +328,8 @@
         private ToolStripMenuItem submenudetcompra;
         private ToolStripMenuItem submenureportecompras;
         private ToolStripMenuItem submenureporteventas;
+        private MenuStrip menuStrip1;
+        private FontAwesome.Sharp.IconButton iconButton1;
     }
 }
 
