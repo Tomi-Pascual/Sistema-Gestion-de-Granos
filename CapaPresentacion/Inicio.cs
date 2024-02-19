@@ -72,24 +72,10 @@ namespace CapaPresentación
             contenedor.Controls.Add(formulario);
             formulario.Show();
         }
-        private void productoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario(menucompras, new frmProducto());
-        }
 
         private void menuusuario_Click(object sender, EventArgs e)
         {
             AbrirFormulario((IconMenuItem)sender, new frmSeguridad());
-        }
-
-        private void categoriaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario(menucompras, new frmCategoria());
-        }
-
-        private void submenuVentas_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario(menuventas, new frmVentas());
         }
 
         private void submenuClientes_Click(object sender, EventArgs e)
@@ -97,9 +83,19 @@ namespace CapaPresentación
             AbrirFormulario(menuventas, new frmCliente());
         }
 
-        private void submenuProveedores_Click(object sender, EventArgs e)
+        private void submenudetventa_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(menucompras, new frmProveedor());
+            AbrirFormulario(menuventas, new frmDetalleVentas());
+        }
+
+        private void submenuVentas_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuventas, new frmVentas(usuarioActual));
+        }
+
+        private void submenuCategoria_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menucompras, new frmCategoria());
         }
 
         private void submenuCompras_Click(object sender, EventArgs e)
@@ -107,14 +103,35 @@ namespace CapaPresentación
             AbrirFormulario(menucompras, new frmCompras(usuarioActual));
         }
 
-        private void menureportes_Click(object sender, EventArgs e)
+        private void submenudetcompra_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(menureportes, new frmReportes());
+            AbrirFormulario(menucompras, new frmDetalleCompra());
         }
 
         private void submenunegocio_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menucompras, new frmNegocio());
+        }
+
+        private void submenuProducto_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menucompras, new frmProducto());
+        }
+
+        private void submenuProveedores_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menucompras, new frmProveedor());
+        }
+
+        private void submenureportecompras_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menureportes, new frmReporteCompras());
+        }
+
+        private void submenureporteventas_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menureportes, new frmReporteVentas());
+
         }
     }
 }

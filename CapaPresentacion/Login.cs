@@ -19,11 +19,6 @@ namespace CapaPresentación
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btncancelar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -54,11 +49,8 @@ namespace CapaPresentación
             txtusuario.Text = "";
             txtclave.Text = "";
             this.Show();
+            txtusuario.Select();
         }
 
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

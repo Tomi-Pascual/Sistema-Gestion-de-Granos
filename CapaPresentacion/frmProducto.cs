@@ -23,7 +23,6 @@ namespace CapaPresentacion
 
         private void frmProducto_Load(object sender, EventArgs e)
         {
-
             cbestado.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Activo" });
             cbestado.Items.Add(new OpcionCombo() { Valor = 0, Texto = "No Activo" });
 
@@ -73,14 +72,14 @@ namespace CapaPresentacion
                     item.PrecioVenta,
                     item.Estado == true ? 1 : 0 ,
                     item.Estado == true ? "Activo" : "No Activo"});
-            }       
+            }
 
         }
 
         private void Limpiar()
         {
             txtindice.Text = "-1";
-            txtid.Text = "0";
+            txtid.Text = "";
             txtcodigo.Text = "";
             txtnombre.Text = "";
             txtdescripcion.Text = "";
@@ -90,7 +89,93 @@ namespace CapaPresentacion
             txtcodigo.Select();
         }
 
-        private void btnguardar_Click(object sender, EventArgs e)
+        private void dgvdata_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            if (e.ColumnIndex == 0)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                var w = Properties.Resources.check20.Width;
+                var h = Properties.Resources.check20.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.check20, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
+
+
+        private void dgvdata_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvdata.Columns[e.ColumnIndex].Name == "btnSeleccionar")
+            {
+                int indice = e.RowIndex;
+
+                if (indice >= 0)
+                {
+                    txtindice.Text = indice.ToString();
+
+                    txtid.Text = dgvdata.Rows[indice].Cells["Id"].Value.ToString();
+                    txtcodigo.Text = dgvdata.Rows[indice].Cells["Codigo"].Value.ToString();
+                    txtnombre.Text = dgvdata.Rows[indice].Cells["Nombre"].Value.ToString();
+                    txtdescripcion.Text = dgvdata.Rows[indice].Cells["Descripcion"].Value.ToString();
+
+                    foreach (OpcionCombo oc in cbcategoria.Items)
+                    {
+                        if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(dgvdata.Rows[indice].Cells["IdCategoria"].Value))
+                        {
+                            int indice_combo = cbcategoria.Items.IndexOf(oc);
+                            cbcategoria.SelectedIndex = indice_combo;
+                            break;
+                        }
+                    }
+
+                    foreach (OpcionCombo oc in cbestado.Items)
+                    {
+                        if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(dgvdata.Rows[indice].Cells["EstadoValor"].Value))
+                        {
+                            int indice_combo = cbestado.Items.IndexOf(oc);
+                            cbestado.SelectedIndex = indice_combo;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void btnbuscar_Click_1(object sender, EventArgs e)
+        {
+            string columnafiltro = ((OpcionCombo)cbbusqueda.SelectedItem).Valor.ToString();
+
+            if (dgvdata.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dgvdata.Rows)
+                {
+                    if (row.Cells[columnafiltro].Value.ToString().Trim().ToUpper().Contains(txtbusqueda.Text.Trim().ToUpper()))
+                    {
+                        row.Visible = true;
+                    }
+                    else
+                    {
+                        row.Visible = false;
+                    }
+                }
+            }
+        }
+
+        private void btnlimpiarbuscador_Click_1(object sender, EventArgs e)
+        {
+            txtbusqueda.Text = "";
+            foreach (DataGridViewRow row in dgvdata.Rows)
+            {
+                row.Visible = true;
+            }
+        }
+
+        private void btnguardar_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -163,71 +248,12 @@ namespace CapaPresentacion
             }
         }
 
-        private void dgvdata_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        private void btnlimpiar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (e.RowIndex > 0) return;
-
-                if (e.ColumnIndex == 0)
-                {
-                    e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-
-                    var w = Properties.Resources.check20.Width;
-                    var h = Properties.Resources.check20.Height;
-                    var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
-                    var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
-
-                    e.Graphics.DrawImage(Properties.Resources.check20, new Rectangle(x, y, w, h));
-                    e.Handled = true;
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Error al cargar los Productos", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-
+            Limpiar();
         }
 
-        private void dgvdata_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dgvdata.Columns[e.ColumnIndex].Name == "btnSeleccionar")
-            {
-                int indice = e.RowIndex;
-
-                if (indice >= 0)
-                {
-                    txtindice.Text = indice.ToString();
-
-                    txtid.Text = dgvdata.Rows[indice].Cells["Id"].Value.ToString();
-                    txtcodigo.Text = dgvdata.Rows[indice].Cells["Codigo"].Value.ToString();
-                    txtnombre.Text = dgvdata.Rows[indice].Cells["Nombre"].Value.ToString();
-                    txtdescripcion.Text = dgvdata.Rows[indice].Cells["Descripcion"].Value.ToString();
-
-                    foreach (OpcionCombo oc in cbcategoria.Items)
-                    {
-                        if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(dgvdata.Rows[indice].Cells["IdCategoria"].Value))
-                        {
-                            int indice_combo = cbcategoria.Items.IndexOf(oc);
-                            cbcategoria.SelectedIndex = indice_combo;
-                            break;
-                        }
-                    }
-
-                    foreach (OpcionCombo oc in cbestado.Items)
-                    {
-                        if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(dgvdata.Rows[indice].Cells["EstadoValor"].Value))
-                        {
-                            int indice_combo = cbestado.Items.IndexOf(oc);
-                            cbestado.SelectedIndex = indice_combo;
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-
-        private void btneliminar_Click(object sender, EventArgs e)
+        private void btneliminar_Click_1(object sender, EventArgs e)
         {
             if (Convert.ToInt32(txtid.Text) != 0)
             {
@@ -256,40 +282,6 @@ namespace CapaPresentacion
             else
             {
                 MessageBox.Show("Debe de seleccionar un Producto antes de eliminar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnlimpiar_Click(object sender, EventArgs e)
-        {
-            Limpiar();
-        }
-
-        private void btnbuscar_Click(object sender, EventArgs e)
-        {
-            string columnafiltro = ((OpcionCombo)cbbusqueda.SelectedItem).Valor.ToString();
-
-            if (dgvdata.Rows.Count > 0)
-            {
-                foreach (DataGridViewRow row in dgvdata.Rows)
-                {
-                    if (row.Cells[columnafiltro].Value.ToString().Trim().ToUpper().Contains(txtbusqueda.Text.Trim().ToUpper()))
-                    {
-                        row.Visible = true;
-                    }
-                    else
-                    {
-                        row.Visible = false;
-                    }
-                }
-            }
-        }
-
-        private void btnlimpiarbuscador_Click(object sender, EventArgs e)
-        {
-            txtbusqueda.Text = "";
-            foreach (DataGridViewRow row in dgvdata.Rows)
-            {
-                row.Visible = true;
             }
         }
     }

@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Qe3JJ9rbiaaTjl2qyK0EA1TLpFljK+tZ0Gf7diKJr9UnjyKe/cAxN7vNBaKbRSfN6HYowpone+4dgrwEl7MHww==",
+  "dgSpecHash": "0xW5ij21qLgJL8Ox4UmWjnj/4os6EHFfo0AuzDIGKjbnwO39HZEDA6xLsUEs3qRmgnyWmm9VKZHTG9gfZfv6zw==",
   "success": true,
   "projectFilePath": "C:\\Users\\USUARIO\\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\\Desktop\\Gestion De Granos\\CapaEntidad\\CapaEntidad.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.27\\microsoft.windowsdesktop.app.ref.6.0.27.nupkg.sha512",
+    "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.27\\microsoft.netcore.app.ref.6.0.27.nupkg.sha512",
+    "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.27\\microsoft.aspnetcore.app.ref.6.0.27.nupkg.sha512"
+  ],
   "logs": []
 }

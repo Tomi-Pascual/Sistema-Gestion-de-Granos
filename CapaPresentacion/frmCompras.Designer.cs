@@ -43,6 +43,7 @@
             label5 = new Label();
             txtdocproveedor = new TextBox();
             groupBox3 = new GroupBox();
+            txtcantidad = new NumericUpDown();
             label11 = new Label();
             label9 = new Label();
             txtprecioventa = new TextBox();
@@ -66,12 +67,11 @@
             label12 = new Label();
             txttotal = new TextBox();
             btnregistrar = new FontAwesome.Sharp.IconButton();
-            txtcantidad = new NumericUpDown();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvproducto).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtcantidad).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvproducto).BeginInit();
             SuspendLayout();
             // 
             // label10
@@ -195,7 +195,6 @@
             btnbuscarprov.Size = new Size(39, 28);
             btnbuscarprov.TabIndex = 26;
             btnbuscarprov.UseVisualStyleBackColor = false;
-            btnbuscarprov.Click += btnbuscarprov_Click;
             // 
             // label4
             // 
@@ -246,6 +245,13 @@
             groupBox3.TabStop = false;
             groupBox3.Text = "Información Producto";
             // 
+            // txtcantidad
+            // 
+            txtcantidad.Location = new Point(718, 64);
+            txtcantidad.Name = "txtcantidad";
+            txtcantidad.Size = new Size(129, 27);
+            txtcantidad.TabIndex = 34;
+            // 
             // label11
             // 
             label11.AutoSize = true;
@@ -270,6 +276,7 @@
             txtprecioventa.Name = "txtprecioventa";
             txtprecioventa.Size = new Size(110, 27);
             txtprecioventa.TabIndex = 31;
+            txtprecioventa.KeyPress += txtprecioventa_KeyPress;
             // 
             // label8
             // 
@@ -286,6 +293,7 @@
             txtpreciocompra.Name = "txtpreciocompra";
             txtpreciocompra.Size = new Size(110, 27);
             txtpreciocompra.TabIndex = 29;
+            txtpreciocompra.KeyPress += txtpreciocompra_KeyPress;
             // 
             // txtidproducto
             // 
@@ -350,6 +358,7 @@
             // 
             // dgvproducto
             // 
+            dgvproducto.AllowUserToAddRows = false;
             dgvproducto.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvproducto.Columns.AddRange(new DataGridViewColumn[] { IdProducto, Producto, PrecioCompra, PrecioVenta, Cantidad, SubTotal, btneliminar });
             dgvproducto.Location = new Point(123, 286);
@@ -358,6 +367,7 @@
             dgvproducto.RowTemplate.Height = 29;
             dgvproducto.Size = new Size(859, 377);
             dgvproducto.TabIndex = 30;
+            dgvproducto.CellContentClick += dgvproducto_CellContentClick;
             dgvproducto.CellPainting += dgvproducto_CellPainting;
             // 
             // IdProducto
@@ -462,13 +472,6 @@
             btnregistrar.UseVisualStyleBackColor = true;
             btnregistrar.Click += btnregistrar_Click;
             // 
-            // txtcantidad
-            // 
-            txtcantidad.Location = new Point(718, 64);
-            txtcantidad.Name = "txtcantidad";
-            txtcantidad.Size = new Size(129, 27);
-            txtcantidad.TabIndex = 34;
-            // 
             // frmCompras
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -493,8 +496,8 @@
             groupBox2.PerformLayout();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvproducto).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtcantidad).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvproducto).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

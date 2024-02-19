@@ -25,7 +25,13 @@
     <Compile Update="frmProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="frmReporteCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="frmReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmReporteVentas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="frmSeguridad.cs">
@@ -38,6 +44,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Modales\MD_Cliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Modales\MD_Producto.cs">

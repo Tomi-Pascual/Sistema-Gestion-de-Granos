@@ -113,7 +113,6 @@
             label2.Size = new Size(71, 20);
             label2.TabIndex = 3;
             label2.Text = "USUARIO";
-            label2.Click += label2_Click;
             // 
             // label3
             // 
@@ -193,7 +192,6 @@
             Opacity = 0.95D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
-            Load += Login_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

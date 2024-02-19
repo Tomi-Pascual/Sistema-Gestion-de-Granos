@@ -26,9 +26,9 @@ namespace CapaNegocio
             {
                 Mensaje += "Debe introducir la descripcion de la categoria\n";
             }
-            else if (ValidarLetrasYNumeros(obj.Descripcion))
+            else if (ValidarString(obj.Descripcion))
             {
-                Mensaje += "Por favor, ingrese solo letras y numeros en la Descripcion";
+                Mensaje += "Por favor, ingrese solo letras y numeros en la Descripcion\n";
             }
 
             if (Mensaje != string.Empty)
@@ -50,9 +50,9 @@ namespace CapaNegocio
             {
                 Mensaje += "Debe introducir la descripcion de la categoria\n";
             }
-            else if (ValidarLetrasYNumeros(obj.Descripcion))
+            else if (ValidarString(obj.Descripcion))
             {
-                Mensaje += "Por favor, ingrese solo letras y numeros en la Descripcion";
+                Mensaje += "Por favor, ingrese solo letras en la Descripcion\n";
             }
 
             if (Mensaje != string.Empty)
@@ -70,11 +70,10 @@ namespace CapaNegocio
             return objcd_categoria.Eliminar(obj, out Mensaje);
         }
 
-        public bool ValidarLetrasYNumeros(string input)
+        private bool ValidarString(string input)
         {
-            // Utilizar una expresión regular para validar que la cadena contenga solo letras y números
-            // ^[a-zA-Z0-9]+$ significa que debe haber al menos un carácter, y ese carácter puede ser una letra (mayúscula o minúscula) o un número.
-            return Regex.IsMatch(input, "^[a-zA-Z0-9]+$");
+            // Utilizar expresión regular para validar que solo se introduzcan letras
+            return Regex.IsMatch(input, "^[a-zA-Z]+$");
         }
     }
 }

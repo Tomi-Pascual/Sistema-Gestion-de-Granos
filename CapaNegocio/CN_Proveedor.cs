@@ -139,7 +139,7 @@ namespace CapaNegocio
         private bool ValidarCorreoElectronico(string correo)
         {
             // Utilizar una expresión regular para validar el formato del correo electrónico
-            string patronCorreo = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+            string patronCorreo = @"/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/";
             return Regex.IsMatch(correo, patronCorreo);
         }
     }

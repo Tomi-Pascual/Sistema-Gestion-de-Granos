@@ -54,6 +54,7 @@ namespace CapaPresentacion
             cbbusqueda.ValueMember = "Valor";
             cbbusqueda.SelectedIndex = 0;
 
+            //MOSTRAR TODOS LOS USUARIOS
             List<Usuario> listaUsuario = new CN_Usuario().Listar();
 
             foreach (Usuario item in listaUsuario)
