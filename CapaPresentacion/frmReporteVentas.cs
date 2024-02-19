@@ -63,7 +63,7 @@ namespace CapaPresentacion
 
         private void btnbuscar_Click(object sender, EventArgs e)
         {
-            int idproveedor = Convert.ToInt32(((OpcionCombo)cbproveedor.SelectedItem).Valor.ToString());
+            int idproveedor = Convert.ToInt32(((OpcionCombo)cbbuscarpor.SelectedItem).Valor.ToString());
 
             List<ReporteCompra> lista = new List<ReporteCompra>();
 

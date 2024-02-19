@@ -376,8 +376,8 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label9);
-            Controls.Add(label1);
             Controls.Add(dtpfechainicio);
+            Controls.Add(label1);
             Name = "frmReportes";
             Text = "frmReportes";
             ((System.ComponentModel.ISupportInitialize)dgvdata).EndInit();
