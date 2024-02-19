@@ -289,14 +289,14 @@
             // 
             // btnbuscarreporte
             // 
-            btnbuscarreporte.BackColor = Color.LightGray;
+            btnbuscarreporte.BackColor = Color.White;
             btnbuscarreporte.Cursor = Cursors.Hand;
             btnbuscarreporte.FlatStyle = FlatStyle.Flat;
             btnbuscarreporte.IconChar = FontAwesome.Sharp.IconChar.SearchLocation;
             btnbuscarreporte.IconColor = Color.Black;
             btnbuscarreporte.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnbuscarreporte.IconSize = 22;
-            btnbuscarreporte.Location = new Point(752, 60);
+            btnbuscarreporte.Location = new Point(515, 133);
             btnbuscarreporte.Name = "btnbuscarreporte";
             btnbuscarreporte.Size = new Size(39, 28);
             btnbuscarreporte.TabIndex = 64;
@@ -305,14 +305,14 @@
             // 
             // btnlimpiar
             // 
-            btnlimpiar.BackColor = Color.LightGray;
+            btnlimpiar.BackColor = Color.White;
             btnlimpiar.Cursor = Cursors.Hand;
             btnlimpiar.FlatStyle = FlatStyle.Flat;
             btnlimpiar.IconChar = FontAwesome.Sharp.IconChar.Broom;
             btnlimpiar.IconColor = Color.Black;
             btnlimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnlimpiar.IconSize = 22;
-            btnlimpiar.Location = new Point(800, 60);
+            btnlimpiar.Location = new Point(563, 133);
             btnlimpiar.Name = "btnlimpiar";
             btnlimpiar.Size = new Size(39, 28);
             btnlimpiar.TabIndex = 65;
@@ -325,14 +325,14 @@
             btnbuscar.Cursor = Cursors.Hand;
             btnbuscar.FlatStyle = FlatStyle.Popup;
             btnbuscar.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            btnbuscar.IconChar = FontAwesome.Sharp.IconChar.Broom;
+            btnbuscar.IconChar = FontAwesome.Sharp.IconChar.SearchLocation;
             btnbuscar.IconColor = Color.Black;
             btnbuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnbuscar.IconSize = 24;
             btnbuscar.ImageAlign = ContentAlignment.TopCenter;
-            btnbuscar.Location = new Point(521, 132);
+            btnbuscar.Location = new Point(753, 61);
             btnbuscar.Name = "btnbuscar";
-            btnbuscar.Size = new Size(94, 29);
+            btnbuscar.Size = new Size(105, 28);
             btnbuscar.TabIndex = 66;
             btnbuscar.Text = "Buscar";
             btnbuscar.TextAlign = ContentAlignment.TopRight;
