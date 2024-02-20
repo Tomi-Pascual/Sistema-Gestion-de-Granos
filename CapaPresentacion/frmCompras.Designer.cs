@@ -38,7 +38,6 @@
             groupBox2 = new GroupBox();
             txtidproveedor = new TextBox();
             txtrazonsocial = new TextBox();
-            btnbuscarprov = new FontAwesome.Sharp.IconButton();
             label4 = new Label();
             label5 = new Label();
             txtdocproveedor = new TextBox();
@@ -51,7 +50,6 @@
             txtpreciocompra = new TextBox();
             txtidproducto = new TextBox();
             txtproducto = new TextBox();
-            btnbuscarproducto = new FontAwesome.Sharp.IconButton();
             label6 = new Label();
             label7 = new Label();
             txtcodigoproducto = new TextBox();
@@ -63,10 +61,8 @@
             Cantidad = new DataGridViewTextBoxColumn();
             SubTotal = new DataGridViewTextBoxColumn();
             btneliminar = new DataGridViewButtonColumn();
-            btnagregar = new FontAwesome.Sharp.IconButton();
             label12 = new Label();
             txttotal = new TextBox();
-            btnregistrar = new FontAwesome.Sharp.IconButton();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -150,7 +146,6 @@
             groupBox2.BackColor = Color.White;
             groupBox2.Controls.Add(txtidproveedor);
             groupBox2.Controls.Add(txtrazonsocial);
-            groupBox2.Controls.Add(btnbuscarprov);
             groupBox2.Controls.Add(label4);
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(txtdocproveedor);
@@ -177,24 +172,6 @@
             txtrazonsocial.Size = new Size(231, 27);
             txtrazonsocial.TabIndex = 27;
             txtrazonsocial.KeyPress += cbotipodocumento_KeyPress;
-            // 
-            // btnbuscarprov
-            // 
-            btnbuscarprov.BackColor = Color.LightGray;
-            btnbuscarprov.Cursor = Cursors.Hand;
-            btnbuscarprov.FlatAppearance.BorderColor = Color.Black;
-            btnbuscarprov.FlatStyle = FlatStyle.Flat;
-            btnbuscarprov.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnbuscarprov.ForeColor = Color.White;
-            btnbuscarprov.IconChar = FontAwesome.Sharp.IconChar.SearchLocation;
-            btnbuscarprov.IconColor = Color.Black;
-            btnbuscarprov.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnbuscarprov.IconSize = 22;
-            btnbuscarprov.Location = new Point(220, 62);
-            btnbuscarprov.Name = "btnbuscarprov";
-            btnbuscarprov.Size = new Size(39, 28);
-            btnbuscarprov.TabIndex = 26;
-            btnbuscarprov.UseVisualStyleBackColor = false;
             // 
             // label4
             // 
@@ -234,7 +211,6 @@
             groupBox3.Controls.Add(txtpreciocompra);
             groupBox3.Controls.Add(txtidproducto);
             groupBox3.Controls.Add(txtproducto);
-            groupBox3.Controls.Add(btnbuscarproducto);
             groupBox3.Controls.Add(label6);
             groupBox3.Controls.Add(label7);
             groupBox3.Controls.Add(txtcodigoproducto);
@@ -257,9 +233,9 @@
             label11.AutoSize = true;
             label11.Location = new Point(718, 39);
             label11.Name = "label11";
-            label11.Size = new Size(72, 20);
+            label11.Size = new Size(113, 20);
             label11.TabIndex = 33;
-            label11.Text = "Cantidad:";
+            label11.Text = "Cantidad de kg:";
             // 
             // label9
             // 
@@ -272,10 +248,12 @@
             // 
             // txtprecioventa
             // 
+            txtprecioventa.ForeColor = Color.DarkGray;
             txtprecioventa.Location = new Point(598, 64);
             txtprecioventa.Name = "txtprecioventa";
             txtprecioventa.Size = new Size(110, 27);
             txtprecioventa.TabIndex = 31;
+            txtprecioventa.Text = "por kg";
             txtprecioventa.KeyPress += txtprecioventa_KeyPress;
             // 
             // label8
@@ -289,10 +267,12 @@
             // 
             // txtpreciocompra
             // 
+            txtpreciocompra.ForeColor = Color.DarkGray;
             txtpreciocompra.Location = new Point(480, 64);
             txtpreciocompra.Name = "txtpreciocompra";
             txtpreciocompra.Size = new Size(110, 27);
             txtpreciocompra.TabIndex = 29;
+            txtpreciocompra.Text = "por kg";
             txtpreciocompra.KeyPress += txtpreciocompra_KeyPress;
             // 
             // txtidproducto
@@ -310,25 +290,6 @@
             txtproducto.ReadOnly = true;
             txtproducto.Size = new Size(226, 27);
             txtproducto.TabIndex = 27;
-            // 
-            // btnbuscarproducto
-            // 
-            btnbuscarproducto.BackColor = Color.LightGray;
-            btnbuscarproducto.Cursor = Cursors.Hand;
-            btnbuscarproducto.FlatAppearance.BorderColor = Color.Black;
-            btnbuscarproducto.FlatStyle = FlatStyle.Flat;
-            btnbuscarproducto.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnbuscarproducto.ForeColor = Color.White;
-            btnbuscarproducto.IconChar = FontAwesome.Sharp.IconChar.SearchLocation;
-            btnbuscarproducto.IconColor = Color.Black;
-            btnbuscarproducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnbuscarproducto.IconSize = 22;
-            btnbuscarproducto.Location = new Point(198, 63);
-            btnbuscarproducto.Name = "btnbuscarproducto";
-            btnbuscarproducto.Size = new Size(39, 28);
-            btnbuscarproducto.TabIndex = 26;
-            btnbuscarproducto.UseVisualStyleBackColor = false;
-            btnbuscarproducto.Click += btnbuscarproducto_Click;
             // 
             // label6
             // 
@@ -423,21 +384,6 @@
             btneliminar.SortMode = DataGridViewColumnSortMode.Automatic;
             btneliminar.Width = 40;
             // 
-            // btnagregar
-            // 
-            btnagregar.IconChar = FontAwesome.Sharp.IconChar.Add;
-            btnagregar.IconColor = Color.Green;
-            btnagregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnagregar.Location = new Point(998, 182);
-            btnagregar.Name = "btnagregar";
-            btnagregar.Size = new Size(108, 90);
-            btnagregar.TabIndex = 31;
-            btnagregar.Text = "Agregar";
-            btnagregar.TextAlign = ContentAlignment.TopCenter;
-            btnagregar.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnagregar.UseVisualStyleBackColor = true;
-            btnagregar.Click += btnagregar_Click;
-            // 
             // label12
             // 
             label12.AutoSize = true;
@@ -453,34 +399,18 @@
             txttotal.Location = new Point(998, 577);
             txttotal.Multiline = true;
             txttotal.Name = "txttotal";
+            txttotal.ReadOnly = true;
             txttotal.Size = new Size(114, 27);
             txttotal.TabIndex = 33;
             txttotal.Text = "0";
-            // 
-            // btnregistrar
-            // 
-            btnregistrar.IconChar = FontAwesome.Sharp.IconChar.Tag;
-            btnregistrar.IconColor = Color.DodgerBlue;
-            btnregistrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnregistrar.IconSize = 30;
-            btnregistrar.Location = new Point(998, 625);
-            btnregistrar.Name = "btnregistrar";
-            btnregistrar.Size = new Size(114, 38);
-            btnregistrar.TabIndex = 34;
-            btnregistrar.Text = "Registrar";
-            btnregistrar.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnregistrar.UseVisualStyleBackColor = true;
-            btnregistrar.Click += btnregistrar_Click;
             // 
             // frmCompras
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1249, 694);
-            Controls.Add(btnregistrar);
             Controls.Add(txttotal);
             Controls.Add(label12);
-            Controls.Add(btnagregar);
             Controls.Add(dgvproducto);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
