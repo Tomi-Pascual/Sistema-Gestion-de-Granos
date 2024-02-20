@@ -276,6 +276,7 @@
             txtprecioventa.Name = "txtprecioventa";
             txtprecioventa.Size = new Size(110, 27);
             txtprecioventa.TabIndex = 31;
+            txtprecioventa.Click += txtprecioventa_Click;
             txtprecioventa.KeyPress += txtprecioventa_KeyPress;
             // 
             // label8
@@ -293,6 +294,7 @@
             txtpreciocompra.Name = "txtpreciocompra";
             txtpreciocompra.Size = new Size(110, 27);
             txtpreciocompra.TabIndex = 29;
+            txtpreciocompra.Click += txtpreciocompra_Click;
             txtpreciocompra.KeyPress += txtpreciocompra_KeyPress;
             // 
             // txtidproducto

@@ -38,6 +38,13 @@ namespace CapaPresentacion
 
             txtidproveedor.Text = "0";
             txtidproducto.Text = "0";
+
+            txtcantidad.Maximum = 50000;
+
+            txtpreciocompra.Text = "por kg";
+            txtpreciocompra.ForeColor = Color.LightGray;
+            txtprecioventa.Text = "por kg";
+            txtprecioventa.ForeColor = Color.LightGray;
         }
 
         private void btnregistrar_Click(object sender, EventArgs e)
@@ -238,8 +245,10 @@ namespace CapaPresentacion
             txtcodigoproducto.Text = "";
             txtcodigoproducto.BackColor = Color.White;
             txtproducto.Text = "";
-            txtpreciocompra.Text = "";
-            txtprecioventa.Text = "";
+            txtpreciocompra.Text = "por kg";
+            txtpreciocompra.ForeColor = Color.LightGray;
+            txtprecioventa.Text = "por kg";
+            txtprecioventa.ForeColor = Color.LightGray;
             txtcantidad.Value = 1;
         }
 
@@ -323,6 +332,18 @@ namespace CapaPresentacion
                     }
                 }
             }
+        }
+
+        private void txtpreciocompra_Click(object sender, EventArgs e)
+        {
+            txtpreciocompra.Text = "";
+            txtpreciocompra.ForeColor = SystemColors.WindowText;
+        }
+
+        private void txtprecioventa_Click(object sender, EventArgs e)
+        {
+            txtpreciocompra.Text = "";
+            txtpreciocompra.ForeColor = SystemColors.WindowText;
         }
     }
 }
