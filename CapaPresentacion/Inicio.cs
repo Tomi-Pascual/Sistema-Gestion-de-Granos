@@ -143,7 +143,7 @@ namespace CapaPresentación
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("¿Desea Salir?","Mensaje",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("¿Desea Salir?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.Close();
             }

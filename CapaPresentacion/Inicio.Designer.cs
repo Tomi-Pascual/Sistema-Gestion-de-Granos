@@ -237,7 +237,7 @@
             // 
             label2.AutoSize = true;
             label2.BackColor = Color.DarkOrange;
-            label2.Location = new Point(739, 29);
+            label2.Location = new Point(975, 29);
             label2.Name = "label2";
             label2.Size = new Size(62, 20);
             label2.TabIndex = 5;
@@ -247,7 +247,7 @@
             // 
             lblUsuario.AutoSize = true;
             lblUsuario.BackColor = Color.DarkOrange;
-            lblUsuario.Location = new Point(799, 29);
+            lblUsuario.Location = new Point(1035, 29);
             lblUsuario.Name = "lblUsuario";
             lblUsuario.Size = new Size(76, 20);
             lblUsuario.TabIndex = 6;
