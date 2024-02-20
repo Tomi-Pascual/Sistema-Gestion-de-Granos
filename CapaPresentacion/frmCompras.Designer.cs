@@ -195,6 +195,7 @@
             btnbuscarprov.Size = new Size(39, 28);
             btnbuscarprov.TabIndex = 26;
             btnbuscarprov.UseVisualStyleBackColor = false;
+            btnbuscarprov.Click += btnbuscarprov_Click;
             // 
             // label4
             // 
@@ -272,10 +273,13 @@
             // 
             // txtprecioventa
             // 
+            txtprecioventa.ForeColor = Color.DarkGray;
             txtprecioventa.Location = new Point(598, 64);
             txtprecioventa.Name = "txtprecioventa";
             txtprecioventa.Size = new Size(110, 27);
             txtprecioventa.TabIndex = 31;
+            txtprecioventa.Text = "por kg";
+            txtprecioventa.Click += txtprecioventa_Click;
             txtprecioventa.KeyPress += txtprecioventa_KeyPress;
             // 
             // label8
@@ -289,10 +293,13 @@
             // 
             // txtpreciocompra
             // 
+            txtpreciocompra.ForeColor = Color.DarkGray;
             txtpreciocompra.Location = new Point(480, 64);
             txtpreciocompra.Name = "txtpreciocompra";
             txtpreciocompra.Size = new Size(110, 27);
             txtpreciocompra.TabIndex = 29;
+            txtpreciocompra.Text = "por kg";
+            txtpreciocompra.Click += txtpreciocompra_Click;
             txtpreciocompra.KeyPress += txtpreciocompra_KeyPress;
             // 
             // txtidproducto
