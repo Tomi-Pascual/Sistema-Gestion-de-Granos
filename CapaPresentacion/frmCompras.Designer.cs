@@ -173,6 +173,28 @@
             txtrazonsocial.TabIndex = 27;
             txtrazonsocial.KeyPress += cbotipodocumento_KeyPress;
             // 
+<<<<<<< HEAD
+            // btnbuscarprov
+            // 
+            btnbuscarprov.BackColor = Color.LightGray;
+            btnbuscarprov.Cursor = Cursors.Hand;
+            btnbuscarprov.FlatAppearance.BorderColor = Color.Black;
+            btnbuscarprov.FlatStyle = FlatStyle.Flat;
+            btnbuscarprov.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            btnbuscarprov.ForeColor = Color.White;
+            btnbuscarprov.IconChar = FontAwesome.Sharp.IconChar.SearchLocation;
+            btnbuscarprov.IconColor = Color.Black;
+            btnbuscarprov.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnbuscarprov.IconSize = 22;
+            btnbuscarprov.Location = new Point(220, 62);
+            btnbuscarprov.Name = "btnbuscarprov";
+            btnbuscarprov.Size = new Size(39, 28);
+            btnbuscarprov.TabIndex = 26;
+            btnbuscarprov.UseVisualStyleBackColor = false;
+            btnbuscarprov.Click += btnbuscarprov_Click;
+            // 
+=======
+>>>>>>> main
             // label4
             // 
             label4.AutoSize = true;
@@ -254,6 +276,10 @@
             txtprecioventa.Size = new Size(110, 27);
             txtprecioventa.TabIndex = 31;
             txtprecioventa.Text = "por kg";
+<<<<<<< HEAD
+            txtprecioventa.Click += txtprecioventa_Click;
+=======
+>>>>>>> main
             txtprecioventa.KeyPress += txtprecioventa_KeyPress;
             // 
             // label8
@@ -273,6 +299,10 @@
             txtpreciocompra.Size = new Size(110, 27);
             txtpreciocompra.TabIndex = 29;
             txtpreciocompra.Text = "por kg";
+<<<<<<< HEAD
+            txtpreciocompra.Click += txtpreciocompra_Click;
+=======
+>>>>>>> main
             txtpreciocompra.KeyPress += txtpreciocompra_KeyPress;
             // 
             // txtidproducto
