@@ -140,7 +140,7 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    txtdocproveedor.Select();
+                    txtcodigoproducto.Select();
                 }
             }
         }
