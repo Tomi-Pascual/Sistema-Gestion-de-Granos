@@ -41,6 +41,8 @@ namespace CapaPresentacion
             txttotalpagar.Text = "0";
             txtcambio.Text = " ";
             txtpagacon.Text = " ";
+
+            txtcantidad.Maximum = 50000;
         }
 
         private void btnbuscarcli_Click(object sender, EventArgs e)

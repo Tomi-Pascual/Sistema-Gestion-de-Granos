@@ -38,6 +38,14 @@ namespace CapaPresentacion
 
             txtidproveedor.Text = "0";
             txtidproducto.Text = "0";
+
+            txtcantidad.Maximum = 50000;
+
+            txtpreciocompra.Text = "por kg";
+            txtpreciocompra.ForeColor = Color.LightGray;
+
+            txtprecioventa.Text = "por kg";
+            txtprecioventa.ForeColor = Color.LightGray;
         }
 
         private void btnregistrar_Click(object sender, EventArgs e)
@@ -133,7 +141,7 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    txtdocproveedor.Select();
+                    txtcodigoproducto.Select();
                 }
             }
         }
@@ -238,8 +246,10 @@ namespace CapaPresentacion
             txtcodigoproducto.Text = "";
             txtcodigoproducto.BackColor = Color.White;
             txtproducto.Text = "";
-            txtpreciocompra.Text = "";
-            txtprecioventa.Text = "";
+            txtpreciocompra.Text = "por kg";
+            txtpreciocompra.ForeColor = Color.LightGray;
+            txtprecioventa.Text = "por kg";
+            txtprecioventa.ForeColor = Color.LightGray;
             txtcantidad.Value = 1;
         }
 
@@ -323,6 +333,38 @@ namespace CapaPresentacion
                     }
                 }
             }
+        }
+
+        private void btnbuscarprov_Click(object sender, EventArgs e)
+        {
+            using (var modal = new MD_Proveedor())
+            {
+                var result = modal.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    txtidproveedor.Text = modal._Proveedor.IdProveedor.ToString();
+                    txtdocproveedor.Text = modal._Proveedor.Documento;
+                    txtrazonsocial.Text = modal._Proveedor.RazonSocial;
+                    txtcodigoproducto.Select();
+                }
+                else
+                {
+                    txtdocproveedor.Select();
+                }
+            }
+        }
+
+        private void txtpreciocompra_Click(object sender, EventArgs e)
+        {
+            txtpreciocompra.Text = "";
+            txtpreciocompra.ForeColor = SystemColors.WindowText;
+        }
+
+        private void txtprecioventa_Click(object sender, EventArgs e)
+        {
+            txtprecioventa.Text = " ";
+            txtprecioventa.ForeColor = SystemColors.WindowText;
         }
     }
 }

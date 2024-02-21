@@ -195,6 +195,7 @@
             btnbuscarprov.Size = new Size(39, 28);
             btnbuscarprov.TabIndex = 26;
             btnbuscarprov.UseVisualStyleBackColor = false;
+            btnbuscarprov.Click += btnbuscarprov_Click;
             // 
             // label4
             // 
@@ -276,6 +277,7 @@
             txtprecioventa.Name = "txtprecioventa";
             txtprecioventa.Size = new Size(110, 27);
             txtprecioventa.TabIndex = 31;
+            txtprecioventa.Click += txtprecioventa_Click;
             txtprecioventa.KeyPress += txtprecioventa_KeyPress;
             // 
             // label8
@@ -293,6 +295,7 @@
             txtpreciocompra.Name = "txtpreciocompra";
             txtpreciocompra.Size = new Size(110, 27);
             txtpreciocompra.TabIndex = 29;
+            txtpreciocompra.Click += txtpreciocompra_Click;
             txtpreciocompra.KeyPress += txtpreciocompra_KeyPress;
             // 
             // txtidproducto
@@ -453,6 +456,7 @@
             txttotal.Location = new Point(998, 577);
             txttotal.Multiline = true;
             txttotal.Name = "txttotal";
+            txttotal.ReadOnly = true;
             txttotal.Size = new Size(114, 27);
             txttotal.TabIndex = 33;
             txttotal.Text = "0";
