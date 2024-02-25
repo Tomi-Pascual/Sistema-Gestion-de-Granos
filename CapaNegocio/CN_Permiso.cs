@@ -12,9 +12,38 @@ namespace CapaNegocio
     {
         private CD_Permiso objcd_permiso = new CD_Permiso();
 
-        public List<Permiso> Listar(int IdUsuario)
+        public List<Permiso> Listar(int idUsuario)
         {
-            return objcd_permiso.Listar(IdUsuario);
+            try
+            {
+                return objcd_permiso.Listar(idUsuario);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        public List<Permiso> ListarPermisos()
+        {
+            try
+            {
+                return objcd_permiso.ListarPermisos();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        public bool EditarEstado(int idComponente, bool estado, out string mensaje)
+        {
+            try
+            {
+                return objcd_permiso.EditarEstado(idComponente, estado, out mensaje);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

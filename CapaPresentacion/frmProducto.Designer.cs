@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             txtindice = new TextBox();
             txtbusqueda = new TextBox();
             cbbusqueda = new ComboBox();
@@ -62,10 +62,10 @@
             label2 = new Label();
             label1 = new Label();
             btnbuscar = new FontAwesome.Sharp.IconButton();
-            btnguardar = new FontAwesome.Sharp.IconButton();
+            btnguardarproducto = new FontAwesome.Sharp.IconButton();
             btnlimpiar = new FontAwesome.Sharp.IconButton();
             btnlimpiarbuscador = new FontAwesome.Sharp.IconButton();
-            btneliminar = new FontAwesome.Sharp.IconButton();
+            btneliminarproducto = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)dgvdata).BeginInit();
             SuspendLayout();
             // 
@@ -126,29 +126,29 @@
             // dgvdata
             // 
             dgvdata.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.Padding = new Padding(2);
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvdata.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvdata.Columns.AddRange(new DataGridViewColumn[] { btnSeleccionar, Id, Codigo, Nombre, Descripcion, IdCategoria, Categoria, Stock, PrecioCompra, PrecioVenta, EstadoValor, Estado });
             dgvdata.Location = new Point(374, 91);
             dgvdata.MultiSelect = false;
             dgvdata.Name = "dgvdata";
             dgvdata.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Control;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvdata.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgvdata.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgvdata.RowHeadersWidth = 51;
             dgvdata.RowTemplate.Height = 28;
             dgvdata.Size = new Size(866, 558);
@@ -384,25 +384,25 @@
             btnbuscar.UseVisualStyleBackColor = false;
             btnbuscar.Click += btnbuscar_Click_1;
             // 
-            // btnguardar
+            // btnguardarproducto
             // 
-            btnguardar.BackColor = Color.DarkOrange;
-            btnguardar.Cursor = Cursors.Hand;
-            btnguardar.FlatAppearance.BorderColor = Color.Black;
-            btnguardar.FlatStyle = FlatStyle.Flat;
-            btnguardar.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnguardar.ForeColor = Color.White;
-            btnguardar.IconChar = FontAwesome.Sharp.IconChar.None;
-            btnguardar.IconColor = Color.White;
-            btnguardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnguardar.IconSize = 16;
-            btnguardar.Location = new Point(14, 402);
-            btnguardar.Name = "btnguardar";
-            btnguardar.Size = new Size(299, 33);
-            btnguardar.TabIndex = 57;
-            btnguardar.Text = "Guardar";
-            btnguardar.UseVisualStyleBackColor = false;
-            btnguardar.Click += btnguardar_Click_1;
+            btnguardarproducto.BackColor = Color.DarkOrange;
+            btnguardarproducto.Cursor = Cursors.Hand;
+            btnguardarproducto.FlatAppearance.BorderColor = Color.Black;
+            btnguardarproducto.FlatStyle = FlatStyle.Flat;
+            btnguardarproducto.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            btnguardarproducto.ForeColor = Color.White;
+            btnguardarproducto.IconChar = FontAwesome.Sharp.IconChar.None;
+            btnguardarproducto.IconColor = Color.White;
+            btnguardarproducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnguardarproducto.IconSize = 16;
+            btnguardarproducto.Location = new Point(14, 402);
+            btnguardarproducto.Name = "btnguardarproducto";
+            btnguardarproducto.Size = new Size(299, 33);
+            btnguardarproducto.TabIndex = 57;
+            btnguardarproducto.Text = "Guardar";
+            btnguardarproducto.UseVisualStyleBackColor = false;
+            btnguardarproducto.Click += btnguardar_Click_1;
             // 
             // btnlimpiar
             // 
@@ -442,34 +442,34 @@
             btnlimpiarbuscador.UseVisualStyleBackColor = false;
             btnlimpiarbuscador.Click += btnlimpiarbuscador_Click_1;
             // 
-            // btneliminar
+            // btneliminarproducto
             // 
-            btneliminar.BackColor = Color.DarkOrange;
-            btneliminar.Cursor = Cursors.Hand;
-            btneliminar.FlatAppearance.BorderColor = Color.Black;
-            btneliminar.FlatStyle = FlatStyle.Flat;
-            btneliminar.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btneliminar.ForeColor = Color.White;
-            btneliminar.IconChar = FontAwesome.Sharp.IconChar.None;
-            btneliminar.IconColor = Color.Black;
-            btneliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btneliminar.Location = new Point(14, 491);
-            btneliminar.Name = "btneliminar";
-            btneliminar.Size = new Size(299, 33);
-            btneliminar.TabIndex = 58;
-            btneliminar.Text = " Eliminar";
-            btneliminar.UseVisualStyleBackColor = false;
-            btneliminar.Click += btneliminar_Click_1;
+            btneliminarproducto.BackColor = Color.DarkOrange;
+            btneliminarproducto.Cursor = Cursors.Hand;
+            btneliminarproducto.FlatAppearance.BorderColor = Color.Black;
+            btneliminarproducto.FlatStyle = FlatStyle.Flat;
+            btneliminarproducto.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            btneliminarproducto.ForeColor = Color.White;
+            btneliminarproducto.IconChar = FontAwesome.Sharp.IconChar.None;
+            btneliminarproducto.IconColor = Color.Black;
+            btneliminarproducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btneliminarproducto.Location = new Point(14, 491);
+            btneliminarproducto.Name = "btneliminarproducto";
+            btneliminarproducto.Size = new Size(299, 33);
+            btneliminarproducto.TabIndex = 58;
+            btneliminarproducto.Text = " Eliminar";
+            btneliminarproducto.UseVisualStyleBackColor = false;
+            btneliminarproducto.Click += btneliminar_Click_1;
             // 
             // frmProducto
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1249, 694);
-            Controls.Add(btnguardar);
+            Controls.Add(btnguardarproducto);
             Controls.Add(btnlimpiar);
             Controls.Add(btnlimpiarbuscador);
-            Controls.Add(btneliminar);
+            Controls.Add(btneliminarproducto);
             Controls.Add(btnbuscar);
             Controls.Add(txtindice);
             Controls.Add(txtbusqueda);
@@ -531,9 +531,9 @@
         private DataGridViewTextBoxColumn EstadoValor;
         private DataGridViewTextBoxColumn Estado;
         private FontAwesome.Sharp.IconButton btnbuscar;
-        private FontAwesome.Sharp.IconButton btnguardar;
+        private FontAwesome.Sharp.IconButton btnguardarproducto;
         private FontAwesome.Sharp.IconButton btnlimpiar;
         private FontAwesome.Sharp.IconButton btnlimpiarbuscador;
-        private FontAwesome.Sharp.IconButton btneliminar;
+        private FontAwesome.Sharp.IconButton btneliminarproducto;
     }
 }

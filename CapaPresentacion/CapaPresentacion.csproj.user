@@ -16,7 +16,16 @@
     <Compile Update="frmDetalleVentas.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="frmGrupo.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="frmNegocio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmPermiso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmPermisoUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="frmProducto.cs">
@@ -49,7 +58,19 @@
     <Compile Update="Modales\MD_AcercaDe.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Modales\MD_AgregarComponenteAGrupo.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Modales\MD_Cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Modales\MD_DetalleGrupoPermiso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Modales\MD_DetallePermisoSimple.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Modales\MD_DetallePermisoUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Modales\MD_Producto.cs">

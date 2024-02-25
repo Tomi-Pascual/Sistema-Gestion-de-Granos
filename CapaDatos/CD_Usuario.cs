@@ -41,10 +41,7 @@ namespace CapaDatos
                                 NombreCompleto = dr["NombreCompleto"].ToString(),
                                 Correo = dr["Correo"].ToString(),
                                 Clave = dr["Clave"].ToString(),
-                                Estado = Convert.ToBoolean(dr["Estado"]),
-                                ORol = new Rol() { IdRol = Convert.ToInt32(dr["IdRol"]), 
-                                Descripcion = dr["Descripcion"].ToString()}
-                                
+                                Estado = Convert.ToBoolean(dr["Estado"])                                
                             });
                             
                         }
@@ -78,7 +75,6 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("NombreCompleto",obj.NombreCompleto);
                     cmd.Parameters.AddWithValue("Correo",obj.Correo);
                     cmd.Parameters.AddWithValue("Clave",obj.Clave);
-                    cmd.Parameters.AddWithValue("IdRol",obj.ORol.IdRol);
                     cmd.Parameters.AddWithValue("Estado",obj.Estado);
 
                     //Parametros de salida
@@ -122,7 +118,6 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("NombreCompleto", obj.NombreCompleto);
                     cmd.Parameters.AddWithValue("Correo", obj.Correo);
                     cmd.Parameters.AddWithValue("Clave", obj.Clave);
-                    cmd.Parameters.AddWithValue("IdRol", obj.ORol.IdRol);
                     cmd.Parameters.AddWithValue("Estado", obj.Estado);
 
                     //Parametros de salida

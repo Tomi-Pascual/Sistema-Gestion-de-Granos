@@ -198,7 +198,7 @@ namespace CapaPresentacion
             }
             else
             {
-                MessageBox.Show("Debe de seleccionar un Proveedor antes de eliminar", "Mensaje", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Debe de seleccionar un Proveedor antes de eliminar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

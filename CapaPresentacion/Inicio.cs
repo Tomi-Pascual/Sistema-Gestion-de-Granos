@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaPresentacion.Modales;
+using CapaDatos;
 
 namespace CapaPresentación
 {
@@ -30,6 +31,7 @@ namespace CapaPresentación
             else
             {
                 usuarioActual = objusuario;
+                usuarioActual.SetPermisos(new CN_Permiso().Listar(usuarioActual.IdUsuario));
             }
 
             InitializeComponent();
@@ -37,18 +39,57 @@ namespace CapaPresentación
 
         private void Inicio_Load(object sender, EventArgs e)
         {
-            List<Permiso> listaPermisos = new CN_Permiso().Listar(usuarioActual.IdUsuario);
+            List<Permiso> listaPermisos = usuarioActual.GetPermisos();
 
-            foreach (IconMenuItem iconMenu in menu.Items)
+            foreach (IconMenuItem iconmenu in menu.Items)
             {
-                bool encontrado = listaPermisos.Any(m => m.NombreMenu == iconMenu.Name);
-                if (encontrado == false)
+                try
                 {
-                    iconMenu.Visible = false;
+                    bool encontrado = listaPermisos.Any(p => p.NombreMenu == iconmenu.Name);
+
+                    if (encontrado)
+                    {
+                        iconmenu.Visible = true;
+                    }
+                    else
+                    {
+                        iconmenu.Visible = false;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
                 }
             }
 
-            lblUsuario.Text = usuarioActual.NombreCompleto;
+            foreach (ToolStripMenuItem menu in menuseguridad.DropDownItems)
+            {
+                bool encontrado = listaPermisos.Any(p => p.NombreMenu == menu.Name);
+
+                if (encontrado)
+                {
+                    menu.Visible = true;
+                }
+                else
+                {
+                    menu.Visible = false;
+                }
+            }
+
+            foreach (ToolStripMenuItem menu in menureportes.DropDownItems)
+            {
+                bool encontrado = listaPermisos.Any(p => p.NombreMenu == menu.Name);
+
+                if (encontrado)
+                {
+                    menu.Visible = true;
+                }
+                else
+                {
+                    menu.Visible = false;
+                }
+            }
+            lblUsuario.Text = "Usuario: " + usuarioActual.NombreCompleto;
         }
 
 
@@ -74,7 +115,7 @@ namespace CapaPresentación
             formulario.Show();
         }
 
-        private void menuusuario_Click(object sender, EventArgs e)
+        private void submenuusuario_Click(object sender, EventArgs e)
         {
             AbrirFormulario((IconMenuItem)sender, new frmSeguridad());
         }
@@ -132,7 +173,6 @@ namespace CapaPresentación
         private void submenureporteventas_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menureportes, new frmReporteVentas());
-
         }
 
         private void menuacercade_Click(object sender, EventArgs e)
@@ -141,12 +181,27 @@ namespace CapaPresentación
             md.ShowDialog();
         }
 
-        private void iconButton1_Click(object sender, EventArgs e)
+        private void btnsalir_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("¿Desea Salir?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.Close();
             }
+        }
+
+        private void submenupermiso_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuseguridad, new frmPermiso(usuarioActual));
+        }
+
+        private void submenugrupo_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuseguridad, new frmGrupo(usuarioActual));
+        }
+
+        private void submenupermisousuario_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuseguridad, new frmPermisoUsuario());
         }
     }
 }

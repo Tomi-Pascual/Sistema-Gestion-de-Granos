@@ -15,7 +15,14 @@ namespace CapaNegocio
 
         public Negocio ObtenerDatos()
         {
-            return objcd_Negocio.ObtenerDatos();
+            try
+            {
+                return objcd_Negocio.ObtenerDatos();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public bool GuardarDatos(Negocio obj, out string Mensaje)
@@ -55,19 +62,40 @@ namespace CapaNegocio
             }
             else
             {
-                return objcd_Negocio.GuardarDatos(obj, out Mensaje);
+                try
+                {
+                    return objcd_Negocio.GuardarDatos(obj, out Mensaje);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
             }
 
         }
 
         public byte[] ObtenerLogo(out bool obtenido)
         {
-            return objcd_Negocio.ObtenerLogo(out obtenido);
+            try
+            {
+                return objcd_Negocio.ObtenerLogo(out obtenido);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public bool ActualizarLogo(byte[] imagen, out string mensaje)
         {
-            return objcd_Negocio.ActualizarLogo(imagen, out mensaje);
+            try
+            {
+                return objcd_Negocio.ActualizarLogo(imagen, out mensaje);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         private bool ValidarString(string input)

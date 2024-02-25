@@ -14,12 +14,26 @@ namespace CapaNegocio
 
         public List<ReporteCompra> Compra(string fechainicio, string fechafin, int idproveedor)
         {
-            return objcd_reporte.Compra(fechainicio,fechafin,idproveedor);
+            try
+            {
+                return objcd_reporte.Compra(fechainicio,fechafin,idproveedor);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public List<ReporteVenta> Venta(string fechainicio, string fechafin)
         {
-            return objcd_reporte.Venta(fechainicio, fechafin);
+            try
+            {
+                return objcd_reporte.Venta(fechainicio, fechafin);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

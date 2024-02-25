@@ -85,3 +85,10 @@ C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion D
 C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion De Granos\CapaPresentacion\bin\Debug\net6.0-windows\DocumentFormat.OpenXml.dll
 C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion De Granos\CapaPresentacion\bin\Debug\net6.0-windows\ExcelNumberFormat.dll
 C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion De Granos\CapaPresentacion\obj\Debug\net6.0-windows\CapaPresentacion.Modales.MD_AcercaDe.resources
+C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion De Granos\CapaPresentacion\obj\Debug\net6.0-windows\CapaPresentacion.frmGrupo.resources
+C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion De Granos\CapaPresentacion\obj\Debug\net6.0-windows\CapaPresentacion.frmPermiso.resources
+C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion De Granos\CapaPresentacion\obj\Debug\net6.0-windows\CapaPresentacion.frmPermisoUsuario.resources
+C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion De Granos\CapaPresentacion\obj\Debug\net6.0-windows\CapaPresentacion.Modales.MD_AgregarComponenteAGrupo.resources
+C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion De Granos\CapaPresentacion\obj\Debug\net6.0-windows\CapaPresentacion.Modales.MD_DetalleGrupoPermiso.resources
+C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion De Granos\CapaPresentacion\obj\Debug\net6.0-windows\CapaPresentacion.Modales.MD_DetallePermisoSimple.resources
+C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion De Granos\CapaPresentacion\obj\Debug\net6.0-windows\CapaPresentacion.Modales.MD_DetallePermisoUsuario.resources

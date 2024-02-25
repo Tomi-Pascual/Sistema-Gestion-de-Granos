@@ -30,6 +30,10 @@
         {
             menu = new MenuStrip();
             menuseguridad = new FontAwesome.Sharp.IconMenuItem();
+            submenuusuario = new ToolStripMenuItem();
+            submenupermiso = new ToolStripMenuItem();
+            submenugrupo = new ToolStripMenuItem();
+            submenupermisousuario = new ToolStripMenuItem();
             menuventas = new FontAwesome.Sharp.IconMenuItem();
             submenuClientes = new ToolStripMenuItem();
             submenudetventa = new ToolStripMenuItem();
@@ -50,7 +54,7 @@
             label2 = new Label();
             lblUsuario = new Label();
             menuStrip1 = new MenuStrip();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
+            btnsalir = new FontAwesome.Sharp.IconButton();
             menu.SuspendLayout();
             SuspendLayout();
             // 
@@ -68,6 +72,7 @@
             // menuseguridad
             // 
             menuseguridad.AutoSize = false;
+            menuseguridad.DropDownItems.AddRange(new ToolStripItem[] { submenuusuario, submenupermiso, submenugrupo, submenupermisousuario });
             menuseguridad.IconChar = FontAwesome.Sharp.IconChar.UsersCog;
             menuseguridad.IconColor = Color.Black;
             menuseguridad.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -77,7 +82,34 @@
             menuseguridad.Size = new Size(85, 69);
             menuseguridad.Text = "Seguridad";
             menuseguridad.TextImageRelation = TextImageRelation.ImageAboveText;
-            menuseguridad.Click += menuusuario_Click;
+            // 
+            // submenuusuario
+            // 
+            submenuusuario.Name = "submenuusuario";
+            submenuusuario.Size = new Size(231, 26);
+            submenuusuario.Text = "Usuarios";
+            submenuusuario.Click += submenuusuario_Click;
+            // 
+            // submenupermiso
+            // 
+            submenupermiso.Name = "submenupermiso";
+            submenupermiso.Size = new Size(231, 26);
+            submenupermiso.Text = "Permisos";
+            submenupermiso.Click += submenupermiso_Click;
+            // 
+            // submenugrupo
+            // 
+            submenugrupo.Name = "submenugrupo";
+            submenugrupo.Size = new Size(231, 26);
+            submenugrupo.Text = "Grupos";
+            submenugrupo.Click += submenugrupo_Click;
+            // 
+            // submenupermisousuario
+            // 
+            submenupermisousuario.Name = "submenupermisousuario";
+            submenupermisousuario.Size = new Size(231, 26);
+            submenupermisousuario.Text = "Permisos de Usuarios";
+            submenupermisousuario.Click += submenupermisousuario_Click;
             // 
             // menuventas
             // 
@@ -96,21 +128,21 @@
             // submenuClientes
             // 
             submenuClientes.Name = "submenuClientes";
-            submenuClientes.Size = new Size(192, 26);
+            submenuClientes.Size = new Size(224, 26);
             submenuClientes.Text = "Clientes";
             submenuClientes.Click += submenuClientes_Click;
             // 
             // submenudetventa
             // 
             submenudetventa.Name = "submenudetventa";
-            submenudetventa.Size = new Size(192, 26);
+            submenudetventa.Size = new Size(224, 26);
             submenudetventa.Text = "Detalle Venta";
             submenudetventa.Click += submenudetventa_Click;
             // 
             // submenuVentas
             // 
             submenuVentas.Name = "submenuVentas";
-            submenuVentas.Size = new Size(192, 26);
+            submenuVentas.Size = new Size(224, 26);
             submenuVentas.Text = "Registrar Venta";
             submenuVentas.Click += submenuVentas_Click;
             // 
@@ -265,28 +297,28 @@
             menuStrip1.TabIndex = 4;
             menuStrip1.Text = "menuStrip1";
             // 
-            // iconButton1
+            // btnsalir
             // 
-            iconButton1.BackColor = Color.DarkOrange;
-            iconButton1.FlatAppearance.BorderSize = 0;
-            iconButton1.FlatStyle = FlatStyle.Flat;
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
-            iconButton1.IconColor = Color.Black;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.IconSize = 50;
-            iconButton1.Location = new Point(1169, 10);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(72, 56);
-            iconButton1.TabIndex = 7;
-            iconButton1.UseVisualStyleBackColor = false;
-            iconButton1.Click += iconButton1_Click;
+            btnsalir.BackColor = Color.DarkOrange;
+            btnsalir.FlatAppearance.BorderSize = 0;
+            btnsalir.FlatStyle = FlatStyle.Flat;
+            btnsalir.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
+            btnsalir.IconColor = Color.Black;
+            btnsalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnsalir.IconSize = 50;
+            btnsalir.Location = new Point(1169, 10);
+            btnsalir.Name = "btnsalir";
+            btnsalir.Size = new Size(72, 56);
+            btnsalir.TabIndex = 7;
+            btnsalir.UseVisualStyleBackColor = false;
+            btnsalir.Click += btnsalir_Click;
             // 
             // Inicio
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1253, 829);
-            Controls.Add(iconButton1);
+            Controls.Add(btnsalir);
             Controls.Add(lblUsuario);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -329,7 +361,11 @@
         private ToolStripMenuItem submenureportecompras;
         private ToolStripMenuItem submenureporteventas;
         private MenuStrip menuStrip1;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton btnsalir;
+        private ToolStripMenuItem submenuusuario;
+        private ToolStripMenuItem submenupermiso;
+        private ToolStripMenuItem submenugrupo;
+        private ToolStripMenuItem submenupermisousuario;
     }
 }
 

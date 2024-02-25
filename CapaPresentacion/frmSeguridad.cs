@@ -11,11 +11,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaDatos;
+using CapaPresentacion.Modales;
 
 namespace CapaPresentacion
 {
     public partial class frmSeguridad : Form
     {
+        private CN_Usuario oCC_Usuario = new CN_Usuario();
+        private Usuario _usuarioActual;
+        public frmSeguridad(Usuario oUsuario)
+        {
+            _usuarioActual = oUsuario;
+            InitializeComponent();
+        }
         public frmSeguridad()
         {
             InitializeComponent();
@@ -30,17 +38,6 @@ namespace CapaPresentacion
             cbestado.ValueMember = "Valor";
             cbestado.SelectedIndex = 0;
 
-
-            List<Rol> listaRol = new CN_Rol().Listar();
-
-            foreach (Rol item in listaRol)
-            {
-                cbrol.Items.Add(new OpcionCombo() { Valor = item.IdRol, Texto = item.Descripcion });
-            }
-
-            cbrol.DisplayMember = "Texto";
-            cbrol.ValueMember = "Valor";
-            cbrol.SelectedIndex = 0;
 
             foreach (DataGridViewColumn columna in dgvdata.Columns)
             {
@@ -60,7 +57,7 @@ namespace CapaPresentacion
             foreach (Usuario item in listaUsuario)
             {
                 dgvdata.Rows.Add(new object[] {"", item.IdUsuario, item.Documento, item.NombreCompleto,
-                item.Correo, item.Clave, item.ORol.IdRol, item.ORol.Descripcion,
+                item.Correo, item.Clave,
                 item.Estado == true ? 1 : 0,
                 item.Estado == true ? "Activo" : "No Activo"});
             }
@@ -82,7 +79,6 @@ namespace CapaPresentacion
                 NombreCompleto = txtnombrecompleto.Text,
                 Correo = txtcorreo.Text,
                 Clave = txtclave.Text,
-                ORol = new Rol() { IdRol = Convert.ToInt32(((OpcionCombo)cbrol.SelectedItem).Valor) },
                 Estado = Convert.ToInt32(((OpcionCombo)cbestado.SelectedItem).Valor) == 1 ? true : false
             };
 
@@ -94,8 +90,6 @@ namespace CapaPresentacion
                 {
                     dgvdata.Rows.Add(new object[] {"", idusuariogenerado, txtdocumento.Text, txtnombrecompleto.Text,
                     txtcorreo.Text, txtclave.Text,
-                    ((OpcionCombo)cbrol.SelectedItem).Valor.ToString(),
-                    ((OpcionCombo)cbrol.SelectedItem).Texto.ToString(),
                     ((OpcionCombo)cbestado.SelectedItem).Valor.ToString(),
                     ((OpcionCombo)cbestado.SelectedItem).Texto.ToString(),});
 
@@ -118,8 +112,6 @@ namespace CapaPresentacion
                     row.Cells["NombreCompleto"].Value = txtnombrecompleto.Text;
                     row.Cells["Correo"].Value = txtcorreo.Text;
                     row.Cells["Clave"].Value = txtclave.Text;
-                    row.Cells["IdRol"].Value = ((OpcionCombo)cbrol.SelectedItem).Valor.ToString();
-                    row.Cells["Rol"].Value = ((OpcionCombo)cbrol.SelectedItem).Texto.ToString();
                     row.Cells["EstadoValor"].Value = ((OpcionCombo)cbestado.SelectedItem).Valor.ToString();
                     row.Cells["Estado"].Value = ((OpcionCombo)cbestado.SelectedItem).Texto.ToString();
 
@@ -141,7 +133,6 @@ namespace CapaPresentacion
             txtcorreo.Text = "";
             txtclave.Text = "";
             txtconfirmarclave.Text = "";
-            cbrol.SelectedIndex = 0;
             cbestado.SelectedIndex = 0;
 
             txtdocumento.Select();
@@ -182,16 +173,6 @@ namespace CapaPresentacion
                     txtclave.Text = dgvdata.Rows[indice].Cells["Clave"].Value.ToString();
                     txtconfirmarclave.Text = dgvdata.Rows[indice].Cells["Clave"].Value.ToString();
 
-                    foreach (OpcionCombo oc in cbrol.Items)
-                    {
-                        if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(dgvdata.Rows[indice].Cells["IdRol"].Value))
-                        {
-                            int indice_combo = cbrol.Items.IndexOf(oc);
-                            cbrol.SelectedIndex = indice_combo;
-                            break;
-                        }
-                    }
-
                     foreach (OpcionCombo oc in cbestado.Items)
                     {
                         if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(dgvdata.Rows[indice].Cells["EstadoValor"].Value))
@@ -201,10 +182,8 @@ namespace CapaPresentacion
                             break;
                         }
                     }
-
                 }
             }
-
         }
 
         private void btneliminar_Click(object sender, EventArgs e)
@@ -268,6 +247,36 @@ namespace CapaPresentacion
             foreach (DataGridViewRow row in dgvdata.Rows)
             {
                 row.Visible = true;
+            }
+        }
+
+        private void btnverpermisos_Click(object sender, EventArgs e)
+        {
+            if (txtid.Text.Trim() != "")
+            {
+                using (var modal = new MD_DetallePermisoUsuario("VerDetalle", Convert.ToInt32(txtid.Text)))
+                {
+                    var result = modal.ShowDialog();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un Usuario", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void btngestionarpermisos_Click(object sender, EventArgs e)
+        {
+            if (txtid.Text.Trim() != "")
+            {
+                using (var modal = new MD_DetallePermisoUsuario("Editar", Convert.ToInt32(txtid.Text)))
+                {
+                    var result = modal.ShowDialog();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un Usuario", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }
