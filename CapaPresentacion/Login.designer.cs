@@ -38,6 +38,7 @@
             label3 = new Label();
             btningresar = new FontAwesome.Sharp.IconButton();
             btncancelar = new FontAwesome.Sharp.IconButton();
+            label4 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -84,7 +85,7 @@
             txtusuario.Anchor = AnchorStyles.None;
             txtusuario.CharacterCasing = CharacterCasing.Lower;
             txtusuario.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtusuario.Location = new Point(329, 78);
+            txtusuario.Location = new Point(329, 100);
             txtusuario.Margin = new Padding(3, 4, 3, 4);
             txtusuario.Multiline = true;
             txtusuario.Name = "txtusuario";
@@ -108,7 +109,7 @@
             // 
             label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label2.AutoSize = true;
-            label2.Location = new Point(336, 52);
+            label2.Location = new Point(336, 74);
             label2.Name = "label2";
             label2.Size = new Size(71, 20);
             label2.TabIndex = 3;
@@ -172,6 +173,16 @@
             btncancelar.UseVisualStyleBackColor = false;
             btncancelar.Click += btncancelar_Click;
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(453, 24);
+            label4.Name = "label4";
+            label4.Size = new Size(199, 32);
+            label4.TabIndex = 7;
+            label4.Text = "Iniciar Sesión";
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -179,6 +190,7 @@
             AutoScroll = true;
             BackColor = Color.White;
             ClientSize = new Size(830, 330);
+            Controls.Add(label4);
             Controls.Add(btncancelar);
             Controls.Add(btningresar);
             Controls.Add(label3);
@@ -210,5 +222,6 @@
         private Label label3;
         private FontAwesome.Sharp.IconButton btningresar;
         private FontAwesome.Sharp.IconButton btncancelar;
+        private Label label4;
     }
 }

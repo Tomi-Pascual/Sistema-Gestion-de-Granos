@@ -37,7 +37,7 @@ namespace CapaPresentación
 
         private void Inicio_Load(object sender, EventArgs e)
         {
-            List<Permiso> listaPermisos = new CN_Permiso().Listar(usuarioActual.IdUsuario);
+            /*List<Permiso> listaPermisos = new CN_Permiso().Listar(usuarioActual.IdUsuario);
 
             foreach (IconMenuItem iconMenu in menu.Items)
             {
@@ -48,7 +48,7 @@ namespace CapaPresentación
                 }
             }
 
-            lblUsuario.Text = usuarioActual.NombreCompleto;
+            lblUsuario.Text = usuarioActual.NombreCompleto;*/
         }
 
 

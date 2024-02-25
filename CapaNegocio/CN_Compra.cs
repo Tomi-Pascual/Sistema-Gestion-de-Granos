@@ -15,12 +15,26 @@ namespace CapaNegocio
 
         public int ObtenerCorrelativo()
         {
-            return objcd_compra.ObtenerCorrelativo();
+            try
+            {
+                return objcd_compra.ObtenerCorrelativo();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public bool Registrar(Compra obj,DataTable DetalleCompra, out string Mensaje)
         {
-            return objcd_compra.Registrar(obj, DetalleCompra ,out Mensaje);
+            try
+            {
+                return objcd_compra.Registrar(obj, DetalleCompra ,out Mensaje);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public Compra ObtenerCompra(string numero)
@@ -33,7 +47,14 @@ namespace CapaNegocio
 
                 oCompra.ODetalleCompra = oDetalleCompra;
             }
-            return oCompra;
+            try
+            {
+                return oCompra;
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

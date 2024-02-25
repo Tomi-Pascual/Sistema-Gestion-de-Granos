@@ -335,7 +335,19 @@ namespace CapaPresentacion
             }
         }
 
-        private void btnbuscarprov_Click(object sender, EventArgs e)
+        private void txtpreciocompra_Click(object sender, EventArgs e)
+        {
+            txtpreciocompra.Text = "";
+            txtpreciocompra.ForeColor = SystemColors.WindowText;
+        }
+
+        private void txtprecioventa_Click(object sender, EventArgs e)
+        {
+            txtprecioventa.Text = " ";
+            txtprecioventa.ForeColor = SystemColors.WindowText;
+        }
+
+        private void btnbuscarprov_Click_1(object sender, EventArgs e)
         {
             using (var modal = new MD_Proveedor())
             {
@@ -353,18 +365,6 @@ namespace CapaPresentacion
                     txtdocproveedor.Select();
                 }
             }
-        }
-
-        private void txtpreciocompra_Click(object sender, EventArgs e)
-        {
-            txtpreciocompra.Text = "";
-            txtpreciocompra.ForeColor = SystemColors.WindowText;
-        }
-
-        private void txtprecioventa_Click(object sender, EventArgs e)
-        {
-            txtprecioventa.Text = " ";
-            txtprecioventa.ForeColor = SystemColors.WindowText;
         }
     }
 }

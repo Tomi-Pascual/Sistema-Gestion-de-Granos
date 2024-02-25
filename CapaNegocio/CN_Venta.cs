@@ -15,22 +15,50 @@ namespace CapaNegocio
 
         public int ObtenerCorrelativo()
         {
-            return objcd_venta.ObtenerCorrelativo();
+            try
+            {
+                return objcd_venta.ObtenerCorrelativo();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public bool Registrar(Venta obj, DataTable DetalleVenta, out string Mensaje)
         {
-            return objcd_venta.Registrar(obj, DetalleVenta, out Mensaje);
+            try
+            {
+                return objcd_venta.Registrar(obj, DetalleVenta, out Mensaje);
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public bool RestarStock(int idproducto, int cantidad)
         {
-            return objcd_venta.RestarStock(idproducto, cantidad);
+            try
+            {
+                return objcd_venta.RestarStock(idproducto, cantidad);   
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public bool SumarStock(int idproducto, int cantidad)
         {
-            return objcd_venta.SumarStock(idproducto, cantidad);
+            try
+            {
+                return objcd_venta.SumarStock(idproducto, cantidad);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public Venta ObtenerVenta(string numero)
@@ -42,7 +70,14 @@ namespace CapaNegocio
                 List<Detalle_Venta> oDetalleVenta = objcd_venta.ObtenerDetalleVenta(oVenta.IdVenta);
                 oVenta.ODetalleVenta = oDetalleVenta;
             }
-            return oVenta;
+            try
+            {
+                return oVenta;  
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

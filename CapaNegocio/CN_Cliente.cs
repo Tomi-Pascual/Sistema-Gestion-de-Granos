@@ -15,7 +15,14 @@ namespace CapaNegocio
 
         public List<Cliente> Listar()
         {
-            return objcd_cliente.Listar();
+            try
+            {
+                return objcd_cliente.Listar();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public int Registrar(Cliente obj, out string Mensaje)
@@ -60,7 +67,14 @@ namespace CapaNegocio
             }
             else
             {
-                return objcd_cliente.Registrar(obj, out Mensaje);
+                try
+                {
+                    return objcd_cliente.Registrar(obj, out Mensaje);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
             }
 
         }
@@ -111,13 +125,27 @@ namespace CapaNegocio
             }
             else
             {
-                return objcd_cliente.Editar(obj, out Mensaje);
+                try
+                {
+                    return objcd_cliente.Editar(obj, out Mensaje);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
             }
         }
 
         public bool Eliminar(Cliente obj, out string Mensaje)
         {
-            return objcd_cliente.Eliminar(obj, out Mensaje);
+            try
+            {
+                return objcd_cliente.Eliminar(obj, out Mensaje);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         private bool ValidarString(string input)
