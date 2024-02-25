@@ -21,13 +21,13 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select Componente.IdComponente, Nombre, TipoComponente, Estado ");
-                    query.AppendLine("from UsuarioComponente ");
-                    query.AppendLine("inner join Componente on UsuarioComponente.IdComponente = Componente.IdComponente ");
-                    query.AppendLine("where UsuarioComponente.IdUsuario = @IdUsuario");
+                    query.AppendLine("select c.IdComponente, c.Nombre, c.TipoComponente, c.Estado ");
+                    query.AppendLine("from USUARIO_COMPONENTE uc ");
+                    query.AppendLine("inner join COMPONENTE c on USUARIO_COMPONENTE.IdComponente = COMPONENTE.IdComponente ");
+                    query.AppendLine("where USUARIO_COMPONENTE.IdUsuario = @IdUsuario");
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
-                    cmd.Parameters.AddWithValue("IdUsuario", idusuario);
+                    cmd.Parameters.AddWithValue("@IdUsuario", idusuario);
                     cmd.CommandType = CommandType.Text;
 
                     oconexion.Open();
@@ -85,10 +85,10 @@ namespace CapaDatos
                         try
                         {
                             StringBuilder query = new StringBuilder();
-                            query.AppendLine("select IdPermiso, NombreMenu ");
-                            query.AppendLine("from Permiso ");
-                            query.AppendLine("inner join Componente on Permiso.IdComponente = Componente.IdComponente ");
-                            query.AppendLine("where Permiso.IdComponente = @IdComponente");
+                            query.AppendLine("select p.IdPermiso, p.NombreMenu ");
+                            query.AppendLine("from PERMISO p ");
+                            query.AppendLine("inner join COMPONENTE c on p.IdComponente = c.IdComponente ");
+                            query.AppendLine("where p.IdComponente = @IdComponente");
 
                             SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                             cmd.Parameters.AddWithValue("IdComponente", componentePermiso.IdComponente);
@@ -126,10 +126,10 @@ namespace CapaDatos
                         try
                         {
                             StringBuilder query = new StringBuilder();
-                            query.AppendLine("select GrupoPermiso.IdGrupoPermiso, Nombre ");
-                            query.AppendLine("from GrupoPermiso ");
-                            query.AppendLine("inner join Componente on GrupoPermiso.IdComponente = Componente.IdComponente ");
-                            query.AppendLine("where GrupoPermiso.IdComponente = @IdComponente");
+                            query.AppendLine("select gp.IdGrupoPermiso, gp.Nombre ");
+                            query.AppendLine("from GRUPO_PERMISO gp ");
+                            query.AppendLine("inner join COMPONENTE c on gp.IdComponente = c.IdComponente ");
+                            query.AppendLine("where gp.IdComponente = @IdComponente");
 
                             SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                             cmd.Parameters.AddWithValue("IdComponente", componenteGrupoPermiso.IdComponente);
@@ -152,10 +152,10 @@ namespace CapaDatos
                         try
                         {
                             StringBuilder query = new StringBuilder();
-                            query.AppendLine("select Componente.IdComponente, Nombre, TipoComponente, Estado ");
-                            query.AppendLine("from Componente ");
-                            query.AppendLine("inner join GrupoPermisoComponente on GrupoPermisoComponente.IdComponente = Componente.IdComponente ");
-                            query.AppendLine("where GrupoPermisoComponente.IdGrupoPermiso = @IdGrupoPermiso ");
+                            query.AppendLine("select c.IdComponente, c.Nombre, c.TipoComponente, c.Estado ");
+                            query.AppendLine("from COMPONENTE c ");
+                            query.AppendLine("inner join GRUPO_PERMISO_COMPONENTE gpc on gpc.IdComponente = c.IdComponente ");
+                            query.AppendLine("where gpc.IdGrupoPermiso = @IdGrupoPermiso ");
 
                             SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                             cmd.Parameters.AddWithValue("IdGrupoPermiso", idGrupoPermiso);
@@ -199,10 +199,10 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select Componente.IdComponente, Nombre, Estado, ");
-                    query.AppendLine("Permiso.IdPermiso, Permiso.NombreMenu");
-                    query.AppendLine("from Componente ");
-                    query.AppendLine("inner join Permiso on Componente.IdComponente = Permiso.IdComponente ");
+                    query.AppendLine("select c.IdComponente, c.Nombre, c.Estado, ");
+                    query.AppendLine("p.IdPermiso, p.NombreMenu");
+                    query.AppendLine("from COMPONENTE c ");
+                    query.AppendLine("inner join PERMISO p on c.IdComponente = p.IdComponente ");
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;

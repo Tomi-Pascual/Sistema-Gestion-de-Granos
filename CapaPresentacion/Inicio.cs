@@ -24,15 +24,8 @@ namespace CapaPresentación
 
         public Inicio(Usuario objusuario)
         {
-            if (objusuario == null)
-            {
-                usuarioActual = new Usuario() { NombreCompleto = "ADMIN", IdUsuario = 1 };
-            }
-            else
-            {
-                usuarioActual = objusuario;
-                usuarioActual.SetPermisos(new CN_Permiso().Listar(usuarioActual.IdUsuario));
-            }
+            usuarioActual = objusuario;
+            usuarioActual.SetPermisos(new CN_Permiso().Listar(usuarioActual.IdUsuario));            
 
             InitializeComponent();
         }
