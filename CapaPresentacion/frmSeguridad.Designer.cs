@@ -45,22 +45,27 @@
             cbestado = new ComboBox();
             label9 = new Label();
             dgvdata = new DataGridView();
-            btnSeleccionar = new DataGridViewButtonColumn();
-            IdUsuario = new DataGridViewTextBoxColumn();
-            Documento = new DataGridViewTextBoxColumn();
-            NombreCompleto = new DataGridViewTextBoxColumn();
-            Correo = new DataGridViewTextBoxColumn();
-            Clave = new DataGridViewTextBoxColumn();
-            IdRol = new DataGridViewTextBoxColumn();
-            Rol = new DataGridViewTextBoxColumn();
-            EstadoValor = new DataGridViewTextBoxColumn();
-            Estado = new DataGridViewTextBoxColumn();
             label10 = new Label();
             txtid = new TextBox();
             label11 = new Label();
             cbbusqueda = new ComboBox();
             txtbusqueda = new TextBox();
             txtindice = new TextBox();
+            btnlimpiarbuscador = new FontAwesome.Sharp.IconButton();
+            btnbuscar = new FontAwesome.Sharp.IconButton();
+            btneliminarusuario = new FontAwesome.Sharp.IconButton();
+            btnguardarusuario = new FontAwesome.Sharp.IconButton();
+            btnlimpiar = new FontAwesome.Sharp.IconButton();
+            btnverpermisos = new FontAwesome.Sharp.IconButton();
+            btngestionarpermisos = new FontAwesome.Sharp.IconButton();
+            btnSeleccionar = new DataGridViewButtonColumn();
+            IdUsuario = new DataGridViewTextBoxColumn();
+            Documento = new DataGridViewTextBoxColumn();
+            NombreCompleto = new DataGridViewTextBoxColumn();
+            Correo = new DataGridViewTextBoxColumn();
+            Clave = new DataGridViewTextBoxColumn();
+            EstadoValor = new DataGridViewTextBoxColumn();
+            Estado = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvdata).BeginInit();
             SuspendLayout();
             // 
@@ -165,7 +170,7 @@
             // 
             label8.AutoSize = true;
             label8.BackColor = Color.White;
-            label8.Location = new Point(12, 391);
+            label8.Location = new Point(12, 384);
             label8.Name = "label8";
             label8.Size = new Size(57, 20);
             label8.TabIndex = 12;
@@ -175,7 +180,7 @@
             // 
             cbestado.DropDownStyle = ComboBoxStyle.DropDownList;
             cbestado.FormattingEnabled = true;
-            cbestado.Location = new Point(12, 414);
+            cbestado.Location = new Point(12, 407);
             cbestado.Name = "cbestado";
             cbestado.Size = new Size(299, 28);
             cbestado.TabIndex = 14;
@@ -204,7 +209,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvdata.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvdata.Columns.AddRange(new DataGridViewColumn[] { btnSeleccionar, IdUsuario, Documento, NombreCompleto, Correo, Clave, IdRol, Rol, EstadoValor, Estado });
+            dgvdata.Columns.AddRange(new DataGridViewColumn[] { btnSeleccionar, IdUsuario, Documento, NombreCompleto, Correo, Clave, EstadoValor, Estado });
             dgvdata.Location = new Point(371, 91);
             dgvdata.MultiSelect = false;
             dgvdata.Name = "dgvdata";
@@ -223,90 +228,6 @@
             dgvdata.TabIndex = 18;
             dgvdata.CellContentClick += dgvdata_CellContentClick;
             dgvdata.CellPainting += dgvdata_CellPainting;
-            // 
-            // btnSeleccionar
-            // 
-            btnSeleccionar.HeaderText = "";
-            btnSeleccionar.MinimumWidth = 6;
-            btnSeleccionar.Name = "btnSeleccionar";
-            btnSeleccionar.ReadOnly = true;
-            btnSeleccionar.Width = 30;
-            // 
-            // IdUsuario
-            // 
-            IdUsuario.HeaderText = "IdUsuario";
-            IdUsuario.MinimumWidth = 6;
-            IdUsuario.Name = "IdUsuario";
-            IdUsuario.ReadOnly = true;
-            IdUsuario.Visible = false;
-            IdUsuario.Width = 125;
-            // 
-            // Documento
-            // 
-            Documento.HeaderText = "Nro Documento";
-            Documento.MinimumWidth = 6;
-            Documento.Name = "Documento";
-            Documento.ReadOnly = true;
-            Documento.Width = 150;
-            // 
-            // NombreCompleto
-            // 
-            NombreCompleto.HeaderText = "Nombre Completo";
-            NombreCompleto.MinimumWidth = 6;
-            NombreCompleto.Name = "NombreCompleto";
-            NombreCompleto.ReadOnly = true;
-            NombreCompleto.Width = 180;
-            // 
-            // Correo
-            // 
-            Correo.HeaderText = "Correo";
-            Correo.MinimumWidth = 6;
-            Correo.Name = "Correo";
-            Correo.ReadOnly = true;
-            Correo.Width = 150;
-            // 
-            // Clave
-            // 
-            Clave.HeaderText = "Clave";
-            Clave.MinimumWidth = 6;
-            Clave.Name = "Clave";
-            Clave.ReadOnly = true;
-            Clave.Visible = false;
-            Clave.Width = 125;
-            // 
-            // IdRol
-            // 
-            IdRol.HeaderText = "IdRol";
-            IdRol.MinimumWidth = 6;
-            IdRol.Name = "IdRol";
-            IdRol.ReadOnly = true;
-            IdRol.Visible = false;
-            IdRol.Width = 125;
-            // 
-            // Rol
-            // 
-            Rol.HeaderText = "Rol";
-            Rol.MinimumWidth = 6;
-            Rol.Name = "Rol";
-            Rol.ReadOnly = true;
-            Rol.Width = 125;
-            // 
-            // EstadoValor
-            // 
-            EstadoValor.HeaderText = "Estado Valor";
-            EstadoValor.MinimumWidth = 6;
-            EstadoValor.Name = "EstadoValor";
-            EstadoValor.ReadOnly = true;
-            EstadoValor.Visible = false;
-            EstadoValor.Width = 125;
-            // 
-            // Estado
-            // 
-            Estado.HeaderText = "Estado";
-            Estado.MinimumWidth = 6;
-            Estado.Name = "Estado";
-            Estado.ReadOnly = true;
-            Estado.Width = 125;
             // 
             // label10
             // 
@@ -362,11 +283,234 @@
             txtindice.Text = "0";
             txtindice.Visible = false;
             // 
+            // btnlimpiarbuscador
+            // 
+            btnlimpiarbuscador.BackColor = Color.DarkOrange;
+            btnlimpiarbuscador.Cursor = Cursors.Hand;
+            btnlimpiarbuscador.FlatAppearance.BorderColor = Color.Black;
+            btnlimpiarbuscador.FlatStyle = FlatStyle.Flat;
+            btnlimpiarbuscador.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            btnlimpiarbuscador.ForeColor = Color.White;
+            btnlimpiarbuscador.IconChar = FontAwesome.Sharp.IconChar.Broom;
+            btnlimpiarbuscador.IconColor = Color.White;
+            btnlimpiarbuscador.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnlimpiarbuscador.IconSize = 23;
+            btnlimpiarbuscador.Location = new Point(1189, 32);
+            btnlimpiarbuscador.Name = "btnlimpiarbuscador";
+            btnlimpiarbuscador.Size = new Size(39, 27);
+            btnlimpiarbuscador.TabIndex = 61;
+            btnlimpiarbuscador.UseVisualStyleBackColor = false;
+            btnlimpiarbuscador.Click += btnlimpiarbuscador_Click_1;
+            // 
+            // btnbuscar
+            // 
+            btnbuscar.BackColor = Color.DarkOrange;
+            btnbuscar.Cursor = Cursors.Hand;
+            btnbuscar.FlatAppearance.BorderColor = Color.Black;
+            btnbuscar.FlatStyle = FlatStyle.Flat;
+            btnbuscar.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            btnbuscar.ForeColor = Color.White;
+            btnbuscar.IconChar = FontAwesome.Sharp.IconChar.SearchLocation;
+            btnbuscar.IconColor = Color.White;
+            btnbuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnbuscar.IconSize = 22;
+            btnbuscar.Location = new Point(1142, 31);
+            btnbuscar.Name = "btnbuscar";
+            btnbuscar.Size = new Size(39, 28);
+            btnbuscar.TabIndex = 60;
+            btnbuscar.UseVisualStyleBackColor = false;
+            btnbuscar.Click += btnbuscar_Click_1;
+            // 
+            // btneliminarusuario
+            // 
+            btneliminarusuario.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btneliminarusuario.BackColor = Color.DarkOrange;
+            btneliminarusuario.Cursor = Cursors.Hand;
+            btneliminarusuario.FlatStyle = FlatStyle.Popup;
+            btneliminarusuario.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            btneliminarusuario.ForeColor = Color.White;
+            btneliminarusuario.IconChar = FontAwesome.Sharp.IconChar.Trash;
+            btneliminarusuario.IconColor = Color.White;
+            btneliminarusuario.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btneliminarusuario.IconSize = 26;
+            btneliminarusuario.Location = new Point(12, 547);
+            btneliminarusuario.Name = "btneliminarusuario";
+            btneliminarusuario.Size = new Size(299, 33);
+            btneliminarusuario.TabIndex = 82;
+            btneliminarusuario.Text = "Eliminar";
+            btneliminarusuario.TextAlign = ContentAlignment.MiddleRight;
+            btneliminarusuario.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btneliminarusuario.UseVisualStyleBackColor = false;
+            btneliminarusuario.Click += btneliminarusuario_Click;
+            // 
+            // btnguardarusuario
+            // 
+            btnguardarusuario.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnguardarusuario.BackColor = Color.DarkOrange;
+            btnguardarusuario.Cursor = Cursors.Hand;
+            btnguardarusuario.FlatStyle = FlatStyle.Popup;
+            btnguardarusuario.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            btnguardarusuario.ForeColor = Color.White;
+            btnguardarusuario.IconChar = FontAwesome.Sharp.IconChar.FloppyDisk;
+            btnguardarusuario.IconColor = Color.White;
+            btnguardarusuario.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnguardarusuario.IconSize = 24;
+            btnguardarusuario.ImageAlign = ContentAlignment.BottomCenter;
+            btnguardarusuario.Location = new Point(12, 463);
+            btnguardarusuario.Name = "btnguardarusuario";
+            btnguardarusuario.Size = new Size(299, 33);
+            btnguardarusuario.TabIndex = 81;
+            btnguardarusuario.Text = "Agregar";
+            btnguardarusuario.TextAlign = ContentAlignment.MiddleRight;
+            btnguardarusuario.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnguardarusuario.UseVisualStyleBackColor = false;
+            btnguardarusuario.Click += btnguardarusuario_Click_1;
+            // 
+            // btnlimpiar
+            // 
+            btnlimpiar.BackColor = Color.DarkOrange;
+            btnlimpiar.Cursor = Cursors.Hand;
+            btnlimpiar.FlatAppearance.BorderColor = Color.Black;
+            btnlimpiar.FlatStyle = FlatStyle.Popup;
+            btnlimpiar.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            btnlimpiar.ForeColor = Color.White;
+            btnlimpiar.IconChar = FontAwesome.Sharp.IconChar.Eraser;
+            btnlimpiar.IconColor = Color.White;
+            btnlimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnlimpiar.IconSize = 22;
+            btnlimpiar.Location = new Point(12, 505);
+            btnlimpiar.Name = "btnlimpiar";
+            btnlimpiar.Size = new Size(299, 33);
+            btnlimpiar.TabIndex = 80;
+            btnlimpiar.Text = "Limpiar";
+            btnlimpiar.TextAlign = ContentAlignment.MiddleRight;
+            btnlimpiar.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnlimpiar.UseVisualStyleBackColor = false;
+            btnlimpiar.Click += btnlimpiar_Click_1;
+            // 
+            // btnverpermisos
+            // 
+            btnverpermisos.BackColor = Color.DarkOrange;
+            btnverpermisos.Cursor = Cursors.Hand;
+            btnverpermisos.FlatAppearance.BorderColor = Color.Black;
+            btnverpermisos.FlatStyle = FlatStyle.Popup;
+            btnverpermisos.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            btnverpermisos.ForeColor = Color.White;
+            btnverpermisos.IconChar = FontAwesome.Sharp.IconChar.Unlock;
+            btnverpermisos.IconColor = Color.White;
+            btnverpermisos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnverpermisos.IconSize = 22;
+            btnverpermisos.Location = new Point(12, 590);
+            btnverpermisos.Name = "btnverpermisos";
+            btnverpermisos.Size = new Size(299, 33);
+            btnverpermisos.TabIndex = 79;
+            btnverpermisos.Text = "Ver Permisos";
+            btnverpermisos.TextAlign = ContentAlignment.MiddleRight;
+            btnverpermisos.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnverpermisos.UseVisualStyleBackColor = false;
+            btnverpermisos.Click += btnverpermisos_Click_1;
+            // 
+            // btngestionarpermisos
+            // 
+            btngestionarpermisos.BackColor = Color.DarkOrange;
+            btngestionarpermisos.Cursor = Cursors.Hand;
+            btngestionarpermisos.FlatAppearance.BorderColor = Color.Black;
+            btngestionarpermisos.FlatStyle = FlatStyle.Popup;
+            btngestionarpermisos.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            btngestionarpermisos.ForeColor = Color.White;
+            btngestionarpermisos.IconChar = FontAwesome.Sharp.IconChar.Key;
+            btngestionarpermisos.IconColor = Color.White;
+            btngestionarpermisos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btngestionarpermisos.IconSize = 22;
+            btngestionarpermisos.Location = new Point(12, 633);
+            btngestionarpermisos.Name = "btngestionarpermisos";
+            btngestionarpermisos.Size = new Size(299, 33);
+            btngestionarpermisos.TabIndex = 83;
+            btngestionarpermisos.Text = "Gestionar Permisos";
+            btngestionarpermisos.TextAlign = ContentAlignment.MiddleRight;
+            btngestionarpermisos.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btngestionarpermisos.UseVisualStyleBackColor = false;
+            btngestionarpermisos.Click += btngestionarpermisos_Click_1;
+            // 
+            // btnSeleccionar
+            // 
+            btnSeleccionar.HeaderText = "";
+            btnSeleccionar.MinimumWidth = 6;
+            btnSeleccionar.Name = "btnSeleccionar";
+            btnSeleccionar.ReadOnly = true;
+            btnSeleccionar.Width = 30;
+            // 
+            // IdUsuario
+            // 
+            IdUsuario.HeaderText = "IdUsuario";
+            IdUsuario.MinimumWidth = 6;
+            IdUsuario.Name = "IdUsuario";
+            IdUsuario.ReadOnly = true;
+            IdUsuario.Visible = false;
+            IdUsuario.Width = 125;
+            // 
+            // Documento
+            // 
+            Documento.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Documento.HeaderText = "Nro Documento";
+            Documento.MinimumWidth = 6;
+            Documento.Name = "Documento";
+            Documento.ReadOnly = true;
+            // 
+            // NombreCompleto
+            // 
+            NombreCompleto.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            NombreCompleto.HeaderText = "Nombre Completo";
+            NombreCompleto.MinimumWidth = 6;
+            NombreCompleto.Name = "NombreCompleto";
+            NombreCompleto.ReadOnly = true;
+            // 
+            // Correo
+            // 
+            Correo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Correo.HeaderText = "Correo";
+            Correo.MinimumWidth = 6;
+            Correo.Name = "Correo";
+            Correo.ReadOnly = true;
+            // 
+            // Clave
+            // 
+            Clave.HeaderText = "Clave";
+            Clave.MinimumWidth = 6;
+            Clave.Name = "Clave";
+            Clave.ReadOnly = true;
+            Clave.Visible = false;
+            Clave.Width = 125;
+            // 
+            // EstadoValor
+            // 
+            EstadoValor.HeaderText = "Estado Valor";
+            EstadoValor.MinimumWidth = 6;
+            EstadoValor.Name = "EstadoValor";
+            EstadoValor.ReadOnly = true;
+            EstadoValor.Visible = false;
+            EstadoValor.Width = 125;
+            // 
+            // Estado
+            // 
+            Estado.HeaderText = "Estado";
+            Estado.MinimumWidth = 6;
+            Estado.Name = "Estado";
+            Estado.ReadOnly = true;
+            Estado.Width = 125;
+            // 
             // frmSeguridad
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1249, 761);
+            Controls.Add(btngestionarpermisos);
+            Controls.Add(btneliminarusuario);
+            Controls.Add(btnguardarusuario);
+            Controls.Add(btnlimpiar);
+            Controls.Add(btnverpermisos);
+            Controls.Add(btnlimpiarbuscador);
+            Controls.Add(btnbuscar);
             Controls.Add(txtindice);
             Controls.Add(txtbusqueda);
             Controls.Add(cbbusqueda);
@@ -411,30 +555,37 @@
         private Label label6;
         private Label label8;
         private ComboBox cbestado;
-        private FontAwesome.Sharp.IconButton btneliminarusuario;
         private Label label9;
         private DataGridView dgvdata;
         private Label label10;
         private TextBox txtid;
+        private Label label11;
+        private ComboBox cbbusqueda;
+        private TextBox txtbusqueda;
+        private TextBox txtindice;
+        private FontAwesome.Sharp.IconButton btnlimpiarbuscador;
+        private FontAwesome.Sharp.IconButton btnbuscar;
+        private FontAwesome.Sharp.IconButton btneliminarusuario;
+        private FontAwesome.Sharp.IconButton btnguardarusuario;
+        private FontAwesome.Sharp.IconButton btnlimpiar;
+        private FontAwesome.Sharp.IconButton btnverpermisos;
+        private FontAwesome.Sharp.IconButton btngestionarpermisos;
         private DataGridViewButtonColumn btnSeleccionar;
         private DataGridViewTextBoxColumn IdUsuario;
         private DataGridViewTextBoxColumn Documento;
         private DataGridViewTextBoxColumn NombreCompleto;
         private DataGridViewTextBoxColumn Correo;
         private DataGridViewTextBoxColumn Clave;
-        private DataGridViewTextBoxColumn IdRol;
-        private DataGridViewTextBoxColumn Rol;
         private DataGridViewTextBoxColumn EstadoValor;
         private DataGridViewTextBoxColumn Estado;
-        private Label label11;
-        private ComboBox cbbusqueda;
-        private TextBox txtbusqueda;
-        private FontAwesome.Sharp.IconButton btnlimpiar;
-        private FontAwesome.Sharp.IconButton btnguardarusuario;
-        private FontAwesome.Sharp.IconButton btnbuscar;
-        private FontAwesome.Sharp.IconButton btnlimpiarbuscador;
-        private TextBox txtindice;
-        private FontAwesome.Sharp.IconButton btnverpermisos;
-        private FontAwesome.Sharp.IconButton btngestionarpermisos;
+        /*
+private FontAwesome.Sharp.IconButton btneliminarusuario;
+private FontAwesome.Sharp.IconButton btnlimpiar;
+private FontAwesome.Sharp.IconButton btnguardarusuario;
+private FontAwesome.Sharp.IconButton btnbuscar;
+private FontAwesome.Sharp.IconButton btnlimpiarbuscador;
+private FontAwesome.Sharp.IconButton btnverpermisos;
+private FontAwesome.Sharp.IconButton btngestionarpermisos;
+*/
     }
 }

@@ -22,11 +22,11 @@ namespace CapaPresentación
         private static IconMenuItem MenuActivo = null;
         private static Form FormularioActivo = null;
 
-        public Inicio(Usuario objusuario = null)
+        public Inicio(Usuario objusuario)
         {
             if (objusuario == null)
             {
-                usuarioActual = new Usuario() { NombreCompleto = "ADMIN PREDEFINIDO", IdUsuario = 1 };
+                usuarioActual = new Usuario() { NombreCompleto = "ADMIN", IdUsuario = 1 };
             }
             else
             {
