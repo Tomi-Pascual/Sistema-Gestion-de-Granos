@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace CapaEntidad
 {
-    public class Permiso
+    public class Permiso : Componente
     {
         //
         //ATRIBUTOS
         //
         private int idPermiso;
-        private Rol oRol;
         private string nombreMenu;
         private string fechaRegistro;
 
@@ -20,7 +19,6 @@ namespace CapaEntidad
         //PROPIEDADES
         //
         public int IdPermiso { get; set; }
-        public Rol ORol { get; set; }
         public string NombreMenu { get; set; }
         public string FechaRegistro { get; set; }
     }

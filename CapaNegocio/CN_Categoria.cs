@@ -15,7 +15,14 @@ namespace CapaNegocio
 
         public List<Categoria> Listar()
         {
-            return objcd_categoria.Listar();
+            try
+            {
+                return objcd_categoria.Listar();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public int Registrar(Categoria obj, out string Mensaje)
@@ -37,7 +44,14 @@ namespace CapaNegocio
             }
             else
             {
-                return objcd_categoria.Registrar(obj, out Mensaje);
+                try
+                {
+                    return objcd_categoria.Registrar(obj, out Mensaje);                    
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
             }
 
         }
@@ -61,13 +75,27 @@ namespace CapaNegocio
             }
             else
             {
-                return objcd_categoria.Editar(obj, out Mensaje);
+                try
+                {
+                    return objcd_categoria.Editar(obj, out Mensaje);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
             }
         }
 
         public bool Eliminar(Categoria obj, out string Mensaje)
         {
-            return objcd_categoria.Eliminar(obj, out Mensaje);
+            try
+            {
+                return objcd_categoria.Eliminar(obj, out Mensaje);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         private bool ValidarString(string input)

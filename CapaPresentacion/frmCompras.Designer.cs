@@ -195,6 +195,7 @@
             btnbuscarprov.Size = new Size(39, 28);
             btnbuscarprov.TabIndex = 26;
             btnbuscarprov.UseVisualStyleBackColor = false;
+            btnbuscarprov.Click += btnbuscarprov_Click_1;
             // 
             // label4
             // 
