@@ -30,6 +30,10 @@
         {
             txtmontototal = new TextBox();
             dgvproducto = new DataGridView();
+            Producto = new DataGridViewTextBoxColumn();
+            Precio = new DataGridViewTextBoxColumn();
+            Cantidad = new DataGridViewTextBoxColumn();
+            SubTotal = new DataGridViewTextBoxColumn();
             txtdoccliente = new TextBox();
             txtusuario = new TextBox();
             txttipodocumento = new TextBox();
@@ -54,10 +58,6 @@
             label10 = new Label();
             txtcambio = new TextBox();
             label11 = new Label();
-            Producto = new DataGridViewTextBoxColumn();
-            Precio = new DataGridViewTextBoxColumn();
-            Cantidad = new DataGridViewTextBoxColumn();
-            SubTotal = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvproducto).BeginInit();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -85,6 +85,34 @@
             dgvproducto.RowTemplate.Height = 29;
             dgvproducto.Size = new Size(894, 294);
             dgvproducto.TabIndex = 46;
+            // 
+            // Producto
+            // 
+            Producto.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Producto.HeaderText = "Producto";
+            Producto.MinimumWidth = 6;
+            Producto.Name = "Producto";
+            // 
+            // Precio
+            // 
+            Precio.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Precio.HeaderText = "Precio";
+            Precio.MinimumWidth = 6;
+            Precio.Name = "Precio";
+            // 
+            // Cantidad
+            // 
+            Cantidad.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Cantidad.HeaderText = "Cantidad";
+            Cantidad.MinimumWidth = 6;
+            Cantidad.Name = "Cantidad";
+            // 
+            // SubTotal
+            // 
+            SubTotal.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            SubTotal.HeaderText = "Sub Total";
+            SubTotal.MinimumWidth = 6;
+            SubTotal.Name = "SubTotal";
             // 
             // txtdoccliente
             // 
@@ -275,11 +303,11 @@
             // 
             label3.AutoSize = true;
             label3.BackColor = Color.White;
-            label3.Location = new Point(425, 64);
+            label3.Location = new Point(464, 63);
             label3.Name = "label3";
-            label3.Size = new Size(152, 20);
+            label3.Size = new Size(111, 20);
             label3.TabIndex = 40;
-            label3.Text = "Número Documento: ";
+            label3.Text = "Número Venta: ";
             // 
             // label2
             // 
@@ -343,34 +371,6 @@
             label11.Size = new Size(112, 20);
             label11.TabIndex = 51;
             label11.Text = "Monto Cambio:";
-            // 
-            // Producto
-            // 
-            Producto.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Producto.HeaderText = "Producto";
-            Producto.MinimumWidth = 6;
-            Producto.Name = "Producto";
-            // 
-            // Precio
-            // 
-            Precio.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Precio.HeaderText = "Precio";
-            Precio.MinimumWidth = 6;
-            Precio.Name = "Precio";
-            // 
-            // Cantidad
-            // 
-            Cantidad.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Cantidad.HeaderText = "Cantidad";
-            Cantidad.MinimumWidth = 6;
-            Cantidad.Name = "Cantidad";
-            // 
-            // SubTotal
-            // 
-            SubTotal.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            SubTotal.HeaderText = "Sub Total";
-            SubTotal.MinimumWidth = 6;
-            SubTotal.Name = "SubTotal";
             // 
             // frmDetalleVentas
             // 

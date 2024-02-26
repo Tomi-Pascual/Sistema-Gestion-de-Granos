@@ -41,6 +41,14 @@
             label10 = new Label();
             btnlimpiarbuscador = new FontAwesome.Sharp.IconButton();
             dgvdata = new DataGridView();
+            btnSeleccionar = new DataGridViewButtonColumn();
+            Id = new DataGridViewTextBoxColumn();
+            Documento = new DataGridViewTextBoxColumn();
+            RazonSocial = new DataGridViewTextBoxColumn();
+            Correo = new DataGridViewTextBoxColumn();
+            Telefono = new DataGridViewTextBoxColumn();
+            EstadoValor = new DataGridViewTextBoxColumn();
+            Estado = new DataGridViewTextBoxColumn();
             label9 = new Label();
             btneliminarproveedor = new FontAwesome.Sharp.IconButton();
             cbestado = new ComboBox();
@@ -54,14 +62,6 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            btnSeleccionar = new DataGridViewButtonColumn();
-            Id = new DataGridViewTextBoxColumn();
-            Documento = new DataGridViewTextBoxColumn();
-            RazonSocial = new DataGridViewTextBoxColumn();
-            Correo = new DataGridViewTextBoxColumn();
-            Telefono = new DataGridViewTextBoxColumn();
-            EstadoValor = new DataGridViewTextBoxColumn();
-            Estado = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvdata).BeginInit();
             SuspendLayout();
             // 
@@ -241,136 +241,6 @@
             dgvdata.CellContentClick += dgvdata_CellContentClick;
             dgvdata.CellPainting += dgvdata_CellPainting;
             // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.BackColor = Color.White;
-            label9.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.Location = new Point(18, 22);
-            label9.Name = "label9";
-            label9.Size = new Size(232, 29);
-            label9.TabIndex = 45;
-            label9.Text = "Detalle Proveedor";
-            // 
-            // btneliminarproveedor
-            // 
-            btneliminarproveedor.BackColor = Color.DarkOrange;
-            btneliminarproveedor.Cursor = Cursors.Hand;
-            btneliminarproveedor.FlatAppearance.BorderColor = Color.Black;
-            btneliminarproveedor.FlatStyle = FlatStyle.Flat;
-            btneliminarproveedor.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btneliminarproveedor.ForeColor = Color.White;
-            btneliminarproveedor.IconChar = FontAwesome.Sharp.IconChar.Trash;
-            btneliminarproveedor.IconColor = Color.White;
-            btneliminarproveedor.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btneliminarproveedor.IconSize = 25;
-            btneliminarproveedor.Location = new Point(18, 486);
-            btneliminarproveedor.Name = "btneliminarproveedor";
-            btneliminarproveedor.Size = new Size(299, 33);
-            btneliminarproveedor.TabIndex = 44;
-            btneliminarproveedor.Text = " Eliminar";
-            btneliminarproveedor.TextAlign = ContentAlignment.MiddleRight;
-            btneliminarproveedor.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btneliminarproveedor.UseVisualStyleBackColor = false;
-            btneliminarproveedor.Click += btneliminar_Click;
-            // 
-            // cbestado
-            // 
-            cbestado.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbestado.FormattingEnabled = true;
-            cbestado.Location = new Point(18, 344);
-            cbestado.Name = "cbestado";
-            cbestado.Size = new Size(299, 28);
-            cbestado.TabIndex = 42;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.BackColor = Color.White;
-            label8.Location = new Point(18, 321);
-            label8.Name = "label8";
-            label8.Size = new Size(57, 20);
-            label8.TabIndex = 40;
-            label8.Text = "Estado:";
-            // 
-            // txttelefono
-            // 
-            txttelefono.Location = new Point(18, 280);
-            txttelefono.Name = "txttelefono";
-            txttelefono.Size = new Size(299, 27);
-            txttelefono.TabIndex = 36;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.BackColor = Color.White;
-            label5.Location = new Point(18, 257);
-            label5.Name = "label5";
-            label5.Size = new Size(70, 20);
-            label5.TabIndex = 35;
-            label5.Text = "Telefono:";
-            // 
-            // txtcorreo
-            // 
-            txtcorreo.Location = new Point(18, 216);
-            txtcorreo.Name = "txtcorreo";
-            txtcorreo.Size = new Size(299, 27);
-            txtcorreo.TabIndex = 34;
-            // 
-            // txtrazonsocial
-            // 
-            txtrazonsocial.Location = new Point(18, 153);
-            txtrazonsocial.Name = "txtrazonsocial";
-            txtrazonsocial.Size = new Size(299, 27);
-            txtrazonsocial.TabIndex = 33;
-            // 
-            // txtdocumento
-            // 
-            txtdocumento.Location = new Point(18, 91);
-            txtdocumento.Name = "txtdocumento";
-            txtdocumento.Size = new Size(299, 27);
-            txtdocumento.TabIndex = 32;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.BackColor = Color.White;
-            label4.Location = new Point(18, 193);
-            label4.Name = "label4";
-            label4.Size = new Size(57, 20);
-            label4.TabIndex = 31;
-            label4.Text = "Correo:";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.White;
-            label3.Location = new Point(18, 130);
-            label3.Name = "label3";
-            label3.Size = new Size(97, 20);
-            label3.TabIndex = 30;
-            label3.Text = "Razon Social:";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.White;
-            label2.Location = new Point(18, 68);
-            label2.Name = "label2";
-            label2.Size = new Size(119, 20);
-            label2.TabIndex = 29;
-            label2.Text = "Nro Documento:";
-            // 
-            // label1
-            // 
-            label1.BackColor = Color.White;
-            label1.BorderStyle = BorderStyle.FixedSingle;
-            label1.Dock = DockStyle.Left;
-            label1.Location = new Point(0, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(341, 694);
-            label1.TabIndex = 27;
-            // 
             // btnSeleccionar
             // 
             btnSeleccionar.HeaderText = "";
@@ -436,6 +306,140 @@
             Estado.Name = "Estado";
             Estado.ReadOnly = true;
             Estado.Width = 125;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.BackColor = Color.White;
+            label9.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Bold, GraphicsUnit.Point);
+            label9.Location = new Point(18, 22);
+            label9.Name = "label9";
+            label9.Size = new Size(232, 29);
+            label9.TabIndex = 45;
+            label9.Text = "Detalle Proveedor";
+            // 
+            // btneliminarproveedor
+            // 
+            btneliminarproveedor.BackColor = Color.DarkOrange;
+            btneliminarproveedor.Cursor = Cursors.Hand;
+            btneliminarproveedor.FlatAppearance.BorderColor = Color.Black;
+            btneliminarproveedor.FlatStyle = FlatStyle.Flat;
+            btneliminarproveedor.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            btneliminarproveedor.ForeColor = Color.White;
+            btneliminarproveedor.IconChar = FontAwesome.Sharp.IconChar.Trash;
+            btneliminarproveedor.IconColor = Color.White;
+            btneliminarproveedor.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btneliminarproveedor.IconSize = 25;
+            btneliminarproveedor.Location = new Point(18, 486);
+            btneliminarproveedor.Name = "btneliminarproveedor";
+            btneliminarproveedor.Size = new Size(299, 33);
+            btneliminarproveedor.TabIndex = 44;
+            btneliminarproveedor.Text = " Eliminar";
+            btneliminarproveedor.TextAlign = ContentAlignment.MiddleRight;
+            btneliminarproveedor.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btneliminarproveedor.UseVisualStyleBackColor = false;
+            btneliminarproveedor.Click += btneliminar_Click;
+            // 
+            // cbestado
+            // 
+            cbestado.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbestado.FormattingEnabled = true;
+            cbestado.Location = new Point(18, 344);
+            cbestado.Name = "cbestado";
+            cbestado.Size = new Size(299, 28);
+            cbestado.TabIndex = 42;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.BackColor = Color.White;
+            label8.Location = new Point(18, 321);
+            label8.Name = "label8";
+            label8.Size = new Size(57, 20);
+            label8.TabIndex = 40;
+            label8.Text = "Estado:";
+            // 
+            // txttelefono
+            // 
+            txttelefono.Location = new Point(18, 280);
+            txttelefono.Name = "txttelefono";
+            txttelefono.Size = new Size(299, 27);
+            txttelefono.TabIndex = 36;
+            txttelefono.KeyPress += txttelefono_KeyPress;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = Color.White;
+            label5.Location = new Point(18, 257);
+            label5.Name = "label5";
+            label5.Size = new Size(70, 20);
+            label5.TabIndex = 35;
+            label5.Text = "Telefono:";
+            // 
+            // txtcorreo
+            // 
+            txtcorreo.Location = new Point(18, 216);
+            txtcorreo.Name = "txtcorreo";
+            txtcorreo.Size = new Size(299, 27);
+            txtcorreo.TabIndex = 34;
+            txtcorreo.KeyPress += txtcorreo_KeyPress;
+            // 
+            // txtrazonsocial
+            // 
+            txtrazonsocial.Location = new Point(18, 153);
+            txtrazonsocial.Name = "txtrazonsocial";
+            txtrazonsocial.Size = new Size(299, 27);
+            txtrazonsocial.TabIndex = 33;
+            txtrazonsocial.KeyPress += txtrazonsocial_KeyPress;
+            // 
+            // txtdocumento
+            // 
+            txtdocumento.Location = new Point(18, 91);
+            txtdocumento.Name = "txtdocumento";
+            txtdocumento.Size = new Size(299, 27);
+            txtdocumento.TabIndex = 32;
+            txtdocumento.KeyPress += txtdocumento_KeyPress;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = Color.White;
+            label4.Location = new Point(18, 193);
+            label4.Name = "label4";
+            label4.Size = new Size(57, 20);
+            label4.TabIndex = 31;
+            label4.Text = "Correo:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.White;
+            label3.Location = new Point(18, 130);
+            label3.Name = "label3";
+            label3.Size = new Size(97, 20);
+            label3.TabIndex = 30;
+            label3.Text = "Razon Social:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.White;
+            label2.Location = new Point(18, 68);
+            label2.Name = "label2";
+            label2.Size = new Size(119, 20);
+            label2.TabIndex = 29;
+            label2.Text = "Nro Documento:";
+            // 
+            // label1
+            // 
+            label1.BackColor = Color.White;
+            label1.BorderStyle = BorderStyle.FixedSingle;
+            label1.Dock = DockStyle.Left;
+            label1.Location = new Point(0, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(341, 694);
+            label1.TabIndex = 27;
             // 
             // frmProveedor
             // 

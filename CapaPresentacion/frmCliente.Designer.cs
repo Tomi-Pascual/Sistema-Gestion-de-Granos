@@ -365,6 +365,7 @@
             txttelefono.Name = "txttelefono";
             txttelefono.Size = new Size(299, 27);
             txttelefono.TabIndex = 36;
+            txttelefono.KeyPress += txttelefono_KeyPress;
             // 
             // label5
             // 
@@ -382,6 +383,7 @@
             txtcorreo.Name = "txtcorreo";
             txtcorreo.Size = new Size(299, 27);
             txtcorreo.TabIndex = 34;
+            txtcorreo.KeyPress += txtcorreo_KeyPress;
             // 
             // txtnombrecompleto
             // 
@@ -389,6 +391,7 @@
             txtnombrecompleto.Name = "txtnombrecompleto";
             txtnombrecompleto.Size = new Size(299, 27);
             txtnombrecompleto.TabIndex = 33;
+            txtnombrecompleto.KeyPress += txtnombrecompleto_KeyPress;
             // 
             // txtdocumento
             // 
@@ -396,6 +399,7 @@
             txtdocumento.Name = "txtdocumento";
             txtdocumento.Size = new Size(299, 27);
             txtdocumento.TabIndex = 32;
+            txtdocumento.KeyPress += txtdocumento_KeyPress;
             // 
             // label4
             // 

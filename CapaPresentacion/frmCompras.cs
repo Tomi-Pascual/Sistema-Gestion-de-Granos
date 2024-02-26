@@ -366,5 +366,29 @@ namespace CapaPresentacion
                 }
             }
         }
+
+        private void txtcodigoproducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // Esto indica que el evento ha sido manejado y el carácter no será procesado
+            }
+            else
+            {
+                e.Handled = false;
+            }
+        }
+
+        private void txtcantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // Esto indica que el evento ha sido manejado y el carácter no será procesado
+            }
+            else
+            {
+                e.Handled = false;
+            }
+        }
     }
 }

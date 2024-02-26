@@ -279,5 +279,17 @@ namespace CapaPresentacion
                 row.Visible = true;
             }
         }
+
+        private void txtcorreo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != '@' && e.KeyChar != '.' && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // Esto indica que el evento ha sido manejado y el carácter no será procesado
+            }
+            else
+            {
+                e.Handled = false;
+            }
+        }
     }
 }

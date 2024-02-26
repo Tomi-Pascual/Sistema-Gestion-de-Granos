@@ -253,6 +253,7 @@
             txtcantidad.Name = "txtcantidad";
             txtcantidad.Size = new Size(129, 27);
             txtcantidad.TabIndex = 34;
+            txtcantidad.KeyPress += txtcantidad_KeyPress;
             // 
             // label11
             // 
@@ -361,6 +362,7 @@
             txtcodigoproducto.Size = new Size(177, 27);
             txtcodigoproducto.TabIndex = 0;
             txtcodigoproducto.KeyDown += txtcodigoproducto_KeyDown;
+            txtcodigoproducto.KeyPress += txtcodigoproducto_KeyPress;
             // 
             // dgvproducto
             // 

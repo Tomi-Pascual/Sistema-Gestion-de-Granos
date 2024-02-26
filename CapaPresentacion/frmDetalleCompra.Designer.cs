@@ -85,11 +85,11 @@
             // 
             label3.AutoSize = true;
             label3.BackColor = Color.White;
-            label3.Location = new Point(398, 61);
+            label3.Location = new Point(425, 62);
             label3.Name = "label3";
-            label3.Size = new Size(152, 18);
+            label3.Size = new Size(124, 18);
             label3.TabIndex = 23;
-            label3.Text = "Número Documento: ";
+            label3.Text = "Número Compra:";
             // 
             // txtbusqueda
             // 
@@ -98,6 +98,7 @@
             txtbusqueda.Name = "txtbusqueda";
             txtbusqueda.Size = new Size(178, 28);
             txtbusqueda.TabIndex = 31;
+            txtbusqueda.KeyPress += txtbusqueda_KeyPress;
             // 
             // btnbuscar
             // 

@@ -32,6 +32,12 @@
             label12 = new Label();
             btnagregar = new FontAwesome.Sharp.IconButton();
             dgvproducto = new DataGridView();
+            IdProducto = new DataGridViewTextBoxColumn();
+            Producto = new DataGridViewTextBoxColumn();
+            Precio = new DataGridViewTextBoxColumn();
+            Cantidad = new DataGridViewTextBoxColumn();
+            SubTotal = new DataGridViewTextBoxColumn();
+            btneliminar = new DataGridViewButtonColumn();
             txtcantidad = new NumericUpDown();
             label11 = new Label();
             label9 = new Label();
@@ -63,12 +69,6 @@
             label14 = new Label();
             txtpagacon = new TextBox();
             txtcambio = new TextBox();
-            IdProducto = new DataGridViewTextBoxColumn();
-            Producto = new DataGridViewTextBoxColumn();
-            Precio = new DataGridViewTextBoxColumn();
-            Cantidad = new DataGridViewTextBoxColumn();
-            SubTotal = new DataGridViewTextBoxColumn();
-            btneliminar = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)dgvproducto).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtcantidad).BeginInit();
             groupBox1.SuspendLayout();
@@ -133,6 +133,51 @@
             dgvproducto.CellContentClick += dgvproducto_CellContentClick;
             dgvproducto.CellPainting += dgvproducto_CellPainting;
             // 
+            // IdProducto
+            // 
+            IdProducto.HeaderText = "IdProducto";
+            IdProducto.MinimumWidth = 6;
+            IdProducto.Name = "IdProducto";
+            IdProducto.Visible = false;
+            IdProducto.Width = 125;
+            // 
+            // Producto
+            // 
+            Producto.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Producto.HeaderText = "Producto";
+            Producto.MinimumWidth = 6;
+            Producto.Name = "Producto";
+            // 
+            // Precio
+            // 
+            Precio.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Precio.HeaderText = "Precio";
+            Precio.MinimumWidth = 6;
+            Precio.Name = "Precio";
+            // 
+            // Cantidad
+            // 
+            Cantidad.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Cantidad.HeaderText = "Cantidad";
+            Cantidad.MinimumWidth = 6;
+            Cantidad.Name = "Cantidad";
+            // 
+            // SubTotal
+            // 
+            SubTotal.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            SubTotal.HeaderText = "Sub Total";
+            SubTotal.MinimumWidth = 6;
+            SubTotal.Name = "SubTotal";
+            // 
+            // btneliminar
+            // 
+            btneliminar.HeaderText = "";
+            btneliminar.MinimumWidth = 6;
+            btneliminar.Name = "btneliminar";
+            btneliminar.Resizable = DataGridViewTriState.True;
+            btneliminar.SortMode = DataGridViewColumnSortMode.Automatic;
+            btneliminar.Width = 40;
+            // 
             // txtcantidad
             // 
             txtcantidad.Location = new Point(719, 64);
@@ -140,6 +185,7 @@
             txtcantidad.Size = new Size(129, 27);
             txtcantidad.TabIndex = 34;
             txtcantidad.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            txtcantidad.KeyPress += txtcantidad_KeyPress;
             // 
             // label11
             // 
@@ -382,6 +428,7 @@
             txtcodigoproducto.Size = new Size(177, 27);
             txtcodigoproducto.TabIndex = 0;
             txtcodigoproducto.KeyDown += txtcodigoproducto_KeyDown;
+            txtcodigoproducto.KeyPress += txtcodigoproducto_KeyPress;
             // 
             // groupBox3
             // 
@@ -456,51 +503,6 @@
             txtcambio.ReadOnly = true;
             txtcambio.Size = new Size(114, 27);
             txtcambio.TabIndex = 48;
-            // 
-            // IdProducto
-            // 
-            IdProducto.HeaderText = "IdProducto";
-            IdProducto.MinimumWidth = 6;
-            IdProducto.Name = "IdProducto";
-            IdProducto.Visible = false;
-            IdProducto.Width = 125;
-            // 
-            // Producto
-            // 
-            Producto.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Producto.HeaderText = "Producto";
-            Producto.MinimumWidth = 6;
-            Producto.Name = "Producto";
-            // 
-            // Precio
-            // 
-            Precio.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Precio.HeaderText = "Precio";
-            Precio.MinimumWidth = 6;
-            Precio.Name = "Precio";
-            // 
-            // Cantidad
-            // 
-            Cantidad.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Cantidad.HeaderText = "Cantidad";
-            Cantidad.MinimumWidth = 6;
-            Cantidad.Name = "Cantidad";
-            // 
-            // SubTotal
-            // 
-            SubTotal.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            SubTotal.HeaderText = "Sub Total";
-            SubTotal.MinimumWidth = 6;
-            SubTotal.Name = "SubTotal";
-            // 
-            // btneliminar
-            // 
-            btneliminar.HeaderText = "";
-            btneliminar.MinimumWidth = 6;
-            btneliminar.Name = "btneliminar";
-            btneliminar.Resizable = DataGridViewTriState.True;
-            btneliminar.SortMode = DataGridViewColumnSortMode.Automatic;
-            btneliminar.Width = 40;
             // 
             // frmVentas
             // 

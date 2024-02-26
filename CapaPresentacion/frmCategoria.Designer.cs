@@ -332,6 +332,7 @@
             txtdescripcion.Name = "txtdescripcion";
             txtdescripcion.Size = new Size(299, 27);
             txtdescripcion.TabIndex = 33;
+            txtdescripcion.KeyPress += txtdescripcion_KeyPress;
             // 
             // label2
             // 
