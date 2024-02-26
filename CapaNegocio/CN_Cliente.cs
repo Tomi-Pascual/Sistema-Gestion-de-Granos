@@ -151,7 +151,7 @@ namespace CapaNegocio
         private bool ValidarString(string input)
         {
             // Utilizar expresión regular para validar que solo se introduzcan letras
-            return Regex.IsMatch(input, "^[a-zA-Z]+$");
+            return Regex.IsMatch(input, @"^[a-zA-Z\s]+$");
         }
 
         private bool ValidarInt(string input)
@@ -163,7 +163,7 @@ namespace CapaNegocio
         private bool ValidarCorreoElectronico(string correo)
         {
             // Utilizar una expresión regular para validar el formato del correo electrónico
-            string patronCorreo = @"/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/";
+            string patronCorreo = @" / ^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/";
             return Regex.IsMatch(correo, patronCorreo);
         }
     }

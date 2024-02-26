@@ -83,9 +83,17 @@ namespace CapaPresentacion.Modales
             lbltitulo.Text = "Administrar permisos del usuario";
             btnguardarpermiso.Text = "Guardar Permisos";
 
-            txtnombrecompleto.Text = _oUsuario.NombreCompleto.ToString();
-            txtnombrecompleto.Enabled = false;
-            cbestado.Enabled = false;
+            try
+            {
+                txtnombrecompleto.Text = _oUsuario.NombreCompleto.ToString();
+                txtnombrecompleto.Enabled = false;
+                cbestado.Enabled = false;
+            }
+            catch
+            {
+                MessageBox.Show("Debe seleccionar un Usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
 
             foreach (OpcionCombo opcion in cbestado.Items)
             {
@@ -157,32 +165,39 @@ namespace CapaPresentacion.Modales
         {
             using (var modal = new MD_AgregarComponenteAGrupo())
             {
-                var resultado = modal.ShowDialog();
-
-                if (resultado == DialogResult.OK)
+                try
                 {
-                    txtid.Text = modal.oComponente.IdComponente.ToString();
+                    var resultado = modal.ShowDialog();
 
-                    foreach (DataGridViewRow row in dgvdata.Rows)
+                    if (resultado == DialogResult.OK)
                     {
-                        if (row.Cells["IdComponente"].Value.ToString() == txtid.Text)
-                        {
-                            MessageBox.Show("El componente ya se encuentra en la lista", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                        }
-                    }
+                        txtid.Text = modal.oComponente.IdComponente.ToString();
 
-                    dgvdata.Rows.Add(
-                        "",
-                        modal.oComponente.IdComponente,
-                        modal.oComponente.Nombre,
-                        modal.oComponente.TipoComponente,
-                        modal.oComponente.Estado == true ? 1 : 0,
-                        modal.oComponente.Estado == true ? "Activo" : "Inactivo"
-                        );
+                        foreach (DataGridViewRow row in dgvdata.Rows)
+                        {
+                            if (row.Cells["IdComponente"].Value.ToString() == txtid.Text)
+                            {
+                                MessageBox.Show("El componente ya se encuentra en la lista", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                        }
+
+                        dgvdata.Rows.Add(
+                            "",
+                            modal.oComponente.IdComponente,
+                            modal.oComponente.Nombre,
+                            modal.oComponente.TipoComponente,
+                            modal.oComponente.Estado == true ? 1 : 0,
+                            modal.oComponente.Estado == true ? "Activo" : "Inactivo"
+                            );
+                    }
+                    dgvdata.ClearSelection();
+                    txtid.Text = "";
                 }
-                dgvdata.ClearSelection();
-                txtid.Text = "";
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }                
             }
         }
 

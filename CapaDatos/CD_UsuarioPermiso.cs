@@ -20,10 +20,10 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select Nombre, TipoComponente, Estado, Componente.IdComponente ");
-                    query.AppendLine("from UsuarioComponente ");
-                    query.AppendLine("inner join Componente on UsuarioComponente.IdComponente = Componente.IdComponente ");
-                    query.AppendLine("where UsuarioComponente.IdUsuario = @IdUsuario");
+                    query.AppendLine("select c.Nombre, c.TipoComponente, c.Estado, c.IdComponente ");
+                    query.AppendLine("from USUARIO_COMPONENTE uc ");
+                    query.AppendLine("inner join COMPONENTE c on uc.IdComponente = c.IdComponente ");
+                    query.AppendLine("where uc.IdUsuario = @IdUsuario");
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
 
@@ -57,11 +57,11 @@ namespace CapaDatos
             bool resultado = false;
             mensaje = string.Empty;
 
-            using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("SP_EditarUsuarioPermiso", conexion);
+                    SqlCommand cmd = new SqlCommand("SP_EditarUsuarioPermiso", oconexion);
 
                     //Paramentros de Entrada
                     cmd.Parameters.AddWithValue("IdUsuario", idUsuario);
@@ -69,9 +69,12 @@ namespace CapaDatos
 
                     //Parametros de Salida
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 400).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.NVarChar, 400).Direction = ParameterDirection.Output;
 
                     cmd.CommandType = CommandType.StoredProcedure;
+
+                    oconexion.Open();
+
                     cmd.ExecuteNonQuery();
 
                     resultado = Convert.ToBoolean(cmd.Parameters["Resultado"].Value);

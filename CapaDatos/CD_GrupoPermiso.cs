@@ -20,10 +20,10 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select Componente.IdComponente, Nombre, Estado,");
-                    query.AppendLine("GrupoPermiso.IdGrupoPermiso ");
-                    query.AppendLine("from Componente ");
-                    query.AppendLine("inner join GrupoPermiso on Componente.IdComponente = GrupoPermiso.IdComponente");
+                    query.AppendLine("select c.IdComponente, c.Nombre, c.Estado,");
+                    query.AppendLine("gp.IdGrupoPermiso ");
+                    query.AppendLine("from COMPONENTE c");
+                    query.AppendLine("inner join GRUPO_PERMISO gp on c.IdComponente = gp.IdComponente");
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
@@ -63,18 +63,20 @@ namespace CapaDatos
                     StringBuilder query = new StringBuilder();
                     if (idGrupoPermiso != 0)
                     {
-                        query.AppendLine("select Nombre, TipoComponente, Estado, Componente.IdComponente ");
-                        query.AppendLine("from GrupoPermisoComponente ");
-                        query.AppendLine("inner join GrupoPermiso on GrupoPermisoComponente.IdGrupoPermiso = GrupoPermiso.IdGrupoPermiso ");
-                        query.AppendLine("inner join Componente on GrupoPermisoComponente.IdComponente = Componente.IdComponente ");
-                        query.AppendLine("where GrupoPermisoComponente.IdGrupoPermiso = @IdGrupoPermiso");
+                        query.AppendLine("select c.Nombre, c.TipoComponente, c.Estado, c.IdComponente ");
+                        query.AppendLine("from GRUPO_PERMISO_COMPONENTE gpc ");
+                        query.AppendLine("inner join GRUPO_PERMISO gp on gpc.IdGrupoPermiso = gp.IdGrupoPermiso ");
+                        query.AppendLine("inner join COMPONENTE c on gpc.IdComponente = c.IdComponente ");
+                        query.AppendLine("where gpc.IdGrupoPermiso = @IdGrupoPermiso");
                     }
                     else
                     {
                         query.AppendLine("select IdComponente, Nombre, TipoComponente, Estado ");
-                        query.AppendLine("from Componente");
+                        query.AppendLine("from COMPONENTE");
                     }
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+
+                    oconexion.Open();
 
                     SqlDataReader dr = cmd.ExecuteReader();
                     while (dr.Read())

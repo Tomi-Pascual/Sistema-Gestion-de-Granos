@@ -135,7 +135,7 @@ namespace CapaPresentacion.Modales
                 oComponente = new Componente();
                 oComponente.IdComponente = Convert.ToInt32(dgvdata.Rows[indiceFila].Cells["IdComponente"].Value.ToString());
                 oComponente.Nombre = dgvdata.Rows[indiceFila].Cells["Nombre"].Value.ToString();
-                oComponente.TipoComponente = dgvdata.Rows[indiceFila].Cells["TipoComponente"].Value.ToString();
+                oComponente.TipoComponente = dgvdata.Rows[indiceFila].Cells["TipoPermiso"].Value.ToString();
                 oComponente.Estado = Convert.ToInt32(dgvdata.Rows[indiceFila].Cells["Estado"].Value.ToString()) == 1 ? true : false;
                 this.DialogResult = DialogResult.OK;
                 this.Close();
