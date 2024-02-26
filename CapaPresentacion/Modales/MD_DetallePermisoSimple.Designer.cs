@@ -39,6 +39,7 @@
             // 
             // label10
             // 
+            label10.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label10.BackColor = Color.White;
             label10.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Regular, GraphicsUnit.Point);
             label10.Location = new Point(12, 9);
@@ -49,7 +50,6 @@
             // 
             // cbestado
             // 
-            cbestado.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             cbestado.DropDownStyle = ComboBoxStyle.DropDownList;
             cbestado.FormattingEnabled = true;
             cbestado.Location = new Point(52, 229);
@@ -69,7 +69,6 @@
             // 
             // txtnombrepermiso
             // 
-            txtnombrepermiso.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtnombrepermiso.Location = new Point(52, 88);
             txtnombrepermiso.Name = "txtnombrepermiso";
             txtnombrepermiso.Size = new Size(254, 27);
@@ -87,7 +86,6 @@
             // 
             // txtnombremenu
             // 
-            txtnombremenu.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtnombremenu.Location = new Point(52, 160);
             txtnombremenu.Name = "txtnombremenu";
             txtnombremenu.Size = new Size(254, 27);

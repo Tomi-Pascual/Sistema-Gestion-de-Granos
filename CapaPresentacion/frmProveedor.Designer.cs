@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             txtindice = new TextBox();
             btnbuscar = new FontAwesome.Sharp.IconButton();
             txtbusqueda = new TextBox();
@@ -41,14 +41,6 @@
             label10 = new Label();
             btnlimpiarbuscador = new FontAwesome.Sharp.IconButton();
             dgvdata = new DataGridView();
-            btnSeleccionar = new DataGridViewButtonColumn();
-            Id = new DataGridViewTextBoxColumn();
-            Documento = new DataGridViewTextBoxColumn();
-            RazonSocial = new DataGridViewTextBoxColumn();
-            Correo = new DataGridViewTextBoxColumn();
-            Telefono = new DataGridViewTextBoxColumn();
-            EstadoValor = new DataGridViewTextBoxColumn();
-            Estado = new DataGridViewTextBoxColumn();
             label9 = new Label();
             btneliminarproveedor = new FontAwesome.Sharp.IconButton();
             cbestado = new ComboBox();
@@ -62,6 +54,14 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
+            btnSeleccionar = new DataGridViewButtonColumn();
+            Id = new DataGridViewTextBoxColumn();
+            Documento = new DataGridViewTextBoxColumn();
+            RazonSocial = new DataGridViewTextBoxColumn();
+            Correo = new DataGridViewTextBoxColumn();
+            Telefono = new DataGridViewTextBoxColumn();
+            EstadoValor = new DataGridViewTextBoxColumn();
+            Estado = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvdata).BeginInit();
             SuspendLayout();
             // 
@@ -76,6 +76,7 @@
             // 
             // btnbuscar
             // 
+            btnbuscar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnbuscar.BackColor = Color.DarkOrange;
             btnbuscar.Cursor = Cursors.Hand;
             btnbuscar.FlatAppearance.BorderColor = Color.Black;
@@ -95,6 +96,7 @@
             // 
             // txtbusqueda
             // 
+            txtbusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             txtbusqueda.Location = new Point(933, 31);
             txtbusqueda.Name = "txtbusqueda";
             txtbusqueda.Size = new Size(200, 27);
@@ -102,6 +104,7 @@
             // 
             // cbbusqueda
             // 
+            cbbusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             cbbusqueda.DropDownStyle = ComboBoxStyle.DropDownList;
             cbbusqueda.FormattingEnabled = true;
             cbbusqueda.Location = new Point(749, 30);
@@ -111,6 +114,7 @@
             // 
             // label11
             // 
+            label11.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label11.AutoSize = true;
             label11.BackColor = Color.White;
             label11.Location = new Point(661, 33);
@@ -136,15 +140,17 @@
             btnguardarproveedor.FlatStyle = FlatStyle.Flat;
             btnguardarproveedor.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             btnguardarproveedor.ForeColor = Color.White;
-            btnguardarproveedor.IconChar = FontAwesome.Sharp.IconChar.None;
+            btnguardarproveedor.IconChar = FontAwesome.Sharp.IconChar.FloppyDisk;
             btnguardarproveedor.IconColor = Color.White;
             btnguardarproveedor.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnguardarproveedor.IconSize = 16;
+            btnguardarproveedor.IconSize = 25;
             btnguardarproveedor.Location = new Point(18, 397);
             btnguardarproveedor.Name = "btnguardarproveedor";
             btnguardarproveedor.Size = new Size(299, 33);
             btnguardarproveedor.TabIndex = 43;
             btnguardarproveedor.Text = "Guardar";
+            btnguardarproveedor.TextAlign = ContentAlignment.MiddleRight;
+            btnguardarproveedor.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnguardarproveedor.UseVisualStyleBackColor = false;
             btnguardarproveedor.Click += btnguardar_Click;
             // 
@@ -156,19 +162,23 @@
             btnlimpiar.FlatStyle = FlatStyle.Flat;
             btnlimpiar.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             btnlimpiar.ForeColor = Color.White;
-            btnlimpiar.IconChar = FontAwesome.Sharp.IconChar.None;
+            btnlimpiar.IconChar = FontAwesome.Sharp.IconChar.Eraser;
             btnlimpiar.IconColor = Color.White;
             btnlimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnlimpiar.IconSize = 25;
             btnlimpiar.Location = new Point(18, 441);
             btnlimpiar.Name = "btnlimpiar";
             btnlimpiar.Size = new Size(299, 33);
             btnlimpiar.TabIndex = 28;
             btnlimpiar.Text = "Limpiar";
+            btnlimpiar.TextAlign = ContentAlignment.MiddleRight;
+            btnlimpiar.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnlimpiar.UseVisualStyleBackColor = false;
             btnlimpiar.Click += btnlimpiar_Click;
             // 
             // label10
             // 
+            label10.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label10.BackColor = Color.White;
             label10.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Regular, GraphicsUnit.Point);
             label10.Location = new Point(377, 22);
@@ -179,6 +189,7 @@
             // 
             // btnlimpiarbuscador
             // 
+            btnlimpiarbuscador.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnlimpiarbuscador.BackColor = Color.DarkOrange;
             btnlimpiarbuscador.Cursor = Cursors.Hand;
             btnlimpiarbuscador.FlatAppearance.BorderColor = Color.Black;
@@ -199,101 +210,36 @@
             // dgvdata
             // 
             dgvdata.AllowUserToAddRows = false;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.Padding = new Padding(2);
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dgvdata.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvdata.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvdata.Columns.AddRange(new DataGridViewColumn[] { btnSeleccionar, Id, Documento, RazonSocial, Correo, Telefono, EstadoValor, Estado });
             dgvdata.Location = new Point(377, 91);
             dgvdata.MultiSelect = false;
             dgvdata.Name = "dgvdata";
             dgvdata.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Control;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dgvdata.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvdata.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvdata.RowHeadersWidth = 51;
             dgvdata.RowTemplate.Height = 28;
             dgvdata.Size = new Size(866, 558);
             dgvdata.TabIndex = 46;
             dgvdata.CellContentClick += dgvdata_CellContentClick;
             dgvdata.CellPainting += dgvdata_CellPainting;
-            // 
-            // btnSeleccionar
-            // 
-            btnSeleccionar.HeaderText = "";
-            btnSeleccionar.MinimumWidth = 6;
-            btnSeleccionar.Name = "btnSeleccionar";
-            btnSeleccionar.ReadOnly = true;
-            btnSeleccionar.Width = 30;
-            // 
-            // Id
-            // 
-            Id.HeaderText = "Id";
-            Id.MinimumWidth = 6;
-            Id.Name = "Id";
-            Id.ReadOnly = true;
-            Id.Visible = false;
-            Id.Width = 125;
-            // 
-            // Documento
-            // 
-            Documento.HeaderText = "Nro Documento";
-            Documento.MinimumWidth = 6;
-            Documento.Name = "Documento";
-            Documento.ReadOnly = true;
-            Documento.Width = 150;
-            // 
-            // RazonSocial
-            // 
-            RazonSocial.HeaderText = "Razon Social";
-            RazonSocial.MinimumWidth = 6;
-            RazonSocial.Name = "RazonSocial";
-            RazonSocial.ReadOnly = true;
-            RazonSocial.Width = 180;
-            // 
-            // Correo
-            // 
-            Correo.HeaderText = "Correo";
-            Correo.MinimumWidth = 6;
-            Correo.Name = "Correo";
-            Correo.ReadOnly = true;
-            Correo.Width = 150;
-            // 
-            // Telefono
-            // 
-            Telefono.HeaderText = "Telefono";
-            Telefono.MinimumWidth = 6;
-            Telefono.Name = "Telefono";
-            Telefono.ReadOnly = true;
-            Telefono.Width = 125;
-            // 
-            // EstadoValor
-            // 
-            EstadoValor.HeaderText = "Estado Valor";
-            EstadoValor.MinimumWidth = 6;
-            EstadoValor.Name = "EstadoValor";
-            EstadoValor.ReadOnly = true;
-            EstadoValor.Visible = false;
-            EstadoValor.Width = 125;
-            // 
-            // Estado
-            // 
-            Estado.HeaderText = "Estado";
-            Estado.MinimumWidth = 6;
-            Estado.Name = "Estado";
-            Estado.ReadOnly = true;
-            Estado.Width = 125;
             // 
             // label9
             // 
@@ -314,14 +260,17 @@
             btneliminarproveedor.FlatStyle = FlatStyle.Flat;
             btneliminarproveedor.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             btneliminarproveedor.ForeColor = Color.White;
-            btneliminarproveedor.IconChar = FontAwesome.Sharp.IconChar.None;
-            btneliminarproveedor.IconColor = Color.Black;
+            btneliminarproveedor.IconChar = FontAwesome.Sharp.IconChar.Trash;
+            btneliminarproveedor.IconColor = Color.White;
             btneliminarproveedor.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btneliminarproveedor.IconSize = 25;
             btneliminarproveedor.Location = new Point(18, 486);
             btneliminarproveedor.Name = "btneliminarproveedor";
             btneliminarproveedor.Size = new Size(299, 33);
             btneliminarproveedor.TabIndex = 44;
             btneliminarproveedor.Text = " Eliminar";
+            btneliminarproveedor.TextAlign = ContentAlignment.MiddleRight;
+            btneliminarproveedor.TextImageRelation = TextImageRelation.ImageBeforeText;
             btneliminarproveedor.UseVisualStyleBackColor = false;
             btneliminarproveedor.Click += btneliminar_Click;
             // 
@@ -421,6 +370,72 @@
             label1.Name = "label1";
             label1.Size = new Size(341, 694);
             label1.TabIndex = 27;
+            // 
+            // btnSeleccionar
+            // 
+            btnSeleccionar.HeaderText = "";
+            btnSeleccionar.MinimumWidth = 6;
+            btnSeleccionar.Name = "btnSeleccionar";
+            btnSeleccionar.ReadOnly = true;
+            btnSeleccionar.Width = 30;
+            // 
+            // Id
+            // 
+            Id.HeaderText = "Id";
+            Id.MinimumWidth = 6;
+            Id.Name = "Id";
+            Id.ReadOnly = true;
+            Id.Visible = false;
+            Id.Width = 125;
+            // 
+            // Documento
+            // 
+            Documento.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Documento.HeaderText = "Nro Documento";
+            Documento.MinimumWidth = 6;
+            Documento.Name = "Documento";
+            Documento.ReadOnly = true;
+            // 
+            // RazonSocial
+            // 
+            RazonSocial.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            RazonSocial.HeaderText = "Razon Social";
+            RazonSocial.MinimumWidth = 6;
+            RazonSocial.Name = "RazonSocial";
+            RazonSocial.ReadOnly = true;
+            // 
+            // Correo
+            // 
+            Correo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Correo.HeaderText = "Correo";
+            Correo.MinimumWidth = 6;
+            Correo.Name = "Correo";
+            Correo.ReadOnly = true;
+            // 
+            // Telefono
+            // 
+            Telefono.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Telefono.HeaderText = "Telefono";
+            Telefono.MinimumWidth = 6;
+            Telefono.Name = "Telefono";
+            Telefono.ReadOnly = true;
+            // 
+            // EstadoValor
+            // 
+            EstadoValor.HeaderText = "Estado Valor";
+            EstadoValor.MinimumWidth = 6;
+            EstadoValor.Name = "EstadoValor";
+            EstadoValor.ReadOnly = true;
+            EstadoValor.Visible = false;
+            EstadoValor.Width = 125;
+            // 
+            // Estado
+            // 
+            Estado.HeaderText = "Estado";
+            Estado.MinimumWidth = 6;
+            Estado.Name = "Estado";
+            Estado.ReadOnly = true;
+            Estado.Width = 125;
             // 
             // frmProveedor
             // 

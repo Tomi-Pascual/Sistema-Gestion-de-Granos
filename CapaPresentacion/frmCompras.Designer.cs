@@ -76,6 +76,7 @@
             // 
             // label10
             // 
+            label10.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label10.BackColor = Color.White;
             label10.BorderStyle = BorderStyle.FixedSingle;
             label10.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Regular, GraphicsUnit.Point);
@@ -364,6 +365,7 @@
             // dgvproducto
             // 
             dgvproducto.AllowUserToAddRows = false;
+            dgvproducto.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvproducto.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvproducto.Columns.AddRange(new DataGridViewColumn[] { IdProducto, Producto, PrecioCompra, PrecioVenta, Cantidad, SubTotal, btneliminar });
             dgvproducto.Location = new Point(123, 286);
@@ -385,39 +387,39 @@
             // 
             // Producto
             // 
+            Producto.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Producto.HeaderText = "Producto";
             Producto.MinimumWidth = 6;
             Producto.Name = "Producto";
-            Producto.Width = 170;
             // 
             // PrecioCompra
             // 
+            PrecioCompra.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             PrecioCompra.HeaderText = "Precio Compra";
             PrecioCompra.MinimumWidth = 6;
             PrecioCompra.Name = "PrecioCompra";
-            PrecioCompra.Width = 140;
             // 
             // PrecioVenta
             // 
+            PrecioVenta.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             PrecioVenta.HeaderText = "Precio Venta";
             PrecioVenta.MinimumWidth = 6;
             PrecioVenta.Name = "PrecioVenta";
             PrecioVenta.Visible = false;
-            PrecioVenta.Width = 125;
             // 
             // Cantidad
             // 
+            Cantidad.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Cantidad.HeaderText = "Cantidad";
             Cantidad.MinimumWidth = 6;
             Cantidad.Name = "Cantidad";
-            Cantidad.Width = 120;
             // 
             // SubTotal
             // 
+            SubTotal.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             SubTotal.HeaderText = "Sub Total";
             SubTotal.MinimumWidth = 6;
             SubTotal.Name = "SubTotal";
-            SubTotal.Width = 130;
             // 
             // btneliminar
             // 
@@ -445,6 +447,7 @@
             // 
             // label12
             // 
+            label12.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label12.AutoSize = true;
             label12.BackColor = Color.White;
             label12.Location = new Point(998, 552);
@@ -455,6 +458,7 @@
             // 
             // txttotal
             // 
+            txttotal.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             txttotal.Location = new Point(998, 577);
             txttotal.Multiline = true;
             txttotal.Name = "txttotal";
@@ -465,6 +469,7 @@
             // 
             // btnregistrar
             // 
+            btnregistrar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnregistrar.IconChar = FontAwesome.Sharp.IconChar.Tag;
             btnregistrar.IconColor = Color.DodgerBlue;
             btnregistrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -538,6 +543,11 @@
         private Label label8;
         private TextBox txtpreciocompra;
         private DataGridView dgvproducto;
+        private FontAwesome.Sharp.IconButton btnagregar;
+        private Label label12;
+        private TextBox txttotal;
+        private FontAwesome.Sharp.IconButton btnregistrar;
+        private NumericUpDown txtcantidad;
         private DataGridViewTextBoxColumn IdProducto;
         private DataGridViewTextBoxColumn Producto;
         private DataGridViewTextBoxColumn PrecioCompra;
@@ -545,10 +555,5 @@
         private DataGridViewTextBoxColumn Cantidad;
         private DataGridViewTextBoxColumn SubTotal;
         private DataGridViewButtonColumn btneliminar;
-        private FontAwesome.Sharp.IconButton btnagregar;
-        private Label label12;
-        private TextBox txttotal;
-        private FontAwesome.Sharp.IconButton btnregistrar;
-        private NumericUpDown txtcantidad;
     }
 }

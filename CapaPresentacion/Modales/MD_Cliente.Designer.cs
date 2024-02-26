@@ -36,14 +36,15 @@
             label11 = new Label();
             btnlimpiarbuscador = new FontAwesome.Sharp.IconButton();
             dgvdata = new DataGridView();
+            label10 = new Label();
             Documento = new DataGridViewTextBoxColumn();
             NombreCompleto = new DataGridViewTextBoxColumn();
-            label10 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvdata).BeginInit();
             SuspendLayout();
             // 
             // btnbuscar
             // 
+            btnbuscar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnbuscar.BackColor = Color.White;
             btnbuscar.Cursor = Cursors.Hand;
             btnbuscar.FlatAppearance.BorderColor = Color.Black;
@@ -63,6 +64,7 @@
             // 
             // txtbusqueda
             // 
+            txtbusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             txtbusqueda.Location = new Point(350, 56);
             txtbusqueda.Name = "txtbusqueda";
             txtbusqueda.Size = new Size(200, 27);
@@ -70,6 +72,7 @@
             // 
             // cbbusqueda
             // 
+            cbbusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             cbbusqueda.DropDownStyle = ComboBoxStyle.DropDownList;
             cbbusqueda.FormattingEnabled = true;
             cbbusqueda.Location = new Point(166, 55);
@@ -79,6 +82,7 @@
             // 
             // label11
             // 
+            label11.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label11.AutoSize = true;
             label11.BackColor = Color.White;
             label11.Location = new Point(78, 58);
@@ -89,6 +93,7 @@
             // 
             // btnlimpiarbuscador
             // 
+            btnlimpiarbuscador.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnlimpiarbuscador.BackColor = Color.White;
             btnlimpiarbuscador.Cursor = Cursors.Hand;
             btnlimpiarbuscador.FlatAppearance.BorderColor = Color.Black;
@@ -109,6 +114,7 @@
             // dgvdata
             // 
             dgvdata.AllowUserToAddRows = false;
+            dgvdata.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvdata.BackgroundColor = Color.White;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
@@ -139,24 +145,9 @@
             dgvdata.TabIndex = 54;
             dgvdata.CellMouseDoubleClick += dgvdata_CellMouseDoubleClick;
             // 
-            // Documento
-            // 
-            Documento.HeaderText = "Nro Documento";
-            Documento.MinimumWidth = 6;
-            Documento.Name = "Documento";
-            Documento.ReadOnly = true;
-            Documento.Width = 150;
-            // 
-            // NombreCompleto
-            // 
-            NombreCompleto.HeaderText = "Nombre Completo";
-            NombreCompleto.MinimumWidth = 6;
-            NombreCompleto.Name = "NombreCompleto";
-            NombreCompleto.ReadOnly = true;
-            NombreCompleto.Width = 180;
-            // 
             // label10
             // 
+            label10.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label10.BackColor = Color.White;
             label10.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Regular, GraphicsUnit.Point);
             label10.Location = new Point(12, 10);
@@ -164,6 +155,22 @@
             label10.Size = new Size(657, 99);
             label10.TabIndex = 55;
             label10.Text = "Lista de Clientes";
+            // 
+            // Documento
+            // 
+            Documento.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Documento.HeaderText = "Nro Documento";
+            Documento.MinimumWidth = 6;
+            Documento.Name = "Documento";
+            Documento.ReadOnly = true;
+            // 
+            // NombreCompleto
+            // 
+            NombreCompleto.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            NombreCompleto.HeaderText = "Nombre Completo";
+            NombreCompleto.MinimumWidth = 6;
+            NombreCompleto.Name = "NombreCompleto";
+            NombreCompleto.ReadOnly = true;
             // 
             // MD_Cliente
             // 

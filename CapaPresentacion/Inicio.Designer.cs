@@ -128,21 +128,21 @@
             // submenuClientes
             // 
             submenuClientes.Name = "submenuClientes";
-            submenuClientes.Size = new Size(224, 26);
+            submenuClientes.Size = new Size(192, 26);
             submenuClientes.Text = "Clientes";
             submenuClientes.Click += submenuClientes_Click;
             // 
             // submenudetventa
             // 
             submenudetventa.Name = "submenudetventa";
-            submenudetventa.Size = new Size(224, 26);
+            submenudetventa.Size = new Size(192, 26);
             submenudetventa.Text = "Detalle Venta";
             submenudetventa.Click += submenudetventa_Click;
             // 
             // submenuVentas
             // 
             submenuVentas.Name = "submenuVentas";
-            submenuVentas.Size = new Size(224, 26);
+            submenuVentas.Size = new Size(192, 26);
             submenuVentas.Text = "Registrar Venta";
             submenuVentas.Click += submenuVentas_Click;
             // 
@@ -267,9 +267,10 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label2.AutoSize = true;
             label2.BackColor = Color.DarkOrange;
-            label2.Location = new Point(975, 29);
+            label2.Location = new Point(955, 29);
             label2.Name = "label2";
             label2.Size = new Size(62, 20);
             label2.TabIndex = 5;
@@ -277,9 +278,10 @@
             // 
             // lblUsuario
             // 
+            lblUsuario.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblUsuario.AutoSize = true;
             lblUsuario.BackColor = Color.DarkOrange;
-            lblUsuario.Location = new Point(1035, 29);
+            lblUsuario.Location = new Point(1015, 29);
             lblUsuario.Name = "lblUsuario";
             lblUsuario.Size = new Size(76, 20);
             lblUsuario.TabIndex = 6;
@@ -299,6 +301,7 @@
             // 
             // btnsalir
             // 
+            btnsalir.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnsalir.BackColor = Color.DarkOrange;
             btnsalir.FlatAppearance.BorderSize = 0;
             btnsalir.FlatStyle = FlatStyle.Flat;

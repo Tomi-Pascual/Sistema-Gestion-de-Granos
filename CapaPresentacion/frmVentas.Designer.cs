@@ -32,12 +32,6 @@
             label12 = new Label();
             btnagregar = new FontAwesome.Sharp.IconButton();
             dgvproducto = new DataGridView();
-            IdProducto = new DataGridViewTextBoxColumn();
-            Producto = new DataGridViewTextBoxColumn();
-            Precio = new DataGridViewTextBoxColumn();
-            Cantidad = new DataGridViewTextBoxColumn();
-            SubTotal = new DataGridViewTextBoxColumn();
-            btneliminar = new DataGridViewButtonColumn();
             txtcantidad = new NumericUpDown();
             label11 = new Label();
             label9 = new Label();
@@ -69,6 +63,12 @@
             label14 = new Label();
             txtpagacon = new TextBox();
             txtcambio = new TextBox();
+            IdProducto = new DataGridViewTextBoxColumn();
+            Producto = new DataGridViewTextBoxColumn();
+            Precio = new DataGridViewTextBoxColumn();
+            Cantidad = new DataGridViewTextBoxColumn();
+            SubTotal = new DataGridViewTextBoxColumn();
+            btneliminar = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)dgvproducto).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtcantidad).BeginInit();
             groupBox1.SuspendLayout();
@@ -78,6 +78,7 @@
             // 
             // btnregistrar
             // 
+            btnregistrar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnregistrar.IconChar = FontAwesome.Sharp.IconChar.Tag;
             btnregistrar.IconColor = Color.DodgerBlue;
             btnregistrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -93,6 +94,7 @@
             // 
             // label12
             // 
+            label12.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label12.AutoSize = true;
             label12.BackColor = Color.White;
             label12.Location = new Point(1005, 565);
@@ -119,6 +121,7 @@
             // dgvproducto
             // 
             dgvproducto.AllowUserToAddRows = false;
+            dgvproducto.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvproducto.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvproducto.Columns.AddRange(new DataGridViewColumn[] { IdProducto, Producto, Precio, Cantidad, SubTotal, btneliminar });
             dgvproducto.Location = new Point(130, 293);
@@ -129,51 +132,6 @@
             dgvproducto.TabIndex = 40;
             dgvproducto.CellContentClick += dgvproducto_CellContentClick;
             dgvproducto.CellPainting += dgvproducto_CellPainting;
-            // 
-            // IdProducto
-            // 
-            IdProducto.HeaderText = "IdProducto";
-            IdProducto.MinimumWidth = 6;
-            IdProducto.Name = "IdProducto";
-            IdProducto.Visible = false;
-            IdProducto.Width = 125;
-            // 
-            // Producto
-            // 
-            Producto.HeaderText = "Producto";
-            Producto.MinimumWidth = 6;
-            Producto.Name = "Producto";
-            Producto.Width = 170;
-            // 
-            // Precio
-            // 
-            Precio.HeaderText = "Precio";
-            Precio.MinimumWidth = 6;
-            Precio.Name = "Precio";
-            Precio.Width = 140;
-            // 
-            // Cantidad
-            // 
-            Cantidad.HeaderText = "Cantidad";
-            Cantidad.MinimumWidth = 6;
-            Cantidad.Name = "Cantidad";
-            Cantidad.Width = 120;
-            // 
-            // SubTotal
-            // 
-            SubTotal.HeaderText = "Sub Total";
-            SubTotal.MinimumWidth = 6;
-            SubTotal.Name = "SubTotal";
-            SubTotal.Width = 130;
-            // 
-            // btneliminar
-            // 
-            btneliminar.HeaderText = "";
-            btneliminar.MinimumWidth = 6;
-            btneliminar.Name = "btneliminar";
-            btneliminar.Resizable = DataGridViewTriState.True;
-            btneliminar.SortMode = DataGridViewColumnSortMode.Automatic;
-            btneliminar.Width = 40;
             // 
             // txtcantidad
             // 
@@ -449,6 +407,7 @@
             // 
             // txttotalpagar
             // 
+            txttotalpagar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             txttotalpagar.Location = new Point(1005, 449);
             txttotalpagar.Name = "txttotalpagar";
             txttotalpagar.ReadOnly = true;
@@ -458,6 +417,7 @@
             // 
             // label13
             // 
+            label13.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label13.AutoSize = true;
             label13.BackColor = Color.White;
             label13.Location = new Point(1005, 426);
@@ -468,6 +428,7 @@
             // 
             // label14
             // 
+            label14.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label14.AutoSize = true;
             label14.BackColor = Color.White;
             label14.Location = new Point(1005, 506);
@@ -478,6 +439,7 @@
             // 
             // txtpagacon
             // 
+            txtpagacon.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             txtpagacon.Location = new Point(1005, 531);
             txtpagacon.Multiline = true;
             txtpagacon.Name = "txtpagacon";
@@ -488,11 +450,57 @@
             // 
             // txtcambio
             // 
+            txtcambio.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             txtcambio.Location = new Point(1005, 588);
             txtcambio.Name = "txtcambio";
             txtcambio.ReadOnly = true;
             txtcambio.Size = new Size(114, 27);
             txtcambio.TabIndex = 48;
+            // 
+            // IdProducto
+            // 
+            IdProducto.HeaderText = "IdProducto";
+            IdProducto.MinimumWidth = 6;
+            IdProducto.Name = "IdProducto";
+            IdProducto.Visible = false;
+            IdProducto.Width = 125;
+            // 
+            // Producto
+            // 
+            Producto.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Producto.HeaderText = "Producto";
+            Producto.MinimumWidth = 6;
+            Producto.Name = "Producto";
+            // 
+            // Precio
+            // 
+            Precio.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Precio.HeaderText = "Precio";
+            Precio.MinimumWidth = 6;
+            Precio.Name = "Precio";
+            // 
+            // Cantidad
+            // 
+            Cantidad.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Cantidad.HeaderText = "Cantidad";
+            Cantidad.MinimumWidth = 6;
+            Cantidad.Name = "Cantidad";
+            // 
+            // SubTotal
+            // 
+            SubTotal.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            SubTotal.HeaderText = "Sub Total";
+            SubTotal.MinimumWidth = 6;
+            SubTotal.Name = "SubTotal";
+            // 
+            // btneliminar
+            // 
+            btneliminar.HeaderText = "";
+            btneliminar.MinimumWidth = 6;
+            btneliminar.Name = "btneliminar";
+            btneliminar.Resizable = DataGridViewTriState.True;
+            btneliminar.SortMode = DataGridViewColumnSortMode.Automatic;
+            btneliminar.Width = 40;
             // 
             // frmVentas
             // 
@@ -534,12 +542,6 @@
         private Label label12;
         private FontAwesome.Sharp.IconButton btnagregar;
         private DataGridView dgvproducto;
-        private DataGridViewTextBoxColumn IdProducto;
-        private DataGridViewTextBoxColumn Producto;
-        private DataGridViewTextBoxColumn Precio;
-        private DataGridViewTextBoxColumn Cantidad;
-        private DataGridViewTextBoxColumn SubTotal;
-        private DataGridViewButtonColumn btneliminar;
         private NumericUpDown txtcantidad;
         private Label label11;
         private Label label9;
@@ -571,5 +573,11 @@
         private Label label14;
         private TextBox txtpagacon;
         private TextBox txtcambio;
+        private DataGridViewTextBoxColumn IdProducto;
+        private DataGridViewTextBoxColumn Producto;
+        private DataGridViewTextBoxColumn Precio;
+        private DataGridViewTextBoxColumn Cantidad;
+        private DataGridViewTextBoxColumn SubTotal;
+        private DataGridViewButtonColumn btneliminar;
     }
 }

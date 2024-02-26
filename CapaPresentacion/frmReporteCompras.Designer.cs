@@ -73,6 +73,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.BackColor = Color.White;
             label1.BorderStyle = BorderStyle.FixedSingle;
             label1.FlatStyle = FlatStyle.System;
@@ -142,6 +143,7 @@
             // 
             // label5
             // 
+            label5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label5.BackColor = Color.White;
             label5.BorderStyle = BorderStyle.FixedSingle;
             label5.FlatStyle = FlatStyle.System;
@@ -154,6 +156,7 @@
             // 
             dgvdata.AllowUserToAddRows = false;
             dgvdata.AllowUserToOrderColumns = true;
+            dgvdata.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvdata.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvdata.Columns.AddRange(new DataGridViewColumn[] { FechaRegistro, TipoDocumento, NumeroDocumento, MontoTotal, UsuarioRegistro, DocumentoProveedor, RazonSocial, CodigoProducto, NombreProducto, Categoria, PrecioCompra, PrecioVenta, Cantidad, SubTotal });
             dgvdata.Location = new Point(24, 177);
@@ -346,6 +349,7 @@
             // 
             // btndescarcar
             // 
+            btndescarcar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btndescarcar.BackColor = Color.LightGray;
             btndescarcar.Cursor = Cursors.Hand;
             btndescarcar.FlatStyle = FlatStyle.Popup;

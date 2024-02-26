@@ -30,7 +30,7 @@ namespace CapaPresentacion.Modales
             txtnombremenu.Text = oPermiso.NombreMenu;
             txtnombrepermiso.Text = oPermiso.Nombre;
 
-            cbestado.Items.Add(new OpcionCombo() { Valor= 1, Texto="Activo" });
+            cbestado.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Activo" });
             cbestado.Items.Add(new OpcionCombo() { Valor = 0, Texto = "No Activo" });
             cbestado.SelectedIndex = 0;
             cbestado.DisplayMember = "Texto";

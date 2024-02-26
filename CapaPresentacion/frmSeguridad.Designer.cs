@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -45,6 +45,14 @@
             cbestado = new ComboBox();
             label9 = new Label();
             dgvdata = new DataGridView();
+            btnSeleccionar = new DataGridViewButtonColumn();
+            IdUsuario = new DataGridViewTextBoxColumn();
+            Documento = new DataGridViewTextBoxColumn();
+            NombreCompleto = new DataGridViewTextBoxColumn();
+            Correo = new DataGridViewTextBoxColumn();
+            Clave = new DataGridViewTextBoxColumn();
+            EstadoValor = new DataGridViewTextBoxColumn();
+            Estado = new DataGridViewTextBoxColumn();
             label10 = new Label();
             txtid = new TextBox();
             label11 = new Label();
@@ -58,14 +66,6 @@
             btnlimpiar = new FontAwesome.Sharp.IconButton();
             btnverpermisos = new FontAwesome.Sharp.IconButton();
             btngestionarpermisos = new FontAwesome.Sharp.IconButton();
-            btnSeleccionar = new DataGridViewButtonColumn();
-            IdUsuario = new DataGridViewTextBoxColumn();
-            Documento = new DataGridViewTextBoxColumn();
-            NombreCompleto = new DataGridViewTextBoxColumn();
-            Correo = new DataGridViewTextBoxColumn();
-            Clave = new DataGridViewTextBoxColumn();
-            EstadoValor = new DataGridViewTextBoxColumn();
-            Estado = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvdata).BeginInit();
             SuspendLayout();
             // 
@@ -76,7 +76,7 @@
             label1.Dock = DockStyle.Left;
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(341, 761);
+            label1.Size = new Size(341, 683);
             label1.TabIndex = 0;
             // 
             // label2
@@ -199,38 +199,107 @@
             // dgvdata
             // 
             dgvdata.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvdata.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.Padding = new Padding(2);
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvdata.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvdata.Columns.AddRange(new DataGridViewColumn[] { btnSeleccionar, IdUsuario, Documento, NombreCompleto, Correo, Clave, EstadoValor, Estado });
             dgvdata.Location = new Point(371, 91);
             dgvdata.MultiSelect = false;
             dgvdata.Name = "dgvdata";
             dgvdata.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Control;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvdata.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgvdata.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgvdata.RowHeadersWidth = 51;
             dgvdata.RowTemplate.Height = 28;
-            dgvdata.Size = new Size(866, 646);
+            dgvdata.Size = new Size(857, 575);
             dgvdata.TabIndex = 18;
             dgvdata.CellContentClick += dgvdata_CellContentClick;
             dgvdata.CellPainting += dgvdata_CellPainting;
             // 
+            // btnSeleccionar
+            // 
+            btnSeleccionar.HeaderText = "";
+            btnSeleccionar.MinimumWidth = 6;
+            btnSeleccionar.Name = "btnSeleccionar";
+            btnSeleccionar.ReadOnly = true;
+            btnSeleccionar.Width = 30;
+            // 
+            // IdUsuario
+            // 
+            IdUsuario.HeaderText = "IdUsuario";
+            IdUsuario.MinimumWidth = 6;
+            IdUsuario.Name = "IdUsuario";
+            IdUsuario.ReadOnly = true;
+            IdUsuario.Visible = false;
+            IdUsuario.Width = 125;
+            // 
+            // Documento
+            // 
+            Documento.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Documento.HeaderText = "Nro Documento";
+            Documento.MinimumWidth = 6;
+            Documento.Name = "Documento";
+            Documento.ReadOnly = true;
+            // 
+            // NombreCompleto
+            // 
+            NombreCompleto.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            NombreCompleto.HeaderText = "Nombre Completo";
+            NombreCompleto.MinimumWidth = 6;
+            NombreCompleto.Name = "NombreCompleto";
+            NombreCompleto.ReadOnly = true;
+            // 
+            // Correo
+            // 
+            Correo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Correo.HeaderText = "Correo";
+            Correo.MinimumWidth = 6;
+            Correo.Name = "Correo";
+            Correo.ReadOnly = true;
+            // 
+            // Clave
+            // 
+            Clave.HeaderText = "Clave";
+            Clave.MinimumWidth = 6;
+            Clave.Name = "Clave";
+            Clave.ReadOnly = true;
+            Clave.Visible = false;
+            Clave.Width = 125;
+            // 
+            // EstadoValor
+            // 
+            EstadoValor.HeaderText = "Estado Valor";
+            EstadoValor.MinimumWidth = 6;
+            EstadoValor.Name = "EstadoValor";
+            EstadoValor.ReadOnly = true;
+            EstadoValor.Visible = false;
+            EstadoValor.Width = 125;
+            // 
+            // Estado
+            // 
+            Estado.HeaderText = "Estado";
+            Estado.MinimumWidth = 6;
+            Estado.Name = "Estado";
+            Estado.ReadOnly = true;
+            Estado.Width = 125;
+            // 
             // label10
             // 
+            label10.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label10.BackColor = Color.White;
             label10.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Regular, GraphicsUnit.Point);
             label10.Location = new Point(371, 22);
@@ -250,6 +319,7 @@
             // 
             // label11
             // 
+            label11.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label11.AutoSize = true;
             label11.BackColor = Color.White;
             label11.Location = new Point(655, 33);
@@ -260,6 +330,7 @@
             // 
             // cbbusqueda
             // 
+            cbbusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             cbbusqueda.DropDownStyle = ComboBoxStyle.DropDownList;
             cbbusqueda.FormattingEnabled = true;
             cbbusqueda.Location = new Point(743, 30);
@@ -269,6 +340,7 @@
             // 
             // txtbusqueda
             // 
+            txtbusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             txtbusqueda.Location = new Point(927, 31);
             txtbusqueda.Name = "txtbusqueda";
             txtbusqueda.Size = new Size(200, 27);
@@ -285,6 +357,7 @@
             // 
             // btnlimpiarbuscador
             // 
+            btnlimpiarbuscador.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnlimpiarbuscador.BackColor = Color.DarkOrange;
             btnlimpiarbuscador.Cursor = Cursors.Hand;
             btnlimpiarbuscador.FlatAppearance.BorderColor = Color.Black;
@@ -304,6 +377,7 @@
             // 
             // btnbuscar
             // 
+            btnbuscar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnbuscar.BackColor = Color.DarkOrange;
             btnbuscar.Cursor = Cursors.Hand;
             btnbuscar.FlatAppearance.BorderColor = Color.Black;
@@ -323,7 +397,6 @@
             // 
             // btneliminarusuario
             // 
-            btneliminarusuario.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btneliminarusuario.BackColor = Color.DarkOrange;
             btneliminarusuario.Cursor = Cursors.Hand;
             btneliminarusuario.FlatStyle = FlatStyle.Popup;
@@ -345,7 +418,6 @@
             // 
             // btnguardarusuario
             // 
-            btnguardarusuario.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnguardarusuario.BackColor = Color.DarkOrange;
             btnguardarusuario.Cursor = Cursors.Hand;
             btnguardarusuario.FlatStyle = FlatStyle.Popup;
@@ -360,7 +432,7 @@
             btnguardarusuario.Name = "btnguardarusuario";
             btnguardarusuario.Size = new Size(299, 33);
             btnguardarusuario.TabIndex = 81;
-            btnguardarusuario.Text = "Agregar";
+            btnguardarusuario.Text = "Guardar";
             btnguardarusuario.TextAlign = ContentAlignment.MiddleRight;
             btnguardarusuario.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnguardarusuario.UseVisualStyleBackColor = false;
@@ -432,78 +504,11 @@
             btngestionarpermisos.UseVisualStyleBackColor = false;
             btngestionarpermisos.Click += btngestionarpermisos_Click_1;
             // 
-            // btnSeleccionar
-            // 
-            btnSeleccionar.HeaderText = "";
-            btnSeleccionar.MinimumWidth = 6;
-            btnSeleccionar.Name = "btnSeleccionar";
-            btnSeleccionar.ReadOnly = true;
-            btnSeleccionar.Width = 30;
-            // 
-            // IdUsuario
-            // 
-            IdUsuario.HeaderText = "IdUsuario";
-            IdUsuario.MinimumWidth = 6;
-            IdUsuario.Name = "IdUsuario";
-            IdUsuario.ReadOnly = true;
-            IdUsuario.Visible = false;
-            IdUsuario.Width = 125;
-            // 
-            // Documento
-            // 
-            Documento.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Documento.HeaderText = "Nro Documento";
-            Documento.MinimumWidth = 6;
-            Documento.Name = "Documento";
-            Documento.ReadOnly = true;
-            // 
-            // NombreCompleto
-            // 
-            NombreCompleto.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            NombreCompleto.HeaderText = "Nombre Completo";
-            NombreCompleto.MinimumWidth = 6;
-            NombreCompleto.Name = "NombreCompleto";
-            NombreCompleto.ReadOnly = true;
-            // 
-            // Correo
-            // 
-            Correo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Correo.HeaderText = "Correo";
-            Correo.MinimumWidth = 6;
-            Correo.Name = "Correo";
-            Correo.ReadOnly = true;
-            // 
-            // Clave
-            // 
-            Clave.HeaderText = "Clave";
-            Clave.MinimumWidth = 6;
-            Clave.Name = "Clave";
-            Clave.ReadOnly = true;
-            Clave.Visible = false;
-            Clave.Width = 125;
-            // 
-            // EstadoValor
-            // 
-            EstadoValor.HeaderText = "Estado Valor";
-            EstadoValor.MinimumWidth = 6;
-            EstadoValor.Name = "EstadoValor";
-            EstadoValor.ReadOnly = true;
-            EstadoValor.Visible = false;
-            EstadoValor.Width = 125;
-            // 
-            // Estado
-            // 
-            Estado.HeaderText = "Estado";
-            Estado.MinimumWidth = 6;
-            Estado.Name = "Estado";
-            Estado.ReadOnly = true;
-            Estado.Width = 125;
-            // 
             // frmSeguridad
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1249, 761);
+            ClientSize = new Size(1249, 683);
             Controls.Add(btngestionarpermisos);
             Controls.Add(btneliminarusuario);
             Controls.Add(btnguardarusuario);

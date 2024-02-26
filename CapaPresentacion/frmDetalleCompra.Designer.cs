@@ -61,6 +61,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label1.BackColor = Color.White;
             label1.BorderStyle = BorderStyle.FixedSingle;
             label1.Location = new Point(106, 8);
@@ -267,6 +268,7 @@
             // dgvproducto
             // 
             dgvproducto.AllowUserToAddRows = false;
+            dgvproducto.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvproducto.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvproducto.Columns.AddRange(new DataGridViewColumn[] { Producto, PrecioCompra, Cantidad, SubTotal });
             dgvproducto.Location = new Point(242, 321);
@@ -278,34 +280,35 @@
             // 
             // Producto
             // 
+            Producto.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Producto.HeaderText = "Producto";
             Producto.MinimumWidth = 6;
             Producto.Name = "Producto";
-            Producto.Width = 190;
             // 
             // PrecioCompra
             // 
+            PrecioCompra.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             PrecioCompra.HeaderText = "Precio Compra";
             PrecioCompra.MinimumWidth = 6;
             PrecioCompra.Name = "PrecioCompra";
-            PrecioCompra.Width = 160;
             // 
             // Cantidad
             // 
+            Cantidad.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Cantidad.HeaderText = "Cantidad";
             Cantidad.MinimumWidth = 6;
             Cantidad.Name = "Cantidad";
-            Cantidad.Width = 140;
             // 
             // SubTotal
             // 
+            SubTotal.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             SubTotal.HeaderText = "Sub Total";
             SubTotal.MinimumWidth = 6;
             SubTotal.Name = "SubTotal";
-            SubTotal.Width = 150;
             // 
             // label9
             // 
+            label9.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label9.AutoSize = true;
             label9.BackColor = Color.White;
             label9.Location = new Point(242, 634);
@@ -316,6 +319,7 @@
             // 
             // txtmontototal
             // 
+            txtmontototal.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             txtmontototal.Location = new Point(334, 631);
             txtmontototal.Name = "txtmontototal";
             txtmontototal.ReadOnly = true;
@@ -374,11 +378,11 @@
         private Label label8;
         private TextBox txtdocproveedor;
         private DataGridView dgvproducto;
+        private Label label9;
+        private TextBox txtmontototal;
         private DataGridViewTextBoxColumn Producto;
         private DataGridViewTextBoxColumn PrecioCompra;
         private DataGridViewTextBoxColumn Cantidad;
         private DataGridViewTextBoxColumn SubTotal;
-        private Label label9;
-        private TextBox txtmontototal;
     }
 }

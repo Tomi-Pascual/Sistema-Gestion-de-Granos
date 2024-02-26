@@ -423,7 +423,7 @@ namespace CapaPresentacion
                     MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            catch 
+            catch
             {
                 MessageBox.Show("Error al registrar la venta\nPor favor, intentelo de nuevo", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }

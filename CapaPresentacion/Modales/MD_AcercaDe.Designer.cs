@@ -112,6 +112,7 @@
             // 
             // label6
             // 
+            label6.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label6.AutoSize = true;
             label6.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label6.Location = new Point(242, 179);
@@ -122,6 +123,7 @@
             // 
             // label7
             // 
+            label7.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label7.AutoSize = true;
             label7.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label7.Location = new Point(12, 216);
@@ -132,6 +134,7 @@
             // 
             // label8
             // 
+            label8.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label8.AutoSize = true;
             label8.Location = new Point(12, 236);
             label8.Name = "label8";
@@ -141,6 +144,7 @@
             // 
             // label9
             // 
+            label9.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label9.AutoSize = true;
             label9.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label9.Location = new Point(12, 276);
@@ -151,6 +155,7 @@
             // 
             // label10
             // 
+            label10.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label10.AutoSize = true;
             label10.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label10.Location = new Point(12, 296);
@@ -161,6 +166,7 @@
             // 
             // label11
             // 
+            label11.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label11.AutoSize = true;
             label11.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label11.Location = new Point(12, 335);
@@ -171,6 +177,7 @@
             // 
             // label12
             // 
+            label12.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label12.AutoSize = true;
             label12.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label12.Location = new Point(12, 355);
@@ -181,6 +188,7 @@
             // 
             // label13
             // 
+            label13.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label13.AutoSize = true;
             label13.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label13.Location = new Point(290, 410);
@@ -191,6 +199,7 @@
             // 
             // label14
             // 
+            label14.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label14.AutoSize = true;
             label14.Location = new Point(12, 443);
             label14.Name = "label14";
@@ -200,6 +209,7 @@
             // 
             // label15
             // 
+            label15.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label15.AutoSize = true;
             label15.Location = new Point(44, 481);
             label15.Name = "label15";
@@ -209,6 +219,7 @@
             // 
             // label16
             // 
+            label16.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label16.AutoSize = true;
             label16.Location = new Point(44, 511);
             label16.Name = "label16";
@@ -218,6 +229,7 @@
             // 
             // label17
             // 
+            label17.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label17.AutoSize = true;
             label17.Location = new Point(44, 542);
             label17.Name = "label17";
@@ -227,6 +239,7 @@
             // 
             // label18
             // 
+            label18.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label18.AutoSize = true;
             label18.Location = new Point(44, 574);
             label18.Name = "label18";

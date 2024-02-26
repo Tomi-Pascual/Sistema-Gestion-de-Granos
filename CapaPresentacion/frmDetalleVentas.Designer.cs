@@ -30,10 +30,6 @@
         {
             txtmontototal = new TextBox();
             dgvproducto = new DataGridView();
-            Producto = new DataGridViewTextBoxColumn();
-            Precio = new DataGridViewTextBoxColumn();
-            Cantidad = new DataGridViewTextBoxColumn();
-            SubTotal = new DataGridViewTextBoxColumn();
             txtdoccliente = new TextBox();
             txtusuario = new TextBox();
             txttipodocumento = new TextBox();
@@ -58,6 +54,10 @@
             label10 = new Label();
             txtcambio = new TextBox();
             label11 = new Label();
+            Producto = new DataGridViewTextBoxColumn();
+            Precio = new DataGridViewTextBoxColumn();
+            Cantidad = new DataGridViewTextBoxColumn();
+            SubTotal = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvproducto).BeginInit();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -65,7 +65,8 @@
             // 
             // txtmontototal
             // 
-            txtmontototal.Location = new Point(341, 634);
+            txtmontototal.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            txtmontototal.Location = new Point(376, 634);
             txtmontototal.Name = "txtmontototal";
             txtmontototal.ReadOnly = true;
             txtmontototal.Size = new Size(106, 27);
@@ -75,42 +76,15 @@
             // dgvproducto
             // 
             dgvproducto.AllowUserToAddRows = false;
+            dgvproducto.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvproducto.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvproducto.Columns.AddRange(new DataGridViewColumn[] { Producto, Precio, Cantidad, SubTotal });
-            dgvproducto.Location = new Point(245, 323);
+            dgvproducto.Location = new Point(173, 323);
             dgvproducto.Name = "dgvproducto";
             dgvproducto.RowHeadersWidth = 51;
             dgvproducto.RowTemplate.Height = 29;
-            dgvproducto.Size = new Size(726, 294);
+            dgvproducto.Size = new Size(894, 294);
             dgvproducto.TabIndex = 46;
-            // 
-            // Producto
-            // 
-            Producto.HeaderText = "Producto";
-            Producto.MinimumWidth = 6;
-            Producto.Name = "Producto";
-            Producto.Width = 190;
-            // 
-            // Precio
-            // 
-            Precio.HeaderText = "Precio";
-            Precio.MinimumWidth = 6;
-            Precio.Name = "Precio";
-            Precio.Width = 160;
-            // 
-            // Cantidad
-            // 
-            Cantidad.HeaderText = "Cantidad";
-            Cantidad.MinimumWidth = 6;
-            Cantidad.Name = "Cantidad";
-            Cantidad.Width = 150;
-            // 
-            // SubTotal
-            // 
-            SubTotal.HeaderText = "Sub Total";
-            SubTotal.MinimumWidth = 6;
-            SubTotal.Name = "SubTotal";
-            SubTotal.Width = 150;
             // 
             // txtdoccliente
             // 
@@ -199,9 +173,10 @@
             // 
             // label9
             // 
+            label9.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label9.AutoSize = true;
             label9.BackColor = Color.White;
-            label9.Location = new Point(242, 636);
+            label9.Location = new Point(277, 636);
             label9.Name = "label9";
             label9.Size = new Size(93, 20);
             label9.TabIndex = 47;
@@ -215,7 +190,7 @@
             groupBox2.Controls.Add(label7);
             groupBox2.Controls.Add(label8);
             groupBox2.Controls.Add(txtdoccliente);
-            groupBox2.Location = new Point(245, 212);
+            groupBox2.Location = new Point(267, 216);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(726, 99);
             groupBox2.TabIndex = 41;
@@ -239,7 +214,7 @@
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(txtfecha);
-            groupBox1.Location = new Point(243, 106);
+            groupBox1.Location = new Point(265, 110);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(726, 99);
             groupBox1.TabIndex = 45;
@@ -258,7 +233,7 @@
             btnlimpiar.IconColor = Color.Black;
             btnlimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnlimpiar.IconSize = 22;
-            btnlimpiar.Location = new Point(857, 58);
+            btnlimpiar.Location = new Point(881, 59);
             btnlimpiar.Name = "btnlimpiar";
             btnlimpiar.Size = new Size(112, 28);
             btnlimpiar.TabIndex = 44;
@@ -279,7 +254,7 @@
             btnbuscar.IconColor = Color.Black;
             btnbuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnbuscar.IconSize = 22;
-            btnbuscar.Location = new Point(739, 58);
+            btnbuscar.Location = new Point(763, 59);
             btnbuscar.Name = "btnbuscar";
             btnbuscar.Size = new Size(112, 28);
             btnbuscar.TabIndex = 43;
@@ -290,7 +265,7 @@
             // 
             // txtbusqueda
             // 
-            txtbusqueda.Location = new Point(555, 58);
+            txtbusqueda.Location = new Point(579, 59);
             txtbusqueda.Multiline = true;
             txtbusqueda.Name = "txtbusqueda";
             txtbusqueda.Size = new Size(178, 28);
@@ -300,7 +275,7 @@
             // 
             label3.AutoSize = true;
             label3.BackColor = Color.White;
-            label3.Location = new Point(401, 63);
+            label3.Location = new Point(425, 64);
             label3.Name = "label3";
             label3.Size = new Size(152, 20);
             label3.TabIndex = 40;
@@ -319,6 +294,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label1.BackColor = Color.White;
             label1.BorderStyle = BorderStyle.FixedSingle;
             label1.Location = new Point(109, 10);
@@ -328,7 +304,8 @@
             // 
             // txtpago
             // 
-            txtpago.Location = new Point(564, 635);
+            txtpago.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            txtpago.Location = new Point(599, 635);
             txtpago.Name = "txtpago";
             txtpago.ReadOnly = true;
             txtpago.Size = new Size(106, 27);
@@ -337,9 +314,10 @@
             // 
             // label10
             // 
+            label10.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label10.AutoSize = true;
             label10.BackColor = Color.White;
-            label10.Location = new Point(465, 637);
+            label10.Location = new Point(500, 637);
             label10.Name = "label10";
             label10.Size = new Size(93, 20);
             label10.TabIndex = 49;
@@ -347,7 +325,8 @@
             // 
             // txtcambio
             // 
-            txtcambio.Location = new Point(811, 635);
+            txtcambio.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            txtcambio.Location = new Point(846, 635);
             txtcambio.Name = "txtcambio";
             txtcambio.ReadOnly = true;
             txtcambio.Size = new Size(106, 27);
@@ -356,13 +335,42 @@
             // 
             // label11
             // 
+            label11.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label11.AutoSize = true;
             label11.BackColor = Color.White;
-            label11.Location = new Point(693, 637);
+            label11.Location = new Point(728, 637);
             label11.Name = "label11";
             label11.Size = new Size(112, 20);
             label11.TabIndex = 51;
             label11.Text = "Monto Cambio:";
+            // 
+            // Producto
+            // 
+            Producto.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Producto.HeaderText = "Producto";
+            Producto.MinimumWidth = 6;
+            Producto.Name = "Producto";
+            // 
+            // Precio
+            // 
+            Precio.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Precio.HeaderText = "Precio";
+            Precio.MinimumWidth = 6;
+            Precio.Name = "Precio";
+            // 
+            // Cantidad
+            // 
+            Cantidad.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Cantidad.HeaderText = "Cantidad";
+            Cantidad.MinimumWidth = 6;
+            Cantidad.Name = "Cantidad";
+            // 
+            // SubTotal
+            // 
+            SubTotal.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            SubTotal.HeaderText = "Sub Total";
+            SubTotal.MinimumWidth = 6;
+            SubTotal.Name = "SubTotal";
             // 
             // frmDetalleVentas
             // 
@@ -420,13 +428,13 @@
         private Label label3;
         private Label label2;
         private Label label1;
-        private DataGridViewTextBoxColumn Producto;
-        private DataGridViewTextBoxColumn Precio;
-        private DataGridViewTextBoxColumn Cantidad;
-        private DataGridViewTextBoxColumn SubTotal;
         private TextBox txtpago;
         private Label label10;
         private TextBox txtcambio;
         private Label label11;
+        private DataGridViewTextBoxColumn Producto;
+        private DataGridViewTextBoxColumn Precio;
+        private DataGridViewTextBoxColumn Cantidad;
+        private DataGridViewTextBoxColumn SubTotal;
     }
 }

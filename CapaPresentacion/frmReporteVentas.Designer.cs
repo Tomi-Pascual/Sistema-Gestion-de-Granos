@@ -61,12 +61,13 @@
             // 
             // label5
             // 
+            label5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label5.BackColor = Color.White;
             label5.BorderStyle = BorderStyle.FixedSingle;
             label5.FlatStyle = FlatStyle.System;
             label5.Location = new Point(12, 112);
             label5.Name = "label5";
-            label5.Size = new Size(1225, 573);
+            label5.Size = new Size(1221, 573);
             label5.TabIndex = 93;
             // 
             // dtpfechafin
@@ -122,13 +123,14 @@
             // 
             dgvdata.AllowUserToAddRows = false;
             dgvdata.AllowUserToOrderColumns = true;
+            dgvdata.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvdata.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvdata.Columns.AddRange(new DataGridViewColumn[] { FechaRegistro, TipoDocumento, NumeroDocumento, MontoTotal, UsuarioRegistro, DocumentoCliente, NombreCliente, CodigoProducto, NombreProducto, Categoria, PrecioVenta, Cantidad, SubTotal });
             dgvdata.Location = new Point(24, 177);
             dgvdata.Name = "dgvdata";
             dgvdata.RowHeadersWidth = 51;
             dgvdata.RowTemplate.Height = 29;
-            dgvdata.Size = new Size(1203, 490);
+            dgvdata.Size = new Size(1197, 487);
             dgvdata.TabIndex = 94;
             // 
             // FechaRegistro
@@ -224,16 +226,18 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.BackColor = Color.White;
             label1.BorderStyle = BorderStyle.FixedSingle;
             label1.FlatStyle = FlatStyle.System;
             label1.Location = new Point(12, 9);
             label1.Name = "label1";
-            label1.Size = new Size(1225, 92);
+            label1.Size = new Size(1221, 92);
             label1.TabIndex = 86;
             // 
             // btndescarcar
             // 
+            btndescarcar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btndescarcar.BackColor = Color.LightGray;
             btndescarcar.Cursor = Cursors.Hand;
             btndescarcar.FlatStyle = FlatStyle.Popup;
@@ -242,7 +246,7 @@
             btndescarcar.IconColor = Color.LimeGreen;
             btndescarcar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btndescarcar.IconSize = 23;
-            btndescarcar.Location = new Point(1068, 134);
+            btndescarcar.Location = new Point(1064, 134);
             btndescarcar.Name = "btndescarcar";
             btndescarcar.Size = new Size(157, 29);
             btndescarcar.TabIndex = 101;
@@ -337,7 +341,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1253, 822);
+            ClientSize = new Size(1249, 694);
             Controls.Add(iconButton1);
             Controls.Add(dtpfechafin);
             Controls.Add(label3);

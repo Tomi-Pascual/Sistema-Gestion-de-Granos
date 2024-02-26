@@ -242,7 +242,7 @@ namespace CapaPresentacion.Modales
 
         private void btnguardarpermiso_Click(object sender, EventArgs e)
         {
-            if (txtnombregrupo.Text=="")
+            if (txtnombregrupo.Text == "")
             {
                 MessageBox.Show("Debe completar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;

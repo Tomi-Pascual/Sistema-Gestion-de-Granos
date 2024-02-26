@@ -50,6 +50,7 @@
             // dgvdata
             // 
             dgvdata.AllowUserToAddRows = false;
+            dgvdata.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvdata.BackgroundColor = Color.White;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
@@ -94,27 +95,27 @@
             // 
             // Codigo
             // 
+            Codigo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Codigo.HeaderText = "Codigo";
             Codigo.MinimumWidth = 6;
             Codigo.Name = "Codigo";
             Codigo.ReadOnly = true;
-            Codigo.Width = 150;
             // 
             // Nombre
             // 
+            Nombre.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Nombre.HeaderText = "Nombre";
             Nombre.MinimumWidth = 6;
             Nombre.Name = "Nombre";
             Nombre.ReadOnly = true;
-            Nombre.Width = 180;
             // 
             // Categoria
             // 
+            Categoria.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Categoria.HeaderText = "Categoria";
             Categoria.MinimumWidth = 6;
             Categoria.Name = "Categoria";
             Categoria.ReadOnly = true;
-            Categoria.Width = 125;
             // 
             // Stock
             // 
@@ -145,6 +146,7 @@
             // 
             // label10
             // 
+            label10.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label10.BackColor = Color.White;
             label10.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Regular, GraphicsUnit.Point);
             label10.Location = new Point(15, 9);
@@ -155,6 +157,7 @@
             // 
             // btnbuscar
             // 
+            btnbuscar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnbuscar.BackColor = Color.White;
             btnbuscar.Cursor = Cursors.Hand;
             btnbuscar.FlatAppearance.BorderColor = Color.Black;
@@ -174,6 +177,7 @@
             // 
             // txtbusqueda
             // 
+            txtbusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             txtbusqueda.Location = new Point(350, 56);
             txtbusqueda.Name = "txtbusqueda";
             txtbusqueda.Size = new Size(200, 27);
@@ -181,6 +185,7 @@
             // 
             // cbbusqueda
             // 
+            cbbusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             cbbusqueda.DropDownStyle = ComboBoxStyle.DropDownList;
             cbbusqueda.FormattingEnabled = true;
             cbbusqueda.Location = new Point(166, 55);
@@ -190,6 +195,7 @@
             // 
             // label11
             // 
+            label11.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label11.AutoSize = true;
             label11.BackColor = Color.White;
             label11.Location = new Point(78, 58);
@@ -200,6 +206,7 @@
             // 
             // btnlimpiarbuscador
             // 
+            btnlimpiarbuscador.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnlimpiarbuscador.BackColor = Color.White;
             btnlimpiarbuscador.Cursor = Cursors.Hand;
             btnlimpiarbuscador.FlatAppearance.BorderColor = Color.Black;
@@ -242,6 +249,11 @@
 
         private DataGridView dgvdata;
         private Label label10;
+        private FontAwesome.Sharp.IconButton btnbuscar;
+        private TextBox txtbusqueda;
+        private ComboBox cbbusqueda;
+        private Label label11;
+        private FontAwesome.Sharp.IconButton btnlimpiarbuscador;
         private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn Codigo;
         private DataGridViewTextBoxColumn Nombre;
@@ -249,10 +261,5 @@
         private DataGridViewTextBoxColumn Stock;
         private DataGridViewTextBoxColumn PrecioCompra;
         private DataGridViewTextBoxColumn PrecioVenta;
-        private FontAwesome.Sharp.IconButton btnbuscar;
-        private TextBox txtbusqueda;
-        private ComboBox cbbusqueda;
-        private Label label11;
-        private FontAwesome.Sharp.IconButton btnlimpiarbuscador;
     }
 }
