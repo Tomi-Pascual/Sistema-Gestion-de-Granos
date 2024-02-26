@@ -23,11 +23,11 @@ namespace CapaDatos
                     StringBuilder query = new StringBuilder();
                     query.AppendLine("select c.IdComponente, c.Nombre, c.TipoComponente, c.Estado ");
                     query.AppendLine("from USUARIO_COMPONENTE uc ");
-                    query.AppendLine("inner join COMPONENTE c on USUARIO_COMPONENTE.IdComponente = COMPONENTE.IdComponente ");
-                    query.AppendLine("where USUARIO_COMPONENTE.IdUsuario = @IdUsuario");
+                    query.AppendLine("inner join COMPONENTE c on uc.IdComponente = c.IdComponente ");
+                    query.AppendLine("where uc.IdUsuario = @IdUsuario");
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
-                    cmd.Parameters.AddWithValue("@IdUsuario", idusuario);
+                    cmd.Parameters.AddWithValue("IdUsuario", idusuario);
                     cmd.CommandType = CommandType.Text;
 
                     oconexion.Open();

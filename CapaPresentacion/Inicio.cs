@@ -69,6 +69,35 @@ namespace CapaPresentación
                 }
             }
 
+            foreach (ToolStripMenuItem menu in menuventas.DropDownItems)
+            {
+                bool encontrado = listaPermisos.Any(p => p.NombreMenu == menu.Name);
+
+                if (encontrado)
+                {
+                    menu.Visible = true;
+                }
+                else
+                {
+                    menu.Visible = false;
+                }
+            }
+
+            foreach (ToolStripMenuItem menu in menucompras.DropDownItems)
+            {
+                bool encontrado = listaPermisos.Any(p => p.NombreMenu == menu.Name);
+
+                if (encontrado)
+                {
+                    menu.Visible = true;
+                }
+                else
+                {
+                    menu.Visible = false;
+                }
+            }
+
+
             foreach (ToolStripMenuItem menu in menureportes.DropDownItems)
             {
                 bool encontrado = listaPermisos.Any(p => p.NombreMenu == menu.Name);
@@ -82,6 +111,7 @@ namespace CapaPresentación
                     menu.Visible = false;
                 }
             }
+
             lblUsuario.Text = "Usuario: " + usuarioActual.NombreCompleto;
         }
 
@@ -110,7 +140,7 @@ namespace CapaPresentación
 
         private void submenuusuario_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconMenuItem)sender, new frmSeguridad());
+            AbrirFormulario(menuseguridad, new frmSeguridad(usuarioActual));
         }
 
         private void submenuClientes_Click(object sender, EventArgs e)
