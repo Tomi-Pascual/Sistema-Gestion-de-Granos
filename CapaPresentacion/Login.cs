@@ -52,5 +52,12 @@ namespace CapaPresentación
             txtusuario.Select();
         }
 
+        private void txtclave_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                btningresar_Click(null,null);
+            }
+        }
     }
 }

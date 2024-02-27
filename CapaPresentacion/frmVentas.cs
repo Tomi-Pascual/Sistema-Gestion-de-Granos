@@ -38,6 +38,7 @@ namespace CapaPresentacion
             txtfecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
             txtidproducto.Text = "0";
 
+            txtprecio.ReadOnly = true;
             txttotalpagar.Text = "0";
             txtcambio.Text = " ";
             txtpagacon.Text = " ";

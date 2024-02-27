@@ -221,10 +221,5 @@ namespace CapaPresentación
         {
             AbrirFormulario(menuseguridad, new frmGrupo(usuarioActual));
         }
-
-        private void submenupermisousuario_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario(menuseguridad, new frmPermisoUsuario(usuarioActual));
-        }
     }
 }

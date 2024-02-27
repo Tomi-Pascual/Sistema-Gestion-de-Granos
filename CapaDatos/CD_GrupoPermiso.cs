@@ -75,6 +75,12 @@ namespace CapaDatos
                         query.AppendLine("from COMPONENTE");
                     }
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+                    if (idGrupoPermiso != 0)
+                    {
+                        cmd.Parameters.AddWithValue("@IdGrupoPermiso", idGrupoPermiso);
+                    }
+
+                    cmd.CommandType = CommandType.Text;
 
                     oconexion.Open();
 

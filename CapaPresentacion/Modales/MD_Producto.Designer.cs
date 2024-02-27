@@ -155,7 +155,7 @@
             label10.Name = "label10";
             label10.Size = new Size(657, 99);
             label10.TabIndex = 57;
-            label10.Text = "Lista de Proveedores";
+            label10.Text = "Lista de Productos";
             // 
             // btnbuscar
             // 

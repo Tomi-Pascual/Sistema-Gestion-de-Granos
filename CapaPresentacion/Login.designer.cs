@@ -104,6 +104,7 @@
             txtclave.PasswordChar = '*';
             txtclave.Size = new Size(443, 34);
             txtclave.TabIndex = 2;
+            txtclave.KeyDown += txtclave_KeyDown;
             // 
             // label2
             // 

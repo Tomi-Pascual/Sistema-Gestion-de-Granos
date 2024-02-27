@@ -112,6 +112,7 @@ namespace CapaPresentacion
                 txtidproveedor.Text = "0";
                 txtdocproveedor.Text = "";
                 txtrazonsocial.Text = "";
+                txttotal.Text = "0.00";
                 dgvproducto.Rows.Clear();
                 calcularTotal();
             }
