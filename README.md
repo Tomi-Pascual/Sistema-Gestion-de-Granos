@@ -40,9 +40,6 @@ Las contribuciones son bienvenidas. Si deseas contribuir al proyecto, por favor 
 
 Si encuentras algún problema o tienes alguna sugerencia para mejorar el sistema, no dudes en abrir un nuevo [issue](../../issues) en el repositorio.
 
-## Licencia
-
-Este proyecto está licenciado bajo la [Licencia MIT](LICENSE).
-
+## Autor
 ---
 Creado por [Pascual Tomás](Tomas.Pascual@alumnos.uai.edu.ar)
