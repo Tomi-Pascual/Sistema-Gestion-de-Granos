@@ -85,7 +85,7 @@
             txtusuario.Anchor = AnchorStyles.None;
             txtusuario.CharacterCasing = CharacterCasing.Lower;
             txtusuario.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtusuario.Location = new Point(329, 100);
+            txtusuario.Location = new Point(329, 110);
             txtusuario.Margin = new Padding(3, 4, 3, 4);
             txtusuario.Multiline = true;
             txtusuario.Name = "txtusuario";
@@ -97,7 +97,7 @@
             txtclave.Anchor = AnchorStyles.None;
             txtclave.CharacterCasing = CharacterCasing.Lower;
             txtclave.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtclave.Location = new Point(329, 176);
+            txtclave.Location = new Point(329, 186);
             txtclave.Margin = new Padding(3, 4, 3, 4);
             txtclave.Multiline = true;
             txtclave.Name = "txtclave";
@@ -109,17 +109,17 @@
             // 
             label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label2.AutoSize = true;
-            label2.Location = new Point(336, 74);
+            label2.Location = new Point(336, 84);
             label2.Name = "label2";
-            label2.Size = new Size(71, 20);
+            label2.Size = new Size(166, 20);
             label2.TabIndex = 3;
-            label2.Text = "USUARIO";
+            label2.Text = "NUMERO DOCUMENTO";
             // 
             // label3
             // 
             label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label3.AutoSize = true;
-            label3.Location = new Point(336, 150);
+            label3.Location = new Point(336, 160);
             label3.Name = "label3";
             label3.Size = new Size(104, 20);
             label3.TabIndex = 4;

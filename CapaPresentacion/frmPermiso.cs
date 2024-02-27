@@ -37,35 +37,32 @@ namespace CapaPresentacion
             cbbusqueda.DisplayMember = "Texto";
             cbbusqueda.ValueMember = "Valor";
 
-            bool encontrado = UsuarioActual.GetPermisos().Any(p => p.NombreMenu == btnverdetallepermisosimple.Name);
 
-            if (encontrado)
-            {
-                btnverdetallepermisosimple.Visible = true;
-            }
-            else
-            {
-                btnverdetallepermisosimple.Visible = false;
-            }
+            //MOSTRAR LOS BOTONES SEGUN EL PERMISO
+            List<Permiso> listaPermisos = UsuarioActual.GetPermisos();
+            List<Button> listaBotones = new List<Button> { btneditarestado, btnverdetallepermisosimple };
 
-            encontrado = UsuarioActual.GetPermisos().Any(p => p.NombreMenu == btneditarestado.Name);
+            foreach (Button boton in listaBotones)
+            {
+                bool encontrado = listaPermisos.Any(p => p.NombreMenu == boton.Name);
 
-            if (encontrado)
-            {
-                btneditarestado.Visible = true;
-            }
-            else
-            {
-                btneditarestado.Visible = false;
+                if (encontrado)
+                {
+                    boton.Visible = true;
+                }
+                else
+                {
+                    boton.Visible = false;
+                }
             }
 
             dgvdata.Rows.Clear();
 
             //MOSTRAR LOS PERMISOS
-            List<Permiso> listaPermisos = objcn_Permiso.ListarPermisos();
-            listaPermisos = listaPermisos.OrderBy(p => p.Nombre).ToList();
+            List<Permiso> listPermisos = objcn_Permiso.ListarPermisos();
+            listPermisos = listPermisos.OrderBy(p => p.Nombre).ToList();
 
-            foreach (Permiso oPermiso in listaPermisos)
+            foreach (Permiso oPermiso in listPermisos)
             {
                 dgvdata.Rows.Add(
                     "",

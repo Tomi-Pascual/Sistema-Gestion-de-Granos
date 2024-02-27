@@ -30,6 +30,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MD_AgregarComponenteAGrupo));
             btnbuscar = new FontAwesome.Sharp.IconButton();
             txtbusqueda = new TextBox();
             cbbusqueda = new ComboBox();
@@ -120,10 +121,11 @@
             // 
             label10.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label10.BackColor = Color.White;
+            label10.BorderStyle = BorderStyle.FixedSingle;
             label10.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Regular, GraphicsUnit.Point);
             label10.Location = new Point(12, 9);
             label10.Name = "label10";
-            label10.Size = new Size(657, 99);
+            label10.Size = new Size(657, 91);
             label10.TabIndex = 62;
             label10.Text = "Agregar Permiso a Grupo";
             // 
@@ -140,7 +142,7 @@
             // 
             dgvdata.AllowUserToAddRows = false;
             dgvdata.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgvdata.BackgroundColor = Color.White;
+            dgvdata.BackgroundColor = Color.LightGray;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -226,6 +228,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(684, 398);
             Controls.Add(dgvdata);
             Controls.Add(txtid);
@@ -235,7 +238,9 @@
             Controls.Add(label11);
             Controls.Add(btnlimpiarbuscador);
             Controls.Add(label10);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MD_AgregarComponenteAGrupo";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "MD_AgregarComponenteAGrupo";
             Load += MD_AgregarComponenteAGrupo_Load;
             ((System.ComponentModel.ISupportInitialize)dgvdata).EndInit();

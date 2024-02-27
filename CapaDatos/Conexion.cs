@@ -14,15 +14,26 @@ namespace CapaDatos
     {
         public static string cadena = ConfigurationManager.ConnectionStrings["cadena_conexion"].ToString();
 
-        /*static public string cadena = "Data Source=DESKTOP-3OFLG0D//SQLEXPRESS;Initial Catalog=GestionDeGranos;Integrated Security=True";
-        private readonly string ConexionString;
-        public Conexion()
+        /*SqlConnection conexion;
+
+        public static SqlConnection GetConnection()
         {
-            ConexionString = cadena;
-        }
-        protected SqlConnection GetConnection()
-        {
-            return new SqlConnection(ConexionString);
+            try
+            {
+                //Instanciamos la conexion
+                SqlConnection conexion = new SqlConnection(cadena);
+
+                //Abrimos la conexion
+                conexion.Open();
+
+                //Retornamos la conexion
+                return conexion;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
         }*/
     }
 }

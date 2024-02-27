@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDetalleCompra));
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -346,6 +347,7 @@
             Controls.Add(label1);
             Cursor = Cursors.Hand;
             Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmDetalleCompra";
             Text = "frmDetalleCompra";
             groupBox1.ResumeLayout(false);

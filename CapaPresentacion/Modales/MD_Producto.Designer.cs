@@ -30,6 +30,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MD_Producto));
             dgvdata = new DataGridView();
             Id = new DataGridViewTextBoxColumn();
             Codigo = new DataGridViewTextBoxColumn();
@@ -148,6 +149,7 @@
             // 
             label10.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label10.BackColor = Color.White;
+            label10.BorderStyle = BorderStyle.FixedSingle;
             label10.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Regular, GraphicsUnit.Point);
             label10.Location = new Point(15, 9);
             label10.Name = "label10";
@@ -168,7 +170,7 @@
             btnbuscar.IconColor = Color.Black;
             btnbuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnbuscar.IconSize = 22;
-            btnbuscar.Location = new Point(561, 55);
+            btnbuscar.Location = new Point(561, 59);
             btnbuscar.Name = "btnbuscar";
             btnbuscar.Size = new Size(39, 28);
             btnbuscar.TabIndex = 65;
@@ -178,7 +180,7 @@
             // txtbusqueda
             // 
             txtbusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtbusqueda.Location = new Point(350, 56);
+            txtbusqueda.Location = new Point(350, 60);
             txtbusqueda.Name = "txtbusqueda";
             txtbusqueda.Size = new Size(200, 27);
             txtbusqueda.TabIndex = 63;
@@ -188,7 +190,7 @@
             cbbusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             cbbusqueda.DropDownStyle = ComboBoxStyle.DropDownList;
             cbbusqueda.FormattingEnabled = true;
-            cbbusqueda.Location = new Point(166, 55);
+            cbbusqueda.Location = new Point(166, 59);
             cbbusqueda.Name = "cbbusqueda";
             cbbusqueda.Size = new Size(172, 28);
             cbbusqueda.TabIndex = 62;
@@ -198,7 +200,7 @@
             label11.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label11.AutoSize = true;
             label11.BackColor = Color.White;
-            label11.Location = new Point(78, 58);
+            label11.Location = new Point(78, 62);
             label11.Name = "label11";
             label11.Size = new Size(82, 20);
             label11.TabIndex = 61;
@@ -217,7 +219,7 @@
             btnlimpiarbuscador.IconColor = Color.Black;
             btnlimpiarbuscador.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnlimpiarbuscador.IconSize = 23;
-            btnlimpiarbuscador.Location = new Point(613, 56);
+            btnlimpiarbuscador.Location = new Point(613, 60);
             btnlimpiarbuscador.Name = "btnlimpiarbuscador";
             btnlimpiarbuscador.Size = new Size(39, 27);
             btnlimpiarbuscador.TabIndex = 64;
@@ -228,6 +230,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(687, 397);
             Controls.Add(btnbuscar);
             Controls.Add(txtbusqueda);
@@ -236,6 +239,7 @@
             Controls.Add(btnlimpiarbuscador);
             Controls.Add(dgvdata);
             Controls.Add(label10);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MD_Producto";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MD_Producto";

@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MD_DetalleGrupoPermiso));
             btnguardarpermiso = new FontAwesome.Sharp.IconButton();
             btnagregarpermiso = new FontAwesome.Sharp.IconButton();
             btneliminarpermiso = new FontAwesome.Sharp.IconButton();
@@ -81,7 +82,7 @@
             btnagregarpermiso.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnagregarpermiso.IconSize = 27;
             btnagregarpermiso.ImageAlign = ContentAlignment.BottomCenter;
-            btnagregarpermiso.Location = new Point(39, 201);
+            btnagregarpermiso.Location = new Point(39, 206);
             btnagregarpermiso.Name = "btnagregarpermiso";
             btnagregarpermiso.Size = new Size(240, 40);
             btnagregarpermiso.TabIndex = 73;
@@ -100,7 +101,7 @@
             btneliminarpermiso.IconColor = Color.Black;
             btneliminarpermiso.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btneliminarpermiso.IconSize = 26;
-            btneliminarpermiso.Location = new Point(39, 252);
+            btneliminarpermiso.Location = new Point(39, 257);
             btneliminarpermiso.Name = "btneliminarpermiso";
             btneliminarpermiso.Size = new Size(240, 40);
             btneliminarpermiso.TabIndex = 74;
@@ -114,33 +115,33 @@
             // 
             dgvdata.AllowUserToAddRows = false;
             dgvdata.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgvdata.BackgroundColor = Color.White;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.Padding = new Padding(2);
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dgvdata.BackgroundColor = Color.LightGray;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvdata.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvdata.Columns.AddRange(new DataGridViewColumn[] { btnSeleccionar, IdComponente, Nombre, TipoPermiso, Estado, EstadoValor });
-            dgvdata.Location = new Point(306, 201);
+            dgvdata.Location = new Point(306, 206);
             dgvdata.MultiSelect = false;
             dgvdata.Name = "dgvdata";
             dgvdata.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Control;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dgvdata.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvdata.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvdata.RowHeadersWidth = 51;
             dgvdata.RowTemplate.Height = 28;
-            dgvdata.Size = new Size(811, 403);
+            dgvdata.Size = new Size(811, 398);
             dgvdata.TabIndex = 72;
             dgvdata.CellClick += dgvdata_CellClick;
             dgvdata.CellPainting += dgvdata_CellPainting;
@@ -197,7 +198,7 @@
             // 
             // txtid
             // 
-            txtid.Location = new Point(401, 155);
+            txtid.Location = new Point(401, 168);
             txtid.Name = "txtid";
             txtid.Size = new Size(41, 27);
             txtid.TabIndex = 71;
@@ -208,11 +209,12 @@
             // 
             label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label2.BackColor = Color.White;
+            label2.BorderStyle = BorderStyle.FixedSingle;
             label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(12, 145);
+            label2.Location = new Point(12, 155);
             label2.Name = "label2";
             label2.Padding = new Padding(25, 5, 0, 0);
-            label2.Size = new Size(1121, 474);
+            label2.Size = new Size(1121, 464);
             label2.TabIndex = 70;
             label2.Text = "Lista de Permisos";
             // 
@@ -220,7 +222,7 @@
             // 
             cbestado.DropDownStyle = ComboBoxStyle.DropDownList;
             cbestado.FormattingEnabled = true;
-            cbestado.Location = new Point(684, 105);
+            cbestado.Location = new Point(684, 104);
             cbestado.Name = "cbestado";
             cbestado.Size = new Size(211, 28);
             cbestado.TabIndex = 69;
@@ -229,7 +231,7 @@
             // 
             label8.AutoSize = true;
             label8.BackColor = Color.White;
-            label8.Location = new Point(684, 82);
+            label8.Location = new Point(684, 81);
             label8.Name = "label8";
             label8.Size = new Size(57, 20);
             label8.TabIndex = 68;
@@ -237,8 +239,9 @@
             // 
             // txtnombregrupo
             // 
-            txtnombregrupo.Location = new Point(401, 106);
+            txtnombregrupo.Location = new Point(401, 105);
             txtnombregrupo.Name = "txtnombregrupo";
+            txtnombregrupo.ReadOnly = true;
             txtnombregrupo.Size = new Size(254, 27);
             txtnombregrupo.TabIndex = 67;
             // 
@@ -246,7 +249,7 @@
             // 
             label3.AutoSize = true;
             label3.BackColor = Color.White;
-            label3.Location = new Point(401, 83);
+            label3.Location = new Point(401, 82);
             label3.Name = "label3";
             label3.Size = new Size(137, 20);
             label3.TabIndex = 66;
@@ -256,11 +259,12 @@
             // 
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.BackColor = Color.White;
+            label1.BorderStyle = BorderStyle.FixedSingle;
             label1.Font = new Font("Microsoft Sans Serif", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(12, 78);
+            label1.Location = new Point(12, 67);
             label1.Name = "label1";
             label1.Padding = new Padding(25, 5, 0, 0);
-            label1.Size = new Size(1121, 58);
+            label1.Size = new Size(1121, 77);
             label1.TabIndex = 65;
             label1.Text = "Información del Grupo";
             // 
@@ -281,6 +285,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(1144, 640);
             Controls.Add(btnguardarpermiso);
             Controls.Add(btnagregarpermiso);
@@ -294,7 +299,9 @@
             Controls.Add(label3);
             Controls.Add(label1);
             Controls.Add(lbltitulo);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MD_DetalleGrupoPermiso";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "MD_DetalleGrupoPermiso";
             Load += MD_DetalleGrupoPermiso_Load;
             ((System.ComponentModel.ISupportInitialize)dgvdata).EndInit();

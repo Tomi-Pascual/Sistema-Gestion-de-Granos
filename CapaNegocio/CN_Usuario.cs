@@ -33,28 +33,17 @@ namespace CapaNegocio
             {
                 Mensaje += "Debe introducir el número de documento del usuario\n";
             }
-            else if (!ValidarInt(obj.Documento))
-            {
-                Mensaje += ("Por favor, introduce solo números en el campo de cocumento.\n");
-            }
 
             if (obj.NombreCompleto == "")
             {
                 Mensaje += "Debe introducir el nombre completo del usuario\n";
-            }
-            else if (!ValidarString(obj.NombreCompleto))
-            {
-                Mensaje += ("Por favor, introduce solo letras en el campo de nombre completo.");
             }
 
             if (obj.Correo == "")
             {
                 Mensaje += "Debe introducir el correo del usuario\n";
             }
-            else if (ValidarCorreoElectronico(obj.Correo))
-            {
-                Mensaje += "Debe ingresar correctamente el correo del usuario\n";
-            }
+
 
             if (obj.Clave == "")
             {
@@ -87,29 +76,17 @@ namespace CapaNegocio
             {
                 Mensaje += "Debe introducir el número de documento del usuario\n";
             }
-            else if (!ValidarInt(obj.Documento))
-            {
-                Mensaje += ("Por favor, introduce solo números en el campo de cocumento.\n");
-            }
 
             if (obj.NombreCompleto == "")
             {
                 Mensaje += "Debe introducir el nombre completo del usuario\n";
-            }
-            else if (!ValidarString(obj.NombreCompleto))
-            {
-                Mensaje += ("Por favor, introduce solo letras en el campo de nombre completo.");
             }
 
             if (obj.Correo == "")
             {
                 Mensaje += "Debe introducir el correo del usuario\n";
             }
-            else if (ValidarCorreoElectronico(obj.Correo))
-            {
-                Mensaje += "Debe ingresar correctamente el correo del usuario\n";
-            }
-
+ 
             if (obj.Clave == "")
             {
                 Mensaje += "Debe introducir la clave del usuario\n";
@@ -142,32 +119,6 @@ namespace CapaNegocio
             {
                 throw new Exception(ex.Message);
             }
-        }
-
-        private bool ValidarString(string input)
-        {
-            // Utilizar expresión regular para validar que solo se introduzcan letras
-            return Regex.IsMatch(input, "^[a-zA-Z]+$");
-        }
-
-        private bool ValidarInt(string input)
-        {
-            // Utilizar TryParse para validar que solo se introduzcan números enteros
-            return int.TryParse(input, out _);
-        }
-
-        private bool ValidarCorreoElectronico(string correo)
-        {
-            // Utilizar una expresión regular para validar el formato del correo electrónico
-            string patronCorreo = @"/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/";
-            return Regex.IsMatch(correo, patronCorreo);
-        }
-
-        public bool ValidarLetrasYNumeros(string input)
-        {
-            // Utilizar una expresión regular para validar que la cadena contenga solo letras y números
-            // ^[a-zA-Z0-9]+$ significa que debe haber al menos un carácter, y ese carácter puede ser una letra (mayúscula o minúscula) o un número.
-            return Regex.IsMatch(input, "^[a-zA-Z0-9]+$");
         }
     }
 }

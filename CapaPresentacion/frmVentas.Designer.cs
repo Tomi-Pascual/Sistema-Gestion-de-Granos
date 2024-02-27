@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVentas));
             btnregistrar = new FontAwesome.Sharp.IconButton();
             label12 = new Label();
             btnagregar = new FontAwesome.Sharp.IconButton();
@@ -523,6 +524,7 @@
             Controls.Add(groupBox2);
             Controls.Add(groupBox3);
             Controls.Add(label10);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmVentas";
             Text = "frmVentas";
             Load += frmVentas_Load;

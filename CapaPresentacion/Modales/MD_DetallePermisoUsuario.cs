@@ -28,10 +28,6 @@ namespace CapaPresentacion.Modales
             _oUsuario = objcn_Usuario.Listar().Where(u => u.IdUsuario == _idUsuario).FirstOrDefault();
             InitializeComponent();
         }
-        public MD_DetallePermisoUsuario()
-        {
-            InitializeComponent();
-        }
 
         private void MD_DetallePermisoUsuario_Load(object sender, EventArgs e)
         {
@@ -82,7 +78,7 @@ namespace CapaPresentacion.Modales
             this.Text = "Administrar permisos del usuario";
             lbltitulo.Text = "Administrar permisos del usuario";
             btnguardarpermiso.Text = "Guardar Permisos";
-
+            txtnombrecompleto.ReadOnly = false;
             try
             {
                 txtnombrecompleto.Text = _oUsuario.NombreCompleto.ToString();
@@ -197,7 +193,7 @@ namespace CapaPresentacion.Modales
                 catch (Exception ex)
                 {
                     throw new Exception(ex.Message);
-                }                
+                }
             }
         }
 

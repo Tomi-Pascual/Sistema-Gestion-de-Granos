@@ -30,15 +30,16 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MD_Cliente));
             btnbuscar = new FontAwesome.Sharp.IconButton();
             txtbusqueda = new TextBox();
             cbbusqueda = new ComboBox();
             label11 = new Label();
             btnlimpiarbuscador = new FontAwesome.Sharp.IconButton();
             dgvdata = new DataGridView();
-            label10 = new Label();
             Documento = new DataGridViewTextBoxColumn();
             NombreCompleto = new DataGridViewTextBoxColumn();
+            label10 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvdata).BeginInit();
             SuspendLayout();
             // 
@@ -55,7 +56,7 @@
             btnbuscar.IconColor = Color.Black;
             btnbuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnbuscar.IconSize = 22;
-            btnbuscar.Location = new Point(561, 55);
+            btnbuscar.Location = new Point(561, 60);
             btnbuscar.Name = "btnbuscar";
             btnbuscar.Size = new Size(39, 28);
             btnbuscar.TabIndex = 60;
@@ -65,7 +66,7 @@
             // txtbusqueda
             // 
             txtbusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtbusqueda.Location = new Point(350, 56);
+            txtbusqueda.Location = new Point(350, 61);
             txtbusqueda.Name = "txtbusqueda";
             txtbusqueda.Size = new Size(200, 27);
             txtbusqueda.TabIndex = 58;
@@ -75,7 +76,7 @@
             cbbusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             cbbusqueda.DropDownStyle = ComboBoxStyle.DropDownList;
             cbbusqueda.FormattingEnabled = true;
-            cbbusqueda.Location = new Point(166, 55);
+            cbbusqueda.Location = new Point(166, 60);
             cbbusqueda.Name = "cbbusqueda";
             cbbusqueda.Size = new Size(172, 28);
             cbbusqueda.TabIndex = 57;
@@ -85,7 +86,7 @@
             label11.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label11.AutoSize = true;
             label11.BackColor = Color.White;
-            label11.Location = new Point(78, 58);
+            label11.Location = new Point(78, 63);
             label11.Name = "label11";
             label11.Size = new Size(82, 20);
             label11.TabIndex = 56;
@@ -104,7 +105,7 @@
             btnlimpiarbuscador.IconColor = Color.Black;
             btnlimpiarbuscador.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnlimpiarbuscador.IconSize = 23;
-            btnlimpiarbuscador.Location = new Point(613, 56);
+            btnlimpiarbuscador.Location = new Point(613, 61);
             btnlimpiarbuscador.Name = "btnlimpiarbuscador";
             btnlimpiarbuscador.Size = new Size(39, 27);
             btnlimpiarbuscador.TabIndex = 59;
@@ -115,7 +116,7 @@
             // 
             dgvdata.AllowUserToAddRows = false;
             dgvdata.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgvdata.BackgroundColor = Color.White;
+            dgvdata.BackgroundColor = Color.LightGray;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -145,17 +146,6 @@
             dgvdata.TabIndex = 54;
             dgvdata.CellMouseDoubleClick += dgvdata_CellMouseDoubleClick;
             // 
-            // label10
-            // 
-            label10.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            label10.BackColor = Color.White;
-            label10.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.Location = new Point(12, 10);
-            label10.Name = "label10";
-            label10.Size = new Size(657, 99);
-            label10.TabIndex = 55;
-            label10.Text = "Lista de Clientes";
-            // 
             // Documento
             // 
             Documento.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -172,10 +162,23 @@
             NombreCompleto.Name = "NombreCompleto";
             NombreCompleto.ReadOnly = true;
             // 
+            // label10
+            // 
+            label10.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label10.BackColor = Color.White;
+            label10.BorderStyle = BorderStyle.FixedSingle;
+            label10.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            label10.Location = new Point(12, 10);
+            label10.Name = "label10";
+            label10.Size = new Size(657, 98);
+            label10.TabIndex = 55;
+            label10.Text = "Lista de Clientes";
+            // 
             // MD_Cliente
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(684, 399);
             Controls.Add(btnbuscar);
             Controls.Add(txtbusqueda);
@@ -184,6 +187,7 @@
             Controls.Add(btnlimpiarbuscador);
             Controls.Add(dgvdata);
             Controls.Add(label10);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MD_Cliente";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MD_Cliente";

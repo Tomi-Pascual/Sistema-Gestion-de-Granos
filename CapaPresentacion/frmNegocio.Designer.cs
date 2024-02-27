@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNegocio));
             label9 = new Label();
             label1 = new Label();
             groupBox1 = new GroupBox();
@@ -195,6 +196,7 @@
             Controls.Add(groupBox1);
             Controls.Add(label9);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmNegocio";
             Text = "frmNegocio";
             Load += frmNegocio_Load;

@@ -40,48 +40,22 @@ namespace CapaPresentacion
             cbbusqueda.ValueMember = "Valor";
 
 
-            bool encontrado = UsuarioActual.GetPermisos().Any(p => p.NombreMenu == btnagregargrupo.Name);
+            //MOSTRAR LOS BOTONES SEGUN EL PERMISO
+            List<Permiso> listaPermisos = UsuarioActual.GetPermisos();
+            List<Button> listaBotones = new List<Button> { btnagregargrupo, btneditargrupo, btneliminargrupo, btnverdetallegrupo };
 
-            if (encontrado)
+            foreach (Button boton in listaBotones)
             {
-                btnagregargrupo.Visible = true;
-            }
-            else
-            {
-                btnagregargrupo.Visible = false;
-            }
+                bool encontrado = listaPermisos.Any(p => p.NombreMenu == boton.Name);
 
-            encontrado = UsuarioActual.GetPermisos().Any(p => p.NombreMenu == btnverdetallegrupo.Name);
-
-            if (encontrado)
-            {
-                btnverdetallegrupo.Visible = true;
-            }
-            else
-            {
-                btnverdetallegrupo.Visible = false;
-            }
-
-            encontrado = UsuarioActual.GetPermisos().Any(p => p.NombreMenu == btneditargrupo.Name);
-
-            if (encontrado)
-            {
-                btneditargrupo.Visible = true;
-            }
-            else
-            {
-                btneditargrupo.Visible = false;
-            }
-
-            encontrado = UsuarioActual.GetPermisos().Any(p => p.NombreMenu == btneliminargrupo.Name);
-
-            if (encontrado)
-            {
-                btneliminargrupo.Visible = true;
-            }
-            else
-            {
-                btneliminargrupo.Visible = false;
+                if (encontrado)
+                {
+                    boton.Visible = true;
+                }
+                else
+                {
+                    boton.Visible = false;
+                }
             }
 
             dgvdata.Rows.Clear();

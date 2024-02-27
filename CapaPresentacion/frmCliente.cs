@@ -18,8 +18,10 @@ namespace CapaPresentacion
 {
     public partial class frmCliente : Form
     {
-        public frmCliente()
+        private Usuario _usuarioActual;
+        public frmCliente(Usuario oUsuario)
         {
+            _usuarioActual = oUsuario;
             InitializeComponent();
         }
 
@@ -44,6 +46,7 @@ namespace CapaPresentacion
             cbbusqueda.ValueMember = "Valor";
             cbbusqueda.SelectedIndex = 0;
 
+            //MOSTRAR TODOS LOS CLIENTES
             List<Cliente> lista = new CN_Cliente().Listar();
 
             foreach (Cliente item in lista)
@@ -53,6 +56,25 @@ namespace CapaPresentacion
                 item.Estado == true ? 1 : 0,
                 item.Estado == true ? "Activo" : "No Activo"});
             }
+
+            //MOSTRAR LOS BOTONES SEGUN EL PERMISO
+            List<Permiso> listaPermisos = _usuarioActual.GetPermisos();
+            List<Button> listaBotones = new List<Button> { btnguardarcliente, btneliminarcliente};
+
+            foreach (Button boton in listaBotones)
+            {
+                bool encontrado = listaPermisos.Any(p => p.NombreMenu == boton.Name);
+
+                if (encontrado)
+                {
+                    boton.Visible = true;
+                }
+                else
+                {
+                    boton.Visible = false;
+                }
+            }
+
         }
 
         private void btnguardar_Click(object sender, EventArgs e)

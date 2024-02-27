@@ -60,6 +60,7 @@ namespace CapaPresentacion.Modales
             btnagregarpermiso.Visible = false;
             btneliminarpermiso.Visible = false;
             btnguardarpermiso.Visible = false;
+            txtnombregrupo.ReadOnly = true;
 
             foreach (OpcionCombo opcion in cbestado.Items)
             {
@@ -78,12 +79,14 @@ namespace CapaPresentacion.Modales
             this.Text = "Agregar Grupo";
             lbltitulo.Text = "Agregar Grupo";
             btnguardarpermiso.Text = "Guardar";
+            txtnombregrupo.ReadOnly = false;
         }
         private void ConfigurarEditar()
         {
             this.Text = "Editar Grupo";
             lbltitulo.Text = "Editar Grupo";
             btnguardarpermiso.Text = "Editar";
+            txtnombregrupo.ReadOnly = false;
 
             txtnombregrupo.Text = _oGrupoPermiso.Nombre.ToString();
 

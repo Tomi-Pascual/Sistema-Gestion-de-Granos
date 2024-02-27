@@ -30,6 +30,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MD_DetallePermisoUsuario));
             lbltitulo = new Label();
             label1 = new Label();
             cbestado = new ComboBox();
@@ -68,11 +69,12 @@
             // 
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.BackColor = Color.White;
+            label1.BorderStyle = BorderStyle.FixedSingle;
             label1.Font = new Font("Microsoft Sans Serif", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(12, 78);
+            label1.Location = new Point(12, 67);
             label1.Name = "label1";
             label1.Padding = new Padding(25, 5, 0, 0);
-            label1.Size = new Size(1121, 58);
+            label1.Size = new Size(1121, 77);
             label1.TabIndex = 52;
             label1.Text = "Información del Usuario";
             // 
@@ -80,7 +82,7 @@
             // 
             cbestado.DropDownStyle = ComboBoxStyle.DropDownList;
             cbestado.FormattingEnabled = true;
-            cbestado.Location = new Point(684, 105);
+            cbestado.Location = new Point(684, 100);
             cbestado.Name = "cbestado";
             cbestado.Size = new Size(211, 28);
             cbestado.TabIndex = 56;
@@ -89,7 +91,7 @@
             // 
             label8.AutoSize = true;
             label8.BackColor = Color.White;
-            label8.Location = new Point(684, 82);
+            label8.Location = new Point(684, 77);
             label8.Name = "label8";
             label8.Size = new Size(57, 20);
             label8.TabIndex = 55;
@@ -97,8 +99,9 @@
             // 
             // txtnombrecompleto
             // 
-            txtnombrecompleto.Location = new Point(401, 106);
+            txtnombrecompleto.Location = new Point(401, 101);
             txtnombrecompleto.Name = "txtnombrecompleto";
+            txtnombrecompleto.ReadOnly = true;
             txtnombrecompleto.Size = new Size(254, 27);
             txtnombrecompleto.TabIndex = 54;
             // 
@@ -106,7 +109,7 @@
             // 
             label3.AutoSize = true;
             label3.BackColor = Color.White;
-            label3.Location = new Point(401, 83);
+            label3.Location = new Point(401, 78);
             label3.Name = "label3";
             label3.Size = new Size(137, 20);
             label3.TabIndex = 53;
@@ -116,17 +119,18 @@
             // 
             label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label2.BackColor = Color.White;
+            label2.BorderStyle = BorderStyle.FixedSingle;
             label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(12, 145);
+            label2.Location = new Point(12, 155);
             label2.Name = "label2";
             label2.Padding = new Padding(25, 5, 0, 0);
-            label2.Size = new Size(1121, 474);
+            label2.Size = new Size(1121, 464);
             label2.TabIndex = 57;
             label2.Text = "Lista de Permisos";
             // 
             // txtid
             // 
-            txtid.Location = new Point(401, 155);
+            txtid.Location = new Point(306, 166);
             txtid.Name = "txtid";
             txtid.Size = new Size(41, 27);
             txtid.TabIndex = 58;
@@ -229,7 +233,7 @@
             btnagregarpermiso.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnagregarpermiso.IconSize = 27;
             btnagregarpermiso.ImageAlign = ContentAlignment.BottomCenter;
-            btnagregarpermiso.Location = new Point(40, 201);
+            btnagregarpermiso.Location = new Point(39, 201);
             btnagregarpermiso.Name = "btnagregarpermiso";
             btnagregarpermiso.Size = new Size(240, 40);
             btnagregarpermiso.TabIndex = 60;
@@ -249,7 +253,7 @@
             btneliminarpermiso.IconColor = Color.Black;
             btneliminarpermiso.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btneliminarpermiso.IconSize = 26;
-            btneliminarpermiso.Location = new Point(40, 252);
+            btneliminarpermiso.Location = new Point(39, 252);
             btneliminarpermiso.Name = "btneliminarpermiso";
             btneliminarpermiso.Size = new Size(240, 40);
             btneliminarpermiso.TabIndex = 61;
@@ -283,6 +287,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(1145, 628);
             Controls.Add(btnguardarpermiso);
             Controls.Add(btneliminarpermiso);
@@ -296,7 +301,9 @@
             Controls.Add(label3);
             Controls.Add(label1);
             Controls.Add(lbltitulo);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MD_DetallePermisoUsuario";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "MD_DetallePermisoUsuario";
             Load += MD_DetallePermisoUsuario_Load;
             ((System.ComponentModel.ISupportInitialize)dgvdata).EndInit();

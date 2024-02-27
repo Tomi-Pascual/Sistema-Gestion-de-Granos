@@ -30,6 +30,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSeguridad));
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -115,6 +116,7 @@
             txtdocumento.Name = "txtdocumento";
             txtdocumento.Size = new Size(299, 27);
             txtdocumento.TabIndex = 4;
+            txtdocumento.KeyPress += txtdocumento_KeyPress;
             // 
             // txtnombrecompleto
             // 
@@ -122,6 +124,7 @@
             txtnombrecompleto.Name = "txtnombrecompleto";
             txtnombrecompleto.Size = new Size(299, 27);
             txtnombrecompleto.TabIndex = 5;
+            txtnombrecompleto.KeyPress += txtnombrecompleto_KeyPress;
             // 
             // txtcorreo
             // 
@@ -212,7 +215,7 @@
             dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvdata.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvdata.Columns.AddRange(new DataGridViewColumn[] { btnSeleccionar, IdUsuario, Documento, NombreCompleto, Correo, Clave, EstadoValor, Estado });
-            dgvdata.Location = new Point(371, 91);
+            dgvdata.Location = new Point(366, 91);
             dgvdata.MultiSelect = false;
             dgvdata.Name = "dgvdata";
             dgvdata.ReadOnly = true;
@@ -226,7 +229,7 @@
             dgvdata.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvdata.RowHeadersWidth = 51;
             dgvdata.RowTemplate.Height = 28;
-            dgvdata.Size = new Size(857, 575);
+            dgvdata.Size = new Size(866, 575);
             dgvdata.TabIndex = 18;
             dgvdata.CellContentClick += dgvdata_CellContentClick;
             dgvdata.CellPainting += dgvdata_CellPainting;
@@ -302,10 +305,11 @@
             // 
             label10.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label10.BackColor = Color.White;
+            label10.BorderStyle = BorderStyle.FixedSingle;
             label10.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.Location = new Point(371, 22);
+            label10.Location = new Point(366, 22);
             label10.Name = "label10";
-            label10.Size = new Size(866, 47);
+            label10.Size = new Size(866, 60);
             label10.TabIndex = 19;
             label10.Text = "Lista de Usuarios";
             // 
@@ -323,7 +327,7 @@
             label11.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label11.AutoSize = true;
             label11.BackColor = Color.White;
-            label11.Location = new Point(655, 33);
+            label11.Location = new Point(639, 41);
             label11.Name = "label11";
             label11.Size = new Size(82, 20);
             label11.TabIndex = 21;
@@ -334,7 +338,7 @@
             cbbusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             cbbusqueda.DropDownStyle = ComboBoxStyle.DropDownList;
             cbbusqueda.FormattingEnabled = true;
-            cbbusqueda.Location = new Point(743, 30);
+            cbbusqueda.Location = new Point(727, 38);
             cbbusqueda.Name = "cbbusqueda";
             cbbusqueda.Size = new Size(172, 28);
             cbbusqueda.TabIndex = 22;
@@ -342,7 +346,7 @@
             // txtbusqueda
             // 
             txtbusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtbusqueda.Location = new Point(927, 31);
+            txtbusqueda.Location = new Point(911, 39);
             txtbusqueda.Name = "txtbusqueda";
             txtbusqueda.Size = new Size(200, 27);
             txtbusqueda.TabIndex = 23;
@@ -369,7 +373,7 @@
             btnlimpiarbuscador.IconColor = Color.White;
             btnlimpiarbuscador.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnlimpiarbuscador.IconSize = 23;
-            btnlimpiarbuscador.Location = new Point(1189, 32);
+            btnlimpiarbuscador.Location = new Point(1175, 40);
             btnlimpiarbuscador.Name = "btnlimpiarbuscador";
             btnlimpiarbuscador.Size = new Size(39, 27);
             btnlimpiarbuscador.TabIndex = 61;
@@ -389,7 +393,7 @@
             btnbuscar.IconColor = Color.White;
             btnbuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnbuscar.IconSize = 22;
-            btnbuscar.Location = new Point(1142, 31);
+            btnbuscar.Location = new Point(1124, 39);
             btnbuscar.Name = "btnbuscar";
             btnbuscar.Size = new Size(39, 28);
             btnbuscar.TabIndex = 60;
@@ -538,6 +542,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmSeguridad";
             Text = "frmSeguridad";
             Load += frmSeguridad_Load;

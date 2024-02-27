@@ -17,12 +17,12 @@ namespace CapaPresentacion
 {
     public partial class frmSeguridad : Form
     {
-        private CN_Usuario oCC_Usuario = new CN_Usuario();
         private Usuario _usuarioActual;
         public frmSeguridad(Usuario oUsuario)
         {
             _usuarioActual = oUsuario;
             InitializeComponent();
+
         }
         public frmSeguridad()
         {
@@ -60,6 +60,24 @@ namespace CapaPresentacion
                 item.Correo, item.Clave,
                 item.Estado == true ? 1 : 0,
                 item.Estado == true ? "Activo" : "No Activo"});
+            }
+
+            //MOSTRAR BOTONES SEGUN EL PERMISO
+            List<Permiso> listaPermisos = _usuarioActual.GetPermisos();
+            List<Button> listaBotones = new List<Button> { btnguardarusuario, btneliminarusuario, btnverpermisos, btngestionarpermisos };
+
+            foreach(Button boton in listaBotones)
+            {
+                bool encontrado = listaPermisos.Any(p => p.NombreMenu == boton.Name);
+
+                if (encontrado)
+                {
+                    boton.Visible = true;
+                }
+                else
+                {
+                    boton.Visible = false;
+                }
             }
         }
 
@@ -283,6 +301,30 @@ namespace CapaPresentacion
         private void txtcorreo_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != '@' && e.KeyChar != '.' && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // Esto indica que el evento ha sido manejado y el carácter no será procesado
+            }
+            else
+            {
+                e.Handled = false;
+            }
+        }
+
+        private void txtdocumento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Esto indica que el evento ha sido manejado y el carácter no será procesado
+            }
+            else
+            {
+                e.Handled = false;
+            }
+        }
+
+        private void txtnombrecompleto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true; // Esto indica que el evento ha sido manejado y el carácter no será procesado
             }

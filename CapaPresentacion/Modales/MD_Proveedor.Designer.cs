@@ -30,6 +30,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MD_Proveedor));
             btnbuscar = new FontAwesome.Sharp.IconButton();
             txtbusqueda = new TextBox();
             cbbusqueda = new ComboBox();
@@ -56,7 +57,7 @@
             btnbuscar.IconColor = Color.Black;
             btnbuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnbuscar.IconSize = 22;
-            btnbuscar.Location = new Point(568, 60);
+            btnbuscar.Location = new Point(561, 60);
             btnbuscar.Name = "btnbuscar";
             btnbuscar.Size = new Size(39, 28);
             btnbuscar.TabIndex = 60;
@@ -66,7 +67,7 @@
             // txtbusqueda
             // 
             txtbusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtbusqueda.Location = new Point(357, 61);
+            txtbusqueda.Location = new Point(350, 61);
             txtbusqueda.Name = "txtbusqueda";
             txtbusqueda.Size = new Size(200, 27);
             txtbusqueda.TabIndex = 58;
@@ -76,7 +77,7 @@
             cbbusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             cbbusqueda.DropDownStyle = ComboBoxStyle.DropDownList;
             cbbusqueda.FormattingEnabled = true;
-            cbbusqueda.Location = new Point(173, 60);
+            cbbusqueda.Location = new Point(166, 60);
             cbbusqueda.Name = "cbbusqueda";
             cbbusqueda.Size = new Size(172, 28);
             cbbusqueda.TabIndex = 57;
@@ -86,7 +87,7 @@
             label11.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label11.AutoSize = true;
             label11.BackColor = Color.White;
-            label11.Location = new Point(85, 63);
+            label11.Location = new Point(78, 63);
             label11.Name = "label11";
             label11.Size = new Size(82, 20);
             label11.TabIndex = 56;
@@ -105,7 +106,7 @@
             btnlimpiarbuscador.IconColor = Color.Black;
             btnlimpiarbuscador.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnlimpiarbuscador.IconSize = 23;
-            btnlimpiarbuscador.Location = new Point(620, 61);
+            btnlimpiarbuscador.Location = new Point(613, 61);
             btnlimpiarbuscador.Name = "btnlimpiarbuscador";
             btnlimpiarbuscador.Size = new Size(39, 27);
             btnlimpiarbuscador.TabIndex = 59;
@@ -178,6 +179,7 @@
             // 
             label10.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label10.BackColor = Color.White;
+            label10.BorderStyle = BorderStyle.FixedSingle;
             label10.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Regular, GraphicsUnit.Point);
             label10.Location = new Point(12, 9);
             label10.Name = "label10";
@@ -189,6 +191,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(687, 397);
             Controls.Add(btnbuscar);
             Controls.Add(txtbusqueda);
@@ -197,6 +200,7 @@
             Controls.Add(btnlimpiarbuscador);
             Controls.Add(dgvdata);
             Controls.Add(label10);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MD_Proveedor";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MD_Proveedor";

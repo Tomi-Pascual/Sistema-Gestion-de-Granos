@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MD_DetallePermisoSimple));
             label10 = new Label();
             cbestado = new ComboBox();
             label8 = new Label();
@@ -71,6 +72,7 @@
             // 
             txtnombrepermiso.Location = new Point(52, 88);
             txtnombrepermiso.Name = "txtnombrepermiso";
+            txtnombrepermiso.ReadOnly = true;
             txtnombrepermiso.Size = new Size(254, 27);
             txtnombrepermiso.TabIndex = 58;
             // 
@@ -88,6 +90,7 @@
             // 
             txtnombremenu.Location = new Point(52, 160);
             txtnombremenu.Name = "txtnombremenu";
+            txtnombremenu.ReadOnly = true;
             txtnombremenu.Size = new Size(254, 27);
             txtnombremenu.TabIndex = 62;
             // 
@@ -105,6 +108,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(351, 281);
             Controls.Add(txtnombremenu);
             Controls.Add(label1);
@@ -113,7 +117,9 @@
             Controls.Add(txtnombrepermiso);
             Controls.Add(label3);
             Controls.Add(label10);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MD_DetallePermisoSimple";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "MD_DetallePermisoSimple";
             Load += MD_DetallePermisoSimple_Load;
             ResumeLayout(false);

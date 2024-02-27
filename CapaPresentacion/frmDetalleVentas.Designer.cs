@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDetalleVentas));
             txtmontototal = new TextBox();
             dgvproducto = new DataGridView();
             Producto = new DataGridViewTextBoxColumn();
@@ -392,6 +393,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmDetalleVentas";
             Text = "frmDetalleVentas";
             Load += frmDetalleVentas_Load;

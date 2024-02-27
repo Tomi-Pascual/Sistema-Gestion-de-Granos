@@ -18,8 +18,10 @@ namespace CapaPresentacion
     public partial class frmPermisoUsuario : Form
     {
         private CN_Usuario objcn_Usuario = new CN_Usuario();
-        public frmPermisoUsuario()
+        private Usuario _usuarioActual;
+        public frmPermisoUsuario(Usuario oUsuario)
         {
+            _usuarioActual = oUsuario;
             InitializeComponent();
         }
 
@@ -54,6 +56,24 @@ namespace CapaPresentacion
             dgvdata.ClearSelection();
 
             txtid.Text = "";
+
+            //MOSTRAR LOS BOTONES SEGUN EL PERMISO
+            List<Permiso> listaPermisos = _usuarioActual.GetPermisos();
+            List<Button> listaBotones = new List<Button> { btnverpermisosusuario, btnadministrarusuario };
+
+            foreach (Button boton in listaBotones)
+            {
+                bool encontrado = listaPermisos.Any(p => p.NombreMenu == boton.Name);
+
+                if (encontrado)
+                {
+                    boton.Visible = true;
+                }
+                else
+                {
+                    boton.Visible = false;
+                }
+            }
         }
 
         private void btnverpermisos_Click(object sender, EventArgs e)

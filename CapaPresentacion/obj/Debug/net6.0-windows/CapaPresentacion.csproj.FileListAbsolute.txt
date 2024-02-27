@@ -71,7 +71,6 @@ C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion D
 C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion De Granos\CapaPresentacion\obj\Debug\net6.0-windows\CapaPresentacion.frmSeguridad.resources
 C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion De Granos\CapaPresentacion\obj\Debug\net6.0-windows\CapaPresentacion.frmVentas.resources
 C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion De Granos\CapaPresentacion\obj\Debug\net6.0-windows\CapaPresentacion.frmCompras.resources
-C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion De Granos\CapaPresentacion\obj\Debug\net6.0-windows\CapaPresentacion.frmReportes.resources
 C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion De Granos\CapaPresentacion\obj\Debug\net6.0-windows\CapaPresentacion.frmDetalleCompra.resources
 C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion De Granos\CapaPresentacion\obj\Debug\net6.0-windows\CapaPresentacion.frmDetalleVentas.resources
 C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion De Granos\CapaPresentacion\obj\Debug\net6.0-windows\CapaPresentacion.Properties.Resources.resources

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MD_AcercaDe));
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -315,6 +316,7 @@
             Controls.Add(label22);
             Controls.Add(label21);
             Controls.Add(label20);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MD_AcercaDe";
             StartPosition = FormStartPosition.CenterScreen;
             ResumeLayout(false);

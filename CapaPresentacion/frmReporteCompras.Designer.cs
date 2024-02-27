@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReporteCompras));
             dtpfechainicio = new DateTimePicker();
             label1 = new Label();
             label9 = new Label();
@@ -390,6 +391,7 @@
             Controls.Add(label9);
             Controls.Add(dtpfechainicio);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmReporteCompras";
             Text = "frmReporteCompras";
             Load += frmReporteCompras_Load;

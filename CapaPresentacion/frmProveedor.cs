@@ -17,8 +17,10 @@ namespace CapaPresentacion
 {
     public partial class frmProveedor : Form
     {
-        public frmProveedor()
+        private Usuario _usuarioActual;
+        public frmProveedor(Usuario oUsuario)
         {
+            _usuarioActual = oUsuario;
             InitializeComponent();
         }
 
@@ -43,6 +45,7 @@ namespace CapaPresentacion
             cbbusqueda.ValueMember = "Valor";
             cbbusqueda.SelectedIndex = 0;
 
+            //MOSTRAR TODOS LOS PROVEEDORES
             List<Proveedor> listaProveedor = new CN_Proveedor().Listar();
 
             foreach (Proveedor item in listaProveedor)
@@ -51,6 +54,24 @@ namespace CapaPresentacion
                 item.Correo, item.Telefono,
                 item.Estado == true ? 1 : 0,
                 item.Estado == true ? "Activo" : "No Activo"});
+            }
+
+            //MOSTRAR LOS BOTONES SEGUN EL PERMISO
+            List<Permiso> listaPermisos = _usuarioActual.GetPermisos();
+            List<Button> listaBotones = new List<Button> { btnguardarproveedor, btneliminarproveedor };
+
+            foreach (Button boton in listaBotones)
+            {
+                bool encontrado = listaPermisos.Any(p => p.NombreMenu == boton.Name);
+
+                if (encontrado)
+                {
+                    boton.Visible = true;
+                }
+                else
+                {
+                    boton.Visible = false;
+                }
             }
         }
 

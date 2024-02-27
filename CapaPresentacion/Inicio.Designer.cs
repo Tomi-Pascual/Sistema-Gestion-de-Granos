@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inicio));
             menu = new MenuStrip();
             menuseguridad = new FontAwesome.Sharp.IconMenuItem();
             submenuusuario = new ToolStripMenuItem();
@@ -328,11 +329,11 @@
             Controls.Add(contenedor);
             Controls.Add(menu);
             Controls.Add(menuStrip1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menu;
             Margin = new Padding(3, 4, 3, 4);
             Name = "Inicio";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
             Load += Inicio_Load;
             menu.ResumeLayout(false);
             menu.PerformLayout();

@@ -16,8 +16,10 @@ namespace CapaPresentacion
 {
     public partial class frmProducto : Form
     {
-        public frmProducto()
+        private Usuario _usuarioActual;
+        public frmProducto(Usuario oUsuario)
         {
+            _usuarioActual = oUsuario;
             InitializeComponent();
         }
 
@@ -72,6 +74,24 @@ namespace CapaPresentacion
                     item.PrecioVenta,
                     item.Estado == true ? 1 : 0 ,
                     item.Estado == true ? "Activo" : "No Activo"});
+            }
+
+            //MOSTRAR LOS BOTONES SEGUN EL PERMISO
+            List<Permiso> listaPermisos = _usuarioActual.GetPermisos();
+            List<Button> listaBotones = new List<Button> { btnguardarproducto, btneliminarproducto };
+
+            foreach (Button boton in listaBotones)
+            {
+                bool encontrado = listaPermisos.Any(p => p.NombreMenu == boton.Name);
+
+                if (encontrado)
+                {
+                    boton.Visible = true;
+                }
+                else
+                {
+                    boton.Visible = false;
+                }
             }
 
         }

@@ -16,9 +16,11 @@ namespace CapaPresentacion
 {
     public partial class frmCategoria : Form
     {
-        public frmCategoria()
+        private Usuario _usuarioActual;
+        public frmCategoria(Usuario oUsuario)
         {
             InitializeComponent();
+            _usuarioActual = oUsuario;
         }
 
         private void frmCategoria_Load(object sender, EventArgs e)
@@ -43,6 +45,7 @@ namespace CapaPresentacion
             cbbusqueda.ValueMember = "Valor";
             cbbusqueda.SelectedIndex = 0;
 
+            //MOSTRAR TODAS LAS CATEGORIAS
             List<Categoria> lista = new CN_Categoria().Listar();
 
             foreach (Categoria item in lista)
@@ -50,6 +53,24 @@ namespace CapaPresentacion
                 dgvdata.Rows.Add(new object[] {"", item.IdCategoria, item.Descripcion,
                 item.Estado == true ? 1 : 0,
                 item.Estado == true ? "Activo" : "No Activo"});
+            }
+
+            //MOSTRAR LOS BOTONES SEGUN EL PERMISO
+            List<Permiso> listaPermisos = _usuarioActual.GetPermisos();
+            List<Button> listaBotones = new List<Button> { btnguardarcategoria, btneliminarcategoria };
+
+            foreach (Button boton in listaBotones)
+            {
+                bool encontrado = listaPermisos.Any(p => p.NombreMenu == boton.Name);
+
+                if (encontrado)
+                {
+                    boton.Visible = true;
+                }
+                else
+                {
+                    boton.Visible = false;
+                }
             }
         }
 

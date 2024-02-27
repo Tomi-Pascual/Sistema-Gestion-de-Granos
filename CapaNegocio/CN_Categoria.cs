@@ -33,10 +33,6 @@ namespace CapaNegocio
             {
                 Mensaje += "Debe introducir la descripcion de la categoria\n";
             }
-            else if (ValidarString(obj.Descripcion))
-            {
-                Mensaje += "Por favor, ingrese solo letras y numeros en la Descripcion\n";
-            }
 
             if (Mensaje != string.Empty)
             {
@@ -63,10 +59,6 @@ namespace CapaNegocio
             if (obj.Descripcion == "")
             {
                 Mensaje += "Debe introducir la descripcion de la categoria\n";
-            }
-            else if (ValidarString(obj.Descripcion))
-            {
-                Mensaje += "Por favor, ingrese solo letras en la Descripcion\n";
             }
 
             if (Mensaje != string.Empty)
@@ -96,12 +88,6 @@ namespace CapaNegocio
             {
                 throw new Exception(ex.Message);
             }
-        }
-
-        private bool ValidarString(string input)
-        {
-            // Utilizar expresión regular para validar que solo se introduzcan letras
-            return Regex.IsMatch(input, "^[a-zA-Z]+$");
         }
     }
 }
