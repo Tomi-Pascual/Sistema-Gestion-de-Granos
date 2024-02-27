@@ -42,4 +42,4 @@ Si encuentras algún problema o tienes alguna sugerencia para mejorar el sistema
 
 ## Autor
 ---
-Creado por [Pascual Tomás](Tomas.Pascual@alumnos.uai.edu.ar)
+Creado por [Pascual Tomás](https://github.com/Tomi-Pascual)
