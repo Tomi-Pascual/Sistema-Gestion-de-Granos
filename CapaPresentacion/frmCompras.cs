@@ -50,75 +50,82 @@ namespace CapaPresentacion
 
         private void btnregistrar_Click(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(txtidproveedor.Text) == 0)
+            try
             {
-                MessageBox.Show("Debe seleccionar un Proveedor\n", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                txtdocproveedor.Select();
-                return;
-            }
-
-            if (dgvproducto.Rows.Count < 1)
-            {
-                MessageBox.Show("Debe ingresar productos en la Compra\n", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                txtcodigoproducto.Select();
-                return;
-            }
-
-            DataTable detalle_compra = new DataTable();
-
-            detalle_compra.Columns.Add("IdProducto", typeof(int));
-            detalle_compra.Columns.Add("PrecioCompra", typeof(decimal));
-            detalle_compra.Columns.Add("PrecioVenta", typeof(decimal));
-            detalle_compra.Columns.Add("Cantidad", typeof(int));
-            detalle_compra.Columns.Add("MontoTotal", typeof(decimal));
-
-            foreach (DataGridViewRow row in dgvproducto.Rows)
-            {
-                detalle_compra.Rows.Add(
-                    new Object[]
+                if (Convert.ToInt32(txtidproveedor.Text) == 0)
                 {
+                    MessageBox.Show("Debe seleccionar un Proveedor\n", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    txtdocproveedor.Select();
+                    return;
+                }
+
+                if (dgvproducto.Rows.Count < 1)
+                {
+                    MessageBox.Show("Debe ingresar productos en la Compra\n", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    txtcodigoproducto.Select();
+                    return;
+                }
+
+                DataTable detalle_compra = new DataTable();
+
+                detalle_compra.Columns.Add("IdProducto", typeof(int));
+                detalle_compra.Columns.Add("PrecioCompra", typeof(decimal));
+                detalle_compra.Columns.Add("PrecioVenta", typeof(decimal));
+                detalle_compra.Columns.Add("Cantidad", typeof(int));
+                detalle_compra.Columns.Add("MontoTotal", typeof(decimal));
+
+                foreach (DataGridViewRow row in dgvproducto.Rows)
+                {
+                    detalle_compra.Rows.Add(
+                        new Object[]
+                    {
                     Convert.ToInt32(row.Cells["IdProducto"].Value.ToString()),
                     row.Cells["PrecioCompra"].Value.ToString(),
                     row.Cells["PrecioVenta"].Value.ToString(),
                     row.Cells["Cantidad"].Value.ToString(),
                     row.Cells["SubTotal"].Value.ToString()
-                });
-            }
-
-            int idcorrelativo = new CN_Compra().ObtenerCorrelativo();
-            string numerodocumento = string.Format("{0:00000}", idcorrelativo);
-
-            Compra oCompra = new Compra()
-            {
-                OUsuario = new Usuario() { IdUsuario = _Usuario.IdUsuario },
-                OProveedor = new Proveedor() { IdProveedor = Convert.ToInt32(txtidproveedor.Text) },
-                TipoDocumento = ((OpcionCombo)cbotipodocumento.SelectedItem).Texto,
-                NumeroDocumento = numerodocumento,
-                MontoTotal = Convert.ToDecimal(txttotal.Text)
-            };
-
-            string mensaje = string.Empty;
-            bool respuesta = new CN_Compra().Registrar(oCompra, detalle_compra, out mensaje);
-
-            if (respuesta)
-            {
-                var result = MessageBox.Show("Numero de compra generada:\n" + numerodocumento + "\n\n¿Desea copiar al portapapeles?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
-                if (result == DialogResult.Yes)
-                {
-                    Clipboard.SetText(numerodocumento);
+                    });
                 }
 
-                txtidproveedor.Text = "0";
-                txtdocproveedor.Text = "";
-                txtrazonsocial.Text = "";
-                txttotal.Text = "0.00";
-                dgvproducto.Rows.Clear();
-                calcularTotal();
+                int idcorrelativo = new CN_Compra().ObtenerCorrelativo();
+                string numerodocumento = string.Format("{0:00000}", idcorrelativo);
+
+                Compra oCompra = new Compra()
+                {
+                    OUsuario = new Usuario() { IdUsuario = _Usuario.IdUsuario },
+                    OProveedor = new Proveedor() { IdProveedor = Convert.ToInt32(txtidproveedor.Text) },
+                    TipoDocumento = ((OpcionCombo)cbotipodocumento.SelectedItem).Texto,
+                    NumeroDocumento = numerodocumento,
+                    MontoTotal = Convert.ToDecimal(txttotal.Text)
+                };
+
+                string mensaje = string.Empty;
+                bool respuesta = new CN_Compra().Registrar(oCompra, detalle_compra, out mensaje);
+
+                if (respuesta)
+                {
+                    var result = MessageBox.Show("Numero de compra generada:\n" + numerodocumento + "\n\n¿Desea copiar al portapapeles?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        Clipboard.SetText(numerodocumento);
+                    }
+
+                    txtidproveedor.Text = "0";
+                    txtdocproveedor.Text = "";
+                    txtrazonsocial.Text = "";
+                    txttotal.Text = "0.00";
+                    dgvproducto.Rows.Clear();
+                    calcularTotal();
+                }
+                else
+                {
+                    MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Error al registrar la compra\n\nIntentelo de nuevo","Mensaje",MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

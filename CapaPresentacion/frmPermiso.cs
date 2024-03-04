@@ -83,104 +83,118 @@ namespace CapaPresentacion
 
         private void btnverdetalle_Click(object sender, EventArgs e)
         {
-            if (txtid.Text.Trim() != "")
+            try
             {
-                int idPermiso = Convert.ToInt32(txtid.Text);
-
-                using (var modal = new MD_DetallePermisoSimple(idPermiso))
+                if (txtid.Text.Trim() != "")
                 {
-                    var resultado = modal.ShowDialog();
+                    int idPermiso = Convert.ToInt32(txtid.Text);
+
+                    using (var modal = new MD_DetallePermisoSimple(idPermiso))
+                    {
+                        var resultado = modal.ShowDialog();
+                    }
+                    dgvdata.Rows.Clear();
+
+                    //MOSTRAR LOS PERMISOS
+                    List<Permiso> listaPermisos = objcn_Permiso.ListarPermisos();
+                    listaPermisos = listaPermisos.OrderBy(p => p.Nombre).ToList();
+
+                    foreach (Permiso oPermiso in listaPermisos)
+                    {
+                        dgvdata.Rows.Add(
+                            "",
+                            oPermiso.IdPermiso,
+                            oPermiso.IdComponente,
+                            oPermiso.Nombre,
+                            oPermiso.NombreMenu,
+                            oPermiso.Estado == true ? 1 : 0,
+                            oPermiso.Estado == true ? "Activo" : "No Activo"
+                            );
+                    }
+
+                    dgvdata.ClearSelection();
+
+                    txtid.Text = "";
+                    txtidcomponente.Text = "";
                 }
-                dgvdata.Rows.Clear();
-
-                //MOSTRAR LOS PERMISOS
-                List<Permiso> listaPermisos = objcn_Permiso.ListarPermisos();
-                listaPermisos = listaPermisos.OrderBy(p => p.Nombre).ToList();
-
-                foreach (Permiso oPermiso in listaPermisos)
+                else
                 {
-                    dgvdata.Rows.Add(
-                        "",
-                        oPermiso.IdPermiso,
-                        oPermiso.IdComponente,
-                        oPermiso.Nombre,
-                        oPermiso.NombreMenu,
-                        oPermiso.Estado == true ? 1 : 0,
-                        oPermiso.Estado == true ? "Activo" : "No Activo"
-                        );
+                    MessageBox.Show("Debe seleccionar un permiso", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
-
-                dgvdata.ClearSelection();
-
-                txtid.Text = "";
-                txtidcomponente.Text = "";
             }
-            else
+            catch
             {
-                MessageBox.Show("Debe seleccionar un permiso", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Debe seleccionar un Permiso","Error",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
             }
         }
 
         private void btneditarestado_Click(object sender, EventArgs e)
         {
-            if (txtid.Text.Trim() != "")
+            try
             {
-                string estado = dgvdata.Rows[dgvdata.CurrentRow.Index].Cells["EstadoValor"].Value.ToString();
-                string nuevoEstado = string.Empty;
-                bool valorEstado = true;
-                if (estado == "Activo")
+                if (txtid.Text.Trim() != "")
                 {
-                    nuevoEstado = "Inactivo";
-                    valorEstado = false;
-                }
-                else
-                {
-                    nuevoEstado = "Activo";
-                    valorEstado = true;
-                }
-
-                if (MessageBox.Show("¿Está seguro de cambiar el estado de permiso a " + nuevoEstado + "?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    string mensaje = string.Empty;
-
-                    bool editado = objcn_Permiso.EditarEstado(Convert.ToInt32(txtidcomponente.Text), valorEstado, out mensaje);
-
-                    if (editado)
+                    string estado = dgvdata.Rows[dgvdata.CurrentRow.Index].Cells["EstadoValor"].Value.ToString();
+                    string nuevoEstado = string.Empty;
+                    bool valorEstado = true;
+                    if (estado == "Activo")
                     {
-                        MessageBox.Show("Estado editado correctamente.\nSe recomienda reiniciar el sistema", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        dgvdata.Rows.Clear();
-
-                        //MOSTRAR LOS PERMISOS
-                        List<Permiso> listaPermisos = objcn_Permiso.ListarPermisos();
-                        listaPermisos = listaPermisos.OrderBy(p => p.Nombre).ToList();
-
-                        foreach (Permiso oPermiso in listaPermisos)
-                        {
-                            dgvdata.Rows.Add(
-                                "",
-                                oPermiso.IdPermiso,
-                                oPermiso.IdComponente,
-                                oPermiso.Nombre,
-                                oPermiso.NombreMenu,
-                                oPermiso.Estado == true ? 1 : 0,
-                                oPermiso.Estado == true ? "Activo" : "No Activo"
-                                );
-                        }
-
-                        dgvdata.ClearSelection();
-
-                        txtid.Text = "";
-                        txtidcomponente.Text = "";
+                        nuevoEstado = "Inactivo";
+                        valorEstado = false;
                     }
                     else
                     {
-                        MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        nuevoEstado = "Activo";
+                        valorEstado = true;
+                    }
+
+                    if (MessageBox.Show("¿Está seguro de cambiar el estado de permiso a " + nuevoEstado + "?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        string mensaje = string.Empty;
+
+                        bool editado = objcn_Permiso.EditarEstado(Convert.ToInt32(txtidcomponente.Text), valorEstado, out mensaje);
+
+                        if (editado)
+                        {
+                            MessageBox.Show("Estado editado correctamente.\nSe recomienda reiniciar el sistema", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            dgvdata.Rows.Clear();
+
+                            //MOSTRAR LOS PERMISOS
+                            List<Permiso> listaPermisos = objcn_Permiso.ListarPermisos();
+                            listaPermisos = listaPermisos.OrderBy(p => p.Nombre).ToList();
+
+                            foreach (Permiso oPermiso in listaPermisos)
+                            {
+                                dgvdata.Rows.Add(
+                                    "",
+                                    oPermiso.IdPermiso,
+                                    oPermiso.IdComponente,
+                                    oPermiso.Nombre,
+                                    oPermiso.NombreMenu,
+                                    oPermiso.Estado == true ? 1 : 0,
+                                    oPermiso.Estado == true ? "Activo" : "No Activo"
+                                    );
+                            }
+
+                            dgvdata.ClearSelection();
+
+                            txtid.Text = "";
+                            txtidcomponente.Text = "";
+                        }
+                        else
+                        {
+                            MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar un permiso", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("Debe seleccionar un permiso", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Error al editar el estado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

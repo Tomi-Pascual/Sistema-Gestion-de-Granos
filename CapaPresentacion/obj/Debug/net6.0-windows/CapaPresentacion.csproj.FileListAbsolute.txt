@@ -90,3 +90,5 @@ C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion D
 C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion De Granos\CapaPresentacion\obj\Debug\net6.0-windows\CapaPresentacion.Modales.MD_DetalleGrupoPermiso.resources
 C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion De Granos\CapaPresentacion\obj\Debug\net6.0-windows\CapaPresentacion.Modales.MD_DetallePermisoSimple.resources
 C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion De Granos\CapaPresentacion\obj\Debug\net6.0-windows\CapaPresentacion.Modales.MD_DetallePermisoUsuario.resources
+C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion De Granos\CapaPresentacion\obj\Debug\net6.0-windows\CapaPresentacion.frmHistorialCompras.resources
+C:\Users\USUARIO\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\Desktop\Gestion De Granos\CapaPresentacion\obj\Debug\net6.0-windows\CapaPresentacion.frmHistorialVentas.resources

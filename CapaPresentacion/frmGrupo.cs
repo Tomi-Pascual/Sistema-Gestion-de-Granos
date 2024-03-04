@@ -207,36 +207,43 @@ namespace CapaPresentacion
 
         private void btneditar_Click(object sender, EventArgs e)
         {
-            using (var modal = new MD_DetalleGrupoPermiso("Editar", Convert.ToInt32(txtid.Text)))
+            try
             {
-                var resultado = modal.ShowDialog();
-
-                if (resultado == DialogResult.OK)
+                using (var modal = new MD_DetalleGrupoPermiso("Editar", Convert.ToInt32(txtid.Text)))
                 {
-                    dgvdata.Rows.Clear();
+                    var resultado = modal.ShowDialog();
 
-                    //MOSTRAR LOS GRUPOS
-                    List<GrupoPermiso> listaGrupoPermisos = objcn_GrupoPermiso.ListarGrupoPermisos();
-                    listaGrupoPermisos = listaGrupoPermisos.OrderBy(p => p.Nombre).ToList();
-
-                    foreach (GrupoPermiso oGrupoPermiso in listaGrupoPermisos)
+                    if (resultado == DialogResult.OK)
                     {
-                        dgvdata.Rows.Add(
-                            "",
-                            oGrupoPermiso.IdGrupoPermiso,
-                            oGrupoPermiso.IdComponente,
-                            oGrupoPermiso.Nombre,
-                            oGrupoPermiso.Estado == true ? 1 : 0,
-                            oGrupoPermiso.Estado == true ? "Activo" : "Inactivo"
-                            );
+                        dgvdata.Rows.Clear();
+
+                        //MOSTRAR LOS GRUPOS
+                        List<GrupoPermiso> listaGrupoPermisos = objcn_GrupoPermiso.ListarGrupoPermisos();
+                        listaGrupoPermisos = listaGrupoPermisos.OrderBy(p => p.Nombre).ToList();
+
+                        foreach (GrupoPermiso oGrupoPermiso in listaGrupoPermisos)
+                        {
+                            dgvdata.Rows.Add(
+                                "",
+                                oGrupoPermiso.IdGrupoPermiso,
+                                oGrupoPermiso.IdComponente,
+                                oGrupoPermiso.Nombre,
+                                oGrupoPermiso.Estado == true ? 1 : 0,
+                                oGrupoPermiso.Estado == true ? "Activo" : "Inactivo"
+                                );
+                        }
+
+                        //CONFIGURA QUE NO ESTE SELECCIONADA NINGUNA FILA
+                        dgvdata.ClearSelection();
+
+                        txtid.Text = "";
+                        txtidcomponente.Text = "";
                     }
-
-                    //CONFIGURA QUE NO ESTE SELECCIONADA NINGUNA FILA
-                    dgvdata.ClearSelection();
-
-                    txtid.Text = "";
-                    txtidcomponente.Text = "";
                 }
+            }
+            catch
+            {
+                MessageBox.Show("Debe seleccionar un Permiso", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -276,54 +283,61 @@ namespace CapaPresentacion
 
         private void btneliminar_Click(object sender, EventArgs e)
         {
-            if (txtid.Text != "" && txtidcomponente.Text != "")
+            try
             {
-                DialogResult resultado = MessageBox.Show("¿Está seguro de eliminar el grupo?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (resultado == DialogResult.Yes)
+                if (txtid.Text != "" && txtidcomponente.Text != "")
                 {
-                    GrupoPermiso oGrupoPermiso = new GrupoPermiso();
-                    oGrupoPermiso.IdGrupoPermiso = Convert.ToInt32(txtid.Text);
-                    oGrupoPermiso.IdComponente = Convert.ToInt32(txtidcomponente.Text);
+                    DialogResult resultado = MessageBox.Show("¿Está seguro de eliminar el grupo?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                    string mensaje;
-                    bool respuesta = objcn_GrupoPermiso.EliminarGrupoPermiso(oGrupoPermiso, out mensaje);
-
-                    if (respuesta)
+                    if (resultado == DialogResult.Yes)
                     {
-                        MessageBox.Show("Grupo eliminado correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        dgvdata.Rows.Clear();
+                        GrupoPermiso oGrupoPermiso = new GrupoPermiso();
+                        oGrupoPermiso.IdGrupoPermiso = Convert.ToInt32(txtid.Text);
+                        oGrupoPermiso.IdComponente = Convert.ToInt32(txtidcomponente.Text);
 
-                        List<GrupoPermiso> listaGrupoPermisos = objcn_GrupoPermiso.ListarGrupoPermisos();
-                        listaGrupoPermisos = listaGrupoPermisos.OrderBy(p => p.Nombre).ToList();
+                        string mensaje;
+                        bool respuesta = objcn_GrupoPermiso.EliminarGrupoPermiso(oGrupoPermiso, out mensaje);
 
-                        foreach (GrupoPermiso oGP in listaGrupoPermisos)
+                        if (respuesta)
                         {
-                            dgvdata.Rows.Add(
-                                "",
-                                oGP.IdGrupoPermiso,
-                                oGP.IdComponente,
-                                oGP.Nombre,
-                                oGP.Estado == true ? 1 : 0,
-                                oGP.Estado == true ? "Activo" : "Inactivo"
-                                );
+                            MessageBox.Show("Grupo eliminado correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            dgvdata.Rows.Clear();
+
+                            List<GrupoPermiso> listaGrupoPermisos = objcn_GrupoPermiso.ListarGrupoPermisos();
+                            listaGrupoPermisos = listaGrupoPermisos.OrderBy(p => p.Nombre).ToList();
+
+                            foreach (GrupoPermiso oGP in listaGrupoPermisos)
+                            {
+                                dgvdata.Rows.Add(
+                                    "",
+                                    oGP.IdGrupoPermiso,
+                                    oGP.IdComponente,
+                                    oGP.Nombre,
+                                    oGP.Estado == true ? 1 : 0,
+                                    oGP.Estado == true ? "Activo" : "Inactivo"
+                                    );
+                            }
+
+                            dgvdata.ClearSelection();
+
+                            txtid.Text = "";
+                            txtidcomponente.Text = "";
                         }
-
-                        dgvdata.ClearSelection();
-
-                        txtid.Text = "";
-                        txtidcomponente.Text = "";
-                    }
-                    else
-                    {
-                        MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else
+                        {
+                            MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar un grupo", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("Debe seleccionar un grupo", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+
+            }            
         }
     }
 }

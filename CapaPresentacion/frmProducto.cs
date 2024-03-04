@@ -275,33 +275,40 @@ namespace CapaPresentacion
 
         private void btneliminar_Click_1(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(txtid.Text) != 0)
+            try
             {
-                if (MessageBox.Show("¿Desea eliminar el producto?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (Convert.ToInt32(txtid.Text) != 0)
                 {
-                    string mensaje = string.Empty;
-                    Producto objproducto = new Producto()
+                    if (MessageBox.Show("¿Desea eliminar el producto?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        IdProducto = Convert.ToInt32(txtid.Text)
-                    };
+                        string mensaje = string.Empty;
+                        Producto objproducto = new Producto()
+                        {
+                            IdProducto = Convert.ToInt32(txtid.Text)
+                        };
 
-                    bool respuesta = new CN_Producto().Eliminar(objproducto, out mensaje);
+                        bool respuesta = new CN_Producto().Eliminar(objproducto, out mensaje);
 
-                    if (respuesta)
-                    {
-                        dgvdata.Rows.RemoveAt(Convert.ToInt32(txtindice.Text));
+                        if (respuesta)
+                        {
+                            dgvdata.Rows.RemoveAt(Convert.ToInt32(txtindice.Text));
 
-                        Limpiar();
-                    }
-                    else
-                    {
-                        MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            Limpiar();
+                        }
+                        else
+                        {
+                            MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Debe de seleccionar un Producto antes de eliminar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("Debe de seleccionar un Producto antes de eliminar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al editar el Producto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 

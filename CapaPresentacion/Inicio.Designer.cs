@@ -36,11 +36,11 @@
             submenugrupo = new ToolStripMenuItem();
             menuventas = new FontAwesome.Sharp.IconMenuItem();
             submenuClientes = new ToolStripMenuItem();
-            submenudetventa = new ToolStripMenuItem();
             submenuVentas = new ToolStripMenuItem();
+            submenuhistorialventas = new ToolStripMenuItem();
             menucompras = new FontAwesome.Sharp.IconMenuItem();
             submenuCategoria = new ToolStripMenuItem();
-            submenudetcompra = new ToolStripMenuItem();
+            submenuhistorialcompras = new ToolStripMenuItem();
             submenunegocio = new ToolStripMenuItem();
             submenuProducto = new ToolStripMenuItem();
             submenuProveedores = new ToolStripMenuItem();
@@ -85,28 +85,28 @@
             // submenuusuario
             // 
             submenuusuario.Name = "submenuusuario";
-            submenuusuario.Size = new Size(150, 26);
+            submenuusuario.Size = new Size(224, 26);
             submenuusuario.Text = "Usuarios";
             submenuusuario.Click += submenuusuario_Click;
             // 
             // submenupermiso
             // 
             submenupermiso.Name = "submenupermiso";
-            submenupermiso.Size = new Size(150, 26);
+            submenupermiso.Size = new Size(224, 26);
             submenupermiso.Text = "Permisos";
             submenupermiso.Click += submenupermiso_Click;
             // 
             // submenugrupo
             // 
             submenugrupo.Name = "submenugrupo";
-            submenugrupo.Size = new Size(150, 26);
+            submenugrupo.Size = new Size(224, 26);
             submenugrupo.Text = "Grupos";
             submenugrupo.Click += submenugrupo_Click;
             // 
             // menuventas
             // 
             menuventas.AutoSize = false;
-            menuventas.DropDownItems.AddRange(new ToolStripItem[] { submenuClientes, submenudetventa, submenuVentas });
+            menuventas.DropDownItems.AddRange(new ToolStripItem[] { submenuClientes, submenuVentas, submenuhistorialventas });
             menuventas.IconChar = FontAwesome.Sharp.IconChar.Tags;
             menuventas.IconColor = Color.Black;
             menuventas.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -124,13 +124,6 @@
             submenuClientes.Text = "Clientes";
             submenuClientes.Click += submenuClientes_Click;
             // 
-            // submenudetventa
-            // 
-            submenudetventa.Name = "submenudetventa";
-            submenudetventa.Size = new Size(192, 26);
-            submenudetventa.Text = "Detalle Venta";
-            submenudetventa.Click += submenudetventa_Click;
-            // 
             // submenuVentas
             // 
             submenuVentas.Name = "submenuVentas";
@@ -138,10 +131,17 @@
             submenuVentas.Text = "Registrar Venta";
             submenuVentas.Click += submenuVentas_Click;
             // 
+            // submenuhistorialventas
+            // 
+            submenuhistorialventas.Name = "submenuhistorialventas";
+            submenuhistorialventas.Size = new Size(192, 26);
+            submenuhistorialventas.Text = "Ventas";
+            submenuhistorialventas.Click += submenuhistorialventas_Click;
+            // 
             // menucompras
             // 
             menucompras.AutoSize = false;
-            menucompras.DropDownItems.AddRange(new ToolStripItem[] { submenuCategoria, submenudetcompra, submenunegocio, submenuProducto, submenuProveedores, submenuCompras });
+            menucompras.DropDownItems.AddRange(new ToolStripItem[] { submenuCategoria, submenuhistorialcompras, submenunegocio, submenuProducto, submenuProveedores, submenuCompras });
             menucompras.IconChar = FontAwesome.Sharp.IconChar.DollyFlatbed;
             menucompras.IconColor = Color.Black;
             menucompras.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -159,12 +159,12 @@
             submenuCategoria.Text = "Categoria";
             submenuCategoria.Click += submenuCategoria_Click;
             // 
-            // submenudetcompra
+            // submenuhistorialcompras
             // 
-            submenudetcompra.Name = "submenudetcompra";
-            submenudetcompra.Size = new Size(208, 26);
-            submenudetcompra.Text = "Detalle Compra";
-            submenudetcompra.Click += submenudetcompra_Click;
+            submenuhistorialcompras.Name = "submenuhistorialcompras";
+            submenuhistorialcompras.Size = new Size(208, 26);
+            submenuhistorialcompras.Text = "Compras";
+            submenuhistorialcompras.Click += submenuhistorialcompras_Click;
             // 
             // submenunegocio
             // 
@@ -338,8 +338,6 @@
         private ToolStripMenuItem submenuVentas;
         private ToolStripMenuItem submenuCompras;
         private ToolStripMenuItem submenunegocio;
-        private ToolStripMenuItem submenudetventa;
-        private ToolStripMenuItem submenudetcompra;
         private ToolStripMenuItem submenureportecompras;
         private ToolStripMenuItem submenureporteventas;
         private MenuStrip menuStrip1;
@@ -347,6 +345,8 @@
         private ToolStripMenuItem submenuusuario;
         private ToolStripMenuItem submenupermiso;
         private ToolStripMenuItem submenugrupo;
+        private ToolStripMenuItem submenuhistorialcompras;
+        private ToolStripMenuItem submenuhistorialventas;
     }
 }
 

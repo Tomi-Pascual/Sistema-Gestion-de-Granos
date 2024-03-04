@@ -12,6 +12,44 @@ namespace CapaDatos
 {
     public class CD_Compra
     {
+        public List<Compra> Listar()
+        {
+            List<Compra> lista = new List<Compra>();
+            
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("select TipoDocumento, NumeroDocumento, MontoTotal from COMPRA");
+
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+                    cmd.CommandType = CommandType.Text;
+
+                    oconexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(new Compra()
+                            {
+                                TipoDocumento = dr["TipoDocumento"].ToString(),
+                                NumeroDocumento = dr["NumeroDocumento"].ToString(),
+                                MontoTotal = Convert.ToDecimal(dr["MontoTotal"]),
+                            });
+
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    lista = new List<Compra>();
+                }
+            }
+            return lista;
+        }
+
         public int ObtenerCorrelativo()
         {
             int idcorrelativo = 0;
@@ -120,11 +158,8 @@ namespace CapaDatos
                                 MontoTotal = Convert.ToDecimal(dr["MontoTotal"]),
                                 FechaRegistro = dr["FechaRegistro"].ToString()
                             };
-
                         }
-
                     }
-
                 }
                 catch (Exception ex)
                 {

@@ -79,55 +79,62 @@ namespace CapaPresentacion
         {
             string mensaje = string.Empty;
 
-            Proveedor objProveedor = new Proveedor()
+            try
             {
-                IdProveedor = Convert.ToInt32(txtid.Text),
-                Documento = txtdocumento.Text,
-                RazonSocial = txtrazonsocial.Text,
-                Correo = txtcorreo.Text,
-                Telefono = txttelefono.Text,
-                Estado = Convert.ToInt32(((OpcionCombo)cbestado.SelectedItem).Valor) == 1 ? true : false
-            };
-
-            if (objProveedor.IdProveedor == 0)
-            {
-                int idProveedorgenerado = new CN_Proveedor().Registrar(objProveedor, out mensaje);
-
-                if (idProveedorgenerado != 0)
+                Proveedor objProveedor = new Proveedor()
                 {
-                    dgvdata.Rows.Add(new object[] {"", idProveedorgenerado, txtdocumento.Text, txtrazonsocial.Text,
+                    IdProveedor = Convert.ToInt32(txtid.Text),
+                    Documento = txtdocumento.Text,
+                    RazonSocial = txtrazonsocial.Text,
+                    Correo = txtcorreo.Text,
+                    Telefono = txttelefono.Text,
+                    Estado = Convert.ToInt32(((OpcionCombo)cbestado.SelectedItem).Valor) == 1 ? true : false
+                };
+
+                if (objProveedor.IdProveedor == 0)
+                {
+                    int idProveedorgenerado = new CN_Proveedor().Registrar(objProveedor, out mensaje);
+
+                    if (idProveedorgenerado != 0)
+                    {
+                        dgvdata.Rows.Add(new object[] {"", idProveedorgenerado, txtdocumento.Text, txtrazonsocial.Text,
                     txtcorreo.Text, txttelefono.Text,
                     ((OpcionCombo)cbestado.SelectedItem).Valor.ToString(),
                     ((OpcionCombo)cbestado.SelectedItem).Texto.ToString(),});
 
-                    Limpiar();
+                        Limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show(mensaje);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show(mensaje);
+                    bool resultado = new CN_Proveedor().Editar(objProveedor, out mensaje);
+
+                    if (resultado)
+                    {
+                        DataGridViewRow row = dgvdata.Rows[Convert.ToInt32(txtindice.Text)];
+                        row.Cells["Id"].Value = txtid.Text;
+                        row.Cells["Documento"].Value = txtdocumento.Text;
+                        row.Cells["RazonSocial"].Value = txtrazonsocial.Text;
+                        row.Cells["Correo"].Value = txtcorreo.Text;
+                        row.Cells["Telefono"].Value = txttelefono.Text;
+                        row.Cells["EstadoValor"].Value = ((OpcionCombo)cbestado.SelectedItem).Valor.ToString();
+                        row.Cells["Estado"].Value = ((OpcionCombo)cbestado.SelectedItem).Texto.ToString();
+
+                        Limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show(mensaje);
+                    }
                 }
             }
-            else
+            catch
             {
-                bool resultado = new CN_Proveedor().Editar(objProveedor, out mensaje);
-
-                if (resultado)
-                {
-                    DataGridViewRow row = dgvdata.Rows[Convert.ToInt32(txtindice.Text)];
-                    row.Cells["Id"].Value = txtid.Text;
-                    row.Cells["Documento"].Value = txtdocumento.Text;
-                    row.Cells["RazonSocial"].Value = txtrazonsocial.Text;
-                    row.Cells["Correo"].Value = txtcorreo.Text;
-                    row.Cells["Telefono"].Value = txttelefono.Text;
-                    row.Cells["EstadoValor"].Value = ((OpcionCombo)cbestado.SelectedItem).Valor.ToString();
-                    row.Cells["Estado"].Value = ((OpcionCombo)cbestado.SelectedItem).Texto.ToString();
-
-                    Limpiar();
-                }
-                else
-                {
-                    MessageBox.Show(mensaje);
-                }
+                MessageBox.Show("Debe completar los campos o seleccionar un Proveedor","Mensaje",MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -193,33 +200,40 @@ namespace CapaPresentacion
 
         private void btneliminar_Click(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(txtid.Text) != 0)
+            try
             {
-                if (MessageBox.Show("¿Desea eliminar el Proveedor?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (Convert.ToInt32(txtid.Text) != 0)
                 {
-                    string mensaje = string.Empty;
-                    Proveedor objProveedor = new Proveedor()
+                    if (MessageBox.Show("¿Desea eliminar el Proveedor?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        IdProveedor = Convert.ToInt32(txtid.Text)
-                    };
+                        string mensaje = string.Empty;
+                        Proveedor objProveedor = new Proveedor()
+                        {
+                            IdProveedor = Convert.ToInt32(txtid.Text)
+                        };
 
-                    bool respuesta = new CN_Proveedor().Eliminar(objProveedor, out mensaje);
+                        bool respuesta = new CN_Proveedor().Eliminar(objProveedor, out mensaje);
 
-                    if (respuesta)
-                    {
-                        dgvdata.Rows.RemoveAt(Convert.ToInt32(txtindice.Text));
+                        if (respuesta)
+                        {
+                            dgvdata.Rows.RemoveAt(Convert.ToInt32(txtindice.Text));
 
-                        Limpiar();
-                    }
-                    else
-                    {
-                        MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            Limpiar();
+                        }
+                        else
+                        {
+                            MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Debe de seleccionar un Proveedor antes de eliminar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("Debe de seleccionar un Proveedor antes de eliminar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al eliminar un Proveedor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -13,6 +13,18 @@ namespace CapaNegocio
     {
         private CD_Venta objcd_venta = new CD_Venta();
 
+        public List<Venta> Listar()
+        {
+            try
+            {
+                return objcd_venta.Listar();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
         public int ObtenerCorrelativo()
         {
             try

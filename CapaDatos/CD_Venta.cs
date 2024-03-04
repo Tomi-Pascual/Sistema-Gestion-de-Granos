@@ -11,6 +11,46 @@ namespace CapaDatos
 {
     public class CD_Venta
     {
+        public List<Venta> Listar()
+        {
+            List<Venta> lista = new List<Venta>();
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("select TipoDocumento, NumeroDocumento, DocumentoCliente, NombreCliente, MontoTotal from VENTA");
+
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+                    cmd.CommandType = CommandType.Text;
+
+                    oconexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(new Venta()
+                            {
+                                TipoDocumento = dr["TipoDocumento"].ToString(),
+                                NumeroDocumento = dr["NumeroDocumento"].ToString(),
+                                DocumentoCliente = dr["DocumentoCliente"].ToString(),
+                                NombreCliente = dr["NombreCliente"].ToString(),
+                                MontoTotal = Convert.ToDecimal(dr["MontoTotal"]),
+                            });
+
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    lista = new List<Venta>();
+                }
+            }
+            return lista;
+        }
+
         public int ObtenerCorrelativo()
         {
             int idcorrelativo = 0;

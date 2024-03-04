@@ -80,56 +80,62 @@ namespace CapaPresentacion
         private void btnguardar_Click(object sender, EventArgs e)
         {
             string mensaje = string.Empty;
-
-            Cliente objCliente = new Cliente()
+            try
             {
-                IdCliente = Convert.ToInt32(txtid.Text),
-                Documento = txtdocumento.Text,
-                NombreCompleto = txtnombrecompleto.Text,
-                Correo = txtcorreo.Text,
-                Telefono = txttelefono.Text,
-                Estado = Convert.ToInt32(((OpcionCombo)cbestado.SelectedItem).Valor) == 1 ? true : false
-            };
-
-            if (objCliente.IdCliente == 0)
-            {
-                int idClientegenerado = new CN_Cliente().Registrar(objCliente, out mensaje);
-
-                if (idClientegenerado != 0)
+                Cliente objCliente = new Cliente()
                 {
-                    dgvdata.Rows.Add(new object[] {"", idClientegenerado, txtdocumento.Text, txtnombrecompleto.Text,
+                    IdCliente = Convert.ToInt32(txtid.Text),
+                    Documento = txtdocumento.Text,
+                    NombreCompleto = txtnombrecompleto.Text,
+                    Correo = txtcorreo.Text,
+                    Telefono = txttelefono.Text,
+                    Estado = Convert.ToInt32(((OpcionCombo)cbestado.SelectedItem).Valor) == 1 ? true : false
+                };
+
+                if (objCliente.IdCliente == 0)
+                {
+                    int idClientegenerado = new CN_Cliente().Registrar(objCliente, out mensaje);
+
+                    if (idClientegenerado != 0)
+                    {
+                        dgvdata.Rows.Add(new object[] {"", idClientegenerado, txtdocumento.Text, txtnombrecompleto.Text,
                     txtcorreo.Text, txttelefono.Text,
                     ((OpcionCombo)cbestado.SelectedItem).Valor.ToString(),
                     ((OpcionCombo)cbestado.SelectedItem).Texto.ToString(),});
 
-                    Limpiar();
+                        Limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show(mensaje);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show(mensaje);
+                    bool resultado = new CN_Cliente().Editar(objCliente, out mensaje);
+
+                    if (resultado)
+                    {
+                        DataGridViewRow row = dgvdata.Rows[Convert.ToInt32(txtindice.Text)];
+                        row.Cells["Id"].Value = txtid.Text;
+                        row.Cells["Documento"].Value = txtdocumento.Text;
+                        row.Cells["NombreCompleto"].Value = txtnombrecompleto.Text;
+                        row.Cells["Correo"].Value = txtcorreo.Text;
+                        row.Cells["Telefono"].Value = txttelefono.Text;
+                        row.Cells["EstadoValor"].Value = ((OpcionCombo)cbestado.SelectedItem).Valor.ToString();
+                        row.Cells["Estado"].Value = ((OpcionCombo)cbestado.SelectedItem).Texto.ToString();
+
+                        Limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show(mensaje);
+                    }
                 }
             }
-            else
+            catch
             {
-                bool resultado = new CN_Cliente().Editar(objCliente, out mensaje);
-
-                if (resultado)
-                {
-                    DataGridViewRow row = dgvdata.Rows[Convert.ToInt32(txtindice.Text)];
-                    row.Cells["Id"].Value = txtid.Text;
-                    row.Cells["Documento"].Value = txtdocumento.Text;
-                    row.Cells["NombreCompleto"].Value = txtnombrecompleto.Text;
-                    row.Cells["Correo"].Value = txtcorreo.Text;
-                    row.Cells["Telefono"].Value = txttelefono.Text;
-                    row.Cells["EstadoValor"].Value = ((OpcionCombo)cbestado.SelectedItem).Valor.ToString();
-                    row.Cells["Estado"].Value = ((OpcionCombo)cbestado.SelectedItem).Texto.ToString();
-
-                    Limpiar();
-                }
-                else
-                {
-                    MessageBox.Show(mensaje);
-                }
+                MessageBox.Show("Debe completar los campos o seleccionar un Cliente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 

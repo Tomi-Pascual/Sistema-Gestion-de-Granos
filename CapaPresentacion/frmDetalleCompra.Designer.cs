@@ -32,9 +32,7 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            txtbusqueda = new TextBox();
-            btnbuscar = new FontAwesome.Sharp.IconButton();
-            btnlimpiar = new FontAwesome.Sharp.IconButton();
+            txtnumerodocumento = new TextBox();
             groupBox1 = new GroupBox();
             txtusuario = new TextBox();
             txttipodocumento = new TextBox();
@@ -86,62 +84,21 @@
             // 
             label3.AutoSize = true;
             label3.BackColor = Color.White;
-            label3.Location = new Point(425, 62);
+            label3.Location = new Point(636, 56);
             label3.Name = "label3";
-            label3.Size = new Size(124, 18);
+            label3.Size = new Size(148, 18);
             label3.TabIndex = 23;
-            label3.Text = "Número Compra:";
+            label3.Text = "Número Documento:";
             // 
-            // txtbusqueda
+            // txtnumerodocumento
             // 
-            txtbusqueda.Location = new Point(552, 56);
-            txtbusqueda.Multiline = true;
-            txtbusqueda.Name = "txtbusqueda";
-            txtbusqueda.Size = new Size(178, 28);
-            txtbusqueda.TabIndex = 31;
-            txtbusqueda.KeyPress += txtbusqueda_KeyPress;
-            // 
-            // btnbuscar
-            // 
-            btnbuscar.BackColor = Color.LightGray;
-            btnbuscar.Cursor = Cursors.Hand;
-            btnbuscar.FlatAppearance.BorderColor = Color.Black;
-            btnbuscar.FlatStyle = FlatStyle.Popup;
-            btnbuscar.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnbuscar.ForeColor = Color.Black;
-            btnbuscar.IconChar = FontAwesome.Sharp.IconChar.SearchLocation;
-            btnbuscar.IconColor = Color.Black;
-            btnbuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnbuscar.IconSize = 22;
-            btnbuscar.Location = new Point(736, 56);
-            btnbuscar.Name = "btnbuscar";
-            btnbuscar.Size = new Size(112, 28);
-            btnbuscar.TabIndex = 32;
-            btnbuscar.Text = "Buscar";
-            btnbuscar.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnbuscar.UseVisualStyleBackColor = false;
-            btnbuscar.Click += btnbuscar_Click;
-            // 
-            // btnlimpiar
-            // 
-            btnlimpiar.BackColor = Color.LightGray;
-            btnlimpiar.Cursor = Cursors.Hand;
-            btnlimpiar.FlatAppearance.BorderColor = Color.Black;
-            btnlimpiar.FlatStyle = FlatStyle.Popup;
-            btnlimpiar.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnlimpiar.ForeColor = Color.Black;
-            btnlimpiar.IconChar = FontAwesome.Sharp.IconChar.Broom;
-            btnlimpiar.IconColor = Color.Black;
-            btnlimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnlimpiar.IconSize = 22;
-            btnlimpiar.Location = new Point(854, 56);
-            btnlimpiar.Name = "btnlimpiar";
-            btnlimpiar.Size = new Size(112, 28);
-            btnlimpiar.TabIndex = 33;
-            btnlimpiar.Text = "Limpiar";
-            btnlimpiar.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnlimpiar.UseVisualStyleBackColor = false;
-            btnlimpiar.Click += btnlimpiar_Click;
+            txtnumerodocumento.Location = new Point(788, 52);
+            txtnumerodocumento.Multiline = true;
+            txtnumerodocumento.Name = "txtnumerodocumento";
+            txtnumerodocumento.ReadOnly = true;
+            txtnumerodocumento.Size = new Size(178, 28);
+            txtnumerodocumento.TabIndex = 31;
+            txtnumerodocumento.KeyPress += txtbusqueda_KeyPress;
             // 
             // groupBox1
             // 
@@ -273,11 +230,12 @@
             dgvproducto.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvproducto.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvproducto.Columns.AddRange(new DataGridViewColumn[] { Producto, PrecioCompra, Cantidad, SubTotal });
-            dgvproducto.Location = new Point(242, 321);
+            dgvproducto.Location = new Point(163, 321);
             dgvproducto.Name = "dgvproducto";
+            dgvproducto.ReadOnly = true;
             dgvproducto.RowHeadersWidth = 51;
             dgvproducto.RowTemplate.Height = 29;
-            dgvproducto.Size = new Size(726, 294);
+            dgvproducto.Size = new Size(917, 294);
             dgvproducto.TabIndex = 35;
             // 
             // Producto
@@ -286,6 +244,7 @@
             Producto.HeaderText = "Producto";
             Producto.MinimumWidth = 6;
             Producto.Name = "Producto";
+            Producto.ReadOnly = true;
             // 
             // PrecioCompra
             // 
@@ -293,6 +252,7 @@
             PrecioCompra.HeaderText = "Precio Compra";
             PrecioCompra.MinimumWidth = 6;
             PrecioCompra.Name = "PrecioCompra";
+            PrecioCompra.ReadOnly = true;
             // 
             // Cantidad
             // 
@@ -300,6 +260,7 @@
             Cantidad.HeaderText = "Cantidad";
             Cantidad.MinimumWidth = 6;
             Cantidad.Name = "Cantidad";
+            Cantidad.ReadOnly = true;
             // 
             // SubTotal
             // 
@@ -307,6 +268,7 @@
             SubTotal.HeaderText = "Sub Total";
             SubTotal.MinimumWidth = 6;
             SubTotal.Name = "SubTotal";
+            SubTotal.ReadOnly = true;
             // 
             // label9
             // 
@@ -339,9 +301,7 @@
             Controls.Add(dgvproducto);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
-            Controls.Add(btnlimpiar);
-            Controls.Add(btnbuscar);
-            Controls.Add(txtbusqueda);
+            Controls.Add(txtnumerodocumento);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -349,7 +309,9 @@
             Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmDetalleCompra";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "frmDetalleCompra";
+            Load += frmDetalleCompra_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
@@ -364,9 +326,7 @@
         private Label label1;
         private Label label2;
         private Label label3;
-        private TextBox txtbusqueda;
-        private FontAwesome.Sharp.IconButton btnbuscar;
-        private FontAwesome.Sharp.IconButton btnlimpiar;
+        private TextBox txtnumerodocumento;
         private GroupBox groupBox1;
         private Label label6;
         private Label label4;

@@ -14,14 +14,16 @@ namespace CapaPresentacion
 {
     public partial class frmDetalleCompra : Form
     {
-        public frmDetalleCompra()
+        private int numero_documento;
+        public frmDetalleCompra(int numero)
         {
+            numero_documento = numero;
             InitializeComponent();
         }
 
         private void btnbuscar_Click(object sender, EventArgs e)
         {
-            Compra oCompra = new CN_Compra().ObtenerCompra(txtbusqueda.Text);
+            Compra oCompra = new CN_Compra().ObtenerCompra(txtnumerodocumento.Text);
 
             if (oCompra.IdCompra != 0)
             {
@@ -73,6 +75,36 @@ namespace CapaPresentacion
             else
             {
                 e.Handled = false;
+            }
+        }
+
+        private void frmDetalleCompra_Load(object sender, EventArgs e)
+        {
+            txtnumerodocumento.Text = "0000" + numero_documento.ToString();
+
+            Compra oCompra = new CN_Compra().ObtenerCompra(txtnumerodocumento.Text);
+
+            if (oCompra.IdCompra != 0)
+            {
+                txtnumdoc.Text = oCompra.NumeroDocumento;
+                txtfecha.Text = oCompra.FechaRegistro;
+                txttipodocumento.Text = oCompra.TipoDocumento;
+                txtusuario.Text = oCompra.OUsuario.NombreCompleto;
+                txtdocproveedor.Text = oCompra.OProveedor.Documento;
+                txtrazonsocial.Text = oCompra.OProveedor.RazonSocial;
+
+                dgvproducto.Rows.Clear();
+                foreach (Detalle_Compra dc in oCompra.ODetalleCompra)
+                {
+                    dgvproducto.Rows.Add(new object[]
+                    {
+                        dc.OProducto.Nombre,
+                        dc.PrecioCompra,
+                        dc.Cantidad,
+                        dc.MontoTotal
+                    });
+                }
+                txtmontototal.Text = oCompra.MontoTotal.ToString("0.00");
             }
         }
     }

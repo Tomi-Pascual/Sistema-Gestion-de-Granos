@@ -363,7 +363,6 @@ namespace CapaPresentacion
                 return;
             }
 
-
             DataTable detalle_venta = new DataTable();
 
             detalle_venta.Columns.Add("IdProducto", typeof(int));

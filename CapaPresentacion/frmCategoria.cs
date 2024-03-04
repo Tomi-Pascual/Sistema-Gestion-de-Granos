@@ -78,48 +78,55 @@ namespace CapaPresentacion
         {
             string mensaje = string.Empty;
 
-            Categoria objcategoria = new Categoria()
+            try
             {
-                IdCategoria = Convert.ToInt32(txtid.Text),
-                Descripcion = txtdescripcion.Text,
-                Estado = Convert.ToInt32(((OpcionCombo)cbestado.SelectedItem).Valor) == 1 ? true : false
-            };
-
-            if (objcategoria.IdCategoria == 0)
-            {
-                int idcategoriagenerado = new CN_Categoria().Registrar(objcategoria, out mensaje);
-
-                if (idcategoriagenerado != 0)
+                Categoria objcategoria = new Categoria()
                 {
-                    dgvdata.Rows.Add(new object[] {"", idcategoriagenerado, txtdescripcion.Text,
+                    IdCategoria = Convert.ToInt32(txtid.Text),
+                    Descripcion = txtdescripcion.Text,
+                    Estado = Convert.ToInt32(((OpcionCombo)cbestado.SelectedItem).Valor) == 1 ? true : false
+                };
+
+                if (objcategoria.IdCategoria == 0)
+                {
+                    int idcategoriagenerado = new CN_Categoria().Registrar(objcategoria, out mensaje);
+
+                    if (idcategoriagenerado != 0)
+                    {
+                        dgvdata.Rows.Add(new object[] {"", idcategoriagenerado, txtdescripcion.Text,
                     ((OpcionCombo)cbestado.SelectedItem).Valor.ToString(),
                     ((OpcionCombo)cbestado.SelectedItem).Texto.ToString()});
 
-                    Limpiar();
+                        Limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show(mensaje);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show(mensaje);
+                    bool resultado = new CN_Categoria().Editar(objcategoria, out mensaje);
+
+                    if (resultado)
+                    {
+                        DataGridViewRow row = dgvdata.Rows[Convert.ToInt32(txtindice.Text)];
+                        row.Cells["IdCategoria"].Value = txtid.Text;
+                        row.Cells["Descripcion"].Value = txtdescripcion.Text;
+                        row.Cells["EstadoValor"].Value = ((OpcionCombo)cbestado.SelectedItem).Valor.ToString();
+                        row.Cells["Estado"].Value = ((OpcionCombo)cbestado.SelectedItem).Texto.ToString();
+
+                        Limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show(mensaje);
+                    }
                 }
             }
-            else
+            catch
             {
-                bool resultado = new CN_Categoria().Editar(objcategoria, out mensaje);
-
-                if (resultado)
-                {
-                    DataGridViewRow row = dgvdata.Rows[Convert.ToInt32(txtindice.Text)];
-                    row.Cells["IdCategoria"].Value = txtid.Text;
-                    row.Cells["Descripcion"].Value = txtdescripcion.Text;
-                    row.Cells["EstadoValor"].Value = ((OpcionCombo)cbestado.SelectedItem).Valor.ToString();
-                    row.Cells["Estado"].Value = ((OpcionCombo)cbestado.SelectedItem).Texto.ToString();
-
-                    Limpiar();
-                }
-                else
-                {
-                    MessageBox.Show(mensaje);
-                }
+                MessageBox.Show("Debe completar los campos o seleccionar una categoria","Mensaje",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -179,32 +186,39 @@ namespace CapaPresentacion
 
         private void btneliminar_Click(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(txtid.Text) != 0)
+            try
             {
-                if (MessageBox.Show("¿Desea eliminar la categoria?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (Convert.ToInt32(txtid.Text) != 0)
                 {
-                    string mensaje = string.Empty;
-                    Categoria objcategoria = new Categoria()
+                    if (MessageBox.Show("¿Desea eliminar la categoria?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        IdCategoria = Convert.ToInt32(txtid.Text)
-                    };
+                        string mensaje = string.Empty;
+                        Categoria objcategoria = new Categoria()
+                        {
+                            IdCategoria = Convert.ToInt32(txtid.Text)
+                        };
 
-                    bool respuesta = new CN_Categoria().Eliminar(objcategoria, out mensaje);
+                        bool respuesta = new CN_Categoria().Eliminar(objcategoria, out mensaje);
 
-                    if (respuesta)
-                    {
-                        dgvdata.Rows.RemoveAt(Convert.ToInt32(txtindice.Text));
-                        Limpiar();
-                    }
-                    else
-                    {
-                        MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        if (respuesta)
+                        {
+                            dgvdata.Rows.RemoveAt(Convert.ToInt32(txtindice.Text));
+                            Limpiar();
+                        }
+                        else
+                        {
+                            MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Debe de seleccionar una Categoria antes de eliminar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("Debe de seleccionar una Categoria antes de eliminar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe seleccionar un producto para eliminarlo", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 

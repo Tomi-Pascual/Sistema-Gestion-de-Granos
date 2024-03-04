@@ -14,29 +14,18 @@ namespace CapaPresentacion
 {
     public partial class frmDetalleVentas : Form
     {
-        public frmDetalleVentas()
+        private int numero_documento;
+        public frmDetalleVentas(int numero)
         {
+            numero_documento = numero;
             InitializeComponent();
         }
 
         private void frmDetalleVentas_Load(object sender, EventArgs e)
         {
-            txtbusqueda.Select();
-            txtfecha.Text = "";
-            txttipodocumento.Text = "";
-            txtusuario.Text = "";
-            txtdoccliente.Text = "";
-            txtnombrecliente.Text = "";
+            txtnumerodocumento.Text = "0000" + numero_documento.ToString();
 
-            dgvproducto.Rows.Clear();
-            txtmontototal.Text = "0.00";
-            txtpago.Text = "0.00";
-            txtcambio.Text = "0.00";
-        }
-
-        private void btnbuscar_Click(object sender, EventArgs e)
-        {
-            Venta oVenta = new CN_Venta().ObtenerVenta(txtbusqueda.Text);
+            Venta oVenta = new CN_Venta().ObtenerVenta(txtnumerodocumento.Text);
 
             if (oVenta.IdVenta != 0)
             {
@@ -64,20 +53,5 @@ namespace CapaPresentacion
                 txtcambio.Text = oVenta.MontoCambio.ToString("0.00");
             }
         }
-
-        private void btnlimpiar_Click(object sender, EventArgs e)
-        {
-            txtfecha.Text = "";
-            txttipodocumento.Text = "";
-            txtusuario.Text = "";
-            txtdoccliente.Text = "";
-            txtnombrecliente.Text = "";
-
-            dgvproducto.Rows.Clear();
-            txtmontototal.Text = "0.00";
-            txtpago.Text = "0.00";
-            txtcambio.Text = "0.00";
-        }
-
     }
 }

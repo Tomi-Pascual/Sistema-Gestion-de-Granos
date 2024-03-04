@@ -152,56 +152,63 @@ namespace CapaPresentacion
         {
             string mensaje = string.Empty;
 
-            Usuario objusuario = new Usuario()
+            try
             {
-                IdUsuario = Convert.ToInt32(txtid.Text),
-                Documento = txtdocumento.Text,
-                NombreCompleto = txtnombrecompleto.Text,
-                Correo = txtcorreo.Text,
-                Clave = txtclave.Text,
-                Estado = Convert.ToInt32(((OpcionCombo)cbestado.SelectedItem).Valor) == 1 ? true : false
-            };
-
-            if (objusuario.IdUsuario == 0)
-            {
-                int idusuariogenerado = new CN_Usuario().Registrar(objusuario, out mensaje);
-
-                if (idusuariogenerado != 0)
+                Usuario objusuario = new Usuario()
                 {
-                    dgvdata.Rows.Add(new object[] {"", idusuariogenerado, txtdocumento.Text, txtnombrecompleto.Text,
+                    IdUsuario = Convert.ToInt32(txtid.Text),
+                    Documento = txtdocumento.Text,
+                    NombreCompleto = txtnombrecompleto.Text,
+                    Correo = txtcorreo.Text,
+                    Clave = txtclave.Text,
+                    Estado = Convert.ToInt32(((OpcionCombo)cbestado.SelectedItem).Valor) == 1 ? true : false
+                };
+
+                if (objusuario.IdUsuario == 0)
+                {
+                    int idusuariogenerado = new CN_Usuario().Registrar(objusuario, out mensaje);
+
+                    if (idusuariogenerado != 0)
+                    {
+                        dgvdata.Rows.Add(new object[] {"", idusuariogenerado, txtdocumento.Text, txtnombrecompleto.Text,
                     txtcorreo.Text, txtclave.Text,
                     ((OpcionCombo)cbestado.SelectedItem).Valor.ToString(),
                     ((OpcionCombo)cbestado.SelectedItem).Texto.ToString(),});
 
-                    Limpiar();
+                        Limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show(mensaje);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show(mensaje);
+                    bool resultado = new CN_Usuario().Editar(objusuario, out mensaje);
+
+                    if (resultado)
+                    {
+                        DataGridViewRow row = dgvdata.Rows[Convert.ToInt32(txtindice.Text)];
+                        row.Cells["IdUsuario"].Value = txtid.Text;
+                        row.Cells["Documento"].Value = txtdocumento.Text;
+                        row.Cells["NombreCompleto"].Value = txtnombrecompleto.Text;
+                        row.Cells["Correo"].Value = txtcorreo.Text;
+                        row.Cells["Clave"].Value = txtclave.Text;
+                        row.Cells["EstadoValor"].Value = ((OpcionCombo)cbestado.SelectedItem).Valor.ToString();
+                        row.Cells["Estado"].Value = ((OpcionCombo)cbestado.SelectedItem).Texto.ToString();
+
+                        Limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show(mensaje);
+                    }
                 }
             }
-            else
+            catch
             {
-                bool resultado = new CN_Usuario().Editar(objusuario, out mensaje);
-
-                if (resultado)
-                {
-                    DataGridViewRow row = dgvdata.Rows[Convert.ToInt32(txtindice.Text)];
-                    row.Cells["IdUsuario"].Value = txtid.Text;
-                    row.Cells["Documento"].Value = txtdocumento.Text;
-                    row.Cells["NombreCompleto"].Value = txtnombrecompleto.Text;
-                    row.Cells["Correo"].Value = txtcorreo.Text;
-                    row.Cells["Clave"].Value = txtclave.Text;
-                    row.Cells["EstadoValor"].Value = ((OpcionCombo)cbestado.SelectedItem).Valor.ToString();
-                    row.Cells["Estado"].Value = ((OpcionCombo)cbestado.SelectedItem).Texto.ToString();
-
-                    Limpiar();
-                }
-                else
-                {
-                    MessageBox.Show(mensaje);
-                }
-            }
+                MessageBox.Show("Debe completar los campos o seleccionar un Usuario", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }            
         }
 
         private void btnlimpiar_Click_1(object sender, EventArgs e)

@@ -19,6 +19,12 @@
     <Compile Update="frmGrupo.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="frmHistorialCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmHistorialVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="frmNegocio.cs">
       <SubType>Form</SubType>
     </Compile>

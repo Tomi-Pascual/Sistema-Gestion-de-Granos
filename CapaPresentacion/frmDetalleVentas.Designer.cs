@@ -49,9 +49,7 @@
             groupBox2 = new GroupBox();
             txtnumdoc = new TextBox();
             groupBox1 = new GroupBox();
-            btnlimpiar = new FontAwesome.Sharp.IconButton();
-            btnbuscar = new FontAwesome.Sharp.IconButton();
-            txtbusqueda = new TextBox();
+            txtnumerodocumento = new TextBox();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
@@ -82,6 +80,7 @@
             dgvproducto.Columns.AddRange(new DataGridViewColumn[] { Producto, Precio, Cantidad, SubTotal });
             dgvproducto.Location = new Point(173, 323);
             dgvproducto.Name = "dgvproducto";
+            dgvproducto.ReadOnly = true;
             dgvproducto.RowHeadersWidth = 51;
             dgvproducto.RowTemplate.Height = 29;
             dgvproducto.Size = new Size(894, 294);
@@ -93,6 +92,7 @@
             Producto.HeaderText = "Producto";
             Producto.MinimumWidth = 6;
             Producto.Name = "Producto";
+            Producto.ReadOnly = true;
             // 
             // Precio
             // 
@@ -100,6 +100,7 @@
             Precio.HeaderText = "Precio";
             Precio.MinimumWidth = 6;
             Precio.Name = "Precio";
+            Precio.ReadOnly = true;
             // 
             // Cantidad
             // 
@@ -107,6 +108,7 @@
             Cantidad.HeaderText = "Cantidad";
             Cantidad.MinimumWidth = 6;
             Cantidad.Name = "Cantidad";
+            Cantidad.ReadOnly = true;
             // 
             // SubTotal
             // 
@@ -114,6 +116,7 @@
             SubTotal.HeaderText = "Sub Total";
             SubTotal.MinimumWidth = 6;
             SubTotal.Name = "SubTotal";
+            SubTotal.ReadOnly = true;
             // 
             // txtdoccliente
             // 
@@ -250,65 +253,24 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Información de Venta";
             // 
-            // btnlimpiar
+            // txtnumerodocumento
             // 
-            btnlimpiar.BackColor = Color.LightGray;
-            btnlimpiar.Cursor = Cursors.Hand;
-            btnlimpiar.FlatAppearance.BorderColor = Color.Black;
-            btnlimpiar.FlatStyle = FlatStyle.Popup;
-            btnlimpiar.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnlimpiar.ForeColor = Color.Black;
-            btnlimpiar.IconChar = FontAwesome.Sharp.IconChar.Broom;
-            btnlimpiar.IconColor = Color.Black;
-            btnlimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnlimpiar.IconSize = 22;
-            btnlimpiar.Location = new Point(881, 59);
-            btnlimpiar.Name = "btnlimpiar";
-            btnlimpiar.Size = new Size(112, 28);
-            btnlimpiar.TabIndex = 44;
-            btnlimpiar.Text = "Limpiar";
-            btnlimpiar.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnlimpiar.UseVisualStyleBackColor = false;
-            btnlimpiar.Click += btnlimpiar_Click;
-            // 
-            // btnbuscar
-            // 
-            btnbuscar.BackColor = Color.LightGray;
-            btnbuscar.Cursor = Cursors.Hand;
-            btnbuscar.FlatAppearance.BorderColor = Color.Black;
-            btnbuscar.FlatStyle = FlatStyle.Popup;
-            btnbuscar.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnbuscar.ForeColor = Color.Black;
-            btnbuscar.IconChar = FontAwesome.Sharp.IconChar.SearchLocation;
-            btnbuscar.IconColor = Color.Black;
-            btnbuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnbuscar.IconSize = 22;
-            btnbuscar.Location = new Point(763, 59);
-            btnbuscar.Name = "btnbuscar";
-            btnbuscar.Size = new Size(112, 28);
-            btnbuscar.TabIndex = 43;
-            btnbuscar.Text = "Buscar";
-            btnbuscar.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnbuscar.UseVisualStyleBackColor = false;
-            btnbuscar.Click += btnbuscar_Click;
-            // 
-            // txtbusqueda
-            // 
-            txtbusqueda.Location = new Point(579, 59);
-            txtbusqueda.Multiline = true;
-            txtbusqueda.Name = "txtbusqueda";
-            txtbusqueda.Size = new Size(178, 28);
-            txtbusqueda.TabIndex = 42;
+            txtnumerodocumento.Location = new Point(812, 59);
+            txtnumerodocumento.Multiline = true;
+            txtnumerodocumento.Name = "txtnumerodocumento";
+            txtnumerodocumento.ReadOnly = true;
+            txtnumerodocumento.Size = new Size(178, 28);
+            txtnumerodocumento.TabIndex = 42;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.BackColor = Color.White;
-            label3.Location = new Point(464, 63);
+            label3.Location = new Point(657, 63);
             label3.Name = "label3";
-            label3.Size = new Size(111, 20);
+            label3.Size = new Size(152, 20);
             label3.TabIndex = 40;
-            label3.Text = "Número Venta: ";
+            label3.Text = "Número Documento: ";
             // 
             // label2
             // 
@@ -387,9 +349,7 @@
             Controls.Add(label9);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
-            Controls.Add(btnlimpiar);
-            Controls.Add(btnbuscar);
-            Controls.Add(txtbusqueda);
+            Controls.Add(txtnumerodocumento);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -424,9 +384,7 @@
         private GroupBox groupBox2;
         private TextBox txtnumdoc;
         private GroupBox groupBox1;
-        private FontAwesome.Sharp.IconButton btnlimpiar;
-        private FontAwesome.Sharp.IconButton btnbuscar;
-        private TextBox txtbusqueda;
+        private TextBox txtnumerodocumento;
         private Label label3;
         private Label label2;
         private Label label1;

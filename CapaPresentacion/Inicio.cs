@@ -148,11 +148,6 @@ namespace CapaPresentación
             AbrirFormulario(menuventas, new frmCliente(usuarioActual));
         }
 
-        private void submenudetventa_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario(menuventas, new frmDetalleVentas());
-        }
-
         private void submenuVentas_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menuventas, new frmVentas(usuarioActual));
@@ -166,11 +161,6 @@ namespace CapaPresentación
         private void submenuCompras_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menucompras, new frmCompras(usuarioActual));
-        }
-
-        private void submenudetcompra_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario(menucompras, new frmDetalleCompra());
         }
 
         private void submenunegocio_Click(object sender, EventArgs e)
@@ -220,6 +210,16 @@ namespace CapaPresentación
         private void submenugrupo_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menuseguridad, new frmGrupo(usuarioActual));
+        }
+
+        private void submenuhistorialcompras_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menucompras, new frmHistorialCompras());
+        }
+
+        private void submenuhistorialventas_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuventas, new frmHistorialVentas());
         }
     }
 }
