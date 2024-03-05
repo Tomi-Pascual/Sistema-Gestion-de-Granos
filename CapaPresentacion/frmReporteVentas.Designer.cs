@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReporteVentas));
             label5 = new Label();
             dtpfechafin = new DateTimePicker();
@@ -57,7 +60,9 @@
             label11 = new Label();
             btnbuscarreporte = new FontAwesome.Sharp.IconButton();
             iconButton1 = new FontAwesome.Sharp.IconButton();
+            graficoventas = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)dgvdata).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)graficoventas).BeginInit();
             SuspendLayout();
             // 
             // label5
@@ -125,13 +130,14 @@
             dgvdata.AllowUserToAddRows = false;
             dgvdata.AllowUserToOrderColumns = true;
             dgvdata.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvdata.BackgroundColor = Color.LightGray;
             dgvdata.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvdata.Columns.AddRange(new DataGridViewColumn[] { FechaRegistro, TipoDocumento, NumeroDocumento, MontoTotal, UsuarioRegistro, DocumentoCliente, NombreCliente, CodigoProducto, NombreProducto, Categoria, PrecioVenta, Cantidad, SubTotal });
             dgvdata.Location = new Point(24, 177);
             dgvdata.Name = "dgvdata";
             dgvdata.RowHeadersWidth = 51;
             dgvdata.RowTemplate.Height = 29;
-            dgvdata.Size = new Size(1197, 487);
+            dgvdata.Size = new Size(815, 487);
             dgvdata.TabIndex = 94;
             // 
             // FechaRegistro
@@ -338,11 +344,46 @@
             iconButton1.UseVisualStyleBackColor = false;
             iconButton1.Click += iconButton1_Click;
             // 
+            // graficoventas
+            // 
+            graficoventas.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            graficoventas.BorderlineColor = Color.Black;
+            graficoventas.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            graficoventas.BorderlineWidth = 0;
+            chartArea1.InnerPlotPosition.Auto = false;
+            chartArea1.InnerPlotPosition.Height = 57.0490723F;
+            chartArea1.InnerPlotPosition.Width = 100F;
+            chartArea1.InnerPlotPosition.Y = 21.475462F;
+            chartArea1.Name = "ChartArea1";
+            graficoventas.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            graficoventas.Legends.Add(legend1);
+            graficoventas.Location = new Point(861, 177);
+            graficoventas.Name = "graficoventas";
+            series1.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
+            series1.BackImageTransparentColor = Color.White;
+            series1.BorderColor = Color.White;
+            series1.BorderWidth = 2;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Color = Color.White;
+            series1.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            series1.LabelForeColor = Color.White;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.BrightPastel;
+            series1.ShadowColor = Color.Gray;
+            graficoventas.Series.Add(series1);
+            graficoventas.Size = new Size(360, 487);
+            graficoventas.TabIndex = 103;
+            graficoventas.Text = "Ventas por Cliente";
+            // 
             // frmReporteVentas
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1249, 694);
+            Controls.Add(graficoventas);
             Controls.Add(iconButton1);
             Controls.Add(dtpfechafin);
             Controls.Add(label3);
@@ -363,6 +404,7 @@
             Text = "frmReporteVentas";
             Load += frmReporteVentas_Load;
             ((System.ComponentModel.ISupportInitialize)dgvdata).EndInit();
+            ((System.ComponentModel.ISupportInitialize)graficoventas).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -397,5 +439,7 @@
         private DataGridViewTextBoxColumn Cantidad;
         private DataGridViewTextBoxColumn SubTotal;
         private FontAwesome.Sharp.IconButton iconButton1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart graficoventas;
     }
 }

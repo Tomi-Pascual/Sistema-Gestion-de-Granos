@@ -46,15 +46,15 @@
           "dependencies": {
             "Microsoft.Data.SqlClient": {
               "target": "Package",
-              "version": "[5.1.1, )"
+              "version": "[5.2.0, )"
             },
             "System.Configuration.ConfigurationManager": {
               "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[8.0.0, )"
             },
             "System.Data.SqlClient": {
               "target": "Package",
-              "version": "[4.8.5, )"
+              "version": "[4.8.6, )"
             }
           },
           "imports": [
@@ -281,11 +281,15 @@
           "dependencies": {
             "ClosedXML": {
               "target": "Package",
-              "version": "[0.95.4, )"
+              "version": "[0.102.2, )"
             },
             "FontAwesome.Sharp": {
               "target": "Package",
               "version": "[6.3.0, )"
+            },
+            "WinForms.DataVisualization": {
+              "target": "Package",
+              "version": "[1.9.2, )"
             }
           },
           "imports": [

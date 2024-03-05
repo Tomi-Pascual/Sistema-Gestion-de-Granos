@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReporteCompras));
             dtpfechainicio = new DateTimePicker();
             label1 = new Label();
@@ -60,7 +63,9 @@
             btnlimpiar = new FontAwesome.Sharp.IconButton();
             btnbuscarpor = new FontAwesome.Sharp.IconButton();
             btndescarcar = new FontAwesome.Sharp.IconButton();
+            graficocompras = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)dgvdata).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)graficocompras).BeginInit();
             SuspendLayout();
             // 
             // dtpfechainicio
@@ -158,13 +163,14 @@
             dgvdata.AllowUserToAddRows = false;
             dgvdata.AllowUserToOrderColumns = true;
             dgvdata.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvdata.BackgroundColor = Color.LightGray;
             dgvdata.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvdata.Columns.AddRange(new DataGridViewColumn[] { FechaRegistro, TipoDocumento, NumeroDocumento, MontoTotal, UsuarioRegistro, DocumentoProveedor, RazonSocial, CodigoProducto, NombreProducto, Categoria, PrecioCompra, PrecioVenta, Cantidad, SubTotal });
             dgvdata.Location = new Point(24, 177);
             dgvdata.Name = "dgvdata";
             dgvdata.RowHeadersWidth = 51;
             dgvdata.RowTemplate.Height = 29;
-            dgvdata.Size = new Size(1203, 490);
+            dgvdata.Size = new Size(815, 487);
             dgvdata.TabIndex = 54;
             // 
             // FechaRegistro
@@ -369,11 +375,46 @@
             btndescarcar.UseVisualStyleBackColor = false;
             btndescarcar.Click += btndescarcar_Click;
             // 
+            // graficocompras
+            // 
+            graficocompras.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            graficocompras.BorderlineColor = Color.Black;
+            graficocompras.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            graficocompras.BorderlineWidth = 0;
+            chartArea1.InnerPlotPosition.Auto = false;
+            chartArea1.InnerPlotPosition.Height = 57.0490723F;
+            chartArea1.InnerPlotPosition.Width = 100F;
+            chartArea1.InnerPlotPosition.Y = 21.475462F;
+            chartArea1.Name = "ChartArea1";
+            graficocompras.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            graficocompras.Legends.Add(legend1);
+            graficocompras.Location = new Point(865, 177);
+            graficocompras.Name = "graficocompras";
+            series1.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
+            series1.BackImageTransparentColor = Color.White;
+            series1.BorderColor = Color.White;
+            series1.BorderWidth = 2;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Color = Color.White;
+            series1.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            series1.LabelForeColor = Color.White;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.BrightPastel;
+            series1.ShadowColor = Color.Gray;
+            graficocompras.Series.Add(series1);
+            graficocompras.Size = new Size(360, 487);
+            graficocompras.TabIndex = 104;
+            graficocompras.Text = "Ventas por Cliente";
+            // 
             // frmReporteCompras
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1249, 694);
+            Controls.Add(graficocompras);
             Controls.Add(btndescarcar);
             Controls.Add(btnbuscarpor);
             Controls.Add(btnlimpiar);
@@ -396,6 +437,7 @@
             Text = "frmReporteCompras";
             Load += frmReporteCompras_Load;
             ((System.ComponentModel.ISupportInitialize)dgvdata).EndInit();
+            ((System.ComponentModel.ISupportInitialize)graficocompras).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -433,5 +475,6 @@
         private FontAwesome.Sharp.IconButton btnlimpiar;
         private FontAwesome.Sharp.IconButton btnbuscarpor;
         private FontAwesome.Sharp.IconButton btndescarcar;
+        private System.Windows.Forms.DataVisualization.Charting.Chart graficocompras;
     }
 }

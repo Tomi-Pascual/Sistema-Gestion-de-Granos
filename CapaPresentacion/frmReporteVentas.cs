@@ -17,6 +17,7 @@ namespace CapaPresentacion
 {
     public partial class frmReporteVentas : Form
     {
+
         public frmReporteVentas()
         {
             InitializeComponent();
@@ -32,6 +33,7 @@ namespace CapaPresentacion
             cbbuscarpor.ValueMember = "Valor";
             cbbuscarpor.SelectedIndex = 0;
         }
+
 
         private void btnbuscarpor_Click(object sender, EventArgs e)
         {
@@ -53,34 +55,6 @@ namespace CapaPresentacion
             }
         }
 
-        private void btnbuscar_Click(object sender, EventArgs e)
-        {
-            List<ReporteVenta> lista = new List<ReporteVenta>();
-
-            lista = new CN_Reporte().Venta(dtpfechainicio.Value.ToString(), dtpfechafin.Value.ToString());
-
-            dgvdata.Rows.Clear();
-
-            foreach (ReporteVenta rv in lista)
-            {
-                dgvdata.Rows.Add(new object[] {
-                    rv.FechaRegistro,
-                    rv.TipoDocumento,
-                    rv.NumeroDocumento,
-                    rv.MontoTotal,
-                    rv.UsuarioRegistro,
-                    rv.DocumentoCliente,
-                    rv.NombreCliente,
-                    rv.CodigoProducto,
-                    rv.NombreProducto,
-                    rv.Categoria,
-                    rv.PrecioVenta,
-                    rv.Cantidad,
-                    rv.SubTotal
-                });
-            }
-        }
-
         private void iconButton1_Click(object sender, EventArgs e)
         {
             txtbuscarpor.Text = "";
@@ -92,16 +66,32 @@ namespace CapaPresentacion
 
         private void btnbuscarreporte_Click(object sender, EventArgs e)
         {
+            Dictionary<string, int> ventasPorCliente = new Dictionary<string, int>();
+
             List<ReporteVenta> lista = new List<ReporteVenta>();
 
             lista = new CN_Reporte().Venta(
-                dtpfechainicio.Value.ToString(),
+            dtpfechainicio.Value.ToString(),
             dtpfechafin.Value.ToString());
 
             dgvdata.Rows.Clear();
 
+            int totalVentas = ventasPorCliente.Sum(x => x.Value);
+
             foreach (ReporteVenta rv in lista)
             {
+                string nombreCliente = rv.NombreCliente;
+                if (ventasPorCliente.ContainsKey(nombreCliente))
+                {
+                    int cantidad = int.Parse(rv.Cantidad); // Convertir rv.Cantidad a entero
+                    ventasPorCliente[nombreCliente] += cantidad; // Sumar la cantidad convertida
+                }
+                else
+                {
+                    int cantidad = int.Parse(rv.Cantidad); // Convertir rv.Cantidad a entero
+                    ventasPorCliente.Add(nombreCliente, cantidad); // Agregar la cantidad convertida
+                }
+
                 dgvdata.Rows.Add(new object[]
                 {
                     rv.FechaRegistro,
@@ -119,6 +109,48 @@ namespace CapaPresentacion
                     rv.SubTotal
                 });
             }
+            // Verificar si la serie ya existe
+            var series = graficoventas.Series.FindByName("Ventas por Cliente");
+
+            // Si la serie no existe, agregarla al gráfico
+            if (series == null)
+            {
+                series = graficoventas.Series.Add("Ventas por Cliente");
+                series.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            }
+
+            graficoventas.Series[1].Points.Clear();
+
+            foreach (var kvp in ventasPorCliente)
+            {
+                double porcentaje = (double)kvp.Value / totalVentas * 100;
+
+                // Agregar el punto de datos
+                var point = series.Points.Add(kvp.Value);
+
+                // Establecer el nombre del cliente como texto de leyenda del punto
+                point.LegendText = kvp.Key;
+
+                // Mostrar el porcentaje como etiqueta en formato de porcentaje con dos decimales
+                point.Label = "#PERCENT{P2}";
+
+                // Mostrar los valores como etiquetas en las porciones del gráfico
+                point.IsValueShownAsLabel = true;
+
+            }
+            graficoventas.Series[1]["PieDrawingStyle"] = "SoftEdge";
+            graficoventas.Series[1]["PieLabelStyle"] = "Inside";
+            graficoventas.Series[1]["PieStartAngle"] = "90";
+
+            // Ajustar la alineación del gráfico de pastel
+            graficoventas.Series[1]["PieLabelStyle"] = "Inside"; // Colocar las etiquetas dentro del área del gráfico
+            graficoventas.Series[1]["SmartLabelStyle"] = "Enabled"; // Habilitar el ajuste automático de las etiquetas
+
+            graficoventas.Series[1]["AlignmentOrientation"] = "AllAxes"; // Alinear el gráfico de pastel en el centro
+            graficoventas.Series[1]["AlignmentStyle"] = "Center";
+
+            graficoventas.Legends[0].Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            graficoventas.Legends[0].Enabled = true;
         }
 
         private void btndescarcar_Click(object sender, EventArgs e)

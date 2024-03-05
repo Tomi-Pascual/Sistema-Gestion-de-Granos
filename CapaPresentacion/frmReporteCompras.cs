@@ -45,6 +45,8 @@ namespace CapaPresentacion
 
         private void btnbuscarreporte_Click(object sender, EventArgs e)
         {
+            Dictionary<string, int> comprasPorCliente = new Dictionary<string, int>();
+
             int idproveedor = Convert.ToInt32(((OpcionCombo)cbproveedor.SelectedItem).Valor.ToString());
 
             List<ReporteCompra> lista = new List<ReporteCompra>();
@@ -56,8 +58,22 @@ namespace CapaPresentacion
 
             dgvdata.Rows.Clear();
 
+            int totalVentas = comprasPorCliente.Sum(x => x.Value);
+
             foreach (ReporteCompra rc in lista)
             {
+                string nombreCliente = rc.NombreProducto;
+                if (comprasPorCliente.ContainsKey(nombreCliente))
+                {
+                    int cantidad = int.Parse(rc.Cantidad); // Convertir rv.Cantidad a entero
+                    comprasPorCliente[nombreCliente] += cantidad; // Sumar la cantidad convertida
+                }
+                else
+                {
+                    int cantidad = int.Parse(rc.Cantidad); // Convertir rv.Cantidad a entero
+                    comprasPorCliente.Add(nombreCliente, cantidad); // Agregar la cantidad convertida
+                }
+
                 dgvdata.Rows.Add(new object[]
                 {
                     rc.FechaRegistro,
@@ -76,6 +92,48 @@ namespace CapaPresentacion
                     rc.SubTotal
                 });
             }
+            // Verificar si la serie ya existe
+            var series = graficocompras.Series.FindByName("Ventas por Cliente");
+
+            // Si la serie no existe, agregarla al gráfico
+            if (series == null)
+            {
+                series = graficocompras.Series.Add("Ventas por Cliente");
+                series.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            }
+
+            graficocompras.Series[1].Points.Clear();
+
+            foreach (var kvp in comprasPorCliente)
+            {
+                double porcentaje = (double)kvp.Value / totalVentas * 100;
+
+                // Agregar el punto de datos
+                var point = series.Points.Add(kvp.Value);
+
+                // Establecer el nombre del cliente como texto de leyenda del punto
+                point.LegendText = kvp.Key;
+
+                // Mostrar el porcentaje como etiqueta en formato de porcentaje con dos decimales
+                point.Label = "#PERCENT{P2}";
+
+                // Mostrar los valores como etiquetas en las porciones del gráfico
+                point.IsValueShownAsLabel = true;
+
+            }
+            graficocompras.Series[1]["PieDrawingStyle"] = "SoftEdge";
+            graficocompras.Series[1]["PieLabelStyle"] = "Inside";
+            graficocompras.Series[1]["PieStartAngle"] = "90";
+
+            // Ajustar la alineación del gráfico de pastel
+            graficocompras.Series[1]["PieLabelStyle"] = "Inside"; // Colocar las etiquetas dentro del área del gráfico
+            graficocompras.Series[1]["SmartLabelStyle"] = "Enabled"; // Habilitar el ajuste automático de las etiquetas
+
+            graficocompras.Series[1]["AlignmentOrientation"] = "AllAxes"; // Alinear el gráfico de pastel en el centro
+            graficocompras.Series[1]["AlignmentStyle"] = "Center";
+
+            graficocompras.Legends[0].Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            graficocompras.Legends[0].Enabled = true;
         }
 
         private void btnlimpiar_Click(object sender, EventArgs e)
