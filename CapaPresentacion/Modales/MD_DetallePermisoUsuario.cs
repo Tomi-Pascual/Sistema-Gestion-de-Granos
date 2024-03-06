@@ -199,15 +199,22 @@ namespace CapaPresentacion.Modales
 
         private void btneliminarpermiso_Click(object sender, EventArgs e)
         {
-            int indice = dgvdata.CurrentRow.Index;
-
-            if (indice >= 0)
+            try
             {
-                dgvdata.Rows.RemoveAt(indice);
-            }
+                int indice = dgvdata.CurrentRow.Index;
 
-            dgvdata.ClearSelection();
-            txtid.Text = "";
+                if (indice >= 0)
+                {
+                    dgvdata.Rows.RemoveAt(indice);
+                }
+
+                dgvdata.ClearSelection();
+                txtid.Text = "";
+            }
+            catch
+            {
+                MessageBox.Show("Debes de seleccionar un permiso para eliminarlo", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnguardarpermiso_Click(object sender, EventArgs e)

@@ -285,6 +285,7 @@
             // 
             // label10
             // 
+            label10.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label10.BackColor = Color.White;
             label10.BorderStyle = BorderStyle.FixedSingle;
             label10.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Regular, GraphicsUnit.Point);
