@@ -135,6 +135,7 @@ namespace CapaDatos
             return respuesta;
         }
 
+        int idVenta;
 
         public bool Registrar(Venta obj, DataTable DetalleVenta, out string Mensaje)
         {
@@ -176,9 +177,11 @@ namespace CapaDatos
                     Respuesta = false;
                     Mensaje = ex.Message;
                 }
+                
             }
             return Respuesta;
         }
+
 
         public Venta ObtenerVenta(string numero)
         {
