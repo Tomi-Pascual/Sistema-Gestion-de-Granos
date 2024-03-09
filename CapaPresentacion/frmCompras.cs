@@ -34,6 +34,14 @@ namespace CapaPresentacion
             cbotipodocumento.ValueMember = "Valor";
             cbotipodocumento.SelectedIndex = 0;
 
+            cbimpuesto.Items.Add(new OpcionCombo() { Valor = "Reducido", Texto = "Reducido" });
+            cbimpuesto.Items.Add(new OpcionCombo() { Valor = "Estandar", Texto = "Estandar" });
+            cbimpuesto.Items.Add(new OpcionCombo() { Valor = "Superior", Texto = "Superior" });
+
+            cbimpuesto.DisplayMember = "Texto";
+            cbimpuesto.ValueMember = "Valor";
+            cbimpuesto.SelectedIndex = 0;
+
             txtfecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
 
             txtidproveedor.Text = "0";
@@ -46,6 +54,42 @@ namespace CapaPresentacion
 
             txtprecioventa.Text = "por kg";
             txtprecioventa.ForeColor = Color.LightGray;
+        }
+
+        public interface Impuesto
+        {
+            decimal CalcularImpuesto(decimal total);
+        }
+
+        public class ImpuestoEstandar : Impuesto
+        {
+            public decimal CalcularImpuesto(decimal total)
+            {
+                return total * 1.15m;
+            }
+        }
+
+        public class ImpuestoReducido : Impuesto
+        {
+            public decimal CalcularImpuesto(decimal total)
+            {
+                return total * 1.10m;
+            }
+        }
+
+        public class ImpuestoSuperior : Impuesto
+        {
+            public decimal CalcularImpuesto(decimal total)
+            {
+                return total * 1.21m;
+            }
+        }
+
+        private Impuesto _impuesto;
+
+        public void EstablecerImpuestos(Impuesto strategy)
+        {
+            _impuesto = strategy;
         }
 
         private void btnregistrar_Click(object sender, EventArgs e)
@@ -125,7 +169,7 @@ namespace CapaPresentacion
             }
             catch
             {
-                MessageBox.Show("Error al registrar la compra\n\nIntentelo de nuevo","Mensaje",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al registrar la compra\n\nIntentelo de nuevo", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -220,6 +264,13 @@ namespace CapaPresentacion
                 return;
             }
 
+            if (cbimpuesto.Text == "")
+            {
+                MessageBox.Show("Debe de seleccionar un impuesto para el producto\n", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                cbimpuesto.Select();
+                return;
+            }
+
             foreach (DataGridViewRow fila in dgvproducto.Rows)
             {
                 if (fila.Cells["IdProducto"] != null && fila.Cells["IdProducto"].Value != null && fila.Cells["IdProducto"].Value.ToString() == txtidproducto.Text)
@@ -230,6 +281,8 @@ namespace CapaPresentacion
 
             }
 
+            decimal impuesto;
+
             if (!producto_existe)
             {
                 dgvproducto.Rows.Add(new object[]
@@ -239,7 +292,7 @@ namespace CapaPresentacion
                     preciocompra.ToString("0.00"),
                     precioventa.ToString("0.00"),
                     txtcantidad.Value.ToString(),
-                    (txtcantidad.Value * preciocompra).ToString("0.00")
+                    _impuesto.CalcularImpuesto(txtcantidad.Value * preciocompra).ToString("0.00")
                 });
 
                 limpiarProducto();
@@ -259,6 +312,7 @@ namespace CapaPresentacion
             txtprecioventa.Text = "por kg";
             txtprecioventa.ForeColor = Color.LightGray;
             txtcantidad.Value = 1;
+            cbimpuesto.Text = "";
         }
 
         private void calcularTotal()
@@ -271,6 +325,7 @@ namespace CapaPresentacion
                     if (row.Cells["SubTotal"] != null && row.Cells["SubTotal"].Value != null)
                     {
                         total += Convert.ToDecimal(row.Cells["SubTotal"].Value.ToString());
+                        decimal impuesto = _impuesto.CalcularImpuesto(total);
                     }
                 }
                 txttotal.Text = total.ToString("0.00");
@@ -396,6 +451,22 @@ namespace CapaPresentacion
             else
             {
                 e.Handled = false;
+            }
+        }
+
+        private void cbimpuesto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbimpuesto.SelectedIndex == 0)
+            {
+                EstablecerImpuestos(new ImpuestoReducido());
+            }
+            else if (cbimpuesto.SelectedIndex == 1)
+            {
+                EstablecerImpuestos(new ImpuestoEstandar());
+            }
+            else if (cbimpuesto.SelectedIndex == 2)
+            {
+                EstablecerImpuestos(new ImpuestoSuperior());
             }
         }
     }

@@ -35,6 +35,14 @@ namespace CapaPresentacion
             cbotipodocumento.ValueMember = "Valor";
             cbotipodocumento.SelectedIndex = 0;
 
+            cbimpuesto.Items.Add(new OpcionCombo() { Valor = "Reducido", Texto = "Reducido" });
+            cbimpuesto.Items.Add(new OpcionCombo() { Valor = "Estandar", Texto = "Estandar" });
+            cbimpuesto.Items.Add(new OpcionCombo() { Valor = "Superior", Texto = "Superior" });
+
+            cbimpuesto.DisplayMember = "Texto";
+            cbimpuesto.ValueMember = "Valor";
+            cbimpuesto.SelectedIndex = 0;
+
             txtfecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
             txtidproducto.Text = "0";
 
@@ -44,6 +52,42 @@ namespace CapaPresentacion
             txtpagacon.Text = " ";
 
             txtcantidad.Maximum = 50000;
+        }
+
+        public interface Impuesto
+        {
+            decimal CalcularImpuesto(decimal total);
+        }
+
+        public class ImpuestoEstandar : Impuesto
+        {
+            public decimal CalcularImpuesto(decimal total)
+            {
+                return total * 1.15m;
+            }
+        }
+
+        public class ImpuestoReducido : Impuesto
+        {
+            public decimal CalcularImpuesto(decimal total)
+            {
+                return total * 1.10m;
+            }
+        }
+
+        public class ImpuestoSuperior : Impuesto
+        {
+            public decimal CalcularImpuesto(decimal total)
+            {
+                return total * 1.21m;
+            }
+        }
+
+        private Impuesto _impuesto;
+
+        public void EstablecerImpuestos(Impuesto strategy)
+        {
+            _impuesto = strategy;
         }
 
         private void btnbuscarcli_Click(object sender, EventArgs e)
@@ -164,7 +208,7 @@ namespace CapaPresentacion
                         txtproducto.Text,
                         precio.ToString("0.00"),
                         txtcantidad.Value.ToString(),
-                        (txtcantidad.Value * precio).ToString("0.00")
+                        _impuesto.CalcularImpuesto(txtcantidad.Value * precio).ToString("0.00")
                     });
                     limpiarProducto();
                     calcularTotal();
@@ -450,6 +494,22 @@ namespace CapaPresentacion
             else
             {
                 e.Handled = false;
+            }
+        }
+
+        private void cbimpuesto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbimpuesto.SelectedIndex == 0)
+            {
+                EstablecerImpuestos(new ImpuestoReducido());
+            }
+            else if (cbimpuesto.SelectedIndex == 1)
+            {
+                EstablecerImpuestos(new ImpuestoEstandar());
+            }
+            else if (cbimpuesto.SelectedIndex == 2)
+            {
+                EstablecerImpuestos(new ImpuestoSuperior());
             }
         }
     }

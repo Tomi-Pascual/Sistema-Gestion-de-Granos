@@ -221,5 +221,10 @@ namespace CapaPresentación
         {
             AbrirFormulario(menuventas, new frmHistorialVentas());
         }
+
+        private void submenuauditoria_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuventas, new frmAuditoriaVentas());
+        }
     }
 }

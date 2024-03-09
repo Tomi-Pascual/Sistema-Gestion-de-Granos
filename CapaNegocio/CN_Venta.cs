@@ -25,6 +25,18 @@ namespace CapaNegocio
             }
         }
 
+        public List<AuditoriaVenta> ListarAuditoria()
+        {
+            try
+            {
+                return objcd_venta.ListarAuditoria();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
         public int ObtenerCorrelativo()
         {
             try

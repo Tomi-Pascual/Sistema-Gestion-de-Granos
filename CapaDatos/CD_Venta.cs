@@ -51,6 +51,47 @@ namespace CapaDatos
             return lista;
         }
 
+        public List<AuditoriaVenta> ListarAuditoria()
+        {
+            List<AuditoriaVenta> listaAud = new List<AuditoriaVenta>();
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("select av.FechaAuditoria,av.Operacion,v.TipoDocumento,v.NumeroDocumento,v.NombreCliente,v.MontoTotal,u.NombreCompleto from AuditoriaVentas av ");
+                    query.AppendLine("inner join USUARIO u on av.IdUsuario = u.IdUsuario ");
+                    query.AppendLine("inner join VENTA v on av.IdVenta = v.IdVenta");
+
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+                    cmd.CommandType = CommandType.Text;
+
+                    oconexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            listaAud.Add(new AuditoriaVenta()
+                            {
+                                FechaAuditoria = dr["FechaAuditoria"].ToString(),
+                                Operacion = dr["Operacion"].ToString(),
+                                OVenta = new Venta() { TipoDocumento = dr["TipoDocumento"].ToString(), NumeroDocumento = dr["NumeroDocumento"].ToString(),
+                                NombreCliente = dr["NombreCliente"].ToString(), MontoTotal = Convert.ToDecimal(dr["MontoTotal"])},
+                                OUsuario = new Usuario() { NombreCompleto = dr["NombreCompleto"].ToString() },
+                            });
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    listaAud = new List<AuditoriaVenta>();
+                }
+            }
+            return listaAud;
+        }
+
         public int ObtenerCorrelativo()
         {
             int idcorrelativo = 0;
@@ -135,8 +176,6 @@ namespace CapaDatos
             return respuesta;
         }
 
-        int idVenta;
-
         public bool Registrar(Venta obj, DataTable DetalleVenta, out string Mensaje)
         {
             bool Respuesta = false;
@@ -181,7 +220,6 @@ namespace CapaDatos
             }
             return Respuesta;
         }
-
 
         public Venta ObtenerVenta(string numero)
         {

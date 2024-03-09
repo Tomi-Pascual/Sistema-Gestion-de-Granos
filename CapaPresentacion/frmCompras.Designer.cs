@@ -44,6 +44,8 @@
             label5 = new Label();
             txtdocproveedor = new TextBox();
             groupBox3 = new GroupBox();
+            label13 = new Label();
+            cbimpuesto = new ComboBox();
             txtcantidad = new NumericUpDown();
             label11 = new Label();
             label9 = new Label();
@@ -81,9 +83,9 @@
             label10.BackColor = Color.White;
             label10.BorderStyle = BorderStyle.FixedSingle;
             label10.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.Location = new Point(104, 9);
+            label10.Location = new Point(32, 9);
             label10.Name = "label10";
-            label10.Size = new Size(1029, 663);
+            label10.Size = new Size(1181, 663);
             label10.TabIndex = 20;
             // 
             // label1
@@ -91,7 +93,7 @@
             label1.AutoSize = true;
             label1.BackColor = Color.White;
             label1.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(123, 18);
+            label1.Location = new Point(52, 18);
             label1.Name = "label1";
             label1.Size = new Size(228, 29);
             label1.TabIndex = 21;
@@ -104,9 +106,9 @@
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(cbotipodocumento);
             groupBox1.Controls.Add(txtfecha);
-            groupBox1.Location = new Point(123, 63);
+            groupBox1.Location = new Point(52, 63);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(460, 103);
+            groupBox1.Size = new Size(500, 103);
             groupBox1.TabIndex = 22;
             groupBox1.TabStop = false;
             groupBox1.Text = "Información Compra";
@@ -114,7 +116,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(230, 39);
+            label3.Location = new Point(243, 37);
             label3.Name = "label3";
             label3.Size = new Size(124, 20);
             label3.TabIndex = 3;
@@ -123,7 +125,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(13, 39);
+            label2.Location = new Point(13, 37);
             label2.Name = "label2";
             label2.Size = new Size(50, 20);
             label2.TabIndex = 2;
@@ -133,9 +135,9 @@
             // 
             cbotipodocumento.DropDownStyle = ComboBoxStyle.DropDownList;
             cbotipodocumento.FormattingEnabled = true;
-            cbotipodocumento.Location = new Point(230, 64);
+            cbotipodocumento.Location = new Point(243, 64);
             cbotipodocumento.Name = "cbotipodocumento";
-            cbotipodocumento.Size = new Size(222, 28);
+            cbotipodocumento.Size = new Size(241, 28);
             cbotipodocumento.TabIndex = 1;
             cbotipodocumento.KeyPress += cbotipodocumento_KeyPress;
             // 
@@ -144,7 +146,7 @@
             txtfecha.Location = new Point(13, 64);
             txtfecha.Name = "txtfecha";
             txtfecha.ReadOnly = true;
-            txtfecha.Size = new Size(198, 27);
+            txtfecha.Size = new Size(213, 27);
             txtfecha.TabIndex = 0;
             // 
             // groupBox2
@@ -156,16 +158,16 @@
             groupBox2.Controls.Add(label4);
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(txtdocproveedor);
-            groupBox2.Location = new Point(605, 63);
+            groupBox2.Location = new Point(569, 63);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(507, 103);
+            groupBox2.Size = new Size(630, 103);
             groupBox2.TabIndex = 23;
             groupBox2.TabStop = false;
             groupBox2.Text = "Información Proveedor";
             // 
             // txtidproveedor
             // 
-            txtidproveedor.Location = new Point(458, 32);
+            txtidproveedor.Location = new Point(575, 26);
             txtidproveedor.Name = "txtidproveedor";
             txtidproveedor.Size = new Size(41, 27);
             txtidproveedor.TabIndex = 28;
@@ -173,10 +175,10 @@
             // 
             // txtrazonsocial
             // 
-            txtrazonsocial.Location = new Point(268, 62);
+            txtrazonsocial.Location = new Point(351, 62);
             txtrazonsocial.Name = "txtrazonsocial";
             txtrazonsocial.ReadOnly = true;
-            txtrazonsocial.Size = new Size(231, 27);
+            txtrazonsocial.Size = new Size(265, 27);
             txtrazonsocial.TabIndex = 27;
             txtrazonsocial.KeyPress += cbotipodocumento_KeyPress;
             // 
@@ -192,7 +194,7 @@
             btnbuscarprov.IconColor = Color.Black;
             btnbuscarprov.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnbuscarprov.IconSize = 22;
-            btnbuscarprov.Location = new Point(220, 62);
+            btnbuscarprov.Location = new Point(293, 62);
             btnbuscarprov.Name = "btnbuscarprov";
             btnbuscarprov.Size = new Size(39, 28);
             btnbuscarprov.TabIndex = 26;
@@ -202,7 +204,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(268, 36);
+            label4.Location = new Point(351, 34);
             label4.Name = "label4";
             label4.Size = new Size(97, 20);
             label4.TabIndex = 3;
@@ -211,7 +213,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(13, 39);
+            label5.Location = new Point(13, 36);
             label5.Name = "label5";
             label5.Size = new Size(148, 20);
             label5.TabIndex = 2;
@@ -222,13 +224,15 @@
             txtdocproveedor.Location = new Point(13, 64);
             txtdocproveedor.Name = "txtdocproveedor";
             txtdocproveedor.ReadOnly = true;
-            txtdocproveedor.Size = new Size(196, 27);
+            txtdocproveedor.Size = new Size(260, 27);
             txtdocproveedor.TabIndex = 0;
             txtdocproveedor.KeyPress += cbotipodocumento_KeyPress;
             // 
             // groupBox3
             // 
             groupBox3.BackColor = Color.White;
+            groupBox3.Controls.Add(label13);
+            groupBox3.Controls.Add(cbimpuesto);
             groupBox3.Controls.Add(txtcantidad);
             groupBox3.Controls.Add(label11);
             groupBox3.Controls.Add(label9);
@@ -241,12 +245,30 @@
             groupBox3.Controls.Add(label6);
             groupBox3.Controls.Add(label7);
             groupBox3.Controls.Add(txtcodigoproducto);
-            groupBox3.Location = new Point(123, 172);
+            groupBox3.Location = new Point(52, 172);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(859, 100);
+            groupBox3.Size = new Size(1024, 100);
             groupBox3.TabIndex = 29;
             groupBox3.TabStop = false;
             groupBox3.Text = "Información Producto";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(858, 39);
+            label13.Name = "label13";
+            label13.Size = new Size(129, 20);
+            label13.TabIndex = 36;
+            label13.Text = "Tipo de impuesto:";
+            // 
+            // cbimpuesto
+            // 
+            cbimpuesto.FormattingEnabled = true;
+            cbimpuesto.Location = new Point(858, 63);
+            cbimpuesto.Name = "cbimpuesto";
+            cbimpuesto.Size = new Size(151, 28);
+            cbimpuesto.TabIndex = 35;
+            cbimpuesto.SelectedIndexChanged += cbimpuesto_SelectedIndexChanged;
             // 
             // txtcantidad
             // 
@@ -371,11 +393,12 @@
             dgvproducto.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvproducto.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvproducto.Columns.AddRange(new DataGridViewColumn[] { IdProducto, Producto, PrecioCompra, PrecioVenta, Cantidad, SubTotal, btneliminar });
-            dgvproducto.Location = new Point(123, 286);
+            dgvproducto.Location = new Point(48, 286);
             dgvproducto.Name = "dgvproducto";
+            dgvproducto.ReadOnly = true;
             dgvproducto.RowHeadersWidth = 51;
             dgvproducto.RowTemplate.Height = 29;
-            dgvproducto.Size = new Size(859, 377);
+            dgvproducto.Size = new Size(1028, 377);
             dgvproducto.TabIndex = 30;
             dgvproducto.CellContentClick += dgvproducto_CellContentClick;
             dgvproducto.CellPainting += dgvproducto_CellPainting;
@@ -385,6 +408,7 @@
             IdProducto.HeaderText = "IdProducto";
             IdProducto.MinimumWidth = 6;
             IdProducto.Name = "IdProducto";
+            IdProducto.ReadOnly = true;
             IdProducto.Visible = false;
             IdProducto.Width = 125;
             // 
@@ -394,6 +418,7 @@
             Producto.HeaderText = "Producto";
             Producto.MinimumWidth = 6;
             Producto.Name = "Producto";
+            Producto.ReadOnly = true;
             // 
             // PrecioCompra
             // 
@@ -401,6 +426,7 @@
             PrecioCompra.HeaderText = "Precio Compra";
             PrecioCompra.MinimumWidth = 6;
             PrecioCompra.Name = "PrecioCompra";
+            PrecioCompra.ReadOnly = true;
             // 
             // PrecioVenta
             // 
@@ -408,6 +434,7 @@
             PrecioVenta.HeaderText = "Precio Venta";
             PrecioVenta.MinimumWidth = 6;
             PrecioVenta.Name = "PrecioVenta";
+            PrecioVenta.ReadOnly = true;
             PrecioVenta.Visible = false;
             // 
             // Cantidad
@@ -416,6 +443,7 @@
             Cantidad.HeaderText = "Cantidad";
             Cantidad.MinimumWidth = 6;
             Cantidad.Name = "Cantidad";
+            Cantidad.ReadOnly = true;
             // 
             // SubTotal
             // 
@@ -423,12 +451,14 @@
             SubTotal.HeaderText = "Sub Total";
             SubTotal.MinimumWidth = 6;
             SubTotal.Name = "SubTotal";
+            SubTotal.ReadOnly = true;
             // 
             // btneliminar
             // 
             btneliminar.HeaderText = "";
             btneliminar.MinimumWidth = 6;
             btneliminar.Name = "btneliminar";
+            btneliminar.ReadOnly = true;
             btneliminar.Resizable = DataGridViewTriState.True;
             btneliminar.SortMode = DataGridViewColumnSortMode.Automatic;
             btneliminar.Width = 40;
@@ -438,7 +468,7 @@
             btnagregar.IconChar = FontAwesome.Sharp.IconChar.Add;
             btnagregar.IconColor = Color.Green;
             btnagregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnagregar.Location = new Point(998, 182);
+            btnagregar.Location = new Point(1091, 182);
             btnagregar.Name = "btnagregar";
             btnagregar.Size = new Size(108, 90);
             btnagregar.TabIndex = 31;
@@ -453,7 +483,7 @@
             label12.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label12.AutoSize = true;
             label12.BackColor = Color.White;
-            label12.Location = new Point(998, 552);
+            label12.Location = new Point(1085, 547);
             label12.Name = "label12";
             label12.Size = new Size(100, 20);
             label12.TabIndex = 32;
@@ -462,7 +492,7 @@
             // txttotal
             // 
             txttotal.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            txttotal.Location = new Point(998, 577);
+            txttotal.Location = new Point(1085, 575);
             txttotal.Multiline = true;
             txttotal.Name = "txttotal";
             txttotal.ReadOnly = true;
@@ -477,7 +507,7 @@
             btnregistrar.IconColor = Color.DodgerBlue;
             btnregistrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnregistrar.IconSize = 30;
-            btnregistrar.Location = new Point(998, 625);
+            btnregistrar.Location = new Point(1085, 624);
             btnregistrar.Name = "btnregistrar";
             btnregistrar.Size = new Size(114, 38);
             btnregistrar.TabIndex = 34;
@@ -529,7 +559,7 @@
         private GroupBox groupBox2;
         private Label label4;
         private Label label5;
-        private ComboBox comboBox1;
+        private ComboBox cbimpuesto;
         private TextBox txtdocproveedor;
         private TextBox txtidproveedor;
         private TextBox txtrazonsocial;
@@ -559,5 +589,6 @@
         private DataGridViewTextBoxColumn Cantidad;
         private DataGridViewTextBoxColumn SubTotal;
         private DataGridViewButtonColumn btneliminar;
+        private Label label13;
     }
 }

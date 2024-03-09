@@ -126,7 +126,7 @@ namespace CapaPresentacion
             }
             catch
             {
-                MessageBox.Show("Debe completar los campos o seleccionar una categoria","Mensaje",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Debe completar los campos o seleccionar una categoria", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
