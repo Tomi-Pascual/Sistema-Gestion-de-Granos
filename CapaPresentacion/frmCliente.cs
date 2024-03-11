@@ -202,30 +202,37 @@ namespace CapaPresentacion
 
         private void btneliminar_Click(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(txtid.Text) != 0)
+            try
             {
-                if (MessageBox.Show("¿Desea eliminar el Cliente?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (Convert.ToInt32(txtid.Text) != 0)
                 {
-                    string mensaje = string.Empty;
-                    Cliente objCliente = new Cliente()
+                    if (MessageBox.Show("¿Desea eliminar el Cliente?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        IdCliente = Convert.ToInt32(txtid.Text)
-                    };
+                        string mensaje = string.Empty;
+                        Cliente objCliente = new Cliente()
+                        {
+                            IdCliente = Convert.ToInt32(txtid.Text)
+                        };
 
-                    bool respuesta = new CN_Cliente().Eliminar(objCliente, out mensaje);
+                        bool respuesta = new CN_Cliente().Eliminar(objCliente, out mensaje);
 
-                    if (respuesta)
-                    {
-                        dgvdata.Rows.RemoveAt(Convert.ToInt32(txtindice.Text));
-                        Limpiar();
-                    }
-                    else
-                    {
-                        MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        if (respuesta)
+                        {
+                            dgvdata.Rows.RemoveAt(Convert.ToInt32(txtindice.Text));
+                            Limpiar();
+                        }
+                        else
+                        {
+                            MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
                     }
                 }
+                else if (Convert.ToInt32(txtid.Text) == 0)
+                {
+                    MessageBox.Show("Debe de seleccionar un Cliente antes de eliminar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else if (Convert.ToInt32(txtid.Text) == 0)
+            catch (Exception ex)
             {
                 MessageBox.Show("Debe de seleccionar un Cliente antes de eliminar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

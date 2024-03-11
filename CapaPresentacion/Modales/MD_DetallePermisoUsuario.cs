@@ -53,55 +53,61 @@ namespace CapaPresentacion.Modales
         }
         private void ConfigurarVerDetalle()
         {
-            this.Text = "Ver detalle de usuario";
-            txtnombrecompleto.Text = _oUsuario.NombreCompleto.ToString();
-            txtnombrecompleto.Enabled = false;
-            cbestado.Enabled = false;
-            btnagregarpermiso.Visible = false;
-            btneliminarpermiso.Visible = false;
-            btnguardarpermiso.Visible = false;
-
-            foreach (OpcionCombo opcion in cbestado.Items)
-            {
-                if (Convert.ToInt32(opcion.Valor) == (_oUsuario.Estado == true ? 1 : 0))
-                {
-                    int indiceCombo = cbestado.Items.IndexOf(opcion);
-                    cbestado.SelectedIndex = indiceCombo;
-                    break;
-                }
-            }
-
-            MostrarPermisos();
-        }
-        private void ConfigurarEditar()
-        {
-            this.Text = "Administrar permisos del usuario";
-            lbltitulo.Text = "Administrar permisos del usuario";
-            btnguardarpermiso.Text = "Guardar Permisos";
-            txtnombrecompleto.ReadOnly = false;
             try
             {
+                this.Text = "Ver detalle de usuario";
                 txtnombrecompleto.Text = _oUsuario.NombreCompleto.ToString();
                 txtnombrecompleto.Enabled = false;
                 cbestado.Enabled = false;
+                btnagregarpermiso.Visible = false;
+                btneliminarpermiso.Visible = false;
+                btnguardarpermiso.Visible = false;
+
+                foreach (OpcionCombo opcion in cbestado.Items)
+                {
+                    if (Convert.ToInt32(opcion.Valor) == (_oUsuario.Estado == true ? 1 : 0))
+                    {
+                        int indiceCombo = cbestado.Items.IndexOf(opcion);
+                        cbestado.SelectedIndex = indiceCombo;
+                        break;
+                    }
+                }
+
+                MostrarPermisos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Debe seleccionar un Usuario", "Mensaje" ,MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void ConfigurarEditar()
+        {
+            try
+            {
+                this.Text = "Administrar permisos del usuario";
+                lbltitulo.Text = "Administrar permisos del usuario";
+                btnguardarpermiso.Text = "Guardar Permisos";
+                txtnombrecompleto.ReadOnly = false;
+                txtnombrecompleto.Text = _oUsuario.NombreCompleto.ToString();
+                txtnombrecompleto.Enabled = false;
+                cbestado.Enabled = false;
+
+                foreach (OpcionCombo opcion in cbestado.Items)
+                {
+                    if (Convert.ToInt32(opcion.Valor) == (_oUsuario.Estado == true ? 1 : 0))
+                    {
+                        int indiceCombo = cbestado.Items.IndexOf(opcion);
+                        cbestado.SelectedIndex = indiceCombo;
+                        break;
+                    }
+                }
+
+                MostrarPermisos();
             }
             catch
             {
                 MessageBox.Show("Debe seleccionar un Usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
-            foreach (OpcionCombo opcion in cbestado.Items)
-            {
-                if (Convert.ToInt32(opcion.Valor) == (_oUsuario.Estado == true ? 1 : 0))
-                {
-                    int indiceCombo = cbestado.Items.IndexOf(opcion);
-                    cbestado.SelectedIndex = indiceCombo;
-                    break;
-                }
-            }
-
-            MostrarPermisos();
         }
         private void MostrarPermisos()
         {

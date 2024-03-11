@@ -218,29 +218,36 @@ namespace CapaPresentacion
 
         private void btneliminarusuario_Click(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(txtid.Text) != 0)
+            try
             {
-                if (MessageBox.Show("¿Desea eliminar el usuario?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (Convert.ToInt32(txtid.Text) != 0)
                 {
-                    string mensaje = string.Empty;
-                    Usuario objusuario = new Usuario()
+                    if (MessageBox.Show("¿Desea eliminar el usuario?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        IdUsuario = Convert.ToInt32(txtid.Text)
-                    };
+                        string mensaje = string.Empty;
+                        Usuario objusuario = new Usuario()
+                        {
+                            IdUsuario = Convert.ToInt32(txtid.Text)
+                        };
 
-                    bool respuesta = new CN_Usuario().Eliminar(objusuario, out mensaje);
+                        bool respuesta = new CN_Usuario().Eliminar(objusuario, out mensaje);
 
-                    if (respuesta)
-                    {
-                        dgvdata.Rows.RemoveAt(Convert.ToInt32(txtindice.Text));
-                    }
-                    else
-                    {
-                        MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        if (respuesta)
+                        {
+                            dgvdata.Rows.RemoveAt(Convert.ToInt32(txtindice.Text));
+                        }
+                        else
+                        {
+                            MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Debe de seleccionar un Usuario antes de eliminar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (Exception ex) 
             {
                 MessageBox.Show("Debe de seleccionar un Usuario antes de eliminar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
