@@ -2145,11 +2145,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\USUARIO\\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\\Desktop\\Gestion De Granos\\CapaNegocio\\CapaNegocio.csproj",
+      "projectUniqueName": "C:\\Users\\USUARIO\\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\\Desktop\\Proyecto\\Gestion De Granos\\CapaNegocio\\CapaNegocio.csproj",
       "projectName": "CapaNegocio",
-      "projectPath": "C:\\Users\\USUARIO\\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\\Desktop\\Gestion De Granos\\CapaNegocio\\CapaNegocio.csproj",
+      "projectPath": "C:\\Users\\USUARIO\\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\\Desktop\\Proyecto\\Gestion De Granos\\CapaNegocio\\CapaNegocio.csproj",
       "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\USUARIO\\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\\Desktop\\Gestion De Granos\\CapaNegocio\\obj\\",
+      "outputPath": "C:\\Users\\USUARIO\\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\\Desktop\\Proyecto\\Gestion De Granos\\CapaNegocio\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2166,11 +2166,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\USUARIO\\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\\Desktop\\Gestion De Granos\\CapaDatos\\CapaDatos.csproj": {
-              "projectPath": "C:\\Users\\USUARIO\\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\\Desktop\\Gestion De Granos\\CapaDatos\\CapaDatos.csproj"
+            "C:\\Users\\USUARIO\\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\\Desktop\\Proyecto\\Gestion De Granos\\CapaDatos\\CapaDatos.csproj": {
+              "projectPath": "C:\\Users\\USUARIO\\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\\Desktop\\Proyecto\\Gestion De Granos\\CapaDatos\\CapaDatos.csproj"
             },
-            "C:\\Users\\USUARIO\\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\\Desktop\\Gestion De Granos\\CapaEntidad\\CapaEntidad.csproj": {
-              "projectPath": "C:\\Users\\USUARIO\\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\\Desktop\\Gestion De Granos\\CapaEntidad\\CapaEntidad.csproj"
+            "C:\\Users\\USUARIO\\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\\Desktop\\Proyecto\\Gestion De Granos\\CapaEntidad\\CapaEntidad.csproj": {
+              "projectPath": "C:\\Users\\USUARIO\\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\\Desktop\\Proyecto\\Gestion De Granos\\CapaEntidad\\CapaEntidad.csproj"
             }
           }
         }
@@ -2198,15 +2198,15 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[6.0.28, 6.0.28]"
+            "version": "[6.0.31, 6.0.31]"
           },
           {
             "name": "Microsoft.NETCore.App.Ref",
-            "version": "[6.0.28, 6.0.28]"
+            "version": "[6.0.31, 6.0.31]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[6.0.28, 6.0.28]"
+            "version": "[6.0.31, 6.0.31]"
           }
         ],
         "frameworkReferences": {
@@ -2214,7 +2214,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.407\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.410\\RuntimeIdentifierGraph.json"
       }
     }
   }
