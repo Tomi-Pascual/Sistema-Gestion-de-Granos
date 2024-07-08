@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "0xW5ij21qLgJL8Ox4UmWjnj/4os6EHFfo0AuzDIGKjbnwO39HZEDA6xLsUEs3qRmgnyWmm9VKZHTG9gfZfv6zw==",
+  "dgSpecHash": "r6eMop0EJZpaZiKdZp4TPeuhdiwbPZCgJHYbM7TPkUioqwUW7OtC0pp972fnPSZxXa+xiV2v2JIE5fepmGKcrA==",
   "success": true,
   "projectFilePath": "C:\\Users\\USUARIO\\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\\Desktop\\Gestion De Granos\\CapaEntidad\\CapaEntidad.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.27\\microsoft.windowsdesktop.app.ref.6.0.27.nupkg.sha512",
-    "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.27\\microsoft.netcore.app.ref.6.0.27.nupkg.sha512",
-    "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.27\\microsoft.aspnetcore.app.ref.6.0.27.nupkg.sha512"
+    "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.28\\microsoft.windowsdesktop.app.ref.6.0.28.nupkg.sha512",
+    "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.28\\microsoft.netcore.app.ref.6.0.28.nupkg.sha512",
+    "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.28\\microsoft.aspnetcore.app.ref.6.0.28.nupkg.sha512"
   ],
   "logs": []
 }

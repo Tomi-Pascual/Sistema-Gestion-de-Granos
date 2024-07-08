@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Py8aUk8HyYagoBeFCP2Nbn2o68b+K0a7M0Z2Ar4x+4EzhLUZYPTDq9lPUQX6DR/KBzUvxvLiNM/hQf3BPFWlAg==",
+  "dgSpecHash": "CAs2COYW3FeBGdgvV59lLER2joOxdAXK0KWWCVDdj2BiGE+zbOgX/PAv1Vud1i/xcH2qw3D3fHn2TdHoOWU6hA==",
   "success": true,
   "projectFilePath": "C:\\Users\\USUARIO\\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\\Desktop\\Gestion De Granos\\CapaNegocio\\CapaNegocio.csproj",
   "expectedPackageFiles": [
@@ -45,9 +45,9 @@
     "C:\\Users\\USUARIO\\.nuget\\packages\\system.text.encodings.web\\4.7.2\\system.text.encodings.web.4.7.2.nupkg.sha512",
     "C:\\Users\\USUARIO\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512",
     "C:\\Users\\USUARIO\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.27\\microsoft.windowsdesktop.app.ref.6.0.27.nupkg.sha512",
-    "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.27\\microsoft.netcore.app.ref.6.0.27.nupkg.sha512",
-    "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.27\\microsoft.aspnetcore.app.ref.6.0.27.nupkg.sha512"
+    "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.28\\microsoft.windowsdesktop.app.ref.6.0.28.nupkg.sha512",
+    "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.28\\microsoft.netcore.app.ref.6.0.28.nupkg.sha512",
+    "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.28\\microsoft.aspnetcore.app.ref.6.0.28.nupkg.sha512"
   ],
   "logs": []
 }

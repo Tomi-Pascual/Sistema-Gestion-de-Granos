@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Q/GbGvTl1vfneh85qhaIK9FhwqwsUs3UxZShpKXZ4kywxwBegv/e+rvKaL6N5T+1uuxyn+ejZmcZE8klLV9pKg==",
+  "dgSpecHash": "XLTtM/O26wBfVI3xTXF3Yg9QZsM3LTTzTr2GBcSu3TE22nUy34AXve59kdjxhapPd1OiUr1pDnTnKXBXhLRg0A==",
   "success": true,
   "projectFilePath": "C:\\Users\\USUARIO\\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\\Desktop\\Gestion De Granos\\CapaPresentacion\\CapaPresentacion.csproj",
   "expectedPackageFiles": [
@@ -122,10 +122,10 @@
     "C:\\Users\\USUARIO\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\USUARIO\\.nuget\\packages\\winforms.datavisualization\\1.9.2\\winforms.datavisualization.1.9.2.nupkg.sha512",
     "C:\\Users\\USUARIO\\.nuget\\packages\\xlparser\\1.5.2\\xlparser.1.5.2.nupkg.sha512",
-    "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.27\\microsoft.windowsdesktop.app.ref.6.0.27.nupkg.sha512",
-    "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.27\\microsoft.netcore.app.ref.6.0.27.nupkg.sha512",
-    "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.27\\microsoft.aspnetcore.app.ref.6.0.27.nupkg.sha512",
-    "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.27\\microsoft.netcore.app.host.win-x64.6.0.27.nupkg.sha512"
+    "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.28\\microsoft.windowsdesktop.app.ref.6.0.28.nupkg.sha512",
+    "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.28\\microsoft.netcore.app.ref.6.0.28.nupkg.sha512",
+    "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.28\\microsoft.aspnetcore.app.ref.6.0.28.nupkg.sha512",
+    "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.28\\microsoft.netcore.app.host.win-x64.6.0.28.nupkg.sha512"
   ],
   "logs": []
 }
