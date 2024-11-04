@@ -378,7 +378,7 @@ end
 go
 
 --PROCEDURE EDITAR ESTADO DE PERMISO--
-alter procedure SP_EditarEstadoPermiso(
+create procedure SP_EditarEstadoPermiso(
 	@IdComponente int,
     @Estado bit,
     @Resultado bit output,

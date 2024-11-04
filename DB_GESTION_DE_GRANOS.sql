@@ -1,10 +1,10 @@
 --create database DBGESTION_DE_GRANOS
 
---GO
+--go
 
 --USE DBGESTION_DE_GRANOS
 
---GO
+--go
 
 --create table COMPONENTE(
 --IdComponente int primary key identity,
@@ -56,9 +56,12 @@
 
 --create table USUARIO_COMPONENTE(
 --IdUsuario int references USUARIO(IdUsuario),
---IdCategoria int references CATEGORIA(IdCategoria)
+--IdComponente int references COMPONENTE(IdComponente)
 --FechaRegistro datetime default getdate()
 --)
+
+--go
+
 --create table PROVEEDOR(
 --IdProveedor int primary key identity,
 --Documento nvarchar(50),
@@ -170,6 +173,8 @@
 --Logo varbinary(max) null
 --)
 
+--go
+
 --create table AuditoriaVentas (
 --    IdAuditoria int PRIMARY KEY IDENTITY,
 --    IdVenta int REFERENCES VENTA(IdVenta),
@@ -185,14 +190,6 @@
 
 select IdNegocio,Nombre,RUC,Direccion from Negocio where IdNegocio = 1
 select Logo from Negocio where IdNegocio = 1
-
-select u.IdUsuario,u.Documento,u.NombreCompleto,u.Correo,u.Clave,u.Estado,r.IdRol,r.Descripcion from USUARIO u
-inner join ROL r on r.IdRol = u.IdRol
-
-select p.IdRol,p.NombreMenu from PERMISO p
-inner join ROL r on r.IdRol = p.IdRol
-inner join USUARIO u on u.IdRol = r.IdRol
-where u.IdUsuario = 2
 
 select IdCategoria,Descripcion,Estado from CATEGORIA
 
